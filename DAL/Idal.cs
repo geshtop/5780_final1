@@ -9,20 +9,20 @@ namespace DAL
 {
     public interface Idal
     {
-        void AddGusetRequest(string id, string name, int age);
-        void UpdatingGusetRequest(string stutus, GuestRequest guestRequest);
+        void AddGusetRequest(GuestRequest guestRequest);
+        void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status);
 
         void AddHostingUnit(HostingUnit hostingUnit);
         void DeleteHostingUnit(HostingUnit hostingUnit);
-        void UpdatingHostingUnit(string stutus, HostingUnit hostingUnit);
+        void UpdatingHostingUnit( HostingUnit hostingUnit, Enums.HosignUnitStatus status);
 
         void AddOrder(Order order);
-        void UpdatingOrder(string stutus, HostingUnit hostingUnit);
+        void UpdatingOrder(Order order,Enums.OrderStatus status);
 
         List<HostingUnit> GetHostingUnits(Func<HostingUnit, bool> predicate = null);
         List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate);
         List<Order> GetOrders(Func<Order, bool> predicate);
 
-        List<BankAccount> GetBankAccounts(Func<BankAccount, bool> predicate);
+        List<BankBranch> GetBankBranches(Func<BankBranch, bool> predicate);
     }
 }

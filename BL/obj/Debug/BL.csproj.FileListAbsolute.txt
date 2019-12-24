@@ -1,0 +1,10 @@
+C:\lev\project\5780_final1\BL\bin\Debug\BL.dll
+C:\lev\project\5780_final1\BL\bin\Debug\BL.pdb
+C:\lev\project\5780_final1\BL\bin\Debug\BE.dll
+C:\lev\project\5780_final1\BL\bin\Debug\DAL.dll
+C:\lev\project\5780_final1\BL\bin\Debug\BE.pdb
+C:\lev\project\5780_final1\BL\bin\Debug\DAL.pdb
+C:\lev\project\5780_final1\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\lev\project\5780_final1\BL\obj\Debug\BL.dll
+C:\lev\project\5780_final1\BL\obj\Debug\BL.pdb
+C:\lev\project\5780_final1\BL\bin\Debug\snifim_dnld_he.xml

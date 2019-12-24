@@ -8,13 +8,28 @@ namespace BE
 {
     public class HostingUnit
     {
-        private int HostingUnitKey { get; set; }
-        private Host Owner { get; set; }
-        private string HostingUnitName { get; set; }
-        private bool[,] Diary { get; set; }
+        public int stSerialKey { get; set; }
+        private int HostingUnitKey
+        {
+            get
+            {
+                return stSerialKey;
+            }
+        }
+        public Host Owner { get; set; }
+        public Enums.HosignUnitStatus Status { get; set; }
+        public string HostingUnitName { get; set; }
+        public Diary DiaryState { get; set; }
         public override string ToString()
         {
-            return (Owner + "\n" + HostingUnitName + ", " + HostingUnitKey + "\n" + Diary);
+            return Owner.ToString() + "\n" + HostingUnitName + ", " + HostingUnitKey + "\n" + DiaryState;
+        }
+
+        public HostingUnit()
+        {
+            this.stSerialKey = Configuration.HostingUnitKey;
+            Configuration.HostingUnitKey++;
+
         }
     }
 }

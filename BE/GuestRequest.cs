@@ -8,23 +8,23 @@ namespace BE
 {
     public class GuestRequest
     {
-        private int GuestRequestsKey { get; set; }
-        private string PrivateName { get; set; }
-        private string FamilyName { get; set; }
-        private string MailAddress { get; set; }
-        private string Status { get; set; }
-        private DateTime RegistrationDate { get; set; }
-        private DateTime EntryDate { get; set; }
-        private DateTime ReleaseDate { get; set; }
-        private string Area { get; set; }
-        private string SubArea { get; set; }
-        private string Type { get; set; }
-        private int Adult { get; set; }
-        private int Children { get; set; }
-        private string Pool { get; set; }
-        private string Jacuzzi { get; set; }
-        private string Garden { get; set; }
-        private string ChildrensAttractions { get; set; }
+        public int GuestRequestsKey { get; set; }
+        public string PrivateName { get; set; }
+        public string FamilyName { get; set; }
+        public string MailAddress { get; set; }
+        public Enums.GuestRequestStatus Status { get; set; }
+        public DateTime RegistrationDate { get; set; }
+        public DateTime EntryDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public Enums.HostingUnitArea Area { get; set; }
+        public string SubArea { get; set; }
+        public Enums.HostingUnitType Type { get; set; }
+        public int Adult { get; set; }
+        public int Children { get; set; }
+        public Enums.PoolType Pool { get; set; }
+        public Enums.JacuzziType Jacuzzi { get; set; }
+        public Enums.GardenType Garden { get; set; }
+        public Enums.ChildrensAttractionsType ChildrensAttractions { get; set; }
         public override string ToString()
         {
             return (GuestRequestsKey + ":\n" + PrivateName + " " + FamilyName + "\n" + MailAddress + "\n" + Status 

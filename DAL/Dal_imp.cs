@@ -8,57 +8,47 @@ using DS;
 
 namespace DAL
 {
-    internal class Dal_imp //: Idal
+    internal class Dal_imp : Idal
     {
-        #region Singleton
-        private static readonly Dal_imp instance = new Dal_imp();
-        public static Dal_imp Instance
-        {
-            get { return instance; }
-        }
 
-        private Dal_imp() { }
-        static Dal_imp() { }
-
-        #endregion
-        public void AddGuestRequest(string id, string name, int age)
+        public void AddGusetRequest(GuestRequest guestRequest)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdatingGusetRequest(string stutus, GuestRequest guestRequest)
+        public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
         {
-
+            throw new NotImplementedException();
         }
 
         public void AddHostingUnit(HostingUnit hostingUnit)
         {
-            DataSource.hostingUnits.Add(hostingUnit);
+            throw new NotImplementedException();
         }
 
         public void DeleteHostingUnit(HostingUnit hostingUnit)
         {
-            DataSource.hostingUnits.Remove(hostingUnit);
+            throw new NotImplementedException();
         }
 
-        public void UpdatingHostingUnit(string stutus, HostingUnit hostingUnit)
+        public void UpdatingHostingUnit(HostingUnit hostingUnit, Enums.HosignUnitStatus status)
         {
-
+            throw new NotImplementedException();
         }
 
         public void AddOrder(Order order)
         {
-            DataSource.orders.Add(order);
+            throw new NotImplementedException();
         }
 
-        public void UpdatingOrder(string stutus, HostingUnit hostingUnit)
+        public void UpdatingOrder(Order order, Enums.OrderStatus status)
         {
-
+            throw new NotImplementedException();
         }
 
         public List<HostingUnit> GetHostingUnits(Func<HostingUnit, bool> predicate = null)
         {
-            return DataSource.hostingUnits.Where(predicate).ToList();
+            throw new NotImplementedException();
         }
 
         public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate)
@@ -71,14 +61,15 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public List<BankAccount> GetBankAccounts(Func<BankAccount, bool> predicate)
+        public List<BankBranch> GetBankAccounts(Func<BankBranch, bool> predicate)
         {
             throw new NotImplementedException();
         }
 
-        //public List<HostingUnit> GetAllHostingUnits()
-        //{
-        //    return DataSource.hostingUnits;
-        //}
+
+        public List<BankBranch> GetBankBranches(Func<BankBranch, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

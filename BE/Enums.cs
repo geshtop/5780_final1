@@ -64,5 +64,11 @@ namespace BE
             closed_on_site,
             Expired,
         }
+
+        public enum HosignUnitStatus  {
+            Active,
+            closed_on_site,
+            Expired,
+        }
     }
 }

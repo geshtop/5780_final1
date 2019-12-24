@@ -8,12 +8,12 @@ namespace BE
 {
     public class Order
     {
-        private int HostingUnitKey { get; set; }
-        private int GuestRequestKey { get; set; }
-        private int OrderKey { get; set; }
-        private string Status { get; set; }
-        private DateTime CreateDate { get; set; }
-        private DateTime OrderDate { get; set; }
+        public int HostingUnitKey { get; set; }
+        public int GuestRequestKey { get; set; }
+        public int OrderKey { get; set; }
+        public Enums.OrderStatus Status { get; set; }
+        public DateTime CreateDate { get; set; }
+        public DateTime OrderDate { get; set; }
         public override string ToString()
         {
             return (HostingUnitKey + "\n" + GuestRequestKey + "\n" + OrderKey

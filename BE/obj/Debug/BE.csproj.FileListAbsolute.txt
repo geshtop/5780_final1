@@ -1,0 +1,5 @@
+C:\lev\project\5780_final1\BE\bin\Debug\BE.dll
+C:\lev\project\5780_final1\BE\bin\Debug\BE.pdb
+C:\lev\project\5780_final1\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
+C:\lev\project\5780_final1\BE\obj\Debug\BE.dll
+C:\lev\project\5780_final1\BE\obj\Debug\BE.pdb

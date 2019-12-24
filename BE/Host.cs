@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Host
+    public class Host
     {
-        private int HostKey { get; set; }
-        private string PrivateName { get; set; }
-        private string FamilyName { get; set; }
-        private long FhoneNumber { get; set; }
-        private string MailAddress { get; set; }
-        private BankAccount BankAccount { get; set; }
-        private string CollectionClearance { get; set; }
+        public int HostKey { get; set; }
+        public string PrivateName { get; set; }
+        public string FamilyName { get; set; }
+        public string PhonePre { get; set; }
+        public string PhoneExt { get; set; }
+        public string MailAddress { get; set; }
+        public BankBranch Branc { get; set; }
+        public string BankAccount { get; set; }
+        public bool CollectionClearance { get; set; }
         public override string ToString()
         {
-            return (HostKey + ", " + PrivateName + " " + FamilyName + "\n" + FhoneNumber + ", " + MailAddress
+            return (HostKey + ", " + PrivateName + " " + FamilyName + "\n" + PhonePre + PhoneExt + ", " + MailAddress
                 + "\n" + BankAccount.ToString() + "\nCollectionClearance: " + CollectionClearance);
         }
     }
