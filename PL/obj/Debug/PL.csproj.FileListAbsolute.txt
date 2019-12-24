@@ -1,5 +1,4 @@
 C:\lev\project\5780_final1\PL\bin\Debug\PL.exe.config
-C:\lev\project\5780_final1\PL\bin\Debug\snifim_dnld_he.xml
 C:\lev\project\5780_final1\PL\bin\Debug\PL.exe
 C:\lev\project\5780_final1\PL\bin\Debug\PL.pdb
 C:\lev\project\5780_final1\PL\bin\Debug\BE.dll
@@ -16,3 +15,7 @@ C:\lev\project\5780_final1\PL\obj\Debug\PL.Properties.Resources.resources
 C:\lev\project\5780_final1\PL\obj\Debug\PL.csproj.GenerateResource.Cache
 C:\lev\project\5780_final1\PL\obj\Debug\PL.exe
 C:\lev\project\5780_final1\PL\obj\Debug\PL.pdb
+C:\lev\project\5780_final1\PL\obj\Debug\CreateOrder.baml
+C:\lev\project\5780_final1\PL\obj\Debug\CreateOrder.g.cs
+C:\lev\project\5780_final1\PL\bin\Debug\DS.dll
+C:\lev\project\5780_final1\PL\bin\Debug\DS.pdb

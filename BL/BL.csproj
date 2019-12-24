@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="GusetRequests.cs" />
+    <Compile Include="PrePhones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +55,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{95e14988-1426-4f48-930c-ebfc333b38ca}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DS\DS.csproj">
+      <Project>{ba1d77e8-feaa-4be4-85f9-e9fe34df3b25}</Project>
+      <Name>DS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

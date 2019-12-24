@@ -10,17 +10,17 @@ namespace BE
     {
         public enum HostingUnitType
         {
-            Zimmer,
-            Hotel,
-            Camping,
+            Zimmer =0,
+            Hotel =1,
+            Camping =2,
         }
         public enum HostingUnitArea
         {
-            All,
-            North,
-            South,
-            Center,
-            Jerusalem,
+            All =0,
+            North =1,
+            South =2,
+            Center =3,
+            Jerusalem =4,
         }
         public enum DataSourseType
         {
@@ -29,27 +29,31 @@ namespace BE
         }
         public enum PoolType
         {
-            Necessary,
-            Possible,
-            Not_interested
+            All =0,
+            Necessary =1,
+            Possible =2 ,
+            Not_interested =3
         }
         public enum JacuzziType
         {
-            Necessary,
-            Possible,
-            Not_interested,
+            All = 0,
+            Necessary = 1,
+            Possible = 2,
+            Not_interested = 3
         }
         public enum GardenType
         {
-            Necessary,
-            Possible,
-            Not_interested,
+            All = 0,
+            Necessary = 1,
+            Possible = 2,
+            Not_interested = 3
         }
         public enum ChildrensAttractionsType
         {
-            Necessary,
-            Possible,
-            Not_interested,
+            All = 0,
+            Necessary = 1,
+            Possible = 2,
+            Not_interested = 3
         }
         public enum OrderStatus
         {
@@ -69,6 +73,15 @@ namespace BE
             Active,
             closed_on_site,
             Expired,
+        }
+
+        public enum GuestRequesteCreateStatus
+        {
+            Done,
+            ErrorDates,
+            NoHosting,
+
+
         }
     }
 }

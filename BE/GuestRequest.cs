@@ -12,6 +12,8 @@ namespace BE
         public string PrivateName { get; set; }
         public string FamilyName { get; set; }
         public string MailAddress { get; set; }
+        public string PhonePre { get; set; }
+        public string PhoneExt { get; set; }
         public Enums.GuestRequestStatus Status { get; set; }
         public DateTime RegistrationDate { get; set; }
         public DateTime EntryDate { get; set; }

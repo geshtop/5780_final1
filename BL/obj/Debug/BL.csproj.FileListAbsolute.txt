@@ -8,3 +8,5 @@ C:\lev\project\5780_final1\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
 C:\lev\project\5780_final1\BL\obj\Debug\BL.dll
 C:\lev\project\5780_final1\BL\obj\Debug\BL.pdb
 C:\lev\project\5780_final1\BL\bin\Debug\snifim_dnld_he.xml
+C:\lev\project\5780_final1\BL\bin\Debug\DS.dll
+C:\lev\project\5780_final1\BL\bin\Debug\DS.pdb

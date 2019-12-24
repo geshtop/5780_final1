@@ -45,6 +45,7 @@
     <Compile Include="Banks.cs" />
     <Compile Include="Branches.cs" />
     <Compile Include="DataSource.cs" />
+    <Compile Include="PrePhones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

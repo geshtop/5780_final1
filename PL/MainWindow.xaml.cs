@@ -24,5 +24,11 @@ namespace PL
         {
             InitializeComponent();
         }
+
+        private void CreateOrder_Click(object sender, RoutedEventArgs e)
+        {
+            CreateOrder orderPage = new CreateOrder();
+            this.Content = orderPage;
+        }
     }
 }
