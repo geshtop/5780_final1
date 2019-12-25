@@ -53,6 +53,37 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\BankBranchSelector.xaml.cs">
+      <DependentUpon>BankBranchSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UnitHostCtrl.xaml.cs">
+      <DependentUpon>UnitHostCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditHost.xaml.cs">
+      <DependentUpon>EditHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HostList.xaml.cs">
+      <DependentUpon>HostList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UnitHostingCtrl.xaml.cs">
+      <DependentUpon>UnitHostingCtrl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\BankBranchSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UnitHostCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HostList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +97,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UnitHostingCtrl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,6 +144,11 @@
       <Project>{d0768ccd-24f0-4118-9cc6-bb4f29b8587b}</Project>
       <Name>BL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="snifim_dnld_he.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

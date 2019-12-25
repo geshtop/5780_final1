@@ -17,6 +17,9 @@ namespace DS
             List<Bank> list = new List<Bank>();
 
             list.Add(new Bank() { BankName = "הפועלים", BankCode = 12 });
+            list.Add(new Bank() { BankName = "לאומי", BankCode = 10 });
+            list.Add(new Bank() { BankName = "דיסקונט", BankCode = 11 });
+
             // Add all missing banks
             return list;
         }

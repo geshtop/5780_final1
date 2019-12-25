@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,10 @@ namespace PL
     /// </summary>
     public partial class MainWindow : Window
     {
+        private AppLogic app { get; set; }
         public MainWindow()
         {
+            this.app = new AppLogic();
             InitializeComponent();
         }
 
@@ -32,6 +35,14 @@ namespace PL
             orderPage.Show();
             this.Close();
            
+        }
+
+        private void ManageHosts_Click(object sender, RoutedEventArgs e)
+        {
+
+            HostList hostListPage = new HostList(this.app);
+            hostListPage.Show();
+            this.Close();
         }
     }
 }

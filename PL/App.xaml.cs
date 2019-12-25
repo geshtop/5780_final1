@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,10 @@ namespace PL
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            this.app = new AppLogic();
+        }
+        public AppLogic app { get; set; }
     }
 }

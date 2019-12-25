@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="600" Width="800">
     <Grid Margin="0,0,-628,-334">
-        <Button Content="Create Order" HorizontalAlignment="Left" Height="34" Margin="24,118,0,0" VerticalAlignment="Top" Width="181" Click="CreateOrder_Click"/>
+        <Button Content="הוספת הזמנה" HorizontalAlignment="Left" Height="34" Margin="29,52,0,0" VerticalAlignment="Top" Width="181" Click="CreateOrder_Click"/>
+        <Button Content="ניהול מארחים" HorizontalAlignment="Left" Height="37" Margin="29,109,0,0" VerticalAlignment="Top" Width="181" Click="ManageHosts_Click"/>
     </Grid>
 </Window>

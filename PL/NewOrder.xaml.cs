@@ -19,8 +19,10 @@ namespace PL
     /// </summary>
     public partial class NewOrder : Window
     {
+        public List<string> PrePhones { get; set; }
         public NewOrder()
         {
+            PrePhones = BL.PrePhones.getPrePhones();
             InitializeComponent();
         }
 

@@ -42,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AppLogic.cs" />
+    <Compile Include="Banks.cs" />
+    <Compile Include="Branches.cs" />
     <Compile Include="GusetRequests.cs" />
+    <Compile Include="Hosts.cs" />
     <Compile Include="PrePhones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

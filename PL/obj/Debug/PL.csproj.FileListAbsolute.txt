@@ -19,3 +19,15 @@ C:\lev\project\5780_final1\PL\bin\Debug\DS.dll
 C:\lev\project\5780_final1\PL\bin\Debug\DS.pdb
 C:\lev\project\5780_final1\PL\obj\Debug\NewOrder.baml
 C:\lev\project\5780_final1\PL\obj\Debug\NewOrder.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.baml
+C:\lev\project\5780_final1\PL\obj\Debug\HostList.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostingCtrl.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\HostList.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostingCtrl.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\EditHost.baml
+C:\lev\project\5780_final1\PL\obj\Debug\EditHost.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\BankBranchSelector.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\BankBranchSelector.g.cs
+C:\lev\project\5780_final1\PL\bin\Debug\snifim_dnld_he.xml
+C:\lev\project\5780_final1\PL\obj\Debug\PL_Content.g.cs
