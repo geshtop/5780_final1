@@ -71,8 +71,8 @@ namespace BE
 
         public enum HosignUnitStatus  {
             Active,
-            closed_on_site,
-            Expired,
+            DeActive,
+            Paused
         }
 
         public enum GuestRequesteCreateStatus

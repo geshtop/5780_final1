@@ -23,6 +23,7 @@ namespace BE
         public Enums.HostingUnitType Type { get; set; }
         public int Adult { get; set; }
         public int Children { get; set; }
+        public int Rooms { get; set; }
         public Enums.PoolType Pool { get; set; }
         public Enums.JacuzziType Jacuzzi { get; set; }
         public Enums.GardenType Garden { get; set; }

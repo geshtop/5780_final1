@@ -133,7 +133,6 @@ namespace BL
             if (h != null)
             {
                 h.HostingUnitName = hostingUnit.HostingUnitName;
-                h.Owner = hostingUnit.Owner;
                 h.Status = hostingUnit.Status;
                 h.DiaryState = hostingUnit.DiaryState;
             }
