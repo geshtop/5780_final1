@@ -56,8 +56,14 @@
     <Compile Include="Controls\BankBranchSelector.xaml.cs">
       <DependentUpon>BankBranchSelector.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\HostingUnitList.xaml.cs">
+      <DependentUpon>HostingUnitList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UnitHostCtrl.xaml.cs">
       <DependentUpon>UnitHostCtrl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HostingUnitCtrl.xaml.cs">
+      <DependentUpon>HostingUnitCtrl.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditHost.xaml.cs">
       <DependentUpon>EditHost.xaml</DependentUpon>
@@ -65,14 +71,19 @@
     <Compile Include="HostList.xaml.cs">
       <DependentUpon>HostList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UnitHostingCtrl.xaml.cs">
-      <DependentUpon>UnitHostingCtrl.xaml</DependentUpon>
-    </Compile>
     <Page Include="Controls\BankBranchSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\HostingUnitList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\UnitHostCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HostingUnitCtrl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,10 +108,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewOrder.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\UnitHostingCtrl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -3,6 +3,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="HostList" Height="600" Width="800"  Left="30" Top="30">
+    <ScrollViewer  Height="590">
     <Grid >
         <Grid Name="HostsGrid"   HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Grid.Row="0" Margin="0,35,0,-35" >
             <Grid.ColumnDefinitions>
@@ -23,7 +24,7 @@
         </Grid>
         <Button Background="Transparent"
         BorderBrush="Transparent"
-        BorderThickness="0"  Width="40" Height="40"  Click="BackToMain_Click" Margin="742,10,10,523" >
+        BorderThickness="0"  Width="40" Height="40"  Click="BackToMain_Click" Margin="713,24,23,536" >
             <DockPanel RenderTransformOrigin="6.424,-3.485">
                 <Image Source="/Resource/icons8-return-40.png"/>
                
@@ -31,11 +32,12 @@
         </Button>
         <Button Background="Transparent"
         BorderBrush="Transparent"
-        BorderThickness="0"  Width="40" Height="40"  Click="AddHost_Click" Margin="688,20,64,532" >
-            <DockPanel RenderTransformOrigin="6.424,-3.485">
-                <Image Source="/Resource/icons8-plus-40.png"/>
+        BorderThickness="0"  Width="40" Height="40"  Click="AddHost_Click" Margin="657,24,79,536" >
+            <DockPanel >
+                <Image Source="/Resource/icons8-plus-40.png" />
 
             </DockPanel>
         </Button>
     </Grid>
+    </ScrollViewer>
 </Window>

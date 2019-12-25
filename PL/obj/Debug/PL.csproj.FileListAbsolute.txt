@@ -21,10 +21,8 @@ C:\lev\project\5780_final1\PL\obj\Debug\NewOrder.baml
 C:\lev\project\5780_final1\PL\obj\Debug\NewOrder.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.baml
 C:\lev\project\5780_final1\PL\obj\Debug\HostList.baml
-C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostingCtrl.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\HostList.g.cs
-C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostingCtrl.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\EditHost.baml
 C:\lev\project\5780_final1\PL\obj\Debug\EditHost.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\BankBranchSelector.baml
@@ -72,3 +70,7 @@ C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.csproj.CoreCompileInputs.cac
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.csproj.CopyComplete
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.exe
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.pdb
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitList.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitList.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.g.cs

@@ -87,7 +87,9 @@ namespace BL
 
         public Host GetHostById(int Id)
         {
-            return HostsList.FirstOrDefault(c => c.Id == Id);
+            var host = HostsList.FirstOrDefault(c => c.Id == Id);
+            host.RelatedHostingUnit = HostingUnitsList.Where(c => c.OwnerId == Id).ToList();
+            return host;
         }
 
         public void UpdateHost(Host host)

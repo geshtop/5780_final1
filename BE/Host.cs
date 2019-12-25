@@ -8,6 +8,10 @@ namespace BE
 {
     public class Host
     {
+        public Host()
+        {
+            RelatedHostingUnit = new List<HostingUnit>();
+        }
         public int Id { get; set; }
         public long HostKey { get; set; }
         public string FirstName { get; set; }
@@ -33,6 +37,7 @@ namespace BE
         public int BranchNumber { get; set; }
         public int BankAccount { get; set; }
         public bool CollectionClearance { get; set; }
+        public List<HostingUnit> RelatedHostingUnit { get; set; }
         public override string ToString()
         {
             return (HostKey + ", " + FirstName + " " + LastName + "\n" + PhonePre + PhoneExt + ", " + MailAddress

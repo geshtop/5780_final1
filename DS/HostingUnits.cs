@@ -28,7 +28,7 @@ namespace DS
                 Area = Enums.HostingUnitArea.Center,
                 SubArea = "תל אביב", 
             };
-            hosting1.Images.Add("https://pic.rrr.co.il/images/oazis/21.jpg");
+            hosting1.Images.Add("https://pic.rrr.co.il/images/oazis/2.jpg");
             hosting1.Images.Add("https://pic.rrr.co.il/images/oazis/1.jpg");
 
 
@@ -49,8 +49,8 @@ namespace DS
                 Area = Enums.HostingUnitArea.South,
                 SubArea = "אילת",
             };
-            hosting2.Images.Add("https://pic.rrr.co.il/images/oazis/21.jpg");
-            hosting2.Images.Add("https://pic.rrr.co.il/images/oazis/1.jpg");
+            hosting2.Images.Add("https://pic.rrr.co.il/images/oazis/3.jpg");
+            hosting2.Images.Add("https://pic.rrr.co.il/images/oazis/5.jpg");
 
 
             var hosting4 = new HostingUnit()
@@ -69,8 +69,8 @@ namespace DS
                 Area = Enums.HostingUnitArea.North,
                 SubArea = "טבריה",
             };
-            hosting4.Images.Add("https://pic.rrr.co.il/images/oazis/21.jpg");
-            hosting4.Images.Add("https://pic.rrr.co.il/images/oazis/1.jpg");
+            hosting4.Images.Add("https://pic.rrr.co.il/images/oazis/4.jpg");
+            hosting4.Images.Add("https://pic.rrr.co.il/images/oazis/6.jpg");
 
 
 
@@ -90,8 +90,8 @@ namespace DS
                 Area = Enums.HostingUnitArea.Jerusalem,
                 SubArea = "ירושלים",
             };
-            hosting3.Images.Add("https://pic.rrr.co.il/images/oazis/21.jpg");
-            hosting3.Images.Add("https://pic.rrr.co.il/images/oazis/1.jpg");
+            hosting3.Images.Add("https://pic.rrr.co.il/images/oazis/7.jpg");
+            hosting3.Images.Add("https://pic.rrr.co.il/images/oazis/8.jpg");
 
 
             var hosting5 = new HostingUnit()
@@ -110,8 +110,8 @@ namespace DS
                 Area = Enums.HostingUnitArea.Center,
                 SubArea = "תל אביב",
             };
-            hosting5.Images.Add("https://pic.rrr.co.il/images/oazis/21.jpg");
-            hosting5.Images.Add("https://pic.rrr.co.il/images/oazis/1.jpg");
+            hosting5.Images.Add("https://pic.rrr.co.il/images/oazis/9.jpg");
+            hosting5.Images.Add("https://pic.rrr.co.il/images/oazis/10.jpg");
 
 
 
@@ -131,8 +131,8 @@ namespace DS
                 Area = Enums.HostingUnitArea.South,
                 SubArea = "אילת",
             };
-            hosting6.Images.Add("https://pic.rrr.co.il/images/oazis/21.jpg");
-            hosting6.Images.Add("https://pic.rrr.co.il/images/oazis/1.jpg");
+            hosting6.Images.Add("https://pic.rrr.co.il/images/oazis/11.jpg");
+            hosting6.Images.Add("https://pic.rrr.co.il/images/oazis/12.jpg");
 
 
             var hosting7 = new HostingUnit()
@@ -151,9 +151,9 @@ namespace DS
                 Area = Enums.HostingUnitArea.North,
                 SubArea = "טבריה",
             };
-            hosting7.Images.Add("https://pic.rrr.co.il/images/oazis/21.jpg");
-            hosting7.Images.Add("https://pic.rrr.co.il/images/oazis/1.jpg");
-
+          
+            hosting7.Images.Add("https://pic.rrr.co.il/images/oazis/13.jpg");
+            hosting7.Images.Add("https://pic.rrr.co.il/images/oazis/14.jpg");
 
 
             var hosting8 = new HostingUnit()
@@ -172,8 +172,8 @@ namespace DS
                 Area = Enums.HostingUnitArea.Jerusalem,
                 SubArea = "ירושלים",
             };
-            hosting8.Images.Add("https://pic.rrr.co.il/images/oazis/21.jpg");
-            hosting8.Images.Add("https://pic.rrr.co.il/images/oazis/1.jpg");
+            hosting8.Images.Add("https://pic.rrr.co.il/images/oazis/15.jpg");
+            hosting8.Images.Add("https://pic.rrr.co.il/images/oazis/16.jpg");
             hostingUnits.Add(hosting1);
             hostingUnits.Add(hosting2);
             hostingUnits.Add(hosting3);

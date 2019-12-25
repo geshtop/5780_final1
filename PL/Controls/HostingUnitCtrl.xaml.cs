@@ -1,4 +1,5 @@
 ﻿using BE;
+using BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +15,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PL
+namespace PL.Controls
 {
     /// <summary>
     /// Interaction logic for UnitHostingCtrl.xaml
     /// </summary>
     public partial class UnitHostingCtrl : UserControl
     {
-        public HostingUnit CurrHosting { get; set; }
-        public UnitHostingCtrl()
+
+        public HostingUnit CurrHostingUnit { get; set; }
+        private AppLogic app { get; set; }
+        public UnitHostingCtrl(HostingUnit _CurrHostingUnit, AppLogic _app)
         {
+            this.app = _app;
+            this.CurrHostingUnit = _CurrHostingUnit;
             InitializeComponent();
+            hostUnitGrid.DataContext = CurrHostingUnit;
         }
+       
     }
 }

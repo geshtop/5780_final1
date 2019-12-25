@@ -46,6 +46,11 @@ namespace PL
             bs.Margin = new Thickness(76, 21, 0, 0);
             Grid.SetColumn(bs, 1);
             Grid.SetRow(bs, 7);
+
+
+            HostingUnitList hostingListCtrl = new HostingUnitList(CurrHost.RelatedHostingUnit, app);
+            hostingList.Children.Add(hostingListCtrl);
+          
            
         }
 
