@@ -10,3 +10,17 @@ C:\lev\project\5780_final1\BL\obj\Debug\BL.pdb
 C:\lev\project\5780_final1\BL\bin\Debug\snifim_dnld_he.xml
 C:\lev\project\5780_final1\BL\bin\Debug\DS.dll
 C:\lev\project\5780_final1\BL\bin\Debug\DS.pdb
+C:\rivki\projects\YearB\5780_final1\BL\bin\Debug\snifim_dnld_he.xml
+C:\rivki\projects\YearB\5780_final1\BL\bin\Debug\BL.dll
+C:\rivki\projects\YearB\5780_final1\BL\bin\Debug\BL.pdb
+C:\rivki\projects\YearB\5780_final1\BL\bin\Debug\BE.dll
+C:\rivki\projects\YearB\5780_final1\BL\bin\Debug\DAL.dll
+C:\rivki\projects\YearB\5780_final1\BL\bin\Debug\DS.dll
+C:\rivki\projects\YearB\5780_final1\BL\bin\Debug\BE.pdb
+C:\rivki\projects\YearB\5780_final1\BL\bin\Debug\DAL.pdb
+C:\rivki\projects\YearB\5780_final1\BL\bin\Debug\DS.pdb
+C:\rivki\projects\YearB\5780_final1\BL\obj\Debug\BL.csprojAssemblyReference.cache
+C:\rivki\projects\YearB\5780_final1\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\rivki\projects\YearB\5780_final1\BL\obj\Debug\BL.csproj.CopyComplete
+C:\rivki\projects\YearB\5780_final1\BL\obj\Debug\BL.dll
+C:\rivki\projects\YearB\5780_final1\BL\obj\Debug\BL.pdb

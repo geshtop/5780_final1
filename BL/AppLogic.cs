@@ -21,6 +21,18 @@ namespace BL
             }
         }
 
+        private List<HostingUnit> _HostingUnitsList;
+        public List<HostingUnit> HostingUnitsList
+        {
+            get
+            {
+                if (_HostingUnitsList == null)
+                {
+                    _HostingUnitsList = HostingUnits.getHostingUnits();
+                }
+                return _HostingUnitsList;
+            }
+        }
 
         private List<string> _PhonePreList;
         public List<string> PhonePreList
@@ -99,6 +111,40 @@ namespace BL
             HostsList.Add(host);
         }
         #endregion
-       
+
+        #region HostingUnits
+        public void DeleteHostingUnit(int stSerialKey)
+        {
+            int index = HostingUnitsList.FindIndex(c => c.stSerialKey == stSerialKey);
+            if (index > -1)
+            {
+                HostingUnitsList.RemoveAt(index);
+            }
+        }
+
+        public HostingUnit GetHostingUnitById(int stSerialKey)
+        {
+            return HostingUnitsList.FirstOrDefault(c => c.stSerialKey == stSerialKey);
+        }
+
+        public void UpdateHostingUnit(HostingUnit hostingUnit)
+        {
+            var h = GetHostingUnitById(hostingUnit.stSerialKey);
+            if (h != null)
+            {
+                h.HostingUnitName = hostingUnit.HostingUnitName;
+                h.Owner = hostingUnit.Owner;
+                h.Status = hostingUnit.Status;
+                h.DiaryState = hostingUnit.DiaryState;
+            }
+        }
+
+        public void AddHostingUnit(HostingUnit hostingUnit)
+        {
+            hostingUnit.stSerialKey = Configuration.HostingUnitKey;
+            Configuration.HostingUnitKey++;
+            HostingUnitsList.Add(hostingUnit);
+        }
+        #endregion
     }
 }

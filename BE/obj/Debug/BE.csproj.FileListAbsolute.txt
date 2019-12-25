@@ -3,3 +3,9 @@ C:\lev\project\5780_final1\BE\bin\Debug\BE.pdb
 C:\lev\project\5780_final1\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
 C:\lev\project\5780_final1\BE\obj\Debug\BE.dll
 C:\lev\project\5780_final1\BE\obj\Debug\BE.pdb
+C:\rivki\projects\YearB\5780_final1\BE\bin\Debug\BE.dll
+C:\rivki\projects\YearB\5780_final1\BE\bin\Debug\BE.pdb
+C:\rivki\projects\YearB\5780_final1\BE\obj\Debug\BE.csprojAssemblyReference.cache
+C:\rivki\projects\YearB\5780_final1\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\rivki\projects\YearB\5780_final1\BE\obj\Debug\BE.dll
+C:\rivki\projects\YearB\5780_final1\BE\obj\Debug\BE.pdb

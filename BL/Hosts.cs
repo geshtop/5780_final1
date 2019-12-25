@@ -14,6 +14,5 @@ namespace BL
             return DS.Hosts.getHosts();
         }
 
-
     }
 }

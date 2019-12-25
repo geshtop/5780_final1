@@ -21,17 +21,17 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public void AddHostingUnit(HostingUnit hostingUnit)
+        public void AddHostingUnit(BE.HostingUnit hostingUnit)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteHostingUnit(HostingUnit hostingUnit)
+        public void DeleteHostingUnit(BE.HostingUnit hostingUnit)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdatingHostingUnit(HostingUnit hostingUnit, Enums.HosignUnitStatus status)
+        public void UpdatingHostingUnit(BE.HostingUnit hostingUnit, Enums.HosignUnitStatus status)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public List<HostingUnit> GetHostingUnits(Func<HostingUnit, bool> predicate = null)
+        public List<BE.HostingUnit> GetHostingUnits(Func<BE.HostingUnit, bool> predicate = null)
         {
             throw new NotImplementedException();
         }
