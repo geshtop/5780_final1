@@ -32,8 +32,8 @@ namespace PL
         {
            
             NewOrder orderPage = new NewOrder();
-            orderPage.Show();
-            this.Close();
+            orderPage.ShowDialog();
+           
            
         }
 
@@ -41,7 +41,12 @@ namespace PL
         {
 
             HostList hostListPage = new HostList(this.app);
-            hostListPage.Show();
+            hostListPage.ShowDialog();
+           
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

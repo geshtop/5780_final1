@@ -34,41 +34,52 @@ namespace PL
             if (CurrHost.Id > 0) //אם המדובר על עריכה
             {
                 IdTxt.IsReadOnly = true;
-                AddButton.Visibility= System.Windows.Visibility.Hidden;
+              
             }
             else //מדובר על רשומה חדשה
             {
-                UpdateButton.Visibility = System.Windows.Visibility.Hidden;
+               
             }
 
             BankBranchSelector bs = new BankBranchSelector(app, CurrHost);
             hostEditGrid.Children.Add(bs);
-            bs.Margin = new Thickness(280, 20, 0, 0);
-            Grid.SetColumn(bs, 0);
+            bs.Margin = new Thickness(76, 21, 0, 0);
+            Grid.SetColumn(bs, 1);
             Grid.SetRow(bs, 7);
            
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            app.UpdateHost(CurrHost);
+            if (CurrHost.Id > 0)
+            {
+                app.UpdateHost(CurrHost);
+            }
+            else
+            {
+                app.AddHost(CurrHost);
+            }
+           
             BackToList();
           
         }
 
-       
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void BackToList_Click(object sender, RoutedEventArgs e)
         {
-            app.AddHost(CurrHost);
+           
+
             BackToList();
+
         }
+       
 
 
         private void BackToList(){
-              HostList hostListPage = new HostList(this.app);
-            hostListPage.ShowDialog();
             this.Close();
+             HostList hostListPage = new HostList(this.app);
+            hostListPage.ShowDialog();
+           
         }
     }
 }

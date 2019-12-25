@@ -15,6 +15,13 @@ namespace BE
         public string PhonePre { get; set; }
         public string PhoneExt { get; set; }
         public string MailAddress { get; set; }
+        public string Phone
+        {
+            get
+            {
+                return PhonePre + "-" + PhoneExt;
+            }
+        }
         public BankBranch Branch
         {
             get

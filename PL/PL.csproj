@@ -155,6 +155,9 @@
     <Content Include="Resource\icons8-plus-40.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resource\icons8-save-close-40.png" />
+    <Resource Include="Resource\icons8-trash-can-40.png" />
+    <Resource Include="Resource\icons8-return-40.png" />
     <Content Include="snifim_dnld_he.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

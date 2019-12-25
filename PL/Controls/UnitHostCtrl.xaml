@@ -13,14 +13,26 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="{Binding Path=HostKey}"  Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label  Content="{Binding Path=FirstName}"    Grid.Column="2" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label  Content="{Binding Path=LastName}"  Grid.Column="3" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="{Binding PhonePre}"  Grid.Column="4" HorizontalAlignment="Left" Height="25" Margin="105,10,0,0" VerticalAlignment="Top" Width="35" RenderTransformOrigin="2.114,0.32"/>
-        <Label Content="{Binding PhoneExt}"  Grid.Column="4" HorizontalAlignment="Left" Height="25" Margin="5,10,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label Content="{Binding Path=HostKey}"  Grid.Column="0" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label  Content="{Binding Path=FirstName}"    Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label  Content="{Binding Path=LastName}"  Grid.Column="2" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Phone}"  Grid.Column="3" HorizontalAlignment="Left" Height="25" Margin="5,10,0,0" VerticalAlignment="Top" Width="125"/>
+        <Button Background="Transparent" Grid.Column="4" Tag="{Binding Id}" Click="DeleteClick_Click"
+        BorderBrush="Transparent"
+        BorderThickness="0"  Width="30" Height="30"  Margin="110,6,0,4"  >
+            <DockPanel RenderTransformOrigin="6.424,-3.485">
+                <Image Source="/Resource/icons8-trash-can-40.png" RenderTransformOrigin="-0.364,0.424"/>
 
-        <Button Content="מחיקה"   HorizontalAlignment="Left" Height="34" Margin="10,1,0,0" VerticalAlignment="Top" Width="55" Tag="{Binding Id}" Click="DeleteClick_Click"/>
-        <Button Content="ערוך" HorizontalAlignment="Left" Height="34" Margin="84,1,0,0" VerticalAlignment="Top" Width="56" Tag="{Binding Id}" Click="UpdateButton_Click"/>
+            </DockPanel>
+        </Button>
+        <Button Background="Transparent" Grid.Column="4"
+        BorderBrush="Transparent"
+        BorderThickness="0"  Width="30" Height="30"  Tag="{Binding Id}" Click="UpdateButton_Click"  Margin="75,6,35,4" >
+            <DockPanel RenderTransformOrigin="6.424,-3.485">
+                <Image Source="/Resource/icons8-edit-40.png"/>
 
+            </DockPanel>
+        </Button>
+      
     </Grid>
 </UserControl>

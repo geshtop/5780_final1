@@ -50,9 +50,17 @@ namespace PL
 
         private void AddHost_Click(object sender, RoutedEventArgs e)
         {
-            
+            this.Close();
             EditHost hostPage = new EditHost(this.app, new Host());
             hostPage.ShowDialog();
+           
+        }
+
+        private void BackToMain_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            //(App.Current.MainWindow as MainWindow).Show();
+           
         }
     }
 }

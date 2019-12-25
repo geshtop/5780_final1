@@ -43,7 +43,8 @@ namespace PL.Controls
             {
                 int id = Int16.Parse( b.Tag.ToString());
                 app.DeleteHost(id);
-                //Window parent = (Window)this.Parent;
+                Window yourParentWindow = Window.GetWindow(this);
+                yourParentWindow.Close();
                 HostList hostListPage = new HostList(this.app);
                 hostListPage.Show();
                 
@@ -61,9 +62,10 @@ namespace PL.Controls
                 //Window parent = (Window)this.Parent;
 
                 Window yourParentWindow = Window.GetWindow(this);
+                yourParentWindow.Close();
                 EditHost hostPage = new EditHost(this.app, h );
                 hostPage.ShowDialog();
-                yourParentWindow.Close();
+               
 
             }
         }
