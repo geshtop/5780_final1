@@ -31,3 +31,6 @@ C:\lev\project\5780_final1\PL\obj\Debug\Controls\BankBranchSelector.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\BankBranchSelector.g.cs
 C:\lev\project\5780_final1\PL\bin\Debug\snifim_dnld_he.xml
 C:\lev\project\5780_final1\PL\obj\Debug\PL_Content.g.cs
+C:\lev\project\5780_final1\PL\bin\Debug\Resource\icons8-delete-40.png
+C:\lev\project\5780_final1\PL\bin\Debug\Resource\icons8-edit-40.png
+C:\lev\project\5780_final1\PL\bin\Debug\Resource\icons8-plus-40.png

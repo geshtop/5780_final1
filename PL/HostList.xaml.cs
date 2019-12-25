@@ -43,7 +43,7 @@ namespace PL
                 //hostCtrl.CurrHost = app.HostsList[i];
 
                 HostsGrid.Children.Add(hostCtrl);
-                HostsGrid.RowDefinitions.Add(new RowDefinition() {  });
+                HostsGrid.RowDefinitions.Add(new RowDefinition() {  Height =  new GridLength(40)  });
                 Grid.SetRow(hostCtrl, i +1);
             }
         }

@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/icons8-delete-40.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/icons8-edit-40.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resource/icons8-plus-40.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("snifim_dnld_he.xml")]
 
 

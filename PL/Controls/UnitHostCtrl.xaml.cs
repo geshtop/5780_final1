@@ -59,8 +59,11 @@ namespace PL.Controls
                 int id = Int16.Parse(b.Tag.ToString());
                  var h = app.GetHostById(id);
                 //Window parent = (Window)this.Parent;
+
+                Window yourParentWindow = Window.GetWindow(this);
                 EditHost hostPage = new EditHost(this.app, h );
                 hostPage.ShowDialog();
+                yourParentWindow.Close();
 
             }
         }

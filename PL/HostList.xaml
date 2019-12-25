@@ -1,4 +1,4 @@
-﻿<Window x:Class="PL.HostList"
+﻿<Window x:Class="PL.HostList" FlowDirection="RightToLeft"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="HostList" Height="600" Width="800">
@@ -9,11 +9,20 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100" />
-                
+
             </Grid.RowDefinitions>
-          
-            
+            <Label Content="רשימת מארחים" FontSize="35" HorizontalAlignment="Left" Height="48" Margin="10,10,0,0" VerticalAlignment="Top" Width="455"/>
+
+
         </Grid>
-        <Button Content="הוספת מארח" Name="AddHost" HorizontalAlignment="Left" Height="44" Margin="0,10,0,0" VerticalAlignment="Top" Width="199" Click="AddHost_Click"/>
+        <Button Background="Transparent"
+        BorderBrush="Transparent"
+        BorderThickness="0"  Width="40" Height="40"  Click="AddHost_Click" Margin="742,10,10,523" >
+            <DockPanel RenderTransformOrigin="6.424,-3.485">
+                <Image Source="/Resource/icons8-plus-40.png"/>
+               
+            </DockPanel>
+        </Button>
+       
     </Grid>
 </Window>
