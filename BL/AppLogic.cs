@@ -224,24 +224,7 @@ namespace BL
                 status = Enums.GuestRequesteCreateStatus.WrongFields;
                 return;
             }
-            long.TryParse(guestRequest.Adult, out id);
-            if (id == 0)
-            {
-                status = Enums.GuestRequesteCreateStatus.WrongFields;
-                return;
-            }
-            long.TryParse(guestRequest.Children, out id);
-            if (id == 0)
-            {
-                status = Enums.GuestRequesteCreateStatus.WrongFields;
-                return;
-            }
-            long.TryParse(guestRequest.Rooms, out id);
-            if (id == 0)
-            {
-                status = Enums.GuestRequesteCreateStatus.WrongFields;
-                return;
-            }
+
             if (guestRequest.PhoneExt.Length < 7)
             {
                 status = Enums.GuestRequesteCreateStatus.WrongFields;
@@ -252,11 +235,19 @@ namespace BL
                 status = Enums.GuestRequesteCreateStatus.ErrorDates;
                 return;
             }
-            if (!CheckForFreeDays(guestRequest))
+
+            var hosings = dal.GetHostingUnits();
+
+            foreach (var hosting in hosings)
             {
-                status = Enums.GuestRequesteCreateStatus.NoHosting;
-                return;
+                if (!CheckForFreeDays(guestRequest, hosting))
+                {
+                    status = Enums.GuestRequesteCreateStatus.NoHosting;
+                    return;
+                }
             }
+
+           
             guestRequest.Status = Enums.GuestRequestStatus.Opened;
             dal.AddGusetRequest(guestRequest);
         }
@@ -279,7 +270,7 @@ namespace BL
         }
         #endregion
 
-        public bool CheckForFreeDays(GuestRequest guestReq)
+        public bool CheckForFreeDays(GuestRequest guestReq, HostingUnit unit)
         {
             DateTime first = guestReq.EntryDate;
             first = first.AddDays(1);
@@ -287,7 +278,7 @@ namespace BL
             last = last.AddDays(-1);
             for (DateTime date = first ; date != last; date = date.AddDays(1))
             {
-                if (Calender[date.Month, date.Day] == true)
+                if (unit.DiaryState.Calender[date.Month, date.Day] == true)
                     return false;
             }
             return true;

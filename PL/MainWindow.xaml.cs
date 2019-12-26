@@ -46,7 +46,7 @@ namespace PL
         private void AddReqest_Click(object sender, RoutedEventArgs e)
         {
             //check your logic
-            app.AddGusetRequest(null);
+            app.AddGusetRequest(null, BE.Enums.GuestRequesteCreateStatus.Success);
             MessageBox.Show("כאן תבדקי את המערכת שיצרת");
         }
     }
