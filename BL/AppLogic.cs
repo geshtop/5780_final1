@@ -193,12 +193,74 @@ namespace BL
 
 
         #region GuestRequest
+
         //פונקציה להוספת בקשה
-        public void AddGusetRequest(GuestRequest guestRequest )
+        public void AddGusetRequest(GuestRequest guestRequest, Enums.GuestRequesteCreateStatus status)
         {
-            //add validation
+            status = Enums.GuestRequesteCreateStatus.Success;
+            if (string.IsNullOrEmpty(guestRequest.FirstName) || (string.IsNullOrEmpty(guestRequest.LastName)) || string.IsNullOrEmpty(guestRequest.MailAddress))
+            {
+                status = Enums.GuestRequesteCreateStatus.MissingFields;
+                return;
+            }
+            if (guestRequest.GuestRequestsKey < 10000000)
+            {
+                status = Enums.GuestRequesteCreateStatus.WrongFields;
+                return;
+            }
+            if (!string.IsNullOrEmpty(guestRequest.MailAddress))
+            {
+                Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+                if (!regex.IsMatch(guestRequest.MailAddress))
+                {
+                    status = Enums.GuestRequesteCreateStatus.WrongFields;
+                    return;
+                }
+            }
+            long id = 0;
+            long.TryParse(guestRequest.PhoneExt, out id);
+            if (id == 0)
+            {
+                status = Enums.GuestRequesteCreateStatus.WrongFields;
+                return;
+            }
+            long.TryParse(guestRequest.Adult, out id);
+            if (id == 0)
+            {
+                status = Enums.GuestRequesteCreateStatus.WrongFields;
+                return;
+            }
+            long.TryParse(guestRequest.Children, out id);
+            if (id == 0)
+            {
+                status = Enums.GuestRequesteCreateStatus.WrongFields;
+                return;
+            }
+            long.TryParse(guestRequest.Rooms, out id);
+            if (id == 0)
+            {
+                status = Enums.GuestRequesteCreateStatus.WrongFields;
+                return;
+            }
+            if (guestRequest.PhoneExt.Length < 7)
+            {
+                status = Enums.GuestRequesteCreateStatus.WrongFields;
+                return;
+            }
+            if (guestRequest.ReleaseDate < guestRequest.EntryDate || guestRequest.ReleaseDate < DateTime.Now || guestRequest.EntryDate < DateTime.Now)
+            {
+                status = Enums.GuestRequesteCreateStatus.ErrorDates;
+                return;
+            }
+            if (!CheckForFreeDays(guestRequest))
+            {
+                status = Enums.GuestRequesteCreateStatus.NoHosting;
+                return;
+            }
+            guestRequest.Status = Enums.GuestRequestStatus.Opened;
             dal.AddGusetRequest(guestRequest);
         }
+
         //פונקציה שמעדכנת סטטוס בקשה
         public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
         {
@@ -217,5 +279,18 @@ namespace BL
         }
         #endregion
 
+        public bool CheckForFreeDays(GuestRequest guestReq)
+        {
+            DateTime first = guestReq.EntryDate;
+            first = first.AddDays(1);
+            DateTime last = guestReq.ReleaseDate;
+            last = last.AddDays(-1);
+            for (DateTime date = first ; date != last; date = date.AddDays(1))
+            {
+                if (Calender[date.Month, date.Day] == true)
+                    return false;
+            }
+            return true;
+        }
     }
 }

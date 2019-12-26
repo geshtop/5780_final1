@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\lev\project\5780_final1\PL\obj\Debug\
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\
 PL
 none
 false
 DEBUG;TRACE
-C:\lev\project\5780_final1\PL\App.xaml
+C:\rivki\projects\YearB\5780_final1\PL\App.xaml
 71628752437
 41095962131
 11-1945987327
-14-1943669411
+141564197253
 Controls\BankBranchSelector.xaml;Controls\HostingUnitList.xaml;Controls\UnitHostCtrl.xaml;Controls\HostingUnitCtrl.xaml;EditHost.xaml;HostList.xaml;MainWindow.xaml;
 
 False

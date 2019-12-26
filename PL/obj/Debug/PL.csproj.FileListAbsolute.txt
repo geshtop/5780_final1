@@ -49,15 +49,11 @@ C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.baml
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\EditHost.baml
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\HostList.baml
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\MainWindow.baml
-C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\NewOrder.baml
-C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\UnitHostingCtrl.baml
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\BankBranchSelector.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\EditHost.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\HostList.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\MainWindow.g.cs
-C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\NewOrder.g.cs
-C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\UnitHostingCtrl.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\App.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL_Content.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL_MarkupCompile.cache
@@ -74,3 +70,9 @@ C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitList.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.g.cs
 C:\lev\project\5780_final1\PL\bin\Debug\DAL.dll
 C:\lev\project\5780_final1\PL\bin\Debug\DAL.pdb
+C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\DAL.dll
+C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\DAL.pdb
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\HostingUnitList.baml
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.baml
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\HostingUnitList.g.cs
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.g.cs

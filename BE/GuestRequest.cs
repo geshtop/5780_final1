@@ -15,6 +15,7 @@ namespace BE
         public string PhonePre { get; set; }
         public string PhoneExt { get; set; }
         public Enums.GuestRequestStatus Status { get; set; }
+        public Enums.GuestRequesteCreateStatus Statuss { get; set; }
         public DateTime RegistrationDate { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime ReleaseDate { get; set; }
