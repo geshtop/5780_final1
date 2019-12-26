@@ -235,19 +235,22 @@ namespace BL
                 status = Enums.GuestRequesteCreateStatus.ErrorDates;
                 return;
             }
-
-            var hosings = dal.GetHostingUnits();
-
-            foreach (var hosting in hosings)
+            
+            var hostings = dal.GetHostingUnits();
+            List<HostingUnit> hostingsNew = null;
+            foreach (var hosting in hostings)
             {
-                if (!CheckForFreeDays(guestRequest, hosting))
+                if (CheckForFreeDays(guestRequest, hosting))
                 {
-                    status = Enums.GuestRequesteCreateStatus.NoHosting;
-                    return;
+                    hostingsNew.Add(hosting);
                 }
             }
+            if (hostingsNew == null)
+            {
+                status = Enums.GuestRequesteCreateStatus.NoHosting;
+                return;
+            }
 
-           
             guestRequest.Status = Enums.GuestRequestStatus.Opened;
             dal.AddGusetRequest(guestRequest);
         }
@@ -255,18 +258,34 @@ namespace BL
         //פונקציה שמעדכנת סטטוס בקשה
         public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
         {
-            //add validation
+            if (guestRequest.Status == Enums.GuestRequestStatus.Closed)
+            {
+                return;
+            }
+            guestRequest.Status = status;
             dal.UpdatingGusetRequest(guestRequest, status);
         }
+        
         //פונקציה שמקבלת בקשות עם אופציות של סינון
         public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate)
         {
            return dal.GetGuestRequests(predicate);
         }
+       
         //פונקציה שמחזירה יחידות אירוח מתאימות לבקשה, עם אופציה לראות יחידות אירוח רק השייכים למארח
         public List<HostingUnit> GetRelevantHostingByRequest(GuestRequest guestRequest, int OwnerId = 0)
         {
-            return null;
+            List<HostingUnit> hostings = dal.GetHostingUnits();
+            List<HostingUnit> hostingsNew = null;
+
+            foreach (HostingUnit hosting in hostings)
+            {
+                if (!CheckForFreeDays(guestRequest, hosting))
+                {
+                    hostingsNew.Add(hosting);
+                }
+            }
+            return hostingsNew;
         }
         #endregion
 
