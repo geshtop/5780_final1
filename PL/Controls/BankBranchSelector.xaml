@@ -8,7 +8,7 @@
     <Grid Name="BankBranchGrid">
         <ComboBox SelectedValue="{Binding Path=BankNumber}"  Name="BankCb" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="98" SelectionChanged="BankCb_SelectionChanged"/>
         <ComboBox SelectedValue="{Binding Path=BranchNumber}" Name="BranchCb" HorizontalAlignment="Left" Height="30" Margin="103,0,0,0" VerticalAlignment="Top" Width="91"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="199,0,0,0" TextWrapping="Wrap" Text="{Binding Path=BankAccount}" VerticalAlignment="Top" Width="76"/>
+        <TextBox HorizontalAlignment="Left" MaxLength="6"  Height="28" Margin="199,0,0,0" TextWrapping="Wrap" Text="{Binding Path=BankAccount}" VerticalAlignment="Top" Width="76"/>
 
     </Grid>
 </UserControl>

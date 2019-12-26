@@ -24,13 +24,16 @@ namespace PL
     {
         private  AppLogic app  { get; set; }
         public Host CurrHost { get; set; }
+        public List<string> PhonePreList { get; set; }
         public EditHost(AppLogic _app, Host _curr)
         {
+           
             this.app = _app;
+            PhonePreList = app.GetPrePhones();
             this.CurrHost = _curr;
             InitializeComponent();
             hostEditGrid.DataContext = CurrHost;
-            prePhoneCb.ItemsSource = app.PhonePreList;
+            prePhoneCb.ItemsSource = PhonePreList;
             if (CurrHost.Id > 0) //אם המדובר על עריכה
             {
                 IdTxt.IsReadOnly = true;
@@ -43,7 +46,7 @@ namespace PL
 
             BankBranchSelector bs = new BankBranchSelector(app, CurrHost);
             hostEditGrid.Children.Add(bs);
-            bs.Margin = new Thickness(76, 21, 0, 0);
+            bs.Margin = new Thickness(10,15, 0, 0);
             Grid.SetColumn(bs, 1);
             Grid.SetRow(bs, 7);
 
@@ -56,16 +59,45 @@ namespace PL
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            var state  = Enums.HostValidationStatus.Success;
             if (CurrHost.Id > 0)
             {
-                app.UpdateHost(CurrHost);
+                app.UpdateHost(CurrHost, out state);
             }
             else
             {
-                app.AddHost(CurrHost);
+                app.AddHost(CurrHost, out state);
+            }
+
+            if (state != Enums.HostValidationStatus.Success)
+            {
+                string ErrorMessage = "";
+                switch (state)
+                {
+                   
+                    case Enums.HostValidationStatus.MissingFields:
+                        ErrorMessage = "יש למלא שדות חובה";
+                        break;
+                    case Enums.HostValidationStatus.DuplicateId:
+                        ErrorMessage = "תעודת זהות קיימת כבר במערכת";
+                        break;
+                    case Enums.HostValidationStatus.WrongFields:
+                        ErrorMessage ="מבנה שדות שגויים";
+                        break;
+                    case Enums.HostValidationStatus.HasActiveHostingUnits:
+                        break;
+                    case Enums.HostValidationStatus.Faild:
+                        ErrorMessage =" שגיאת מסד";
+                        break;
+                    default:
+                        break;
+                }
+                MessageBox.Show(ErrorMessage, "שגיאה");
+            }
+            else { 
+                BackToList();
             }
            
-            BackToList();
           
         }
 

@@ -17,8 +17,6 @@ C:\lev\project\5780_final1\PL\obj\Debug\PL.exe
 C:\lev\project\5780_final1\PL\obj\Debug\PL.pdb
 C:\lev\project\5780_final1\PL\bin\Debug\DS.dll
 C:\lev\project\5780_final1\PL\bin\Debug\DS.pdb
-C:\lev\project\5780_final1\PL\obj\Debug\NewOrder.baml
-C:\lev\project\5780_final1\PL\obj\Debug\NewOrder.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.baml
 C:\lev\project\5780_final1\PL\obj\Debug\HostList.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.g.cs
@@ -74,3 +72,5 @@ C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitList.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitList.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.g.cs
+C:\lev\project\5780_final1\PL\bin\Debug\DAL.dll
+C:\lev\project\5780_final1\PL\bin\Debug\DAL.pdb

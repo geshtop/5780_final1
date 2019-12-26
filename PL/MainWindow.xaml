@@ -1,5 +1,6 @@
 ﻿<Window x:Class="PL.MainWindow" WindowStyle="None"
         FlowDirection="RightToLeft"
+        FontSize="16"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Left="30" Top="30"
         Title="MainWindow" Height="600" Width="800">

@@ -1,151 +1,198 @@
 ﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BL
 {
     public class AppLogic
     {
-        private List<Host> _HostsList;
-        public List<Host> HostsList {
-            get
-            {
-                if (_HostsList == null)
-                {
-                    _HostsList = Hosts.getHosts();
-                }
-                return _HostsList;
-            }
-        }
-
-        private List<HostingUnit> _HostingUnitsList;
-        public List<HostingUnit> HostingUnitsList
+        private Dal_imp dal { get; set; }
+        public AppLogic()
         {
-            get
-            {
-                if (_HostingUnitsList == null)
-                {
-                    _HostingUnitsList = HostingUnits.getHostingUnits();
-                }
-                return _HostingUnitsList;
-            }
-        }
-
-        private List<string> _PhonePreList;
-        public List<string> PhonePreList
-        {
-            get
-            {
-                if (_PhonePreList == null)
-                {
-                    _PhonePreList = PrePhones.getPrePhones();
-                }
-                return _PhonePreList;
-            }
-        }
-
-
-        private List<Bank> _BanksList;
-        public List<Bank> BanksList
-        {
-            get
-            {
-                if (_BanksList == null)
-                {
-                    _BanksList = Banks.getBanks();
-                }
-                return _BanksList;
-            }
-        }
-
-        private List<BankBranch> _BranchList;
-        public List<BankBranch> BranchList
-        {
-            get
-            {
-                if (_BranchList == null)
-                {
-                    _BranchList = Branches.getBranches();
-                }
-                return _BranchList;
-            }
+            dal = new Dal_imp();
         }
 
 
         #region Hosts
+
+        public List<Host> GetAllHosts()
+        {
+            return dal.GetAllHosts();
+        }
         public void DeleteHost(int Id)
         {
-            int index = HostsList.FindIndex(c => c.Id == Id);
-            if (index > -1)
-            {
-                HostsList.RemoveAt(index);
-            }
+
+            dal.DeleteHost(Id);
         }
 
         public Host GetHostById(int Id)
         {
-            var host = HostsList.FirstOrDefault(c => c.Id == Id);
-            host.RelatedHostingUnit = HostingUnitsList.Where(c => c.OwnerId == Id).ToList();
-            return host;
+            return dal.GetHostById(Id);
         }
 
-        public void UpdateHost(Host host)
+        public void UpdateHost(Host host, out Enums.HostValidationStatus status)
         {
-            var h = GetHostById(host.Id);
-            if (h != null)
+            status = Enums.HostValidationStatus.Success;
+            if (string.IsNullOrEmpty(host.FirstName) || (string.IsNullOrEmpty(host.LastName)) || string.IsNullOrEmpty(host.PhonePre) || string.IsNullOrEmpty(host.PhoneExt))
             {
-                h.FirstName = host.FirstName;
-                h.LastName = host.LastName;
-                h.MailAddress = host.MailAddress;
-                h.PhoneExt = host.PhoneExt;
-                h.PhonePre = host.PhonePre;
-                h.HostKey = host.HostKey;
+                status = Enums.HostValidationStatus.MissingFields;
+                return;
             }
+            //בדיקה האם תעודת הזהות והטלפון זה ספרות
+            long id = 0;
+
+            long.TryParse(host.PhoneExt, out id);
+            if (id == 0)
+            {
+                status = Enums.HostValidationStatus.WrongFields;
+                return;
+            }
+            if (!string.IsNullOrEmpty(host.MailAddress))
+            {
+                //ואלידציה לכתובת המייל
+                Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+                if (!regex.IsMatch(host.MailAddress))
+                {
+                    status = Enums.HostValidationStatus.WrongFields;
+                    return;
+                }
+            }
+            if (host.PhoneExt.Length < 7)
+            {
+                status = Enums.HostValidationStatus.WrongFields;
+                return;
+            }
+            dal.UpdateHost(host);
         }
 
-        public void AddHost(Host host)
+        public void AddHost(Host host, out Enums.HostValidationStatus status)
         {
-            host.Id = Configuration.HostIdentity;
-            Configuration.HostIdentity++;
-            HostsList.Add(host);
+            status = Enums.HostValidationStatus.Success;
+
+            if (string.IsNullOrEmpty(host.FirstName) || string.IsNullOrEmpty(host.LastName) || string.IsNullOrEmpty(host.HostKey) || string.IsNullOrEmpty(host.PhonePre) || string.IsNullOrEmpty(host.PhoneExt))
+            {
+                status = Enums.HostValidationStatus.MissingFields;
+                return;
+            }
+            if (host.HostKey.Length < 9)
+            {
+                status = Enums.HostValidationStatus.WrongFields;
+                return;
+            }
+
+            var HostsWithSameIds = dal.GetAllHosts(c => c.HostKey == host.HostKey);
+            if (HostsWithSameIds.Count > 0)
+            {
+                status = Enums.HostValidationStatus.DuplicateId;
+                return;
+            }
+            //בדיקה האם תעודת הזהות והטלפון זה ספרות
+            long id = 0;
+            long.TryParse(host.HostKey, out id);
+            if (id == 0)
+            {
+                status = Enums.HostValidationStatus.WrongFields;
+                return;
+            }
+            long.TryParse(host.PhoneExt, out id);
+            if (id == 0)
+            {
+                status = Enums.HostValidationStatus.WrongFields;
+                return;
+            }
+            if (!string.IsNullOrEmpty(host.MailAddress))
+            {
+                //ואלידציה לכתובת המייל
+                Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+                if (!regex.IsMatch(host.MailAddress))
+                {
+                    status = Enums.HostValidationStatus.WrongFields;
+                    return;
+                }
+            }
+            if (host.PhoneExt.Length < 7)
+            {
+                status = Enums.HostValidationStatus.WrongFields;
+                return;
+            }
+            dal.AddHost(host);
         }
         #endregion
 
+
         #region HostingUnits
-        public void DeleteHostingUnit(int stSerialKey)
+
+
+        public List<BE.HostingUnit> GetHostingUnits(Func<BE.HostingUnit, bool> predicate = null)
         {
-            int index = HostingUnitsList.FindIndex(c => c.stSerialKey == stSerialKey);
-            if (index > -1)
-            {
-                HostingUnitsList.RemoveAt(index);
-            }
+            return dal.GetHostingUnits(predicate);
         }
 
         public HostingUnit GetHostingUnitById(int stSerialKey)
         {
-            return HostingUnitsList.FirstOrDefault(c => c.stSerialKey == stSerialKey);
+            return dal.GetHostingUnitById(stSerialKey);
         }
 
-        public void UpdateHostingUnit(HostingUnit hostingUnit)
+        public void AddHostingUnit(BE.HostingUnit hostingUnit)
         {
-            var h = GetHostingUnitById(hostingUnit.stSerialKey);
-            if (h != null)
-            {
-                h.HostingUnitName = hostingUnit.HostingUnitName;
-                h.Status = hostingUnit.Status;
-                h.DiaryState = hostingUnit.DiaryState;
-            }
+            dal.AddHostingUnit(hostingUnit);
         }
 
-        public void AddHostingUnit(HostingUnit hostingUnit)
+        public void DeleteHostingUnit(BE.HostingUnit hostingUnit)
         {
-            hostingUnit.stSerialKey = Configuration.HostingUnitKey;
-            Configuration.HostingUnitKey++;
-            HostingUnitsList.Add(hostingUnit);
+            dal.DeleteHostingUnit(hostingUnit);
+        }
+
+        public void UpdatingHostingUnit(BE.HostingUnit hostingUnit, Enums.HosignUnitStatus status)
+        {
+            dal.UpdatingHostingUnit(hostingUnit, status);
+        }
+
+
+
+        #endregion
+
+
+        #region Banks
+
+        public List<Bank> GetBanksList()
+        {
+            return dal.GetBanksList();
+        }
+
+        #endregion
+
+
+        #region Branch
+
+
+
+        public List<BankBranch> GetBankBranches(Func<BankBranch, bool> predicate)
+        {
+            return dal.GetBankBranches(predicate);
+        }
+
+        public List<BankBranch> GetBankBranchesByBank(int BankNumber)
+        {
+            return dal.GetBankBranchesByBank(BankNumber);
         }
         #endregion
+
+
+        #region PrePhones
+        public List<string> GetPrePhones()
+        {
+            return dal.GetPrePhones();
+        }
+        #endregion
+
+
+
+
     }
 }

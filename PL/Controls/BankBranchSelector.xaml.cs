@@ -24,14 +24,16 @@ namespace PL.Controls
     {
         private AppLogic app { get; set; }
         public Host CurrHost { get; set; }
+        public List<Bank> BankList { get; set; }
+        public List<Bank> BranchList { get; set; }
         public BankBranchSelector(AppLogic _app, Host _CurrHost)
         {
             this.app = _app;
             this.CurrHost = _CurrHost;
-
+            BankList = this.app.GetBanksList();
             InitializeComponent();
             BankBranchGrid.DataContext = CurrHost;
-            BankCb.ItemsSource = app.BanksList;
+            BankCb.ItemsSource =BankList;
             BankCb.DisplayMemberPath = "BankName";
             BankCb.SelectedValuePath = "BankCode";
             BranchCb.DisplayMemberPath = "BranchNameAndNum";
@@ -47,7 +49,7 @@ namespace PL.Controls
         {
             if (CurrHost.BankNumber > 0)
             {
-                BranchCb.ItemsSource = app.BranchList.Where(c => c.BankNumber == CurrHost.BankNumber);
+                BranchCb.ItemsSource = app.GetBankBranchesByBank(CurrHost.BankNumber);
             }
         }
 

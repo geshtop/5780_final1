@@ -28,14 +28,7 @@ namespace PL
             InitializeComponent();
         }
 
-        private void CreateOrder_Click(object sender, RoutedEventArgs e)
-        {
-           
-            NewOrder orderPage = new NewOrder();
-            orderPage.ShowDialog();
-           
-           
-        }
+      
 
         private void ManageHosts_Click(object sender, RoutedEventArgs e)
         {

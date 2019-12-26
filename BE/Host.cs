@@ -13,7 +13,7 @@ namespace BE
             RelatedHostingUnit = new List<HostingUnit>();
         }
         public int Id { get; set; }
-        public long HostKey { get; set; }
+        public string HostKey { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhonePre { get; set; }

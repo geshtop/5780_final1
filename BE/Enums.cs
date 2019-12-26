@@ -75,13 +75,22 @@ namespace BE
             Paused
         }
 
+
+        public enum HostValidationStatus
+        {
+            Success = 0, //נמצא תקין
+            MissingFields = 1, //חסרים שדות
+            DuplicateId=2, //תעודת הזהות קיימת כבר במערכת
+            WrongFields =3, // שדות לא תקינים דוגמא תעודת זהות עם מעט תווים
+            HasActiveHostingUnits =4, //לא ניתן למחוק בגלל שיש יחידות אירוח שעדיין פעילות
+            Faild=5 //שגיאת מסד
+        }
+
         public enum GuestRequesteCreateStatus
         {
             Done,
             ErrorDates,
             NoHosting,
-
-
         }
     }
 }

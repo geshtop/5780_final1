@@ -23,9 +23,11 @@ namespace PL
     public partial class HostList : Window
     {
         private AppLogic app { get; set; }
+        public List<Host> HostsList { get; set; }
         public HostList(AppLogic _app)
         {
             this.app = _app;
+            HostsList = app.GetAllHosts();
             InitializeComponent();
             FillGrid();
         }
@@ -36,14 +38,12 @@ namespace PL
         }
 
         private void FillGrid(){
-            HostsGrid.DataContext = this.app.HostsList;
-            for (int i = 0; i < this. app.HostsList.Count; i++)
+            HostsGrid.DataContext = HostsList;
+            for (int i = 0; i < HostsList.Count; i++)
             {
-                UnitHost hostCtrl = new UnitHost(app.HostsList[i], app);
-                //hostCtrl.CurrHost = app.HostsList[i];
-
+                UnitHost hostCtrl = new UnitHost(HostsList[i], app);
                 HostsGrid.Children.Add(hostCtrl);
-                HostsGrid.RowDefinitions.Add(new RowDefinition() {  Height =  new GridLength(40)  });
+                HostsGrid.RowDefinitions.Add(new RowDefinition() {  Height =  new GridLength(50)  });
                 Grid.SetRow(hostCtrl, i +1);
             }
         }
