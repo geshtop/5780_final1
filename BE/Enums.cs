@@ -31,29 +31,25 @@ namespace BE
         {
             All =0,
             Necessary =1,
-            Possible =2 ,
-            Not_interested =3
+            Not_interested =2
         }
         public enum JacuzziType
         {
             All = 0,
             Necessary = 1,
-            Possible = 2,
-            Not_interested = 3
+            Not_interested = 2
         }
         public enum GardenType
         {
             All = 0,
             Necessary = 1,
-            Possible = 2,
-            Not_interested = 3
+            Not_interested = 2
         }
         public enum ChildrensAttractionsType
         {
             All = 0,
             Necessary = 1,
-            Possible = 2,
-            Not_interested = 3
+            Not_interested = 2
         }
         public enum OrderStatus
         {
@@ -64,9 +60,11 @@ namespace BE
         }
         public enum GuestRequestStatus
         {
-            Active,
-            closed_on_site,
-            Expired,
+            Opened = 0, // הבקשה נקלטה במערכת
+            InProccess = 1, // נשלחה הצעה ללקוח  במייל
+            ActiveAndClose = 2,  // נסגרה יחידת אירוח למשתמש
+            Closed=3, // נסגר באמצעות המערכת
+            Expired = 4, // לא מומשה ועבר הזמן
         }
 
         public enum HosignUnitStatus  {

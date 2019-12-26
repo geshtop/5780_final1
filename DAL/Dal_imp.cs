@@ -80,6 +80,19 @@ namespace DAL
 
 
 
+        private List<GuestRequest> _GuestRequestList;
+        private List<GuestRequest> GuestRequestList
+        {
+            get
+            {
+                if (_GuestRequestList == null)
+                {
+                    _GuestRequestList = new List<GuestRequest>();
+                }
+                return _GuestRequestList;
+            }
+        }
+
 
         #region Hosts
 
@@ -222,15 +235,25 @@ namespace DAL
          #endregion
 
 
+         #region Guest Request
          public void AddGusetRequest(GuestRequest guestRequest)
-        {
-            throw new NotImplementedException();
-        }
+         {
+             throw new NotImplementedException();
+         }
 
-        public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
-        {
-            throw new NotImplementedException();
-        }
+         public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
+         {
+             throw new NotImplementedException();
+         }
+
+         public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate)
+         {
+             throw new NotImplementedException();
+         }
+         #endregion
+
+
+      
 
       
 
@@ -246,10 +269,7 @@ namespace DAL
 
       
 
-        public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public List<Order> GetOrders(Func<Order, bool> predicate)
         {

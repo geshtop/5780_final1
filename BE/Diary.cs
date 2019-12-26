@@ -119,7 +119,7 @@ namespace BE
             bool flag = CheckForFreeDays(guestReq);
             if (flag)
             {
-                guestReq.Status =  Enums.GuestRequestStatus.Active;
+                guestReq.Status =  Enums.GuestRequestStatus.Opened;
                 ApprovedTimes.Add(guestReq);
 
                 //אם המדובר על אותו החודש באותה השנה

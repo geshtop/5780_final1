@@ -192,7 +192,30 @@ namespace BL
         #endregion
 
 
-
+        #region GuestRequest
+        //פונקציה להוספת בקשה
+        public void AddGusetRequest(GuestRequest guestRequest )
+        {
+            //add validation
+            dal.AddGusetRequest(guestRequest);
+        }
+        //פונקציה שמעדכנת סטטוס בקשה
+        public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
+        {
+            //add validation
+            dal.UpdatingGusetRequest(guestRequest, status);
+        }
+        //פונקציה שמקבלת בקשות עם אופציות של סינון
+        public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate)
+        {
+           return dal.GetGuestRequests(predicate);
+        }
+        //פונקציה שמחזירה יחידות אירוח מתאימות לבקשה, עם אופציה לראות יחידות אירוח רק השייכים למארח
+        public List<HostingUnit> GetRelevantHostingByRequest(GuestRequest guestRequest, int OwnerId = 0)
+        {
+            return null;
+        }
+        #endregion
 
     }
 }
