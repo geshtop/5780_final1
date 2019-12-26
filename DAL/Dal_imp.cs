@@ -238,7 +238,7 @@ namespace DAL
          #region Guest Request
          public void AddGusetRequest(GuestRequest guestRequest)
          {
-             throw new NotImplementedException();
+             //throw new NotImplementedException();
          }
 
          public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)

@@ -5,7 +5,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Left="30" Top="30"
         Title="MainWindow" Height="600" Width="800">
     <Grid >
-        <Button Content="ניהול מארחים" HorizontalAlignment="Left" Height="37" Margin="29,109,0,0" VerticalAlignment="Top" Width="181" Click="ManageHosts_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="162" Margin="20,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="744"/>
+        <Button Content="ניהול מארחים" HorizontalAlignment="Left" Height="37" Margin="573,47,0,0" VerticalAlignment="Top" Width="181" Click="ManageHosts_Click"/>
         <Button Content="יציאה" HorizontalAlignment="Left" Height="45" Margin="579,519,0,0" VerticalAlignment="Top" Width="185" Click="Exit_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="162" Margin="20,177,0,0" Stroke="Black" VerticalAlignment="Top" Width="744"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="162" Margin="20,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="744"/>
+        <Label Content="מנהל האתר" HorizontalAlignment="Left" Height="51" Margin="78,47,0,0" VerticalAlignment="Top" Width="176"/>
+        <Label Content="מארח" HorizontalAlignment="Left" Height="49" Margin="44,218,0,0" VerticalAlignment="Top" Width="179"/>
+        <Label Content="משתמש קצה" HorizontalAlignment="Left" Height="43" Margin="56,381,0,0" VerticalAlignment="Top" Width="167"/>
+        <Button Content="הוסף בקשה" Name="AddReqest" HorizontalAlignment="Left" Height="48" Margin="573,393,0,0" VerticalAlignment="Top" Width="167" Click="AddReqest_Click"/>
     </Grid>
 </Window>

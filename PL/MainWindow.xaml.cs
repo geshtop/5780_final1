@@ -42,5 +42,12 @@ namespace PL
         {
             this.Close();
         }
+
+        private void AddReqest_Click(object sender, RoutedEventArgs e)
+        {
+            //check your logic
+            app.AddGusetRequest(null);
+            MessageBox.Show("כאן תבדקי את המערכת שיצרת");
+        }
     }
 }
