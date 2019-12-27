@@ -26,6 +26,13 @@ namespace BE
                 return PhonePre + "-" + PhoneExt;
             }
         }
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
         public BankBranch Branch
         {
             get

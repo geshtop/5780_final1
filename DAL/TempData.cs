@@ -33,5 +33,10 @@ namespace DAL
             return DS.Hosts.getHosts();
         }
 
+        public static List<GuestRequest> getRequests()
+        {
+            return DS.GuestRequests.getAllRequests();
+        }
+
     }
 }

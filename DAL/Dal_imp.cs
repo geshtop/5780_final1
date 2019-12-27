@@ -87,7 +87,7 @@ namespace DAL
             {
                 if (_GuestRequestList == null)
                 {
-                    _GuestRequestList = new List<GuestRequest>();
+                    _GuestRequestList = TempData.getRequests();
                 }
                 return _GuestRequestList;
             }
@@ -252,7 +252,7 @@ namespace DAL
 
          public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate)
          {
-             throw new NotImplementedException();
+             return GuestRequestList.Where(predicate).ToList();
          }
          #endregion
 

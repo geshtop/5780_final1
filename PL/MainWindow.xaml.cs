@@ -1,4 +1,5 @@
-﻿using BL;
+﻿using BE;
+using BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,25 @@ namespace PL
     public partial class MainWindow : Window
     {
         private AppLogic app { get; set; }
+        public int CurrOwner { get; set; }
+        public List<Host> HostList { get; set; }
         public MainWindow()
         {
             this.app = new AppLogic();
+            HostList = app.GetAllHosts();
+          
+           
             InitializeComponent();
+
+
+            CbHosts.ItemsSource = HostList;
+            CbHosts.DisplayMemberPath = "FullName";
+            CbHosts.SelectedValuePath = "Id";
+
+            if (HostList.Count > 0)
+            {
+                CurrOwner = HostList[0].Id;
+            }
         }
 
       
@@ -49,6 +65,12 @@ namespace PL
             EditGuestRequest requestPage = new EditGuestRequest(this.app);
             requestPage.ShowDialog();
           
+        }
+
+        private void GeustListButton_Click(object sender, RoutedEventArgs e)
+        {
+            GuestRequestList requestList = new GuestRequestList(app, CurrOwner);
+            requestList.ShowDialog();
         }
     }
 }

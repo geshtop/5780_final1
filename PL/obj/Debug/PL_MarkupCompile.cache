@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\lev\project\5780_final1\PL\App.xaml
-8-433828136
+10554808944
 41095962131
-122010761704
+14-120674348
 14-1943669411
-Controls\BankBranchSelector.xaml;Controls\HostingUnitList.xaml;Controls\UnitHostCtrl.xaml;Controls\HostingUnitCtrl.xaml;EditGuestRequest.xaml;EditHost.xaml;HostList.xaml;MainWindow.xaml;
+Controls\BankBranchSelector.xaml;Controls\GuestRequestListItem.xaml;Controls\HostingUnitList.xaml;Controls\UnitHostCtrl.xaml;Controls\HostingUnitCtrl.xaml;EditGuestRequest.xaml;EditHost.xaml;GuestRequestList.xaml;HostList.xaml;MainWindow.xaml;
 
 False
 

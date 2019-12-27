@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GuestReqests.cs" />
     <Compile Include="Banks.cs" />
     <Compile Include="Branches.cs" />
     <Compile Include="DataSource.cs" />

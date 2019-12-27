@@ -28,30 +28,13 @@ namespace BE
             List,
             XML
         }
-        public enum PoolType
+        public enum ExtensionType
         {
             All =0,
             Necessary =1,
             Not_interested =2
         }
-        public enum JacuzziType
-        {
-            All = 0,
-            Necessary = 1,
-            Not_interested = 2
-        }
-        public enum GardenType
-        {
-            All = 0,
-            Necessary = 1,
-            Not_interested = 2
-        }
-        public enum ChildrensAttractionsType
-        {
-            All = 0,
-            Necessary = 1,
-            Not_interested = 2
-        }
+       
         public enum OrderStatus
         {
             Not_treated,

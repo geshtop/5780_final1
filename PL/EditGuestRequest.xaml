@@ -119,7 +119,7 @@
         </ComboBox>
 
         <Label  Grid.Column="1" Foreground="Red" Content="שדות חובה מסומנים ב-*" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="274" Grid.Row="8" Margin="10,10,0,0"/>
-        <DatePicker Grid.Column="1" SelectedDate="{Binding Path=EntryDate}" HorizontalAlignment="Left" Margin="10,18,0,0" Height="30" Grid.Row="7" VerticalAlignment="Top" Width="108"/>
+        <DatePicker Grid.Column="1" SelectedDate="{Binding Path=EntryDate}" HorizontalAlignment="Left" Margin="10,18,0,0" Height="30" Grid.Row="7" VerticalAlignment="Top" Width="126"/>
         <DatePicker Grid.Column="1" SelectedDate="{Binding Path=ReleaseDate}" HorizontalAlignment="Left"  Margin="154,18,0,0" Height="30" Grid.Row="7" VerticalAlignment="Top" Width="130"/>
 
         <Label Content="בריכה" Grid.Column="2" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="141" Grid.Row="2" Margin="22,21,0,0"/>
