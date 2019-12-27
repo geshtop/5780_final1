@@ -65,6 +65,9 @@
     <Compile Include="Controls\HostingUnitCtrl.xaml.cs">
       <DependentUpon>HostingUnitCtrl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditGuestRequest.xaml.cs">
+      <DependentUpon>EditGuestRequest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditHost.xaml.cs">
       <DependentUpon>EditHost.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\HostingUnitCtrl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditGuestRequest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

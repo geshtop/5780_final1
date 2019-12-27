@@ -238,7 +238,11 @@ namespace DAL
          #region Guest Request
          public void AddGusetRequest(GuestRequest guestRequest)
          {
-             //throw new NotImplementedException();
+             guestRequest.GuestRequestsKey = Configuration.GuestRequestKey;
+             Configuration.GuestRequestKey++;
+             guestRequest.Status = Enums.GuestRequestStatus.Opened;
+             guestRequest.RegistrationDate = DateTime.Now;
+             GuestRequestList.Add(guestRequest);
          }
 
          public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)

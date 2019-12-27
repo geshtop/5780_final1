@@ -10,9 +10,10 @@ namespace BE
     {
         public enum HostingUnitType
         {
-            Zimmer =0,
-            Hotel =1,
-            Camping =2,
+            All = 0,
+            Zimmer =1,
+            Hotel =2,
+            Camping =3,
         }
         public enum HostingUnitArea
         {

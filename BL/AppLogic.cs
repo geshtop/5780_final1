@@ -195,7 +195,7 @@ namespace BL
         #region GuestRequest
 
         //פונקציה להוספת בקשה
-        public void AddGusetRequest(GuestRequest guestRequest, Enums.GuestRequesteCreateStatus status)
+        public void AddGusetRequest(GuestRequest guestRequest, out Enums.GuestRequesteCreateStatus status)
         {
             status = Enums.GuestRequesteCreateStatus.Success;
             if (string.IsNullOrEmpty(guestRequest.FirstName) || (string.IsNullOrEmpty(guestRequest.LastName)) || string.IsNullOrEmpty(guestRequest.MailAddress))
@@ -203,20 +203,19 @@ namespace BL
                 status = Enums.GuestRequesteCreateStatus.MissingFields;
                 return;
             }
-            if (guestRequest.GuestRequestsKey < 10000000)
-            {
-                status = Enums.GuestRequesteCreateStatus.WrongFields;
-                return;
-            }
-            if (!string.IsNullOrEmpty(guestRequest.MailAddress))
-            {
+            //if (guestRequest.GuestRequestsKey < 10000000)
+            //{
+            //    status = Enums.GuestRequesteCreateStatus.WrongFields;
+            //    return;
+            //}
+
                 Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
                 if (!regex.IsMatch(guestRequest.MailAddress))
                 {
                     status = Enums.GuestRequesteCreateStatus.WrongFields;
                     return;
                 }
-            }
+          
             long id = 0;
             long.TryParse(guestRequest.PhoneExt, out id);
             if (id == 0)
@@ -230,35 +229,33 @@ namespace BL
                 status = Enums.GuestRequesteCreateStatus.WrongFields;
                 return;
             }
-            if (guestRequest.ReleaseDate < guestRequest.EntryDate || guestRequest.ReleaseDate < DateTime.Now || guestRequest.EntryDate < DateTime.Now)
+            if (guestRequest.ReleaseDate < guestRequest.EntryDate ||  guestRequest.EntryDate < DateTime.Now)
             {
                 status = Enums.GuestRequesteCreateStatus.ErrorDates;
                 return;
             }
             
             var hostings = dal.GetHostingUnits();
-            List<HostingUnit> hostingsNew = null;
+            int avilableHostings = 0;
             foreach (var hosting in hostings)
             {
                 if (CheckForFreeDays(guestRequest, hosting))
                 {
-                    hostingsNew.Add(hosting);
+                    avilableHostings++;
                 }
             }
-            if (hostingsNew == null)
+            if (avilableHostings == 0)
             {
                 status = Enums.GuestRequesteCreateStatus.NoHosting;
                 return;
             }
-
-            guestRequest.Status = Enums.GuestRequestStatus.Opened;
             dal.AddGusetRequest(guestRequest);
         }
 
         //פונקציה שמעדכנת סטטוס בקשה
         public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
         {
-            if (guestRequest.Status == Enums.GuestRequestStatus.Closed)
+            if (guestRequest.Status == Enums.GuestRequestStatus.Closed || guestRequest.Status == Enums.GuestRequestStatus.ActiveAndClose)
             {
                 return;
             }
@@ -295,9 +292,9 @@ namespace BL
             first = first.AddDays(1);
             DateTime last = guestReq.ReleaseDate;
             last = last.AddDays(-1);
-            for (DateTime date = first ; date != last; date = date.AddDays(1))
+            for (DateTime date = first ; date  <  last; date = date.AddDays(1))
             {
-                if (unit.DiaryState.Calender[date.Month, date.Day] == true)
+                if (unit.DiaryState.Calender[date.Month-1, date.Day-1] == true)
                     return false;
             }
             return true;

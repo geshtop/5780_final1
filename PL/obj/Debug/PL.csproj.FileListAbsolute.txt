@@ -76,3 +76,5 @@ C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\HostingUnitList.baml
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.baml
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\HostingUnitList.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\EditGuestRequest.baml
+C:\lev\project\5780_final1\PL\obj\Debug\EditGuestRequest.g.cs

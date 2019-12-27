@@ -8,6 +8,11 @@ namespace BE
 {
     public class GuestRequest
     {
+        public GuestRequest()
+        {
+            EntryDate = DateTime.Now.AddDays(1) ;
+            ReleaseDate = DateTime.Now.AddDays(7);
+        }
         public int GuestRequestsKey { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,7 +20,6 @@ namespace BE
         public string PhonePre { get; set; }
         public string PhoneExt { get; set; }
         public Enums.GuestRequestStatus Status { get; set; }
-        public Enums.GuestRequesteCreateStatus Statuss { get; set; }
         public DateTime RegistrationDate { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime ReleaseDate { get; set; }
