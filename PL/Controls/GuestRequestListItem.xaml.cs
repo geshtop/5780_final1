@@ -35,5 +35,11 @@ namespace PL.Controls
             InitializeComponent();
             GuestGrid.DataContext = CurrGuestRequest;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Enums.OrderCreateStatus state;
+            app.AddOrder(new Order(), out state);
+        }
     }
 }

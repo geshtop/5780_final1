@@ -76,5 +76,12 @@ namespace BE
             NoHosting = 4, // לא קיים יחידה
             Success = 5 //נמצא תקין
         }
+
+        public enum OrderCreateStatus
+        {
+            Success = 0,
+            MailFailed = 1,
+
+        }
     }
 }

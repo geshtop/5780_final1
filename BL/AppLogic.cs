@@ -3,6 +3,7 @@ using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -272,8 +273,9 @@ namespace BL
         //פונקציה שמחזירה יחידות אירוח מתאימות לבקשה, עם אופציה לראות יחידות אירוח רק השייכים למארח
         public List<HostingUnit> GetRelevantHostingByRequest(GuestRequest guestRequest, int OwnerId = 0)
         {
+            //יש לסנן גם לפי הOWNERID
             List<HostingUnit> hostings = dal.GetHostingUnits();
-            List<HostingUnit> hostingsNew = null;
+            List<HostingUnit> hostingsNew =  new List<HostingUnit>();
 
             foreach (HostingUnit hosting in hostings)
             {
@@ -284,6 +286,55 @@ namespace BL
             }
             return hostingsNew;
         }
+
+
+        public void AddOrder(Order order, out Enums.OrderCreateStatus status)
+        {
+            status = Enums.OrderCreateStatus.Success;
+            //מבצע בדיקה שמספר יחידת האירוח קיים
+            //מבצע בדיקה שמספר הבקשה קיימת והסטטוס או פתוח או בתהליך
+            //יוצר הזמנה
+            //מציאת הבקשה הרלוונטית
+            //שליחת מייל ללקוח
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("kymsite@gmail.com");
+
+                //לשנות את המייל הזה למייל של המשתמש
+                mail.To.Add("g@geshtop.com");
+                mail.To.Add("rivkistudies@gmail.com");
+                mail.Subject = "Test Mail";
+                mail.Body = "This is for testing SMTP mail from GMAIL";
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("kymsite@gmail.com", "g9095398");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                status = Enums.OrderCreateStatus.MailFailed;
+            }
+            
+            //קריאה לפונקציה של DAL.ADDORDER)(
+
+        }
+        public void UpdatingOrder(Order order, Enums.OrderStatus status)
+        {
+
+        }
+
+        public List<Order> GetOrders(Func<Order, bool> predicate, int OwnerId = 0)
+        {
+
+            return null;
+        }
+
+
         #endregion
 
         public bool CheckForFreeDays(GuestRequest guestReq, HostingUnit unit)
