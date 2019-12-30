@@ -37,10 +37,10 @@ namespace BE
        
         public enum OrderStatus
         {
-            Not_treated,
-            Mailed,
-            Closes_out_of_unresponsiveness,
-            Success, //ההזמנה אושרה על ידי הלקוח 
+            Not_treated =0,
+            Mailed =1,
+            Closed =2, //נסגרה בגלל שהזמנה אחרת שוייכה לבקשה בהצלחה 
+            Success =3, //ההזמנה אושרה על ידי הלקוח 
         }
         public enum GuestRequestStatus
         {

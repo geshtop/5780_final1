@@ -262,6 +262,11 @@ namespace DAL
              if (index > -1)
              {
                  GuestRequestList[index].Status = status;
+
+                 if (status == Enums.GuestRequestStatus.ActiveAndClose)
+                 {
+                     //כאן יש לעדכן גם את הימים כמלאים
+                 }
              }
          }
 
@@ -286,7 +291,17 @@ namespace DAL
 
         public void UpdatingOrder(Order order, Enums.OrderStatus status)
         {
-            throw new NotImplementedException();
+            int index = OrderList.FindIndex(c => c.OrderKey == order.OrderKey);
+            if (index > -1)
+            {
+                OrderList[index].Status = status;
+
+                if (status ==  Enums.OrderStatus.Success)
+                {
+                   //כאן יש לעדכן את כל שאר ההזמנות המשוייכות לאותה בקשה ולסמן אותן
+                   //  status = Enums.OrderStatus.Closed;
+                }
+            }
         }
 
         public List<Order> GetOrders(Func<Order, bool> predicate = null)

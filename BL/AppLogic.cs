@@ -372,9 +372,9 @@ namespace BL
 
             if (status == Enums.OrderStatus.Success)
             {
-                //יש לסמן את הימים ביחידות האירוח כמסומנים 
+               
                 dal.UpdatingGusetRequest(guest, Enums.GuestRequestStatus.ActiveAndClose);
-                //יש לסגור את כל שאר ההזמנות המשוייכות לאותה בקשה
+              
             }
 
             dal.UpdatingOrder(order, status);
