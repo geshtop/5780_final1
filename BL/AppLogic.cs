@@ -288,7 +288,14 @@ namespace BL
         }
 
 
-        public void AddOrder(Order order, out Enums.OrderCreateStatus status)
+       
+
+        #endregion
+
+
+
+        #region Order
+         public void AddOrder(Order order, out Enums.OrderCreateStatus status)
         {
             status = Enums.OrderCreateStatus.Success;
             //מבצע בדיקה שמספר יחידת האירוח קיים  - סיום
@@ -380,8 +387,7 @@ namespace BL
 
             return null;
         }
-
-
+        
         #endregion
 
         public bool CheckForFreeDays(GuestRequest guestReq, HostingUnit unit)
