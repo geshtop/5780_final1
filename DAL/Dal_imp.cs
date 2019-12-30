@@ -263,12 +263,20 @@ namespace DAL
              {
                  GuestRequestList[index].Status = status;
 
-                 if (status == Enums.GuestRequestStatus.ActiveAndClose)
-                 {
-                     //כאן יש לעדכן גם את הימים כמלאים
-                 }
-             }
-         }
+                if (status == Enums.GuestRequestStatus.ActiveAndClose)
+                {
+                    int index2 = OrderList.FindIndex(c => c.GuestRequestKey == guestRequest.GuestRequestsKey);
+                    int key = OrderList[index2].HostingUnitKey;
+                    Diary diary = HostingUnitsList[key].DiaryState;
+                    for (DateTime time = guestRequest.EntryDate.AddDays(1); time != guestRequest.ReleaseDate; time = time.AddDays(1))
+                    {
+                        diary.Calender[time.Month - 1, time.Day - 1] = true;
+                    }
+                    HostingUnitsList[key].DiaryState = diary;
+                }
+
+            }
+        }
 
          public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate)
          {
@@ -296,11 +304,16 @@ namespace DAL
             {
                 OrderList[index].Status = status;
 
-                if (status ==  Enums.OrderStatus.Success)
+                if (status == Enums.OrderStatus.Success)
                 {
-                   //כאן יש לעדכן את כל שאר ההזמנות המשוייכות לאותה בקשה ולסמן אותן
-                   //  status = Enums.OrderStatus.Closed;
+                    var orders = OrderList.FindAll(c => c.GuestRequestKey == order.GuestRequestKey);
+                    foreach (var orderi in orders)
+                    {
+                        orderi.Status = Enums.OrderStatus.Closed;
+                    }
+                    OrderList[index].Status = Enums.OrderStatus.Success; //אני לא יודעת אם סטטוס ההזמנה המקורית השנה אף הוא
                 }
+
             }
         }
 
