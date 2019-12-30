@@ -279,7 +279,7 @@ namespace BL
 
             foreach (HostingUnit hosting in hostings)
             {
-                if (!CheckForFreeDays(guestRequest, hosting))
+                if (!CheckForFreeDays(guestRequest, hosting) && hosting.OwnerId == OwnerId)
                 {
                     hostingsNew.Add(hosting);
                 }
