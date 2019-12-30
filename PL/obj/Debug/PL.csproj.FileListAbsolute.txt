@@ -82,3 +82,9 @@ C:\lev\project\5780_final1\PL\obj\Debug\Controls\GuestRequestListItem.baml
 C:\lev\project\5780_final1\PL\obj\Debug\GuestRequestList.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\GuestRequestListItem.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\GuestRequestList.g.cs
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\GuestRequestListItem.baml
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\EditGuestRequest.baml
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\GuestRequestList.baml
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\GuestRequestListItem.g.cs
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\EditGuestRequest.g.cs
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\GuestRequestList.g.cs

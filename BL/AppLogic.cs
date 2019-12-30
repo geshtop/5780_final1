@@ -291,23 +291,60 @@ namespace BL
         public void AddOrder(Order order, out Enums.OrderCreateStatus status)
         {
             status = Enums.OrderCreateStatus.Success;
-            //מבצע בדיקה שמספר יחידת האירוח קיים
-            //מבצע בדיקה שמספר הבקשה קיימת והסטטוס או פתוח או בתהליך
-            //יוצר הזמנה
-            //מציאת הבקשה הרלוונטית
-            //שליחת מייל ללקוח
+            //מבצע בדיקה שמספר יחידת האירוח קיים  - סיום
+            bool check = false;
+            List<HostingUnit> hostings = dal.GetHostingUnits();
+            foreach (HostingUnit hosting in hostings)
+            {
+                if (hosting.stSerialKey == order.HostingUnitKey)
+                {
+                    check = true;
+                }
+            }
+            if (!check)
+            {
+                status = Enums.OrderCreateStatus.ErrorInDetails;
+                return;
+            }
+            //מבצע בדיקה שמספר הבקשה קיימת והסטטוס או פתוח או בתהליך - סיום
+            check = false;
+            GuestRequest guest;
+            List<GuestRequest> guestRequests = dal.GetGuestRequests();
+            foreach (GuestRequest guestRequest in guestRequests)
+            {
+                if (guestRequest.GuestRequestsKey == order.GuestRequestKey)
+                {
+                    guest = guestRequest; //שמירת ההזמנה הרלוונטית
+                    check = true;
+                }
+            }
+            if (!check || guest.Status != Enums.GuestRequestStatus.Opened || guest.Status != Enums.GuestRequestStatus.InProccess)
+            {
+                status = Enums.OrderCreateStatus.ErrorInDetails;
+                return;
+            }
+
+            //מציאת הבקשה הרלוונטית:
+            List<HostingUnit> hostingUnits = GetRelevantHostingByRequest(guest); //מציאת יחידות פנויות בתאריך
+            List<HostingUnit> hostingUnitsNew = checkHostToRequest(hostingUnits, guest); //מציאת יחידות המתאימות לחלקי הבקשה
+
+            //יוצר הזמנה - חסר
+
+
+            //שליחת מייל ללקוח - סיום
             try
             {
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
                 mail.From = new MailAddress("kymsite@gmail.com");
-
-                //לשנות את המייל הזה למייל של המשתמש
-                mail.To.Add("g@geshtop.com");
-                mail.To.Add("rivkistudies@gmail.com");
+                mail.To.Add(guest.MailAddress);
+                //mail.To.Add("g@geshtop.com");
+               // mail.To.Add("rivkistudies@gmail.com");
                 mail.Subject = "Test Mail";
-                mail.Body = "This is for testing SMTP mail from GMAIL";
+                string text = hostingUnitsNew[0].ToString(); //מחזיר את היחידה הראשונה שמתאימה
+                mail.Body = text;
+                //mail.Body = "This is for testing SMTP mail from GMAIL";
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("kymsite@gmail.com", "g9095398");
@@ -318,14 +355,18 @@ namespace BL
             catch (Exception ex)
             {
                 status = Enums.OrderCreateStatus.MailFailed;
+                return;
             }
-            
-            //קריאה לפונקציה של DAL.ADDORDER)(
-
+            dal.AddOrder(order);
+            order.Status = Enums.OrderStatus.Mailed;
         }
+
         public void UpdatingOrder(Order order, Enums.OrderStatus status)
         {
-
+            if (order.Status == Enums.OrderStatus.Closes_in_response)
+                return;
+            order.Status = status;
+            dal.UpdatingOrder(order, status);
         }
 
         public List<Order> GetOrders(Func<Order, bool> predicate, int OwnerId = 0)
@@ -349,6 +390,18 @@ namespace BL
                     return false;
             }
             return true;
+        }
+        public List<HostingUnit> checkHostToRequest(List<HostingUnit> units, GuestRequest guest)
+        {
+            List<HostingUnit> hostingUnitNew = null;
+            foreach (HostingUnit unit in units)
+            {
+                if(unit.Area == guest.Area && unit.Rooms >= guest.Rooms && unit.SubArea == guest.SubArea && unit.Type == guest.Type)
+                {
+                    hostingUnitNew.Add(unit);
+                }
+            }
+            return hostingUnitNew;
         }
     }
 }

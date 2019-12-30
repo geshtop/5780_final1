@@ -80,7 +80,8 @@ namespace BE
         public enum OrderCreateStatus
         {
             Success = 0,
-            MailFailed = 1,
+            ErrorInDetails = 1,
+            MailFailed = 2,
 
         }
     }

@@ -10,8 +10,6 @@ namespace DAL
 {
     public class Dal_imp : Idal
     {
-
-
         private List<Host> _HostsList;
         private List<Host> HostsList
         {
@@ -90,6 +88,19 @@ namespace DAL
                     _GuestRequestList = TempData.getRequests();
                 }
                 return _GuestRequestList;
+            }
+        }
+
+        private List<Order> _OrderList;
+        private List<Order> OrderList
+        {
+            get
+            {
+                if (_OrderList == null)
+                {
+                    _OrderList = TempData.getOrders();
+                }
+                return _OrderList;
             }
         }
 
@@ -254,16 +265,20 @@ namespace DAL
          {
              return GuestRequestList.Where(predicate).ToList();
          }
-         #endregion
+        #endregion
 
 
-      
+        #region order
 
-      
+
 
         public void AddOrder(Order order)
         {
-            throw new NotImplementedException();
+            order.OrderKey = Configuration.OrderKey;
+            Configuration.OrderKey++;
+            //order.Status = Enums.OrderStatus.Not_treated;
+            order.CreateDate = DateTime.Now;
+            OrderList.Add(order);
         }
 
         public void UpdatingOrder(Order order, Enums.OrderStatus status)
@@ -271,15 +286,11 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-      
-
-      
-
-        public List<Order> GetOrders(Func<Order, bool> predicate)
+        public List<Order> GetOrders(Func<Order, bool> predicate = null)
         {
-            throw new NotImplementedException();
+            return OrderList;
         }
 
-       
+        #endregion
     }
 }
