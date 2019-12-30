@@ -258,7 +258,11 @@ namespace DAL
 
          public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
          {
-             throw new NotImplementedException();
+             int index = GuestRequestList.FindIndex(c => c.GuestRequestsKey == guestRequest.GuestRequestsKey);
+             if (index > -1)
+             {
+                 GuestRequestList[index].Status = status;
+             }
          }
 
          public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate)
@@ -276,7 +280,6 @@ namespace DAL
         {
             order.OrderKey = Configuration.OrderKey;
             Configuration.OrderKey++;
-            //order.Status = Enums.OrderStatus.Not_treated;
             order.CreateDate = DateTime.Now;
             OrderList.Add(order);
         }

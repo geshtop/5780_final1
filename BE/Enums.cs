@@ -40,7 +40,7 @@ namespace BE
             Not_treated,
             Mailed,
             Closes_out_of_unresponsiveness,
-            Closes_in_response,
+            Success, //ההזמנה אושרה על ידי הלקוח 
         }
         public enum GuestRequestStatus
         {

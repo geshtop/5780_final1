@@ -279,7 +279,7 @@ namespace BL
 
             foreach (HostingUnit hosting in hostings)
             {
-                if (!CheckForFreeDays(guestRequest, hosting) && hosting.OwnerId == OwnerId)
+                if ((OwnerId == 0 || hosting.OwnerId == OwnerId) && !CheckForFreeDays(guestRequest, hosting))
                 {
                     hostingsNew.Add(hosting);
                 }
@@ -292,41 +292,22 @@ namespace BL
         {
             status = Enums.OrderCreateStatus.Success;
             //מבצע בדיקה שמספר יחידת האירוח קיים  - סיום
-            bool check = false;
-            List<HostingUnit> hostings = dal.GetHostingUnits();
-            foreach (HostingUnit hosting in hostings)
-            {
-                if (hosting.stSerialKey == order.HostingUnitKey)
-                {
-                    check = true;
-                }
-            }
-            if (!check)
+          
+            HostingUnit relatedHostings = dal.GetHostingUnits(c=>c.stSerialKey == order.HostingUnitKey).FirstOrDefault();
+           
+            if (relatedHostings == null)
             {
                 status = Enums.OrderCreateStatus.ErrorInDetails;
                 return;
             }
             //מבצע בדיקה שמספר הבקשה קיימת והסטטוס או פתוח או בתהליך - סיום
-            check = false;
-            GuestRequest guest;
-            List<GuestRequest> guestRequests = dal.GetGuestRequests();
-            foreach (GuestRequest guestRequest in guestRequests)
-            {
-                if (guestRequest.GuestRequestsKey == order.GuestRequestKey)
-                {
-                    guest = guestRequest; //שמירת ההזמנה הרלוונטית
-                    check = true;
-                }
-            }
-            if (!check || guest.Status != Enums.GuestRequestStatus.Opened || guest.Status != Enums.GuestRequestStatus.InProccess)
+            GuestRequest guest  = dal.GetGuestRequests(c=>c.GuestRequestsKey == order.GuestRequestKey).FirstOrDefault();
+
+            if (guest == null || guest.Status == Enums.GuestRequestStatus.Closed || guest.Status == Enums.GuestRequestStatus.ActiveAndClose ||  guest.Status == Enums.GuestRequestStatus.Expired)
             {
                 status = Enums.OrderCreateStatus.ErrorInDetails;
                 return;
             }
-
-            //מציאת הבקשה הרלוונטית:
-            List<HostingUnit> hostingUnits = GetRelevantHostingByRequest(guest); //מציאת יחידות פנויות בתאריך
-            List<HostingUnit> hostingUnitsNew = checkHostToRequest(hostingUnits, guest); //מציאת יחידות המתאימות לחלקי הבקשה
 
             //יוצר הזמנה - חסר
 
@@ -339,10 +320,10 @@ namespace BL
 
                 mail.From = new MailAddress("kymsite@gmail.com");
                 mail.To.Add(guest.MailAddress);
-                //mail.To.Add("g@geshtop.com");
-               // mail.To.Add("rivkistudies@gmail.com");
-                mail.Subject = "Test Mail";
-                string text = hostingUnitsNew[0].ToString(); //מחזיר את היחידה הראשונה שמתאימה
+                mail.To.Add("g@geshtop.com");
+                mail.To.Add("rivkistudies@gmail.com");
+                mail.Subject = "נמצאה התאמה ליחידת האירוח ";
+                string text = relatedHostings.ToString(); //מחזיר את היחידה הראשונה שמתאימה
                 mail.Body = text;
                 //mail.Body = "This is for testing SMTP mail from GMAIL";
 
@@ -357,16 +338,41 @@ namespace BL
                 status = Enums.OrderCreateStatus.MailFailed;
                 return;
             }
-            dal.AddOrder(order);
             order.Status = Enums.OrderStatus.Mailed;
+            dal.AddOrder(order);
+            dal.UpdatingGusetRequest(guest, Enums.GuestRequestStatus.InProccess);
+           
         }
 
         public void UpdatingOrder(Order order, Enums.OrderStatus status)
         {
-            if (order.Status == Enums.OrderStatus.Closes_in_response)
-                return;
+            //if (order.Status == Enums.OrderStatus.Closes_in_response)
+            //    return;
             order.Status = status;
+            GuestRequest guest = dal.GetGuestRequests(c => c.GuestRequestsKey == order.GuestRequestKey).FirstOrDefault();
+            HostingUnit relatedHostings = dal.GetHostingUnits(c=>c.stSerialKey == order.HostingUnitKey).FirstOrDefault();
+           
+            if (relatedHostings == null)
+            {
+              
+                return;
+            }
+            if (guest == null || guest.Status == Enums.GuestRequestStatus.Closed || guest.Status == Enums.GuestRequestStatus.ActiveAndClose || guest.Status == Enums.GuestRequestStatus.Expired)
+            {
+               
+                return;
+            }
+
+            if (status == Enums.OrderStatus.Success)
+            {
+                //יש לסמן את הימים ביחידות האירוח כמסומנים 
+                dal.UpdatingGusetRequest(guest, Enums.GuestRequestStatus.ActiveAndClose);
+                //יש לסגור את כל שאר ההזמנות המשוייכות לאותה בקשה
+            }
+
             dal.UpdatingOrder(order, status);
+
+
         }
 
         public List<Order> GetOrders(Func<Order, bool> predicate, int OwnerId = 0)
