@@ -15,6 +15,6 @@
         <Label Content="משתמש קצה" HorizontalAlignment="Left" Height="43" Margin="41,372,0,0" VerticalAlignment="Top" Width="167"/>
         <Button Content="הוסף בקשה" Name="AddReqest" HorizontalAlignment="Left" Height="48" Margin="562,363,0,0" VerticalAlignment="Top" Width="192" Click="AddReqest_Click"/>
         <Button Name="GeustListButton" Content="צפייה בבקשות פעילות" HorizontalAlignment="Left" Height="47" Margin="562,196,0,0" VerticalAlignment="Top" Width="192" Click="GeustListButton_Click"/>
-        <ComboBox Name="CbHosts" SelectedValue="{Binding Path=CurrOwner}" HorizontalAlignment="Left" Height="47" Margin="329,196,0,0" VerticalAlignment="Top" Width="217"/>
+        <ComboBox Name="CbHosts" HorizontalAlignment="Left" Height="47" Margin="329,196,0,0" VerticalAlignment="Top" Width="217"/>
     </Grid>
 </Window>

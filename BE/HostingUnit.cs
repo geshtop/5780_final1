@@ -42,7 +42,7 @@ namespace BE
         public List<string> Images { get; set; }
         public override string ToString()
         {
-            return Owner.ToString() + "\n" + HostingUnitName + ", " + HostingUnitKey + "\n" + DiaryState;
+            return   HostingUnitName + ", " + HostingUnitKey + "\n" ;
         }
 
         public HostingUnit()

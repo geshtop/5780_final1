@@ -11,8 +11,10 @@
             <ColumnDefinition Width="300" />
             <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
-        <Label Content="{Binding Path=Description}"    HorizontalAlignment="Left" Height="180" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
-        <Label Content="{Binding Path=Extantion}"    HorizontalAlignment="Left" Height="180" Margin="10,10,0,0" VerticalAlignment="Top" Width="280" Grid.Column="1"/>
-        <Button Content="Button" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="97,32,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click"/>
+        <Label Content="{Binding Path=Description}"    HorizontalAlignment="Left" Height="170" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
+        <Label Content="{Binding Path=Extantion}"    HorizontalAlignment="Left" Height="170" Margin="10,10,0,0" VerticalAlignment="Top" Width="280" Grid.Column="1"/>
+        <Button Visibility="Hidden" Name="CreateOrder" Content="שלח מייל" Grid.Column="2" HorizontalAlignment="Left" Height="39" Margin="10,106,0,0" VerticalAlignment="Top" Width="165" Click="CreateOrder_Click" />
+        <ComboBox  Name="CBRelatedHostings" Grid.Column="2" HorizontalAlignment="Left" Height="38" Margin="10,46,0,0" VerticalAlignment="Top" Width="165" SelectionChanged="CBRelatedHostings_SelectionChanged" />
+
     </Grid>
 </UserControl>

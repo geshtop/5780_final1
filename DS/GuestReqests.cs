@@ -17,8 +17,9 @@ namespace DS
             List<GuestRequest> list = new List<GuestRequest>();
             string[] Names = new string[] { "אהרון", "שירה", "חדווה", "משה חיים", "דוד", "שרה", "גאולה", "רבקי"};
             string[] lastNames = new string[] { "שרביט", "כהן", "לוי", "יוסף", "רבלין" };
+            string[] mails = new string[] { "geula.shoshan@gmail.com", "rivkistudies@gmail.com", "g@geshtop.com" };
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 GuestRequest req = new GuestRequest();
                 string g = String.Concat(Guid.NewGuid().ToString("N").Select(c => (char)(c + 17)));
@@ -32,7 +33,7 @@ namespace DS
                 req.LastName = lastNames[i % 5];
                 req.Status = Enums.GuestRequestStatus.Opened;
                 req.RegistrationDate = DateTime.Now;
-                req.MailAddress = g.Substring(0,5) + "@gmail.com";
+                req.MailAddress = mails[i % 3];
                 req.EntryDate = DateTime.Now.AddDays(1 + i);
                 req.EntryDate = DateTime.Now.AddDays(7 + i);
                 req.Area = (Enums.HostingUnitArea)(i % 4);

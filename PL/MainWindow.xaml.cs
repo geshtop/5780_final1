@@ -34,14 +34,17 @@ namespace PL
             InitializeComponent();
 
 
-            CbHosts.ItemsSource = HostList;
-            CbHosts.DisplayMemberPath = "FullName";
-            CbHosts.SelectedValuePath = "Id";
+            
 
             if (HostList.Count > 0)
             {
                 CurrOwner = HostList[0].Id;
+                
             }
+
+            CbHosts.ItemsSource = HostList;
+            CbHosts.DisplayMemberPath = "FullName";
+            CbHosts.SelectedValuePath = "Id";
         }
 
       

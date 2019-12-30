@@ -24,22 +24,46 @@ namespace PL.Controls
     {
         public AppLogic app { get; set; }
         public GuestRequest CurrGuestRequest { get; set; }
+        public List<HostingUnit> relatedHosting { get; set; }
         public int OwnerId { get; set; }
-        public string Data { get; set; }
         public GuestRequestListItem(GuestRequest _CurrGuestRequest,  AppLogic _app, int _OwnerId)
         {
             this.app = _app;
             this.CurrGuestRequest = _CurrGuestRequest;
             this.OwnerId = _OwnerId;
-            this.Data = CurrGuestRequest.ToString();
+            relatedHosting = app.GetRelevantHostingByRequest(CurrGuestRequest, OwnerId);
             InitializeComponent();
             GuestGrid.DataContext = CurrGuestRequest;
+
+
+            CBRelatedHostings.ItemsSource = relatedHosting;
+            CBRelatedHostings.DisplayMemberPath = "HostingUnitName";
+            CBRelatedHostings.SelectedValuePath = "stSerialKey";
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Enums.OrderCreateStatus state;
-            app.AddOrder(new Order(), out state);
+           
         }
+
+        private void CBRelatedHostings_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (int.Parse(CBRelatedHostings.SelectedValue.ToString()) > 0)
+            {
+                CreateOrder.Visibility = System.Windows.Visibility.Visible;
+            }
+        }
+
+        private void CreateOrder_Click(object sender, RoutedEventArgs e)
+        {
+            Enums.OrderCreateStatus state;
+            Order o = new Order();
+            o.GuestRequestKey = CurrGuestRequest.GuestRequestsKey;
+            o.HostingUnitKey = int.Parse(CBRelatedHostings.SelectedValue.ToString());
+            app.AddOrder(o, out state);
+        }
+
+       
     }
 }
