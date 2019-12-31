@@ -41,5 +41,7 @@ namespace BL
         void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status);
         void UpdatingHostingUnit(HostingUnit hostingUnit, Enums.HosignUnitStatus status);
         bool UpdatingOrder(int OrderId, Enums.OrderStatus status);
+
+
     }
 }

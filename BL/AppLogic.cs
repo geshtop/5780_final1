@@ -151,6 +151,12 @@ namespace BL
 
         public void DeleteHostingUnit(BE.HostingUnit hostingUnit)
         {
+            var hostingUnits = dal.GetOrders(c => c.HostingUnitKey == hostingUnit.stSerialKey).ToList();
+            if (hostingUnits.Count > 0)
+            {
+                //אי אפשר למחוק את הבקשה
+                return;
+            }
             dal.DeleteHostingUnit(hostingUnit);
         }
 
@@ -480,5 +486,25 @@ namespace BL
             return true;
         }
 
+        public List<HostingUnit> HostingUnitList(DateTime time, int numDay)
+        {
+
+        }
+        public int NumDaies(DateTime date1, DateTime date2 = DateTime.Now)
+        {
+
+        }
+        public List<Order> OrderFromTime(int numDay)
+        {
+
+        }
+        public int Orders(GuestRequest guestRequest)
+        {
+
+        }
+        public int Orders(HostingUnit hostingUnit)
+        {
+
+        }
     }
 }

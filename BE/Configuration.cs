@@ -11,6 +11,7 @@ namespace BE
         public static int GuestRequestKey = 10000000;
         public static int HostingUnitKey = 10000000;
         public static int OrderKey = 10000000;
+        public static int commission = 10;
 
         public static int HostIdentity = 5;
     }
