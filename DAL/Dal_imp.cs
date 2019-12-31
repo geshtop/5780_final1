@@ -315,11 +315,6 @@ namespace DAL
                     }
                         // HostingUnitsList[key].DiaryState = diary;
                     }
-                
-
-
-
-
                     OrderList[index].Status = Enums.OrderStatus.Success; //אני לא יודעת אם סטטוס ההזמנה המקורית השנה אף הוא
                 }
 

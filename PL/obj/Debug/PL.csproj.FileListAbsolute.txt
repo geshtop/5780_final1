@@ -88,3 +88,6 @@ C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\GuestRequestList.baml
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Controls\GuestRequestListItem.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\EditGuestRequest.g.cs
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\GuestRequestList.g.cs
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\EditHostingUnit.g.cs
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL_MarkupCompile.lref
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\EditHostingUnit.baml

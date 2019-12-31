@@ -74,6 +74,10 @@
     <Compile Include="EditHost.xaml.cs">
       <DependentUpon>EditHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="..\..\EditHostingUnit.xaml.cs">
+      <DependentUpon>EditHostingUnit.xaml</DependentUpon>
+      <Link>EditHostingUnit.xaml.cs</Link>
+    </Compile>
     <Compile Include="GuestRequestList.xaml.cs">
       <DependentUpon>GuestRequestList.xaml</DependentUpon>
     </Compile>
@@ -107,6 +111,11 @@
     <Page Include="EditHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\..\EditHostingUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Link>EditHostingUnit.xaml</Link>
     </Page>
     <Page Include="GuestRequestList.xaml">
       <SubType>Designer</SubType>
@@ -147,6 +156,26 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\BE.Bank.datasource" />
+    <None Include="Properties\DataSources\BE.BankBranch.datasource" />
+    <None Include="Properties\DataSources\BE.Configuration.datasource" />
+    <None Include="Properties\DataSources\BE.Diary.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+DataSourseType.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+ExtensionType.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+GuestRequesteCreateStatus.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+GuestRequestStatus.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+HosignUnitStatus.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+HostingUnitArea.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+HostingUnitType.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+HostValidationStatus.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+OrderCreateStatus.datasource" />
+    <None Include="Properties\DataSources\BE.Enums+OrderStatus.datasource" />
+    <None Include="Properties\DataSources\BE.Enums.datasource" />
+    <None Include="Properties\DataSources\BE.GuestRequest.datasource" />
+    <None Include="Properties\DataSources\BE.Host.datasource" />
+    <None Include="Properties\DataSources\BE.HostingUnit.datasource" />
+    <None Include="Properties\DataSources\BE.Order.datasource" />
+    <None Include="Properties\DataSources\BE.RelatedHosting.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
