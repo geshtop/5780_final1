@@ -74,7 +74,12 @@ namespace BL
         public void AddHost(Host host, out Enums.HostValidationStatus status)
         {
             status = Enums.HostValidationStatus.Success;
-
+            var list = dal.GetAllHosts(c => c.HostKey == host.HostKey).ToList();
+            if(list.Count > 0)
+            {
+                status = Enums.HostValidationStatus.DuplicateId;
+                return;
+            }
             if (string.IsNullOrEmpty(host.FirstName) || string.IsNullOrEmpty(host.LastName) || string.IsNullOrEmpty(host.HostKey) || string.IsNullOrEmpty(host.PhonePre) || string.IsNullOrEmpty(host.PhoneExt))
             {
                 status = Enums.HostValidationStatus.MissingFields;
@@ -366,6 +371,13 @@ namespace BL
             if (relatedHostings == null)
             {
                 status = Enums.OrderCreateStatus.ErrorInDetails;
+                return;
+            }
+            //find the related host
+            Host host = dal.GetHostById(relatedHostings.OwnerId);
+            if (!host.CollectionClearance)
+            {
+                status = Enums.OrderCreateStatus.MissingCollectionClearance;
                 return;
             }
             //מבצע בדיקה שמספר הבקשה קיימת והסטטוס או פתוח או בתהליך - סיום

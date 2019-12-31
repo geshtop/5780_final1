@@ -73,8 +73,8 @@ namespace BE
             MissingFields = 0, //חסרים שדות
             WrongFields = 1, // שדות לא תקינים דוגמא תעודת זהות עם מעט תווים
             ErrorDates = 2, // מידע שגוי
-            NoHosting = 4, // לא קיים יחידה
-            Success = 5 //נמצא תקין
+            NoHosting = 3, // לא קיים יחידה
+            Success = 4 //נמצא תקין
         }
 
         public enum OrderCreateStatus
@@ -82,6 +82,7 @@ namespace BE
             Success = 0,
             ErrorInDetails = 1,
             MailFailed = 2,
+            MissingCollectionClearance = 3
 
         }
     }
