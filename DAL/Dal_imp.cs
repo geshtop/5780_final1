@@ -256,24 +256,14 @@ namespace DAL
              GuestRequestList.Add(guestRequest);
          }
 
-         public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
+         public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status )
          {
              int index = GuestRequestList.FindIndex(c => c.GuestRequestsKey == guestRequest.GuestRequestsKey);
              if (index > -1)
              {
                  GuestRequestList[index].Status = status;
 
-                if (status == Enums.GuestRequestStatus.ActiveAndClose)
-                {
-                    int index2 = OrderList.FindIndex(c => c.GuestRequestKey == guestRequest.GuestRequestsKey);
-                    int key = OrderList[index2].HostingUnitKey;
-                    Diary diary = HostingUnitsList[key].DiaryState;
-                    for (DateTime time = guestRequest.EntryDate.AddDays(1); time != guestRequest.ReleaseDate; time = time.AddDays(1))
-                    {
-                        diary.Calender[time.Month - 1, time.Day - 1] = true;
-                    }
-                    HostingUnitsList[key].DiaryState = diary;
-                }
+               
 
             }
         }
@@ -306,11 +296,30 @@ namespace DAL
 
                 if (status == Enums.OrderStatus.Success)
                 {
+                    //עדכון של שאר ההזמנות
                     var orders = OrderList.FindAll(c => c.GuestRequestKey == order.GuestRequestKey);
                     foreach (var orderi in orders)
                     {
                         orderi.Status = Enums.OrderStatus.Closed;
                     }
+
+                    //עדכון הימים באכסניה
+                    
+                    int hostingid = HostingUnitsList.FindIndex(c => c.stSerialKey == order.HostingUnitKey);
+                    var request =GuestRequestList.Where(c=>c.GuestRequestsKey == order.GuestRequestKey).FirstOrDefault();
+                    if(hostingid > -1 && request != null){
+                    Diary diary = HostingUnitsList[hostingid].DiaryState;
+                    for (DateTime time = request.EntryDate.AddDays(1); time < request.ReleaseDate; time = time.AddDays(1))
+                    {
+                        diary.Calender[time.Month - 1, time.Day - 1] = true;
+                    }
+                        // HostingUnitsList[key].DiaryState = diary;
+                    }
+                
+
+
+
+
                     OrderList[index].Status = Enums.OrderStatus.Success; //אני לא יודעת אם סטטוס ההזמנה המקורית השנה אף הוא
                 }
 
@@ -319,7 +328,7 @@ namespace DAL
 
         public List<Order> GetOrders(Func<Order, bool> predicate = null)
         {
-            return OrderList;
+            return OrderList.Where(predicate).ToList();
         }
 
         #endregion

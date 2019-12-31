@@ -271,17 +271,78 @@ namespace BL
         }
        
         //פונקציה שמחזירה יחידות אירוח מתאימות לבקשה, עם אופציה לראות יחידות אירוח רק השייכים למארח
-        public List<HostingUnit> GetRelevantHostingByRequest(GuestRequest guestRequest, int OwnerId = 0)
+        public List<RelatedHosting> GetRelevantHostingByRequest(GuestRequest guestRequest, int OwnerId = 0)
         {
             //יש לסנן גם לפי הOWNERID
             List<HostingUnit> hostings = dal.GetHostingUnits();
-            List<HostingUnit> hostingsNew =  new List<HostingUnit>();
+            List<RelatedHosting> hostingsNew = new List<RelatedHosting>();
 
             foreach (HostingUnit hosting in hostings)
             {
                 if ((OwnerId == 0 || hosting.OwnerId == OwnerId) && CheckForFreeDays(guestRequest, hosting))
                 {
-                    hostingsNew.Add(hosting);
+
+                    ///check for other fields
+                    ///
+                    if (guestRequest.Area != Enums.HostingUnitArea.All)
+                    {
+                        if (hosting.Area != guestRequest.Area) continue;
+                    }
+
+                    if (!string.IsNullOrEmpty(guestRequest.SubArea ))
+                    {
+                        if (hosting.SubArea != guestRequest.SubArea) continue;
+                    }
+
+                    if (guestRequest.Type != Enums.HostingUnitType.All)
+                    {
+                        if (hosting.Type != guestRequest.Type) continue;
+                    }
+
+
+                    if (guestRequest.Adult != 0)
+                    {
+                        if (hosting.Adult  <  guestRequest.Adult) continue;
+                    }
+
+                    
+                    if (guestRequest.Children != 0)
+                    {
+                        if (hosting.Children  <  guestRequest.Children) continue;
+                    }
+                    
+                    if (guestRequest.Rooms != 0)
+                    {
+                        if (hosting.Rooms  <  guestRequest.Rooms) continue;
+                    }
+
+                    if (guestRequest.Pool != Enums.ExtensionType.All)
+                    {
+                        if (guestRequest.Pool == Enums.ExtensionType.Necessary && !hosting.Pool) continue;
+                        if (guestRequest.Pool == Enums.ExtensionType.Not_interested && hosting.Pool) continue;
+                    }
+
+                    if (guestRequest.Jacuzzi != Enums.ExtensionType.All)
+                    {
+                        if (guestRequest.Jacuzzi == Enums.ExtensionType.Necessary && !hosting.Jacuzzi) continue;
+                        if (guestRequest.Jacuzzi == Enums.ExtensionType.Not_interested && hosting.Jacuzzi) continue;
+                    }
+
+                    if (guestRequest.Garden != Enums.ExtensionType.All)
+                    {
+                        if (guestRequest.Garden == Enums.ExtensionType.Necessary && !hosting.Garden) continue;
+                        if (guestRequest.Garden == Enums.ExtensionType.Not_interested && hosting.Garden) continue;
+                    }
+                    if (guestRequest.ChildrensAttractions != Enums.ExtensionType.All)
+                    {
+                        if (guestRequest.ChildrensAttractions == Enums.ExtensionType.Necessary && !hosting.ChildrensAttractions) continue;
+                        if (guestRequest.ChildrensAttractions == Enums.ExtensionType.Not_interested && hosting.ChildrensAttractions) continue;
+                    }
+
+                    int orderid = 0;
+                    Order o = GetOrders(c => c.GuestRequestKey == guestRequest.GuestRequestsKey && c.HostingUnitKey == hosting.stSerialKey).FirstOrDefault();
+                    if (o != null) orderid = o.OrderKey;
+                    hostingsNew.Add(new RelatedHosting() { HostingUnitName = hosting.HostingUnitName, OrderId = orderid, stSerialKey = hosting.stSerialKey });
                 }
             }
             return hostingsNew;
@@ -316,7 +377,6 @@ namespace BL
                 return;
             }
 
-            //יוצר הזמנה - חסר
 
 
             //שליחת מייל ללקוח - סיום
@@ -327,8 +387,7 @@ namespace BL
 
                 mail.From = new MailAddress("kymsite@gmail.com");
                 mail.To.Add(guest.MailAddress);
-                mail.To.Add("g@geshtop.com");
-                mail.To.Add("rivkistudies@gmail.com");
+           
                 mail.Subject = "נמצאה התאמה ליחידת האירוח ";
                 string text = relatedHostings.ToString(); //מחזיר את היחידה הראשונה שמתאימה
                 mail.Body = text;
@@ -351,23 +410,26 @@ namespace BL
            
         }
 
-        public void UpdatingOrder(Order order, Enums.OrderStatus status)
+        public bool UpdatingOrder(int OrderId, Enums.OrderStatus status)
         {
             //if (order.Status == Enums.OrderStatus.Closes_in_response)
             //    return;
+
+            Order order = dal.GetOrders(c => c.OrderKey == OrderId).FirstOrDefault();
+            if (order == null) return false;
             order.Status = status;
             GuestRequest guest = dal.GetGuestRequests(c => c.GuestRequestsKey == order.GuestRequestKey).FirstOrDefault();
             HostingUnit relatedHostings = dal.GetHostingUnits(c=>c.stSerialKey == order.HostingUnitKey).FirstOrDefault();
            
             if (relatedHostings == null)
             {
-              
-                return;
+
+                return false;
             }
             if (guest == null || guest.Status == Enums.GuestRequestStatus.Closed || guest.Status == Enums.GuestRequestStatus.ActiveAndClose || guest.Status == Enums.GuestRequestStatus.Expired)
             {
                
-                return;
+                return false;
             }
 
             if (status == Enums.OrderStatus.Success)
@@ -379,13 +441,15 @@ namespace BL
 
             dal.UpdatingOrder(order, status);
 
+            return true;
+
 
         }
 
         public List<Order> GetOrders(Func<Order, bool> predicate, int OwnerId = 0)
         {
 
-            return null;
+            return dal.GetOrders(predicate);
         }
         
         #endregion
@@ -403,17 +467,6 @@ namespace BL
             }
             return true;
         }
-        public List<HostingUnit> checkHostToRequest(List<HostingUnit> units, GuestRequest guest)
-        {
-            List<HostingUnit> hostingUnitNew = null;
-            foreach (HostingUnit unit in units)
-            {
-                if(unit.Area == guest.Area && unit.Rooms >= guest.Rooms && unit.SubArea == guest.SubArea && unit.Type == guest.Type)
-                {
-                    hostingUnitNew.Add(unit);
-                }
-            }
-            return hostingUnitNew;
-        }
+
     }
 }

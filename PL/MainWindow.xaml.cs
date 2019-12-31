@@ -72,8 +72,16 @@ namespace PL
 
         private void GeustListButton_Click(object sender, RoutedEventArgs e)
         {
-            GuestRequestList requestList = new GuestRequestList(app, CurrOwner);
+            GuestRequestList requestList = new GuestRequestList(app, int.Parse(CbHosts.SelectedValue.ToString()));
             requestList.ShowDialog();
+        }
+
+        private void CbHosts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (int.Parse(CbHosts.SelectedValue.ToString()) > 0)
+            {
+                GeustListButton.Visibility =  System.Windows.Visibility.Visible;
+            }
         }
     }
 }

@@ -120,7 +120,8 @@ namespace BE
             get
             {
 
-                return ("#" + GuestRequestsKey + ":\n" +
+                return ("#" + GuestRequestsKey + "\n" +
+                   "סטטוס: " + StrStatus + "\n" +
                    "שם מלא: " + FirstName + " " + LastName + "\n" +
                     "מייל: " + MailAddress + "\n" +
                     "נוצר בתאריך: " + RegistrationDate.ToString("dd/MM/yyyy") + "\n" +
@@ -151,6 +152,7 @@ namespace BE
         public override string ToString()
         {
             return ("#" + GuestRequestsKey + ":\n" +
+                   "סטטוס: " + StrStatus + "\n" +
                    "שם מלא: " + FirstName + " " + LastName + "\n" +
                     "מייל: " + MailAddress + "\n" +
                     "נוצר בתאריך: " + RegistrationDate.ToString("dd/MM/yyyy") + "\n" +

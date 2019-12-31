@@ -24,7 +24,8 @@ namespace PL.Controls
     {
         public AppLogic app { get; set; }
         public GuestRequest CurrGuestRequest { get; set; }
-        public List<HostingUnit> relatedHosting { get; set; }
+        public List<RelatedHosting> relatedHosting { get; set; }
+      
         public int OwnerId { get; set; }
         public GuestRequestListItem(GuestRequest _CurrGuestRequest,  AppLogic _app, int _OwnerId)
         {
@@ -35,6 +36,8 @@ namespace PL.Controls
             InitializeComponent();
             GuestGrid.DataContext = CurrGuestRequest;
 
+
+            lvUsers.ItemsSource = relatedHosting;
 
             CBRelatedHostings.ItemsSource = relatedHosting;
             CBRelatedHostings.DisplayMemberPath = "HostingUnitName";
@@ -57,13 +60,67 @@ namespace PL.Controls
 
         private void CreateOrder_Click(object sender, RoutedEventArgs e)
         {
-            Enums.OrderCreateStatus state;
-            Order o = new Order();
-            o.GuestRequestKey = CurrGuestRequest.GuestRequestsKey;
-            o.HostingUnitKey = int.Parse(CBRelatedHostings.SelectedValue.ToString());
-            app.AddOrder(o, out state);
+            var b = (Button)sender;
+            if (b != null)
+            {
+                int id = Int32.Parse(b.Tag.ToString());
+
+                Enums.OrderCreateStatus state;
+                Order o = new Order();
+                o.GuestRequestKey = CurrGuestRequest.GuestRequestsKey;
+                o.HostingUnitKey = id;
+                app.AddOrder(o, out state);
+                string mess = "";
+                switch (state)
+                {
+                    case Enums.OrderCreateStatus.Success:
+                        mess = "המייל נשלח בהצלחה";
+                        break;
+                    case Enums.OrderCreateStatus.ErrorInDetails:
+                        mess = "שגיאה";
+                        break;
+                    case Enums.OrderCreateStatus.MailFailed:
+                        mess = "שגיאה";
+                        break;
+                    default:
+                        break;
+                }
+                MessageBox.Show(mess);
+
+
+                RefreshWindow();
+                
+
+            }
+           
         }
 
-       
+
+        private void CompleteOrder_Click(object sender, RoutedEventArgs e)
+        {
+            var b = (Button)sender;
+            if (b != null)
+            {
+                int orderid = Int32.Parse(b.Tag.ToString());
+
+                bool success = app.UpdatingOrder(orderid, Enums.OrderStatus.Success);
+                MessageBox.Show((success)?"ההזמנה בוצעה בהצלחה":"שגיאה");
+
+                RefreshWindow();
+               
+
+
+            }
+
+        }
+
+        private void RefreshWindow()
+        {
+            Window yourParentWindow = Window.GetWindow(this);
+            yourParentWindow.Close();
+            GuestRequestList requestList = new GuestRequestList(app, OwnerId);
+
+            requestList.ShowDialog();
+        }
     }
 }

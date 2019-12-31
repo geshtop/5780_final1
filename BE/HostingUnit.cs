@@ -9,13 +9,6 @@ namespace BE
     public class HostingUnit
     {
         public int stSerialKey { get; set; }
-        private int HostingUnitKey
-        {
-            get
-            {
-                return stSerialKey;
-            }
-        }
         public int OwnerId { get; set; }
         public Host Owner
         {
@@ -42,7 +35,7 @@ namespace BE
         public List<string> Images { get; set; }
         public override string ToString()
         {
-            return   HostingUnitName + ", " + HostingUnitKey + "\n" ;
+            return   HostingUnitName + ", " + stSerialKey + "\n" ;
         }
 
         public HostingUnit()
@@ -54,4 +47,6 @@ namespace BE
 
         }
     }
+
+    
 }

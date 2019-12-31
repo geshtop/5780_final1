@@ -35,15 +35,15 @@ namespace DS
                 req.RegistrationDate = DateTime.Now;
                 req.MailAddress = mails[i % 3];
                 req.EntryDate = DateTime.Now.AddDays(1 + i);
-                req.EntryDate = DateTime.Now.AddDays(7 + i);
+                req.ReleaseDate = DateTime.Now.AddDays(7 + i);
                 req.Area = (Enums.HostingUnitArea)(i % 4);
-                req.Garden = (Enums.ExtensionType)   (i%2 ) ;
+                // req.Garden = (Enums.ExtensionType)   (i%2 ) ;
                 req.Pool = (Enums.ExtensionType)(i  +1 % 2);
-                req.Jacuzzi = (Enums.ExtensionType)(i + 2 % 2);
-                req.ChildrensAttractions = (Enums.ExtensionType)(i % 2);
-                req.Adult = (randomNumber +i) % 10;
-                req.Children = (randomNumber * i+1 * 52) % 10;
-                req.Rooms = (randomNumber * i+1 * 34) % 10;
+                // req.Jacuzzi = (Enums.ExtensionType)(i + 2 % 2);
+               // req.ChildrensAttractions = (Enums.ExtensionType)(i % 2);
+                // req.Adult = (randomNumber +i) % 10;
+                //req.Children = (randomNumber * i+1 * 52) % 10;
+                //req.Rooms = (randomNumber * i+1 * 34) % 10;
                 list.Add(req);
             }
             // Add all missing banks
