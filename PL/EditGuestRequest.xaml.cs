@@ -26,6 +26,7 @@ namespace PL
         public List<string> PhonePreList { get; set; }
         public EditGuestRequest(IAppLogic _app)
         {
+            this.app = _app;
             CurrRequest = new GuestRequest();
             
             PhonePreList = app.GetPrePhones();
