@@ -486,25 +486,37 @@ namespace BL
             return true;
         }
 
+
+        public List<List<GuestRequest>> GetGuestRequestsGrouingByArea()
+        {
+            var guestList = dal.GetGuestRequests()
+                .GroupBy(c=>c.Area)
+                .Select(grp => grp.ToList())
+                .ToList();
+
+            return guestList;
+        }
+
         public List<HostingUnit> HostingUnitList(DateTime time, int numDay)
         {
-
+            return null;
         }
-        public int NumDaies(DateTime date1, DateTime date2 = DateTime.Now)
+        public int NumDays(DateTime start, DateTime? end = null)
         {
-
+            var effectiveEnd = end ?? DateTime.MinValue;
+            return 0;
         }
         public List<Order> OrderFromTime(int numDay)
         {
-
+            return null;
         }
         public int Orders(GuestRequest guestRequest)
         {
-
+            return 0;
         }
         public int Orders(HostingUnit hostingUnit)
         {
-
+            return 0;
         }
     }
 }

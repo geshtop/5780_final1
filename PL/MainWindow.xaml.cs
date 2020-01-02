@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace PL
 {
     /// <summary>
@@ -82,6 +83,12 @@ namespace PL
             {
                 GeustListButton.Visibility =  System.Windows.Visibility.Visible;
             }
+        }
+
+        private void RequestByArea_Click(object sender, RoutedEventArgs e)
+        {
+            var requestgroup = app.GetGuestRequestsGrouingByArea();
+          
         }
     }
 }

@@ -16,5 +16,6 @@
         <Button Content="הוסף בקשה" Name="AddReqest" HorizontalAlignment="Left" Height="48" Margin="562,363,0,0" VerticalAlignment="Top" Width="192" Click="AddReqest_Click"/>
         <Button Visibility="Hidden" Name="GeustListButton" Content="צפייה בבקשות פעילות" HorizontalAlignment="Left" Height="47" Margin="562,254,0,0" VerticalAlignment="Top" Width="192" Click="GeustListButton_Click"/>
         <ComboBox Name="CbHosts" HorizontalAlignment="Left" Height="47" Margin="562,196,0,0" VerticalAlignment="Top" Width="192" SelectionChanged="CbHosts_SelectionChanged"/>
+        <Button Content="מקובץ לפי אזור" Name="RequestByArea" HorizontalAlignment="Left" Height="37" Margin="348,47,0,0" VerticalAlignment="Top" Width="175" Click="RequestByArea_Click"/>
     </Grid>
 </Window>

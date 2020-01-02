@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\
+C:\lev\project\5780_final1\PL\obj\Debug\
 PL
 none
 false
 DEBUG;TRACE
-C:\rivki\projects\YearB\5780_final1\PL\App.xaml
-11-998172851
+C:\lev\project\5780_final1\PL\App.xaml
+10554808944
 41095962131
-191453490226
-141564197253
-Controls\BankBranchSelector.xaml;Controls\GuestRequestListItem.xaml;Controls\HostingUnitList.xaml;Controls\UnitHostCtrl.xaml;Controls\HostingUnitCtrl.xaml;EditGuestRequest.xaml;EditHost.xaml;..\..\EditHostingUnit.xaml;GuestRequestList.xaml;HostList.xaml;MainWindow.xaml;
+18-729121507
+14-1943669411
+Controls\BankBranchSelector.xaml;Controls\GuestRequestListItem.xaml;Controls\HostingUnitList.xaml;Controls\UnitHostCtrl.xaml;Controls\HostingUnitCtrl.xaml;EditGuestRequest.xaml;EditHost.xaml;GuestRequestList.xaml;HostList.xaml;MainWindow.xaml;
 
-True
+False
 

@@ -268,9 +268,17 @@ namespace DAL
             }
         }
 
-         public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate)
+         public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate = null)
          {
-             return GuestRequestList.Where(predicate).ToList();
+             if (predicate != null)
+             {
+                 return GuestRequestList.Where(predicate).ToList();
+             }
+             else
+             {
+                 return GuestRequestList;
+             }
+           
          }
         #endregion
 

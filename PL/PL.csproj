@@ -74,10 +74,6 @@
     <Compile Include="EditHost.xaml.cs">
       <DependentUpon>EditHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\..\EditHostingUnit.xaml.cs">
-      <DependentUpon>EditHostingUnit.xaml</DependentUpon>
-      <Link>EditHostingUnit.xaml.cs</Link>
-    </Compile>
     <Compile Include="GuestRequestList.xaml.cs">
       <DependentUpon>GuestRequestList.xaml</DependentUpon>
     </Compile>
@@ -111,11 +107,6 @@
     <Page Include="EditHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="..\..\EditHostingUnit.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Link>EditHostingUnit.xaml</Link>
     </Page>
     <Page Include="GuestRequestList.xaml">
       <SubType>Designer</SubType>
