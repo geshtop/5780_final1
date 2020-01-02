@@ -93,3 +93,9 @@ C:\lev\project\5780_final1\PL\bin\Debug\Ninject.xml
 C:\lev\project\5780_final1\PL\bin\Debug\DS.pdb
 C:\lev\project\5780_final1\PL\obj\Debug\PL.exe
 C:\lev\project\5780_final1\PL\obj\Debug\PL.pdb
+C:\lev\project\5780_final1\PL\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\PL_MarkupCompile.lref
+C:\lev\project\5780_final1\PL\obj\Debug\Pages\HostList.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\Pages\HostList.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Pages\Main.g.cs
+C:\lev\project\5780_final1\PL\obj\Debug\Pages\Main.baml

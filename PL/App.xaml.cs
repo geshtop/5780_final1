@@ -22,7 +22,7 @@ namespace PL
 
 
             var _app = IoC.Kernel.Get<IAppLogic>();
-            Current.MainWindow = new MainWindow(_app);
+            Current.MainWindow = new MainWindow();
             Current.MainWindow.Show();
         }
     }
