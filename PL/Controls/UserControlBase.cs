@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using Ninject;
 
-namespace PL.Pages
+namespace PL.Controls
 {
-    public class PageBase : Page
+    public class UserControlBase : UserControl
     {
         protected IAppLogic app;
         public  MainWindow CurrentWindow{
@@ -17,22 +17,16 @@ namespace PL.Pages
                 return (App.Current.MainWindow as MainWindow);
             }
         }
-        
-        public PageBase()
+
+        public UserControlBase()
         {
             var _app = IoC.Kernel.Get<IAppLogic>();
             this.app = _app;
         }
 
-
-        public void MainNavigate(PageBase p)
+        public void MainNavigate(Pages.PageBase p)
         {
             CurrentWindow.MainFrame.Content = p;
         }
-
-        public void BackToMain(){
-
-        }
-       
     }
 }

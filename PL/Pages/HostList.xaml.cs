@@ -43,7 +43,7 @@ namespace PL.Pages
             HostsGrid.DataContext = HostsList;
             for (int i = 0; i < HostsList.Count; i++)
             {
-                UnitHost hostCtrl = new UnitHost(HostsList[i], app);
+                UnitHost hostCtrl = new UnitHost(HostsList[i]);
                 HostsGrid.Children.Add(hostCtrl);
                 HostsGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50) });
                 Grid.SetRow(hostCtrl, i + 1);
@@ -53,8 +53,10 @@ namespace PL.Pages
         private void AddHost_Click(object sender, RoutedEventArgs e)
         {
             
-            EditHost hostPage = new EditHost(this.app, new Host());
-            hostPage.ShowDialog();
+            EditHost hostPage = new EditHost(new Host());
+            MainNavigate(hostPage); ;
+
+           
 
         }
 

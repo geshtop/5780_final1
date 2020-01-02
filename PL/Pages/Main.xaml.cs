@@ -50,7 +50,7 @@ namespace PL.Pages
         {
 
             HostList hostListPage = new HostList();
-            (App.Current.MainWindow as MainWindow).MainFrame.Content = hostListPage;
+            CurrentWindow.MainFrame.Content = hostListPage;
             //this.Content = hostListPage;
             // hostListPage.ShowDialog();
            

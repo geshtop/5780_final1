@@ -4,8 +4,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:PL.Pages"
         FontSize="16"
-        Title="HostList" Height="700" Width="800" >
-    <ScrollViewer  Height="790">
+        Title="HostList" Height="590" Width="800" >
+    <ScrollViewer  Height="580">
         <Grid >
             <Grid Name="HostsGrid"   HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Grid.Row="0"  >
                 <Grid.ColumnDefinitions>

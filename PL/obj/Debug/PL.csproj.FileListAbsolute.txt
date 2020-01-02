@@ -99,3 +99,5 @@ C:\lev\project\5780_final1\PL\obj\Debug\Pages\HostList.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Pages\HostList.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Pages\Main.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Pages\Main.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Pages\EditHost.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Pages\EditHost.g.cs

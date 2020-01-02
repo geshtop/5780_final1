@@ -20,13 +20,12 @@ namespace PL.Controls
     /// <summary>
     /// Interaction logic for UnitHost.xaml
     /// </summary>
-    public partial class UnitHost : UserControl
+    public partial class UnitHost : UserControlBase
     {
         public Host CurrHost { get; set; }
-        private IAppLogic app { get; set; }
-        public UnitHost(Host _CurrHost, IAppLogic _app)
+      
+        public UnitHost(Host _CurrHost)
         {
-            this.app = _app;
             this.CurrHost = _CurrHost;
             InitializeComponent();
             hostGrid.DataContext = CurrHost;
@@ -43,10 +42,11 @@ namespace PL.Controls
             {
                 int id = Int16.Parse( b.Tag.ToString());
                 app.DeleteHost(id);
-                Window yourParentWindow = Window.GetWindow(this);
-                yourParentWindow.Close();
-                HostList hostListPage = new HostList(this.app);
-                hostListPage.Show();
+               // Window yourParentWindow = Window.GetWindow(this);
+               // yourParentWindow.Close();
+                Pages.HostList hostListPage = new Pages.HostList();
+                MainNavigate(hostListPage);
+                //hostListPage.Show();
                 
                 
             }
@@ -59,12 +59,15 @@ namespace PL.Controls
             {
                 int id = Int16.Parse(b.Tag.ToString());
                  var h = app.GetHostById(id);
-                //Window parent = (Window)this.Parent;
+               
 
-                Window yourParentWindow = Window.GetWindow(this);
-                yourParentWindow.Close();
-                EditHost hostPage = new EditHost(this.app, h);
-                hostPage.ShowDialog();
+                //Window yourParentWindow = Window.GetWindow(this);
+                //yourParentWindow.Close();
+               // Pages.HostList hostListPage = new Pages.HostList();
+               // MainNavigate(hostListPage);
+                Pages.EditHost hostPage = new Pages.EditHost( h);
+                MainNavigate(hostPage);
+                //hostPage.ShowDialog();
                
 
             }

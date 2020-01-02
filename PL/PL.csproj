@@ -72,6 +72,7 @@
     <Compile Include="Controls\HostingUnitCtrl.xaml.cs">
       <DependentUpon>HostingUnitCtrl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UserControlBase.cs" />
     <Compile Include="EditGuestRequest.xaml.cs">
       <DependentUpon>EditGuestRequest.xaml</DependentUpon>
     </Compile>
@@ -132,6 +133,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\EditHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\HostList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +147,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\EditHost.xaml.cs">
+      <DependentUpon>EditHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HostList.xaml.cs">
       <DependentUpon>HostList.xaml</DependentUpon>
     </Compile>
@@ -207,6 +215,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resource\GRLogo.PNG" />
     <Content Include="Resource\icons8-delete-40.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
