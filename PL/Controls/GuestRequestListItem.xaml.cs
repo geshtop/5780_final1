@@ -22,12 +22,12 @@ namespace PL.Controls
     /// </summary>
     public partial class GuestRequestListItem : UserControl
     {
-        public AppLogic app { get; set; }
+        IAppLogic app;
         public GuestRequest CurrGuestRequest { get; set; }
         public List<RelatedHosting> relatedHosting { get; set; }
       
         public int OwnerId { get; set; }
-        public GuestRequestListItem(GuestRequest _CurrGuestRequest,  AppLogic _app, int _OwnerId)
+        public GuestRequestListItem(GuestRequest _CurrGuestRequest, IAppLogic _app, int _OwnerId)
         {
             this.app = _app;
             this.CurrGuestRequest = _CurrGuestRequest;

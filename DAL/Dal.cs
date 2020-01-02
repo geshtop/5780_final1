@@ -8,7 +8,7 @@ using DS;
 
 namespace DAL
 {
-    public class Dal_imp : Idal
+    public class Dal : DAL.IDal 
     {
         private List<Host> _HostsList;
         private List<Host> HostsList

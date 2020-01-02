@@ -22,11 +22,11 @@ namespace PL.Controls
     /// </summary>
     public partial class BankBranchSelector : UserControl
     {
-        private AppLogic app { get; set; }
+        private IAppLogic app { get; set; }
         public Host CurrHost { get; set; }
         public List<Bank> BankList { get; set; }
         public List<Bank> BranchList { get; set; }
-        public BankBranchSelector(AppLogic _app, Host _CurrHost)
+        public BankBranchSelector(IAppLogic _app, Host _CurrHost)
         {
             this.app = _app;
             this.CurrHost = _CurrHost;

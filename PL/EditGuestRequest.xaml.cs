@@ -21,13 +21,13 @@ namespace PL
     /// </summary>
     public partial class EditGuestRequest : Window
     {
-        private AppLogic app { get; set; }
+        IAppLogic app;
         public GuestRequest CurrRequest { get; set; }
         public List<string> PhonePreList { get; set; }
-        public EditGuestRequest(AppLogic _app)
+        public EditGuestRequest(IAppLogic _app)
         {
             CurrRequest = new GuestRequest();
-            this.app = _app;
+            
             PhonePreList = app.GetPrePhones();
             InitializeComponent();
             GuestRequestGrid.DataContext = CurrRequest;

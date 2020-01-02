@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
+using Ninject;
 namespace PL
 {
     /// <summary>
@@ -14,10 +14,16 @@ namespace PL
     /// </summary>
     public partial class App : Application
     {
-        public App()
+        protected override void OnStartup(StartupEventArgs e)
         {
-            this.app = new AppLogic();
+            base.OnStartup(e);
+
+            IoC.Setup();
+
+
+            var _app = IoC.Kernel.Get<IAppLogic>();
+            Current.MainWindow = new MainWindow(_app);
+            Current.MainWindow.Show();
         }
-        public AppLogic app { get; set; }
     }
 }

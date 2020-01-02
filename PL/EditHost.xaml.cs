@@ -22,10 +22,10 @@ namespace PL
     /// </summary>
     public partial class EditHost : Window
     {
-        private  AppLogic app  { get; set; }
+        IAppLogic app;
         public Host CurrHost { get; set; }
         public List<string> PhonePreList { get; set; }
-        public EditHost(AppLogic _app, Host _curr)
+        public EditHost(IAppLogic _app, Host _curr)
         {
            
             this.app = _app;

@@ -23,8 +23,8 @@ namespace PL.Controls
     public partial class UnitHost : UserControl
     {
         public Host CurrHost { get; set; }
-        private AppLogic app { get; set; }
-        public UnitHost(Host _CurrHost, AppLogic _app)
+        private IAppLogic app { get; set; }
+        public UnitHost(Host _CurrHost, IAppLogic _app)
         {
             this.app = _app;
             this.CurrHost = _CurrHost;
@@ -63,7 +63,7 @@ namespace PL.Controls
 
                 Window yourParentWindow = Window.GetWindow(this);
                 yourParentWindow.Close();
-                EditHost hostPage = new EditHost(this.app, h );
+                EditHost hostPage = new EditHost(this.app, h);
                 hostPage.ShowDialog();
                
 

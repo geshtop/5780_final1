@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public class AppLogic
+    public class AppLogic : BL.IAppLogic
     {
-        private Dal_imp dal { get; set; }
-        public AppLogic()
+
+        private IDal dal { get; set; }
+        public AppLogic(IDal _dal)
         {
-            dal = new Dal_imp();
+            dal = _dal;
         }
 
 

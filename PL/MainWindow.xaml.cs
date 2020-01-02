@@ -23,12 +23,13 @@ namespace PL
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AppLogic app { get; set; }
+        IAppLogic app;
         public int CurrOwner { get; set; }
         public List<Host> HostList { get; set; }
-        public MainWindow()
+        public MainWindow(IAppLogic _app)
         {
-            this.app = new AppLogic();
+
+            this.app = _app;
             HostList = app.GetAllHosts();
           
            

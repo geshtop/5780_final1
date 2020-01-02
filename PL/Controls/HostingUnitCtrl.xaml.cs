@@ -24,8 +24,8 @@ namespace PL.Controls
     {
 
         public HostingUnit CurrHostingUnit { get; set; }
-        private AppLogic app { get; set; }
-        public UnitHostingCtrl(HostingUnit _CurrHostingUnit, AppLogic _app)
+        private IAppLogic app { get; set; }
+        public UnitHostingCtrl(HostingUnit _CurrHostingUnit, IAppLogic _app)
         {
             this.app = _app;
             this.CurrHostingUnit = _CurrHostingUnit;

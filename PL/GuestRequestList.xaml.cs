@@ -22,10 +22,10 @@ namespace PL
     /// </summary>
     public partial class GuestRequestList : Window
     {
-        public AppLogic app { get; set; }
+        IAppLogic app;
         public int OwnerId { get; set; }
         public List<GuestRequest> RequestsList { get; set; }
-        public GuestRequestList( AppLogic _app, int _OwnerId)
+        public GuestRequestList(IAppLogic _app, int _OwnerId)
         {
             this.app = _app;
             this.OwnerId = _OwnerId;

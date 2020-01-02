@@ -23,8 +23,8 @@ namespace PL.Controls
     public partial class HostingUnitList : UserControl
     {
         public List<HostingUnit> list { get; set; }
-        private AppLogic app { get; set; }
-        public HostingUnitList(List<HostingUnit> _list, AppLogic _app)
+        private IAppLogic app { get; set; }
+        public HostingUnitList(List<HostingUnit> _list, IAppLogic _app)
         {
             this.app = _app;
             this.list = _list;

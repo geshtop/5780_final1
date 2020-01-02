@@ -1,28 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE;
-
 namespace DAL
 {
-    public interface Idal
+   public interface IDal
     {
-        void AddGusetRequest(GuestRequest guestRequest);
-        void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status);
-
-        void AddHostingUnit(HostingUnit hostingUnit);
-        void DeleteHostingUnit(HostingUnit hostingUnit);
-        void UpdatingHostingUnit( HostingUnit hostingUnit, Enums.HosignUnitStatus status);
-
-        void AddOrder(Order order);
-        void UpdatingOrder(Order order,Enums.OrderStatus status);
-
-        List<HostingUnit> GetHostingUnits(Func<HostingUnit, bool> predicate = null);
-        List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate);
-        List<Order> GetOrders(Func<Order, bool> predicate);
-
-        List<BankBranch> GetBankBranches(Func<BankBranch, bool> predicate);
+        void AddGusetRequest(BE.GuestRequest guestRequest);
+        void AddHost(BE.Host host);
+        void AddHostingUnit(BE.HostingUnit hostingUnit);
+        void AddOrder(BE.Order order);
+        void DeleteHost(int Id);
+        void DeleteHostingUnit(BE.HostingUnit hostingUnit);
+        System.Collections.Generic.List<BE.Host> GetAllHosts(Func<BE.Host, bool> predicate = null);
+        System.Collections.Generic.List<BE.BankBranch> GetBankAccounts(Func<BE.BankBranch, bool> predicate);
+        System.Collections.Generic.List<BE.BankBranch> GetBankBranches(Func<BE.BankBranch, bool> predicate);
+        System.Collections.Generic.List<BE.BankBranch> GetBankBranchesByBank(int BankNumber);
+        System.Collections.Generic.List<BE.Bank> GetBanksList();
+        System.Collections.Generic.List<BE.GuestRequest> GetGuestRequests(Func<BE.GuestRequest, bool> predicate = null);
+        BE.Host GetHostById(int Id);
+        BE.HostingUnit GetHostingUnitById(int stSerialKey);
+        System.Collections.Generic.List<BE.HostingUnit> GetHostingUnits(Func<BE.HostingUnit, bool> predicate = null);
+        System.Collections.Generic.List<BE.Order> GetOrders(Func<BE.Order, bool> predicate = null);
+        System.Collections.Generic.List<string> GetPrePhones();
+        void UpdateHost(BE.Host host);
+        void UpdatingGusetRequest(BE.GuestRequest guestRequest, BE.Enums.GuestRequestStatus status);
+        void UpdatingHostingUnit(BE.HostingUnit hostingUnit, BE.Enums.HosignUnitStatus status);
+        void UpdatingOrder(BE.Order order, BE.Enums.OrderStatus status);
     }
 }

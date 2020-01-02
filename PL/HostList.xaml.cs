@@ -22,9 +22,10 @@ namespace PL
     /// </summary>
     public partial class HostList : Window
     {
-        private AppLogic app { get; set; }
+
+        IAppLogic app;
         public List<Host> HostsList { get; set; }
-        public HostList(AppLogic _app)
+        public HostList(IAppLogic _app)
         {
             this.app = _app;
             HostsList = app.GetAllHosts();
