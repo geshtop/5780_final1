@@ -21,18 +21,13 @@ namespace PL.Pages
     /// </summary>
     public partial class Main : PageBase
     {
-         public int CurrOwner { get; set; }
+         
         public List<Host> HostList { get; set; }
         public Main()
         {
             HostList = app.GetAllHosts();
             InitializeComponent();
 
-            if (HostList.Count > 0)
-            {
-                CurrOwner = HostList[0].Id;
-
-            }
 
             CbHosts.ItemsSource = HostList;
             CbHosts.DisplayMemberPath = "FullName";
@@ -50,9 +45,9 @@ namespace PL.Pages
         {
 
             HostList hostListPage = new HostList();
-            CurrentWindow.MainFrame.Content = hostListPage;
-            //this.Content = hostListPage;
-            // hostListPage.ShowDialog();
+          
+            MainNavigate(hostListPage);
+          
            
         }
 
@@ -61,21 +56,23 @@ namespace PL.Pages
         private void AddReqest_Click(object sender, RoutedEventArgs e)
         {
             //check your logic
-            EditGuestRequest requestPage = new EditGuestRequest(this.app);
-            requestPage.ShowDialog();
+            EditGuestRequest requestPage = new EditGuestRequest();
+            MainNavigate(requestPage);
           
         }
 
         private void GeustListButton_Click(object sender, RoutedEventArgs e)
         {
-            GuestRequestList requestList = new GuestRequestList(app, int.Parse(CbHosts.SelectedValue.ToString()));
-            requestList.ShowDialog();
+            GuestRequestList requestList = new GuestRequestList();
+            MainNavigate(requestList);
+           
         }
 
         private void CbHosts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (int.Parse(CbHosts.SelectedValue.ToString()) > 0)
             {
+                OwnerId = int.Parse(CbHosts.SelectedValue.ToString());
                 GeustListButton.Visibility =  System.Windows.Visibility.Visible;
             }
         }

@@ -6,12 +6,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using Ninject;
+using BE;
 
 namespace PL.Pages
 {
     public class PageBase : Page
     {
         protected IAppLogic app;
+
+        public Enums.Auth Auth
+        {
+            get
+            {
+                return CurrentWindow.Auth;
+            }
+            set
+            {
+                CurrentWindow.Auth = value;
+            }
+        }
+
+        public int OwnerId {
+
+            get
+            {
+                return CurrentWindow.OwnerId;
+            }
+            set
+            {
+                CurrentWindow.OwnerId = value;
+            }
+        }
+
+
         public  MainWindow CurrentWindow{
             get{
                 return (App.Current.MainWindow as MainWindow);
@@ -31,8 +58,12 @@ namespace PL.Pages
         }
 
         public void BackToMain(){
-
+            Pages.Main main = new Pages.Main();
+            MainNavigate(main);
+          
         }
+
+
        
     }
 }

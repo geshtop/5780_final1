@@ -30,8 +30,18 @@ namespace PL
             InitializeComponent();
 
             ToHome();
+            Auth = Enums.Auth.Guest;
+            OwnerId = 0;
            
         }
+
+        public Enums.Auth Auth
+        {
+            get;
+            set;
+        }
+
+        public int OwnerId { get; set; }
 
         private void ExitApp_Click(object sender, RoutedEventArgs e)
         {
@@ -50,6 +60,15 @@ namespace PL
 
 
         }
+        private void AddReqest_Click(object sender, RoutedEventArgs e)
+        {
+            //check your logic
+            Pages.EditGuestRequest requestPage = new Pages.EditGuestRequest();
+            MainFrame.Content = requestPage;
+            
+
+        }
+         
 
         private void ManageHosts_Click(object sender, RoutedEventArgs e)
         {
@@ -69,7 +88,23 @@ namespace PL
 
 
         }
+        private void RequestList_Click(object sender, RoutedEventArgs e)
+        {
+            if(OwnerId > 0){
+                Pages.GuestRequestList requestList = new Pages.GuestRequestList();
+                MainFrame.Content = requestList;
+
+            }
+            else
+            {
+                MessageBox.Show("יש לבחור מארח ");
+            }
+        }
       
+        public  System.Windows.Visibility getVisible(){
+             return System.Windows.Visibility.Hidden;
+
+         }
 
        
     }

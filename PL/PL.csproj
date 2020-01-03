@@ -79,12 +79,6 @@
       <DependentUpon>HostingUnitCtrl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\UserControlBase.cs" />
-    <Compile Include="EditGuestRequest.xaml.cs">
-      <DependentUpon>EditGuestRequest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="GuestRequestList.xaml.cs">
-      <DependentUpon>GuestRequestList.xaml</DependentUpon>
-    </Compile>
     <Page Include="Controls\BankBranchSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,14 +99,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditGuestRequest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GuestRequestList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,7 +111,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\EditGuestRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EditHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GuestRequestList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,8 +133,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\EditGuestRequest.xaml.cs">
+      <DependentUpon>EditGuestRequest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EditHost.xaml.cs">
       <DependentUpon>EditHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GuestRequestList.xaml.cs">
+      <DependentUpon>GuestRequestList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HostList.xaml.cs">
       <DependentUpon>HostList.xaml</DependentUpon>

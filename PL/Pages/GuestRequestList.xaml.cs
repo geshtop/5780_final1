@@ -1,5 +1,4 @@
 ﻿using BE;
-using BL;
 using PL.Controls;
 using System;
 using System.Collections.Generic;
@@ -13,22 +12,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PL
+namespace PL.Pages
 {
     /// <summary>
     /// Interaction logic for GuestRequestList.xaml
     /// </summary>
-    public partial class GuestRequestList : Window
+    public partial class GuestRequestList : PageBase
     {
-        IAppLogic app;
-        public int OwnerId { get; set; }
+      
+
+     
         public List<GuestRequest> RequestsList { get; set; }
-        public GuestRequestList(IAppLogic _app, int _OwnerId)
+        public GuestRequestList()
         {
-            this.app = _app;
-            this.OwnerId = _OwnerId;
+
             RequestsList = app.GetGuestRequests(c => c.Status == Enums.GuestRequestStatus.Opened || c.Status == Enums.GuestRequestStatus.InProccess);
             InitializeComponent();
             FillGrid();
@@ -40,18 +40,11 @@ namespace PL
             GuestRequestListGrid.DataContext = RequestsList;
             for (int i = 0; i < RequestsList.Count; i++)
             {
-                GuestRequestListItem reqCtrl = new GuestRequestListItem( RequestsList[i], app, OwnerId);
+                GuestRequestListItem reqCtrl = new GuestRequestListItem(RequestsList[i]);
                 GuestRequestListGrid.Children.Add(reqCtrl);
                 GuestRequestListGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(185) });
-                Grid.SetRow(reqCtrl, i + 1);
+                Grid.SetRow(reqCtrl, i);
             }
-        }
-
-        private void BackToMain_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-            //(App.Current.MainWindow as MainWindow).Show();
-
         }
 
     }

@@ -20,18 +20,18 @@ namespace PL.Controls
     /// <summary>
     /// Interaction logic for GuestRequestListItem.xaml
     /// </summary>
-    public partial class GuestRequestListItem : UserControl
+    public partial class GuestRequestListItem : UserControlBase
     {
-        IAppLogic app;
+
         public GuestRequest CurrGuestRequest { get; set; }
         public List<RelatedHosting> relatedHosting { get; set; }
       
-        public int OwnerId { get; set; }
-        public GuestRequestListItem(GuestRequest _CurrGuestRequest, IAppLogic _app, int _OwnerId)
+        
+        public GuestRequestListItem(GuestRequest _CurrGuestRequest)
         {
-            this.app = _app;
+          
             this.CurrGuestRequest = _CurrGuestRequest;
-            this.OwnerId = _OwnerId;
+         
             relatedHosting = app.GetRelevantHostingByRequest(CurrGuestRequest, OwnerId);
             InitializeComponent();
             GuestGrid.DataContext = CurrGuestRequest;
@@ -39,9 +39,7 @@ namespace PL.Controls
 
             lvUsers.ItemsSource = relatedHosting;
 
-            CBRelatedHostings.ItemsSource = relatedHosting;
-            CBRelatedHostings.DisplayMemberPath = "HostingUnitName";
-            CBRelatedHostings.SelectedValuePath = "stSerialKey";
+           
 
         }
 
@@ -50,13 +48,7 @@ namespace PL.Controls
            
         }
 
-        private void CBRelatedHostings_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (int.Parse(CBRelatedHostings.SelectedValue.ToString()) > 0)
-            {
-                CreateOrder.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
+       
 
         private void CreateOrder_Click(object sender, RoutedEventArgs e)
         {
@@ -73,6 +65,9 @@ namespace PL.Controls
                 string mess = "";
                 switch (state)
                 {
+                    case Enums.OrderCreateStatus.MissingCollectionClearance:
+                        mess = "יש לאשר חיוב חשבון לפני שליחת הזמנה";
+                        break;
                     case Enums.OrderCreateStatus.Success:
                         mess = "המייל נשלח בהצלחה";
                         break;
@@ -116,11 +111,9 @@ namespace PL.Controls
 
         private void RefreshWindow()
         {
-            Window yourParentWindow = Window.GetWindow(this);
-            yourParentWindow.Close();
-            GuestRequestList requestList = new GuestRequestList(app, OwnerId);
 
-            requestList.ShowDialog();
+            Pages.GuestRequestList requestList = new Pages.GuestRequestList();
+            MainNavigate(requestList);
         }
     }
 }

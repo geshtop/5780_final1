@@ -85,5 +85,12 @@ namespace BE
             MissingCollectionClearance = 3
 
         }
+
+        public enum Auth
+        {
+            Guest = 0,
+            Host = 1,
+            Admin =2
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using BE;
-using BL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,23 +11,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PL
+namespace PL.Pages
 {
     /// <summary>
     /// Interaction logic for EditGuestRequest.xaml
     /// </summary>
-    public partial class EditGuestRequest : Window
+    public partial class EditGuestRequest : PageBase
     {
-        IAppLogic app;
         public GuestRequest CurrRequest { get; set; }
         public List<string> PhonePreList { get; set; }
-        public EditGuestRequest(IAppLogic _app)
+        public EditGuestRequest()
         {
-            this.app = _app;
+           
             CurrRequest = new GuestRequest();
-            
+
             PhonePreList = app.GetPrePhones();
             InitializeComponent();
             GuestRequestGrid.DataContext = CurrRequest;
@@ -73,29 +72,12 @@ namespace PL
             {
 
                 MessageBox.Show("תודה רבה, בקשתך נקלטה במערכת", "הודעת מערכת");
-                BackToList();
+                BackToMain();
+                
             }
 
 
         }
-
-
-        private void BackToList_Click(object sender, RoutedEventArgs e)
-        {
-
-
-            BackToList();
-
-        }
-
-
-
-        private void BackToList()
-        {
-            this.Close();
-           // HostList hostListPage = new HostList(this.app);
-           // hostListPage.ShowDialog();
-
-        }
+       
     }
 }

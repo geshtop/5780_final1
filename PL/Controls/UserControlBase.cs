@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using Ninject;
+using BE;
 
 namespace PL.Controls
 {
@@ -29,6 +30,31 @@ namespace PL.Controls
                 this.app = _app;
             }
            
+        }
+
+        public Enums.Auth Auth
+        {
+            get
+            {
+                return CurrentWindow.Auth;
+            }
+            set
+            {
+                CurrentWindow.Auth = value;
+            }
+        }
+
+        public int OwnerId
+        {
+
+            get
+            {
+                return CurrentWindow.OwnerId;
+            }
+            set
+            {
+                CurrentWindow.OwnerId = value;
+            }
         }
 
         public void MainNavigate(Pages.PageBase p)
