@@ -63,7 +63,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BaseWindow.cs" />
     <Compile Include="Controls\BankBranchSelector.xaml.cs">
       <DependentUpon>BankBranchSelector.xaml</DependentUpon>
     </Compile>
@@ -83,14 +82,8 @@
     <Compile Include="EditGuestRequest.xaml.cs">
       <DependentUpon>EditGuestRequest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditHost.xaml.cs">
-      <DependentUpon>EditHost.xaml</DependentUpon>
-    </Compile>
     <Compile Include="GuestRequestList.xaml.cs">
       <DependentUpon>GuestRequestList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HostList.xaml.cs">
-      <DependentUpon>HostList.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\BankBranchSelector.xaml">
       <SubType>Designer</SubType>
@@ -116,15 +109,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditHost.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="GuestRequestList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HostList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

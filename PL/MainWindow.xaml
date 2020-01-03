@@ -12,21 +12,35 @@
          TextOptions.TextRenderingMode="Auto"
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        
         >
-    <Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <StackPanel>
+    <Grid Height="100">
+        <StackPanel HorizontalAlignment="Right" Margin="20 0">
+                <Image HorizontalAlignment="Center" Height="80" VerticalAlignment="Top" Width="119"   Source="/Resource/GRLogo.png" />
+                <Label Content="עושים נופש לנופש"  HorizontalAlignment="Left"  VerticalAlignment="Top" Height="29" Width="147"/>
+
+            </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20 0">
+                <Button Content="ראשי" Click="Home_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
+                <Button Content="ניהול מארחים" Click="ManageHosts_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
+                <Button Content="הוספת מארח" Click="AddHost_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
+            <!--
+            <Button Content="MY ACCOUNT" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>-->
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Click="ExitApp_Click">
+                <materialDesign:PackIcon Kind="Power" Foreground="#FFA2A2A2" Width="25" Height="25" />
+            </Button>
+        </StackPanel>
+    </Grid>
+    <Grid Height="600" >
+       
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="800" />
             <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
-        <Frame Name="MainFrame" HorizontalAlignment="Left" Height="590" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="800"/>
-
-        <Frame Name="SideFrame" HorizontalAlignment="Left" Height="523" Margin="10,0,0,64" VerticalAlignment="Bottom" Width="172" Grid.Row="1" Grid.Column="1"/>
-        <Button Name="ExitApp" Content="יציאה" Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="10,538,0,0" Grid.Row="1" VerticalAlignment="Top" Width="172" Click="ExitApp_Click"/>
-        <Image Grid.Column="1" HorizontalAlignment="Center" Height="80" VerticalAlignment="Top" Width="119" Margin="23,0,58,0"  Source="/Resource/GRLogo.png" />
-        <Label Content="עושים נופש לנופש" Grid.Column="1" HorizontalAlignment="Left" Margin="23,71,0,0" VerticalAlignment="Top" Height="29" Width="147"/>
+            <Frame Name="MainFrame"  NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="590" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="800"/>
+            <Frame Name="SideFrame"  NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="523" Margin="10,0,0,64" VerticalAlignment="Bottom" Width="172" Grid.Row="1" Grid.Column="1"/>
     </Grid>
+    </StackPanel>
 </Window>

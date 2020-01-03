@@ -50,15 +50,7 @@ namespace PL.Pages
             }
         }
 
-        private void AddHost_Click(object sender, RoutedEventArgs e)
-        {
-            
-            EditHost hostPage = new EditHost(new Host());
-            MainNavigate(hostPage); ;
-
-           
-
-        }
+      
 
         private void BackToMain_Click(object sender, RoutedEventArgs e)
         {

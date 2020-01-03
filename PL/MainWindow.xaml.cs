@@ -1,5 +1,6 @@
 ﻿using BE;
 using BL;
+using PL.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +28,8 @@ namespace PL
         public MainWindow()
         {
             InitializeComponent();
-            Pages.Main main = new Pages.Main();
-            MainFrame.Content = main;
 
+            ToHome();
            
         }
 
@@ -38,6 +38,37 @@ namespace PL
             this.Close();
         }
 
+        private void ToHome()
+        {
+            Pages.Main main = new Pages.Main();
+            MainFrame.Content = main;
+        }
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+
+            ToHome();
+
+
+        }
+
+        private void ManageHosts_Click(object sender, RoutedEventArgs e)
+        {
+
+            HostList hostListPage = new HostList();
+            MainFrame.Content = hostListPage;
+           
+
+        }
+
+        private void AddHost_Click(object sender, RoutedEventArgs e)
+        {
+
+            EditHost hostPage = new EditHost(new Host());
+            MainFrame.Content = hostPage;
+
+
+
+        }
       
 
        

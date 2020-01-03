@@ -18,10 +18,17 @@ namespace PL.Controls
             }
         }
 
+         
+
         public UserControlBase()
         {
-            var _app = IoC.Kernel.Get<IAppLogic>();
-            this.app = _app;
+            if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+            {
+                //code producing exception  
+                var _app = IoC.Kernel.Get<IAppLogic>();
+                this.app = _app;
+            }
+           
         }
 
         public void MainNavigate(Pages.PageBase p)

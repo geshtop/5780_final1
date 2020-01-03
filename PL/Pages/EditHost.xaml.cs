@@ -39,10 +39,10 @@ namespace PL.Pages
             }
             else //מדובר על רשומה חדשה
             {
-
+                UnitHostButton.Visibility = System.Windows.Visibility.Hidden;
             }
 
-            BankBranchSelector bs = new BankBranchSelector(app, CurrHost);
+            BankBranchSelector bs = new BankBranchSelector( CurrHost);
             hostEditGrid.Children.Add(bs);
             bs.Margin = new Thickness(10, 15, 0, 0);
             Grid.SetColumn(bs, 1);
@@ -103,22 +103,41 @@ namespace PL.Pages
         }
 
 
-        private void BackToList_Click(object sender, RoutedEventArgs e)
+        private void ShowPanel_Click(object sender, RoutedEventArgs e)
         {
 
 
-            BackToList();
+            int index = int.Parse(((Button)e.Source).Uid);
 
+            GridCursor.Margin = new Thickness(10 + (150 * index), 0, 0, 0);
+
+            switch(index)
+            {
+                case 0:
+                    hostEditGrid.Visibility = System.Windows.Visibility.Visible;
+                    hostingList.Visibility = System.Windows.Visibility.Hidden;
+                    break;
+                case 1:
+                    hostEditGrid.Visibility = System.Windows.Visibility.Hidden;
+                    hostingList.Visibility = System.Windows.Visibility.Visible;
+                    break;
+                case 2:
+                    BackToList();
+                    break;
+               
+            }
         }
+
+        
 
 
 
         private void BackToList()
         {
-           
+
+
             Pages.HostList hostListPage = new Pages.HostList();
             MainNavigate(hostListPage);
-           
 
         }
     }

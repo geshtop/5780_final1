@@ -20,15 +20,15 @@ namespace PL.Controls
     /// <summary>
     /// Interaction logic for BankBranchSelector.xaml
     /// </summary>
-    public partial class BankBranchSelector : UserControl
+    public partial class BankBranchSelector : UserControlBase
     {
-        private IAppLogic app { get; set; }
+        
         public Host CurrHost { get; set; }
         public List<Bank> BankList { get; set; }
         public List<Bank> BranchList { get; set; }
-        public BankBranchSelector(IAppLogic _app, Host _CurrHost)
+        public BankBranchSelector( Host _CurrHost)
         {
-            this.app = _app;
+           
             this.CurrHost = _CurrHost;
             BankList = this.app.GetBanksList();
             InitializeComponent();

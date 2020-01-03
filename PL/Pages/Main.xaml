@@ -1,9 +1,15 @@
-﻿<local:PageBase x:Class="PL.Pages.Main" FlowDirection="RightToLeft" 
-       xmlns:local="clr-namespace:PL.Pages"
+﻿<page:PageBase x:Class="PL.Pages.Main" FlowDirection="RightToLeft" 
+       xmlns:page="clr-namespace:PL.Pages"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                 TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
       mc:Ignorable="d" 
         FontSize="16"
       d:DesignHeight="600" d:DesignWidth="800"
@@ -17,10 +23,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="800" />
         </Grid.ColumnDefinitions>
-        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="162" Margin="20,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="744"/>
+        <Rectangle Grid.Row="1"  HorizontalAlignment="Left" Height="162" Margin="20,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="744"/>
         <Button Grid.Row="1" Content="ניהול מארחים" HorizontalAlignment="Left" Height="37" Margin="562,47,0,0" VerticalAlignment="Top" Width="192" Click="ManageHosts_Click"/>
-        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="162" Margin="20,177,0,0" Stroke="Black" VerticalAlignment="Top" Width="744"/>
-        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="162" Margin="20,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="744"/>
+        <Rectangle Grid.Row="1"  HorizontalAlignment="Left" Height="162" Margin="20,177,0,0" Stroke="Black" VerticalAlignment="Top" Width="744"/>
+        <Rectangle Grid.Row="1"  HorizontalAlignment="Left" Height="162" Margin="20,344,0,0" Stroke="Black" VerticalAlignment="Top" Width="744"/>
         <Label Grid.Row="1" Content="מנהל האתר" HorizontalAlignment="Left" Height="51" Margin="44,26,0,0" VerticalAlignment="Top" Width="176"/>
         <Label Grid.Row="1" Content="מארח" HorizontalAlignment="Left" Height="49" Margin="41,196,0,0" VerticalAlignment="Top" Width="179"/>
         <Label Grid.Row="1" Content="משתמש קצה" HorizontalAlignment="Left" Height="43" Margin="41,372,0,0" VerticalAlignment="Top" Width="167"/>
@@ -30,4 +36,4 @@
         <Button Grid.Row="1" Content="מקובץ לפי אזור" Name="RequestByArea" HorizontalAlignment="Left" Height="37" Margin="348,47,0,0" VerticalAlignment="Top" Width="175" Click="RequestByArea_Click"/>
 
     </Grid>
-</local:PageBase>
+</page:PageBase>

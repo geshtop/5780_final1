@@ -54,9 +54,7 @@ C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitList.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.baml
 C:\lev\project\5780_final1\PL\obj\Debug\EditGuestRequest.baml
-C:\lev\project\5780_final1\PL\obj\Debug\EditHost.baml
 C:\lev\project\5780_final1\PL\obj\Debug\GuestRequestList.baml
-C:\lev\project\5780_final1\PL\obj\Debug\HostList.baml
 C:\lev\project\5780_final1\PL\obj\Debug\MainWindow.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\BankBranchSelector.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\GuestRequestListItem.g.cs
@@ -64,9 +62,7 @@ C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitList.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\UnitHostCtrl.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Controls\HostingUnitCtrl.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\EditGuestRequest.g.cs
-C:\lev\project\5780_final1\PL\obj\Debug\EditHost.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\GuestRequestList.g.cs
-C:\lev\project\5780_final1\PL\obj\Debug\HostList.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\MainWindow.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\App.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\PL_Content.g.cs
