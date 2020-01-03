@@ -101,3 +101,9 @@ C:\lev\project\5780_final1\PL\obj\Debug\Pages\Main.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Pages\Main.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Pages\EditHost.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Pages\EditHost.g.cs
+C:\lev\project\5780_final1\PL\bin\Debug\MaterialDesignColors.dll
+C:\lev\project\5780_final1\PL\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\lev\project\5780_final1\PL\bin\Debug\MaterialDesignColors.pdb
+C:\lev\project\5780_final1\PL\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\lev\project\5780_final1\PL\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\lev\project\5780_final1\PL\obj\Debug\App.baml
