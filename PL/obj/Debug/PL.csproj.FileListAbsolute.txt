@@ -103,3 +103,5 @@ C:\lev\project\5780_final1\PL\obj\Debug\Pages\GuestRequestList.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Pages\GuestRequestList.baml
 C:\lev\project\5780_final1\PL\obj\Debug\Pages\EditGuestRequest.g.cs
 C:\lev\project\5780_final1\PL\obj\Debug\Pages\EditGuestRequest.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Pages\Login.baml
+C:\lev\project\5780_final1\PL\obj\Debug\Pages\Login.g.cs

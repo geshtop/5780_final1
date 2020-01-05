@@ -36,14 +36,14 @@
             </Button>
         </StackPanel>
     </Grid>
-    <Grid Height="600" >
+    <Grid Height="600" VerticalAlignment="Top" >
        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="800" />
             <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
-            <Frame Name="MainFrame"  NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="590" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="800"/>
-            <Frame Name="SideFrame"  NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="523" Margin="10,0,0,64" VerticalAlignment="Bottom" Width="172" Grid.Row="1" Grid.Column="1"/>
+            <Frame Name="MainFrame" VerticalAlignment="Top"  NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="590" Margin="0,0,0,0" Grid.Row="1"  Width="800"/>
+            <Frame Name="SideFrame" VerticalAlignment="Top"   NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="523" Margin="10,0,0,64"  Width="172" Grid.Row="1" Grid.Column="1"/>
     </Grid>
     </StackPanel>
 </Window>

@@ -30,6 +30,7 @@ namespace PL
             InitializeComponent();
 
             ToHome();
+            BuildSide();
             Auth = Enums.Auth.Guest;
             OwnerId = 0;
            
@@ -52,6 +53,12 @@ namespace PL
         {
             Pages.Main main = new Pages.Main();
             MainFrame.Content = main;
+        }
+
+        private void BuildSide()
+        {
+            Login login = new Login();
+            SideFrame.Content = login;
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {

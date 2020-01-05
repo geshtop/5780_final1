@@ -19,6 +19,7 @@ namespace BE
         public string PhonePre { get; set; }
         public string PhoneExt { get; set; }
         public string MailAddress { get; set; }
+        public string Password { get; set; }
         public string Phone
         {
             get
