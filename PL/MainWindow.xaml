@@ -43,7 +43,7 @@
             <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
             <Frame Name="MainFrame" VerticalAlignment="Top"  NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="590" Margin="0,0,0,0" Grid.Row="1"  Width="800"/>
-            <Frame Name="SideFrame" VerticalAlignment="Top"   NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="523" Margin="10,0,0,64"  Width="172" Grid.Row="1" Grid.Column="1"/>
+            <Frame Name="SideFrame" VerticalAlignment="Top"   NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="523" Margin="0"  Width="200" Grid.Row="1" Grid.Column="1"/>
     </Grid>
     </StackPanel>
 </Window>

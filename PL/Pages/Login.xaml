@@ -13,15 +13,16 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
       mc:Ignorable="d" 
         FontSize="16"
-      d:DesignHeight="300" d:DesignWidth="172"
+      d:DesignHeight="300" d:DesignWidth="200"
 	Title="Login">
 
     <Grid>
+        <materialDesign:Card Padding="12" Margin="12">
+               
 
         <!-- Main content scroll -->
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <StackPanel 
-                    VerticalAlignment="Center"
+           <StackPanel 
+                    VerticalAlignment="Top"
                     HorizontalAlignment="Center"
                     TextBlock.TextAlignment="Center">
 
@@ -53,6 +54,7 @@
                
 
             </StackPanel>
-        </ScrollViewer>
+        
+                        </materialDesign:Card>
     </Grid>
 </page:PageBase>
