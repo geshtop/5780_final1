@@ -18,11 +18,16 @@ namespace PL.Pages
     /// <summary>
     /// Interaction logic for form.xaml
     /// </summary>
-    public partial class form : Page
+    public partial class OrderByRequest : PageBase
     {
-        public form()
+        public OrderByRequest()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //app.NumDays();
         }
     }
 }

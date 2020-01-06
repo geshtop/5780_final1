@@ -126,7 +126,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\form.xaml">
+    <Page Include="Pages\OrderByRequest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,8 +157,8 @@
     <Compile Include="Pages\EditHost.xaml.cs">
       <DependentUpon>EditHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\form.xaml.cs">
-      <DependentUpon>form.xaml</DependentUpon>
+    <Compile Include="Pages\OrderByRequest.xaml.cs">
+      <DependentUpon>OrderByRequest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\GuestRequestList.xaml.cs">
       <DependentUpon>GuestRequestList.xaml</DependentUpon>

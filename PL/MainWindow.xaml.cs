@@ -115,7 +115,8 @@ namespace PL
         }
         private void Reports_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("בפיתוח");
+            OrderByRequest reportPage = new OrderByRequest();
+            MainFrame.Content = reportPage;
         }
         private void AddReqest_Click(object sender, RoutedEventArgs e)
         {

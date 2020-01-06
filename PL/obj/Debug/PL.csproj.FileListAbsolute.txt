@@ -5,8 +5,6 @@ C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\Resource\icons8-plus-40.png
 C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\PL.exe.config
 C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\PL.exe
 C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\PL.pdb
-C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\Autofac.dll
-C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\Autofac.pdb
 C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\MaterialDesignColors.dll
 C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\MaterialDesignColors.pdb
 C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\MaterialDesignThemes.Wpf.dll
@@ -60,4 +58,7 @@ C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.csproj.CoreCompileInputs.cac
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.csproj.CopyComplete
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.exe
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.pdb
-C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Pages\form.g.cs
+C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\rivki\projects\YearB\5780_final1\PL\bin\Debug\Ninject.xml
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Pages\OrderByRequest.g.cs
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Pages\OrderByRequest.baml

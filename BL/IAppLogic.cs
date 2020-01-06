@@ -23,7 +23,7 @@ namespace BL
         System.Collections.Generic.List<string> GetPrePhones();
         System.Collections.Generic.List<BE.RelatedHosting> GetRelevantHostingByRequest(BE.GuestRequest guestRequest, int OwnerId = 0);
         System.Collections.Generic.List<BE.HostingUnit> HostingUnitList(DateTime time, int numDay);
-        int NumDays(DateTime start, DateTime? end = null);
+        int NumDays(DateTime start, DateTime end);
         System.Collections.Generic.List<BE.Order> OrderFromTime(int numDay);
         int Orders(BE.GuestRequest guestRequest);
         int Orders(BE.HostingUnit hostingUnit);
