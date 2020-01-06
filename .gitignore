@@ -5,6 +5,13 @@
 *.sln.docstates
 
 # Build results
+ *.pdb 
+*.bak 
+*.dll
+*.lib 
+packages/ 
+*/bin/
+*/obj/ 
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
