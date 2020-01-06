@@ -364,8 +364,7 @@ namespace BL
        
 
         #endregion
-
-
+        
 
         #region Order
          public void AddOrder(Order order, out Enums.OrderCreateStatus status)
@@ -487,7 +486,16 @@ namespace BL
             return true;
         }
 
-
+        public bool CheckForFreeDays(HostingUnit hosting, DateTime first, DateTime last)
+        {
+            for (DateTime date = first; date < last; date = date.AddDays(1))
+            {
+                if (hosting.DiaryState.Calender[date.Month - 1, date.Day - 1] == true)
+                    return false;
+            }
+            return true;
+        }
+        
         public List<List<GuestRequest>> GetGuestRequestsGrouingByArea()
         {
             var guestList = dal.GetGuestRequests()
@@ -500,24 +508,123 @@ namespace BL
 
         public List<HostingUnit> HostingUnitList(DateTime time, int numDay)
         {
-            return null;
+            List<HostingUnit> hostingUnits = dal.GetHostingUnits();
+            List<HostingUnit> hostingUnitsNew = null;
+            foreach (HostingUnit hostingUnit in hostingUnits)
+            {
+                if (CheckForFreeDays(hostingUnit, time.AddDays(1), time.AddDays(-1)))
+                {
+                    hostingUnitsNew.Add(hostingUnit);
+                }
+            }
+            return hostingUnitsNew;
         }
-        public int NumDays(DateTime start, DateTime? end = null)
+
+        public int NumDays(DateTime start, DateTime end)
         {
-            var effectiveEnd = end ?? DateTime.MinValue;
-            return 0;
+            return (end - start).Days;
         }
+
+        public int NumDays(DateTime start)
+        {
+            DateTime end = DateTime.Now;
+            return (end - start).Days;
+        }
+
         public List<Order> OrderFromTime(int numDay)
         {
-            return null;
+            List<Order> orders = dal.GetOrders();
+            List<Order> ordersNew = null;
+            foreach (Order order in orders)
+            {
+                int create = (DateTime.Now - order.CreateDate).Days;
+                int sent = (DateTime.Now - order.OrderDate).Days;
+                if (!(numDay > create) || !(numDay > sent))
+                    ordersNew.Add(order);
+            }
+            return ordersNew;
         }
+
+        public List<GuestRequest> RequestMatchToStipulation(Predicate<GuestRequest> predic)
+        {
+
+            List<GuestRequest> guestRequestsNew = null;
+            List<GuestRequest> guestRequests = dal.GetGuestRequests();
+            bool temp = true;
+            foreach (GuestRequest guestRequest in guestRequests)
+            {
+                if (guestRequest.Status == Enums.GuestRequestStatus.ActiveAndClose)
+                {
+                    foreach (Predicate<GuestRequest> item in predic.GetInvocationList())
+                    {
+                        if (!item(guestRequest))
+                            temp = false;
+                    }
+                    if (temp)
+                        guestRequestsNew.Add(guestRequest);
+                    temp = true;
+                }
+            }
+            return guestRequestsNew;
+        }
+
         public int Orders(GuestRequest guestRequest)
         {
-            return 0;
+            List<Order> temp = null;
+            List<Order> orders = dal.GetOrders();
+            foreach (Order order in orders)
+            {
+                if (order.GuestRequestKey == guestRequest.GuestRequestsKey)
+                    temp.Add(order);
+            }
+            return temp.Count;
         }
+
         public int Orders(HostingUnit hostingUnit)
         {
-            return 0;
+            int count = 0;
+            List<Order> orders = dal.GetOrders();
+            foreach (Order order in orders)
+            {
+                if (order.HostingUnitKey == hostingUnit.stSerialKey)
+                    count++;
+            }
+            return count;
         }
+
+        #region grouping
+
+        public IEnumerable<IGrouping<Enums.HostingUnitArea, GuestRequest>> GroupGRByArea()
+        {
+            IEnumerable<GuestRequest> guestRequests = dal.GetGuestRequests();
+            var group = from guestRequest in guestRequests
+                                group guestRequest by guestRequest.Area;
+            return group;
+        }
+
+        public IEnumerable<IGrouping<int, GuestRequest>> GroupGRByVacationers()
+        {
+            IEnumerable<GuestRequest> guestRequests = dal.GetGuestRequests();
+            var group = from guestRequest in guestRequests
+                        group guestRequest by (guestRequest.Children + guestRequest.Adult);
+            return group;
+        }
+
+        public IEnumerable<IGrouping<Host, HostingUnit>> GroupHostByHostingUnit()
+        {
+            IEnumerable<HostingUnit> hostingUnits = dal.GetHostingUnits();
+            IEnumerable<IGrouping<Host, HostingUnit>> group = from hostingUnit in hostingUnits
+                                                                      group hostingUnit by hostingUnit.Owner;
+            return group;
+        }
+
+        public IEnumerable<IGrouping<Enums.HostingUnitArea, HostingUnit>> GroupHostingUnitByArea()
+        {
+            IEnumerable<HostingUnit> hostingUnits = dal.GetHostingUnits();
+            var group = from unit in hostingUnits
+                                group unit by unit.Area;
+            return group;
+        }
+        #endregion
     }
 }

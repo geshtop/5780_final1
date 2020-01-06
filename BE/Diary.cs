@@ -47,7 +47,7 @@ namespace BE
         //}
 
         //פונקציה הבודקת האם הימים הם ימים חופשיים
-        private bool CheckForFreeDays(GuestRequest guestReq)
+        public bool CheckForFreeDays(GuestRequest guestReq)
         {
 
             bool flag = true;

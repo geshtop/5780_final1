@@ -60,3 +60,4 @@ C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.csproj.CoreCompileInputs.cac
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.csproj.CopyComplete
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.exe
 C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\PL.pdb
+C:\rivki\projects\YearB\5780_final1\PL\obj\Debug\Pages\form.g.cs
