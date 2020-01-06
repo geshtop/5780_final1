@@ -115,6 +115,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\form.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\GuestRequestList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +145,9 @@
     </Compile>
     <Compile Include="Pages\EditHost.xaml.cs">
       <DependentUpon>EditHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\form.xaml.cs">
+      <DependentUpon>form.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\GuestRequestList.xaml.cs">
       <DependentUpon>GuestRequestList.xaml</DependentUpon>
