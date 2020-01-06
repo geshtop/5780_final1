@@ -80,7 +80,7 @@ namespace PL.Pages
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-
+            BackToMain();
             CurrentUser = null;
             CurrentWindow.OwnerId = 0;
             CurrentWindow.Auth =  Enums.AuthPermission.Guest;
