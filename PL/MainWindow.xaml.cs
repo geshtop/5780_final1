@@ -30,16 +30,46 @@ namespace PL
             InitializeComponent();
 
             ToHome();
-            BuildSide();
-            Auth = Enums.Auth.Guest;
             OwnerId = 0;
+            RefreshAuthControls();
            
         }
-
-        public Enums.Auth Auth
+        private Enums.AuthPermission auth = Enums.AuthPermission.Guest;
+        public Enums.AuthPermission Auth
         {
-            get;
-            set;
+            get
+            {
+                return auth;
+            }
+            set
+            {
+                auth = value;
+                RefreshAuthControls();
+
+            }
+        }
+
+        private void RefreshAuthControls()
+        {
+            AdminMenu.Visibility = System.Windows.Visibility.Hidden;
+            OwnerMenu.Visibility = System.Windows.Visibility.Hidden;
+            GuestMenu.Visibility = System.Windows.Visibility.Hidden;
+            switch (Auth)
+            {
+                case Enums.AuthPermission.Guest:
+                    GuestMenu.Visibility = System.Windows.Visibility.Visible;
+                    break;
+                case Enums.AuthPermission.Host:
+                    OwnerMenu.Visibility = System.Windows.Visibility.Visible;
+                    break;
+                case Enums.AuthPermission.Admin:
+                    AdminMenu.Visibility = System.Windows.Visibility.Visible;
+                    break;
+                default:
+                    break;
+            }
+
+            BuildSide();
         }
 
         public int OwnerId { get; set; }
@@ -57,15 +87,35 @@ namespace PL
 
         private void BuildSide()
         {
+
             Login login = new Login();
             SideFrame.Content = login;
         }
+
+        
         private void Home_Click(object sender, RoutedEventArgs e)
         {
 
             ToHome();
 
 
+        }
+        private void Contact_Click(object sender, RoutedEventArgs e)
+        {
+
+            Contact contactPage = new Contact();
+            MainFrame.Content = contactPage;
+
+
+        }
+        
+        private void ApprovedAccount_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("בפיתוח");
+        }
+        private void Reports_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("בפיתוח");
         }
         private void AddReqest_Click(object sender, RoutedEventArgs e)
         {

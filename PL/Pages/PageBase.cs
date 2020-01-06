@@ -14,7 +14,7 @@ namespace PL.Pages
     {
         protected IAppLogic app;
 
-        public Enums.Auth Auth
+        public Enums.AuthPermission Auth
         {
             get
             {
@@ -37,7 +37,38 @@ namespace PL.Pages
                 CurrentWindow.OwnerId = value;
             }
         }
-
+        private User currentUser;
+        public User CurrentUser
+        {
+            get
+            {
+                if (currentUser == null)
+                {
+                    switch (Auth)
+                    {
+                        case Enums.AuthPermission.Guest:
+                            break;
+                        case Enums.AuthPermission.Host:
+                            var host = app.GetHostById(OwnerId);
+                            if (host != null)
+                            {
+                                currentUser = new User(){ Name = host.FullName};
+                            }
+                            break;
+                        case Enums.AuthPermission.Admin:
+                            currentUser = new User() { Name = "Admin" };
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                return currentUser;
+            }
+            set
+            {
+                currentUser = value;
+            }
+        }
 
         public  MainWindow CurrentWindow{
             get{

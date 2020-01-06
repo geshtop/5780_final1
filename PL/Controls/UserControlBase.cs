@@ -32,7 +32,7 @@ namespace PL.Controls
            
         }
 
-        public Enums.Auth Auth
+        public Enums.AuthPermission Auth
         {
             get
             {

@@ -22,35 +22,30 @@ namespace PL.Pages
     public partial class Main : PageBase
     {
          
-        public List<Host> HostList { get; set; }
+        
         public Main()
         {
-            HostList = app.GetAllHosts();
+           
             InitializeComponent();
 
-
-            CbHosts.ItemsSource = HostList;
-            CbHosts.DisplayMemberPath = "FullName";
-            CbHosts.SelectedValuePath = "Id";
+           
         }
 
-
+        
 
        
       
 
-      
-
-        private void ManageHosts_Click(object sender, RoutedEventArgs e)
+        private void ContactUs_Click(object sender, RoutedEventArgs e)
         {
-
-            HostList hostListPage = new HostList();
+            //check your logic
+            Contact contact = new Contact();
+            MainNavigate(contact);
           
-            MainNavigate(hostListPage);
-          
-           
         }
 
+
+      
      
 
         private void AddReqest_Click(object sender, RoutedEventArgs e)
@@ -61,21 +56,9 @@ namespace PL.Pages
           
         }
 
-        private void GeustListButton_Click(object sender, RoutedEventArgs e)
-        {
-            GuestRequestList requestList = new GuestRequestList();
-            MainNavigate(requestList);
-           
-        }
+     
 
-        private void CbHosts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (int.Parse(CbHosts.SelectedValue.ToString()) > 0)
-            {
-                OwnerId = int.Parse(CbHosts.SelectedValue.ToString());
-                GeustListButton.Visibility =  System.Windows.Visibility.Visible;
-            }
-        }
+      
 
         private void RequestByArea_Click(object sender, RoutedEventArgs e)
         {

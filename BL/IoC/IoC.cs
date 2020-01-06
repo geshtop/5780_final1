@@ -25,6 +25,7 @@ namespace BL
 
             Kernel.Bind<IDal>().To<Dal>().InSingletonScope();
             Kernel.Bind<IAppLogic>().To<AppLogic>().InSingletonScope();
+            Kernel.Bind<IAuth>().To<Auth>().InSingletonScope();
 
         }
     }

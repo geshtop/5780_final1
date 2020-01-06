@@ -86,11 +86,17 @@ namespace BE
 
         }
 
-        public enum Auth
+        public enum AuthPermission
         {
             Guest = 0,
             Host = 1,
             Admin =2
+        }
+        public enum LoginStatus
+        {
+            Success = 0,
+            Faild = 1,
+            Missing = 2
         }
     }
 }

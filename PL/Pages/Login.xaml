@@ -7,54 +7,108 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                TextElement.Foreground="{DynamicResource MaterialDesignBody}"
                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Background="{DynamicResource MaterialDesignPaper}"
+     
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
       mc:Ignorable="d" 
         FontSize="16"
-      d:DesignHeight="300" d:DesignWidth="200"
+      d:DesignHeight="400" d:DesignWidth="250"
 	Title="Login">
 
-    <Grid>
-        <materialDesign:Card Padding="12" Margin="12">
-               
+    <Grid >
 
-        <!-- Main content scroll -->
-           <StackPanel 
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Center"
+
+        <StackPanel Name="GuestPanel" 
+            VerticalAlignment="Top"
+                    HorizontalAlignment="Stretch"
                     TextBlock.TextAlignment="Center">
 
                 <!-- Login main content white box -->
                
 
                     <StackPanel>
+                <Button Margin="0,0,0,20" Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                            >
+                    <materialDesign:PackIcon Kind="Lock" Height="54" Width="54" />
+                </Button>
 
-                        <!-- Sign Up header -->
-                        <TextBlock Text="כניסה למערכת"  />
+                <!-- Sign Up header -->
+                        <TextBlock Text="כניסת מורשים"  />
 
                         <!-- Sign up subtext-->
                         <TextBlock Text="It's about to get fun"   Margin="0 0 0 20"  />
 
                         <!-- Email -->
-                    <TextBox Tag="Email"  materialDesign:HintAssist.Hint="כתובת מייל"
+                    <TextBox HorizontalContentAlignment="Right"  Tag="Email" Name="EmailTxt" FlowDirection="LeftToRight"  materialDesign:HintAssist.Hint="שם / מייל"
          materialDesign:HintAssist.IsFloating="True"  MaxLength="20" />
 
                         <!-- Password -->
-                    <PasswordBox x:Name="PasswordText"  materialDesign:HintAssist.Hint="*סיסמא"
+                    <PasswordBox HorizontalContentAlignment="Right" Name="PasswordText" FlowDirection="LeftToRight"   materialDesign:HintAssist.Hint="*סיסמא"
          materialDesign:HintAssist.IsFloating="True"  MaxLength="9" Tag="Password" Margin="0 0 0 30" />
                         <!-- Login button -->
-                        <Button Name="LoginButton" Content="כניסה"  IsDefault="True" HorizontalAlignment="Center" Click="LoginButton_Click" />
+                        <Button Name="LoginButton" Content="כניסה"  HorizontalAlignment="Center" Click="LoginButton_Click" />
 
                     </StackPanel>
 
-              
-
-               
+                <TextBlock    Margin="5,40,0,0"  >
+                    <Underline>
+                <Run Text="סיסמאות לשימוש"/>
+            </Underline>
+                    </TextBlock>
+                <TextBlock Text="admin | admin"   Margin="5"  />
+                <TextBlock FlowDirection="LeftToRight" Text="1@nomail.com | 1111"   Margin="5"  />
+                <TextBlock FlowDirection="LeftToRight" Text="2@nomail.com | 1111"   Margin="5"  />
 
             </StackPanel>
         
-                        </materialDesign:Card>
+            
+            
+            
+                     
+
+
+
+     
+
+            <StackPanel Name="LoggedinPanel" Visibility="Hidden"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    TextBlock.TextAlignment="Center">
+
+                <!-- Login main content white box -->
+
+
+                <StackPanel>
+
+                <Button Margin="0,0,0,20" Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                            >
+                    <materialDesign:PackIcon Kind="User" Height="54" Width="54" />
+                </Button>
+                <!-- Sign Up header -->
+                    <TextBlock FontSize="25"  Name="Username" Text="שלום"  />
+
+                    <!-- Sign up subtext-->
+                    <TextBlock Text="It's about to get fun"   Margin="0 0 0 20"  />
+
+                   
+          
+                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                        Click="LogoutButton_Click" ToolTip="MaterialDesignFlatButton">יציאה</Button>
+
+            </StackPanel>
+
+
+
+
+
+            </StackPanel>
+
+
+
+
+       
+
+
     </Grid>
 </page:PageBase>
