@@ -12,7 +12,7 @@ namespace BL
 {
     public class AppLogic : BL.IAppLogic
     {
-
+        //small test
         private IDal dal { get; set; }
         public AppLogic(IDal _dal)
         {

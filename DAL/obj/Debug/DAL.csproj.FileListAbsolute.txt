@@ -8,3 +8,15 @@ C:\lev\project\5780_final1\DAL\bin\Debug\DS.pdb
 C:\lev\project\5780_final1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\lev\project\5780_final1\DAL\obj\Debug\DAL.dll
 C:\lev\project\5780_final1\DAL\obj\Debug\DAL.pdb
+C:\rivki\projects\YearB\5780_final1\DAL\bin\Debug\snifim_dnld_he.xml
+C:\rivki\projects\YearB\5780_final1\DAL\bin\Debug\DAL.dll
+C:\rivki\projects\YearB\5780_final1\DAL\bin\Debug\DAL.pdb
+C:\rivki\projects\YearB\5780_final1\DAL\bin\Debug\BE.dll
+C:\rivki\projects\YearB\5780_final1\DAL\bin\Debug\DS.dll
+C:\rivki\projects\YearB\5780_final1\DAL\bin\Debug\BE.pdb
+C:\rivki\projects\YearB\5780_final1\DAL\bin\Debug\DS.pdb
+C:\rivki\projects\YearB\5780_final1\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\rivki\projects\YearB\5780_final1\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\rivki\projects\YearB\5780_final1\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\rivki\projects\YearB\5780_final1\DAL\obj\Debug\DAL.dll
+C:\rivki\projects\YearB\5780_final1\DAL\obj\Debug\DAL.pdb

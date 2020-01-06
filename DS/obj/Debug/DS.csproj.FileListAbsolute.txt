@@ -6,3 +6,13 @@ C:\lev\project\5780_final1\DS\bin\Debug\BE.pdb
 C:\lev\project\5780_final1\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
 C:\lev\project\5780_final1\DS\obj\Debug\DS.dll
 C:\lev\project\5780_final1\DS\obj\Debug\DS.pdb
+C:\rivki\projects\YearB\5780_final1\DS\bin\Debug\snifim_dnld_he.xml
+C:\rivki\projects\YearB\5780_final1\DS\bin\Debug\DS.dll
+C:\rivki\projects\YearB\5780_final1\DS\bin\Debug\DS.pdb
+C:\rivki\projects\YearB\5780_final1\DS\bin\Debug\BE.dll
+C:\rivki\projects\YearB\5780_final1\DS\bin\Debug\BE.pdb
+C:\rivki\projects\YearB\5780_final1\DS\obj\Debug\DS.csprojAssemblyReference.cache
+C:\rivki\projects\YearB\5780_final1\DS\obj\Debug\DS.csproj.CoreCompileInputs.cache
+C:\rivki\projects\YearB\5780_final1\DS\obj\Debug\DS.csproj.CopyComplete
+C:\rivki\projects\YearB\5780_final1\DS\obj\Debug\DS.dll
+C:\rivki\projects\YearB\5780_final1\DS\obj\Debug\DS.pdb
