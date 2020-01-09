@@ -14,13 +14,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
 	Title="EditHost">
-    
+
     <StackPanel>
         <Grid Height="60">
             <StackPanel Orientation="Horizontal" Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 0">
                 <Button Uid="0" Width="150" HorizontalAlignment="Left" Content="פרטים אישיים" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>
                 <Button Name="UnitHostButton" Uid="1" Width="150" HorizontalAlignment="Left" Content="יחידות אירוח" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>
-               
+
             </StackPanel>
             <StackPanel Width="120"  HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button  Width="120" HorizontalAlignment="Right"  Content="שמירת שינויים" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="UpdateButton_Click"/>
@@ -36,7 +36,7 @@
                 <Grid.ColumnDefinitions>
 
                     <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="*" >
+                    <ColumnDefinition Width="*" >
 
                     </ColumnDefinition>
 
@@ -54,16 +54,18 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                
-              
-            
+
+
+
                 <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="*תעודת זהות"
          materialDesign:HintAssist.IsFloating="True"  MaxLength="9" Name="IdTxt" HorizontalAlignment="Left"    Text="{Binding Path=HostKey}" VerticalAlignment="Top" Width="400" Grid.Row="2"   />
 
                 <TextBox Grid.Column="1"  MaxLength="15" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="*שם פרטי"
-         materialDesign:HintAssist.IsFloating="True" Text="{Binding Path=FirstName}" VerticalAlignment="Top" Width="400"  Grid.Row="3"/>
+         materialDesign:HintAssist.IsFloating="True" Text="{Binding Path=FirstName}" VerticalAlignment="Top" Width="187"  Grid.Row="3"/>
                 <TextBox Grid.Column="1"  MaxLength="15" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="*שם משפחה"
-         materialDesign:HintAssist.IsFloating="True" Text="{Binding Path=LastName}" VerticalAlignment="Top" Width="400"  Grid.Row="4"/>
+         materialDesign:HintAssist.IsFloating="True" Text="{Binding Path=LastName}" VerticalAlignment="Top" Width="186"  Grid.Row="3" Margin="214,0,0,0"/>
+                <TextBox Grid.Column="1"  MaxLength="15" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="*סיסמא"
+         materialDesign:HintAssist.IsFloating="True" Text="{Binding Path=Password}" VerticalAlignment="Top" Width="400"  Grid.Row="4"/>
 
                 <TextBox Grid.Column="1" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="כתובת מייל"
          materialDesign:HintAssist.IsFloating="True" Text="{Binding Path=MailAddress}" VerticalAlignment="Top" Width="400" Grid.Row="5"/>

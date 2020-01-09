@@ -126,7 +126,15 @@ namespace PL
             
 
         }
-         
+
+        private void ManageHostingUnit_Click(object sender, RoutedEventArgs e)
+        {
+            //check your logic
+            Pages.EditUnitHost edithost = new Pages.EditUnitHost();
+            MainFrame.Content = edithost;
+            
+
+        }
 
         private void ManageHosts_Click(object sender, RoutedEventArgs e)
         {

@@ -126,6 +126,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EditUnitHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\OrderByRequest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +160,9 @@
     </Compile>
     <Compile Include="Pages\EditHost.xaml.cs">
       <DependentUpon>EditHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditUnitHost.xaml.cs">
+      <DependentUpon>EditUnitHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\OrderByRequest.xaml.cs">
       <DependentUpon>OrderByRequest.xaml</DependentUpon>

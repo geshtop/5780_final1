@@ -85,46 +85,53 @@
             </ComboBox>
             <TextBox Grid.Column="1" MaxLength="20"  HorizontalAlignment="Left" Height="33"   Text="{Binding Path=SubArea}" VerticalAlignment="Top" Width="130" Margin="154,15,0,0" Grid.Row="5"/>
 
-            <ComboBox SelectedValuePath="Tag" Grid.Column="1"  HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" SelectedValue="{Binding Path=Adult}" Width="85" Margin="10,15,0,0" Grid.Row="6">
-                <ComboBoxItem Content="מבוגרים" Tag="0"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="2" Tag="2"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="3" Tag="3"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="4" Tag="4"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="5" Tag="5"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="6" Tag="6"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="7" Tag="7"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="8" Tag="8"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="9" Tag="9"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="10" Tag="10"  HorizontalAlignment="Left" Width="85"/>
-            </ComboBox>
-            <ComboBox SelectedValuePath="Tag" Grid.Column="1" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" SelectedValue="{Binding Path=Children}" Width="85" Margin="105,15,0,0" Grid.Row="6">
-                <ComboBoxItem Content="ילדים" Tag="0"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="2" Tag="2"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="3" Tag="3"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="4" Tag="4"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="5" Tag="5"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="6" Tag="6"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="7" Tag="7"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="8" Tag="8"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="9" Tag="9"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="10" Tag="10"  HorizontalAlignment="Left" Width="85"/>
-            </ComboBox>
-            <ComboBox SelectedValuePath="Tag" Grid.Column="1" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" SelectedValue="{Binding Path=Rooms}" Width="85" Margin="199,15,0,0" Grid.Row="6">
-                <ComboBoxItem Content="חדרים" Tag="0"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="2" Tag="2"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="3" Tag="3"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="4" Tag="4"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="5" Tag="5"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="6" Tag="6"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="7" Tag="7"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="8" Tag="8"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="9" Tag="9"  HorizontalAlignment="Left" Width="85"/>
-                <ComboBoxItem Content="10" Tag="10"  HorizontalAlignment="Left" Width="85"/>
-            </ComboBox>
 
+            <StackPanel Orientation="Horizontal"  VerticalAlignment="Center"   Grid.Column="1" Grid.Row="6">
+                <ComboBox Width="85" Margin="5,0" SelectedValuePath="Tag"   materialDesign:HintAssist.Hint="מבוגרים"
+         materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left"   VerticalAlignment="Top" SelectedValue="{Binding Path=Adult}">
+
+                    <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="2" Tag="2"  HorizontalAlignment="Left"/>
+                    <ComboBoxItem Content="3" Tag="3"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="4" Tag="4"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="5" Tag="5"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="6" Tag="6"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="7" Tag="7"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="8" Tag="8"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="9" Tag="9"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="10" Tag="10"  HorizontalAlignment="Left" />
+                </ComboBox>
+                <ComboBox SelectedValuePath="Tag" Width="85" Margin="5,0"   materialDesign:HintAssist.Hint="ילדים"
+         materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left"  SelectedValue="{Binding Path=Children}" >
+
+                    <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="2" Tag="2"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="3" Tag="3"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="4" Tag="4"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="5" Tag="5"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="6" Tag="6"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="7" Tag="7"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="8" Tag="8"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="9" Tag="9"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="10" Tag="10"  HorizontalAlignment="Left" />
+                </ComboBox>
+                <ComboBox SelectedValuePath="Tag"  materialDesign:HintAssist.Hint="חדרים" Width="85" Margin="5,0"
+         materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left"   VerticalAlignment="Top" SelectedValue="{Binding Path=Rooms}"  >
+                    <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="2" Tag="2"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="3" Tag="3"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="4" Tag="4"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="5" Tag="5"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="6" Tag="6"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="7" Tag="7"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="8" Tag="8"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="9" Tag="9"  HorizontalAlignment="Left" />
+                    <ComboBoxItem Content="10" Tag="10"  HorizontalAlignment="Left" />
+                </ComboBox>
+
+            </StackPanel>
+
+        
             <Label  Grid.Column="1" Foreground="Red" Content="שדות חובה מסומנים ב-*" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="274" Grid.Row="8" Margin="10,10,0,0"/>
             <DatePicker Grid.Column="1" SelectedDate="{Binding Path=EntryDate}" HorizontalAlignment="Left" Margin="10,18,0,0" Height="30" Grid.Row="7" VerticalAlignment="Top" Width="126"/>
             <DatePicker Grid.Column="1" SelectedDate="{Binding Path=ReleaseDate}" HorizontalAlignment="Left"  Margin="154,18,0,0" Height="30" Grid.Row="7" VerticalAlignment="Top" Width="130"/>
