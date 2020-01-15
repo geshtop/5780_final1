@@ -130,6 +130,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ListClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ListHostingUnits.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\OrderByRequest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,6 +171,12 @@
     </Compile>
     <Compile Include="Pages\EditUnitHost.xaml.cs">
       <DependentUpon>EditUnitHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ListClient.xaml.cs">
+      <DependentUpon>ListClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ListHostingUnits.xaml.cs">
+      <DependentUpon>ListHostingUnits.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\OrderByRequest.xaml.cs">
       <DependentUpon>OrderByRequest.xaml</DependentUpon>

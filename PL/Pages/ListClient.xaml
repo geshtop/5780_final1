@@ -1,13 +1,12 @@
-﻿<page:PageBase x:Class="PL.Pages.OrderByRequest"
+﻿<Page x:Class="PL.Pages.ListClient"  
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:page="clr-namespace:PL.Pages"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:PL.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Title="form">
+      Title="ListClient">
     <StackPanel>
         <Grid Height="80">
             <Label Name="filtering" Content="אפשרות סינון" HorizontalAlignment="Left" Margin="657,20,0,0" VerticalAlignment="Top" Height="46" Width="133" FontSize="20"/>
@@ -36,9 +35,7 @@
                     </TransformGroup>
                 </ComboBox.RenderTransform>
             </ComboBox>
-            <Button Content="הצג הזמנות לבקשה" HorizontalAlignment="Left" Margin="80,68,0,0" VerticalAlignment="Top" Width="254" Height="72" FontSize="22" Click="Button_Click"/>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="212" Margin="80,227,0,0" VerticalAlignment="Top" Width="656"/>
         </Grid>
     </StackPanel>
-
-</page:PageBase>
+</Page>
