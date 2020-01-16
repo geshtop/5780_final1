@@ -23,14 +23,34 @@ namespace PL.Pages
     {
         public ListHostingUnits()
         {
-            //List<HostingUnit> Hostingunits = ;
             InitializeComponent();
-
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e) //לחיצה על לפי אזורים
         {
-            
+            MessageBox.Show("group לפי אזורים");
         }
+
+        private void ComboBoxItem_Selected_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("group לפי מארחים");
+        }
+
+        private void ComboBoxItem_Selected_2(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("group לפי מס' חדרים");
+        }
+
+        private void ComboBoxItem_Selected_3(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("group לפי תאריכים");
+        }
+
+        private void ComboBoxItem_Selected_4(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("כל היחידות");
+        }
+
+    
     }
 }

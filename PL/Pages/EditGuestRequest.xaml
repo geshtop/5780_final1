@@ -61,12 +61,12 @@
             <Label Content="מס' נפשות" Grid.Column="0" HorizontalAlignment="Left" Height="33" Grid.Row="6" VerticalAlignment="Top" Width="141" Margin="22,15,0,0" />
             <Label Content="תאריכים" Grid.Column="0" HorizontalAlignment="Left" Height="33" Grid.Row="7" VerticalAlignment="Top" Width="141" Margin="22,15,0,0" />
 
-            <ComboBox SelectedValuePath="Tag" Grid.Column="1" Name="typeCb" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" SelectedValue="{Binding Path=Type}" Width="126" Margin="10,15,0,0" Grid.Row="1" SelectionChanged="TypeCb_SelectionChanged">
-                <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="124"/>
-                <ComboBoxItem Content="צימר" Tag="1" HorizontalAlignment="Left" Width="124"/>
-                <ComboBoxItem Content="מלון" Tag="2" HorizontalAlignment="Left" Width="124"/>
-                <ComboBoxItem Content="קמפינג" Tag="3" HorizontalAlignment="Left" Width="124"/>
-            </ComboBox>
+            <ComboBox SelectedValuePath="Tag" Grid.Column="1" Name="typeCb" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" SelectedValue="{Binding Path=Type}" Width="126" Margin="10,15,0,0" Grid.Row="1"/>
+            <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="124"/>
+            <ComboBoxItem Content="צימר" Tag="1" HorizontalAlignment="Left" Width="124"/>
+            <ComboBoxItem Content="מלון" Tag="2" HorizontalAlignment="Left" Width="124"/>
+            <ComboBoxItem Content="קמפינג" Tag="3" HorizontalAlignment="Left" Width="124"/>
+
 
 
             <TextBox Grid.Column="1"  MaxLength="15" HorizontalAlignment="Left" Height="33"  Text="{Binding Path=FirstName}" VerticalAlignment="Top" Width="130" Margin="6,22,0,0" Grid.Row="2"/>

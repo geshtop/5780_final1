@@ -12,22 +12,14 @@
             <Label Name="filtering" Content="אפשרות סינון" HorizontalAlignment="Left" Margin="657,20,0,0" VerticalAlignment="Top" Height="46" Width="133" FontSize="20"/>
         </Grid>
         <Grid Height="520">
-            <ComboBox HorizontalAlignment="Left" Margin="421,69,0,0" VerticalAlignment="Top" Width="315" Height="59" RenderTransformOrigin="0.5,0.5" SelectionChanged="ComboBox_SelectionChanged" SelectedValue="{Binding Path=area}">
-                <ComboBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ComboBox.RenderTransform>
-                <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="124"/>
-                <ComboBoxItem Content="צפון" Tag="1" HorizontalAlignment="Left" Width="124"/>
-                <ComboBoxItem Content="דרום" Tag="2" HorizontalAlignment="Left" Width="124"/>
-                <ComboBoxItem Content="מרכז" Tag="3" HorizontalAlignment="Left" Width="124"/>
-                <ComboBoxItem Content="ירושלים" Tag="4" HorizontalAlignment="Left" Width="124"/>
+            <ComboBox Name="sinun" HorizontalAlignment="Left" Margin="436,-64,0,0" VerticalAlignment="Top" Width="189" Height="43" RenderTransformOrigin="0.5,0.5">
+                <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="124" Selected="ComboBoxItem_Selected_4"/>
+                <ComboBoxItem Content="לפי אזורים בארץ" Tag="1" Selected="ComboBoxItem_Selected" HorizontalAlignment="Left" Width="124"/>
+                <ComboBoxItem Content="לפי מארחים" Tag="2" HorizontalAlignment="Left" Width="124" Selected="ComboBoxItem_Selected_1"/>
+                <ComboBoxItem Content="לפי מס' חדרים" Tag="3" HorizontalAlignment="Left" Width="124" Selected="ComboBoxItem_Selected_2"/>
+                <ComboBoxItem Content="לפי תאריכים פנויים" Tag="4" HorizontalAlignment="Left" Width="124" Selected="ComboBoxItem_Selected_3"/>
             </ComboBox>
-            <Border Name="show" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="212" Margin="80,227,0,0" VerticalAlignment="Top" Width="656"/>
+            <ScrollViewer Name="Try" HorizontalAlignment="Left" Height="439" Margin="31,36,0,0" VerticalAlignment="Top" Width="723"/>
         </Grid>
     </StackPanel>
 

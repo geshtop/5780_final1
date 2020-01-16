@@ -1,4 +1,13 @@
-﻿using System;
+﻿using BE;
+using DAL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Mail;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
 namespace BL
 {
     public interface IAppLogic
@@ -31,5 +40,6 @@ namespace BL
         void UpdatingGusetRequest(BE.GuestRequest guestRequest, BE.Enums.GuestRequestStatus status);
         void UpdatingHostingUnit(BE.HostingUnit hostingUnit, BE.Enums.HosignUnitStatus status);
         bool UpdatingOrder(int OrderId, BE.Enums.OrderStatus status);
+        IEnumerable<IGrouping<Enums.HostingUnitArea, HostingUnit>> GroupHostingUnitByArea();
     }
 }

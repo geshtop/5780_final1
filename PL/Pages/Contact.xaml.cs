@@ -24,5 +24,20 @@ namespace PL.Pages
         {
             InitializeComponent();
         }
+
+        private void Send_Click(object sender, RoutedEventArgs e)
+        {
+            
+            MessageBox.Show("חסר ביצוע השליחה");
+        }
+
+        private void Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+        }
+
+        private void Telephon_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

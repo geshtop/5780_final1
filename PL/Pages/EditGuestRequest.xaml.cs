@@ -79,9 +79,6 @@ namespace PL.Pages
 
         }
 
-        private void TypeCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+    
     }
 }

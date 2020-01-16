@@ -28,7 +28,6 @@ namespace PL.Pages
         private void Button_Click(object sender, RoutedEventArgs e) // חדרי אירוח
         {
             ListHostingUnits listHostingUnits = new ListHostingUnits();
-            // = listHostingUnits;
             MainNavigate(listHostingUnits);
         }
 
