@@ -158,6 +158,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Querys.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\Contact.xaml.cs">
@@ -194,6 +198,9 @@
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageBase.cs" />
+    <Compile Include="Pages\Querys.xaml.cs">
+      <DependentUpon>Querys.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

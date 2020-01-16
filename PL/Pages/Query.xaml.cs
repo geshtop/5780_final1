@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PL.Pages
 {
     /// <summary>
-    /// Interaction logic for ListClient.xaml
+    /// Interaction logic for Query.xaml
     /// </summary>
-    public partial class ListClient : PageBase
+    public partial class Query : Page
     {
-        public ListClient()
+        public Query()
         {
             InitializeComponent();
         }
