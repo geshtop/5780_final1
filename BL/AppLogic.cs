@@ -129,6 +129,13 @@ namespace BL
             }
             dal.AddHost(host);
         }
+
+        public void SetCollectionClearance(int OwnerId, bool CollectionClearance)
+        {
+            Host host = dal.GetHostById(OwnerId);
+            host.CollectionClearance = CollectionClearance;
+            dal.UpdateHost(host);
+        }
         #endregion
 
 

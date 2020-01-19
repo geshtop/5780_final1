@@ -41,5 +41,6 @@ namespace BL
         void UpdatingHostingUnit(BE.HostingUnit hostingUnit, BE.Enums.HosignUnitStatus status);
         bool UpdatingOrder(int OrderId, BE.Enums.OrderStatus status);
         IEnumerable<IGrouping<Enums.HostingUnitArea, HostingUnit>> GroupHostingUnitByArea();
+        void SetCollectionClearance(int OwnerId, bool CollectionClearance);
     }
 }

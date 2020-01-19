@@ -18,9 +18,9 @@
     <StackPanel>
         <Grid Height="60">
             <StackPanel Orientation="Horizontal" Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 0">
-               <Button Uid="0" Width="150" HorizontalAlignment="Left" Content="כללי" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>
-               <Button Name="ShowCalendar" Uid="1" Width="150" HorizontalAlignment="Left" Content="יומן" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>
-               <Button Name="UnitHostButton" Uid="1" Width="150" HorizontalAlignment="Left" Content="תמונות" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>
+                <Button Uid="0" Width="150" HorizontalAlignment="Left" Content="כללי" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>
+                <Button Name="ShowCalendar" Uid="1" Width="150" HorizontalAlignment="Left" Content="יומן" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>
+                <Button Name="UnitHostButton" Uid="2" Width="150" HorizontalAlignment="Left" Content="תמונות" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>
 
             </StackPanel>
             <StackPanel Width="120"  HorizontalAlignment="Right" Orientation="Horizontal">
@@ -76,11 +76,11 @@
                 </ComboBox>
                 <TextBox Grid.Column="1"  MaxLength="15" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="*עיר"
          materialDesign:HintAssist.IsFloating="True" Text="{Binding Path=SubArea}" VerticalAlignment="Top" Width="186"  Grid.Row="3" Margin="214,0,0,0"/>
-              
+
                 <StackPanel Orientation="Horizontal"  VerticalAlignment="Center"   Grid.Column="1" Grid.Row="4">
                     <ComboBox Width="120" Margin="5,0" SelectedValuePath="Tag"   materialDesign:HintAssist.Hint="מבוגרים"
          materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left"   VerticalAlignment="Top" SelectedValue="{Binding Path=Adult}">
-                      
+
                         <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" />
                         <ComboBoxItem Content="2" Tag="2"  HorizontalAlignment="Left"/>
                         <ComboBoxItem Content="3" Tag="3"  HorizontalAlignment="Left" />
@@ -94,7 +94,7 @@
                     </ComboBox>
                     <ComboBox SelectedValuePath="Tag" Width="120" Margin="5,0"   materialDesign:HintAssist.Hint="ילדים"
          materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left"  SelectedValue="{Binding Path=Children}" >
-                      
+
                         <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" />
                         <ComboBoxItem Content="2" Tag="2"  HorizontalAlignment="Left" />
                         <ComboBoxItem Content="3" Tag="3"  HorizontalAlignment="Left" />
@@ -108,7 +108,7 @@
                     </ComboBox>
                     <ComboBox SelectedValuePath="Tag"  materialDesign:HintAssist.Hint="חדרים" Width="120" Margin="5,0"
          materialDesign:HintAssist.IsFloating="True"  HorizontalAlignment="Left"   VerticalAlignment="Top" SelectedValue="{Binding Path=Rooms}"  >
-                       <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" />
+                        <ComboBoxItem Content="1" Tag="1"  HorizontalAlignment="Left" />
                         <ComboBoxItem Content="2" Tag="2"  HorizontalAlignment="Left" />
                         <ComboBoxItem Content="3" Tag="3"  HorizontalAlignment="Left" />
                         <ComboBoxItem Content="4" Tag="4"  HorizontalAlignment="Left" />
@@ -139,9 +139,9 @@
 
                     </ToggleButton>
                 </StackPanel>
-              
 
-               
+
+
 
                 <Label  Grid.Column="1" Content="{Binding Path=Id}" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="274" Grid.Row="1" Margin="10,10,0,0"/>
 
@@ -153,7 +153,9 @@
 
 
             </Grid>
-            <Grid Name="hostingList" Visibility="Hidden" />
+            <Grid Name="calendarGrid"  Visibility="Hidden" >
+              
+            </Grid>
         </Grid>
     </StackPanel>
 </page:PageBase>

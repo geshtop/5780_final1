@@ -24,9 +24,11 @@ namespace PL
     /// </summary>
     public partial class MainWindow : Window
     {
+        IAppLogic app;
        
-        public MainWindow()
+        public MainWindow(IAppLogic _app)
         {
+            this.app = _app;
             InitializeComponent();
 
             ToHome();
@@ -111,7 +113,7 @@ namespace PL
         
         private void ApprovedAccount_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("בפיתוח");
+            app.SetCollectionClearance(OwnerId, true);
         }
         private void Reports_Click(object sender, RoutedEventArgs e)
         {
