@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BE;
+using PL.Controls;
 
 namespace PL.Pages
 {
@@ -24,32 +25,42 @@ namespace PL.Pages
         public ListHostingUnits()
         {
             InitializeComponent();
+            var listOfHosingUnits = app.GetHostingUnits(c => c.OwnerId == OwnerId);
+            HostingUnitList hostingListCtrl = new HostingUnitList(listOfHosingUnits);
+            hostingList.Children.Add(hostingListCtrl);
         }
-
-        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e) //לחיצה על לפי אזורים
+        private void NewHostingUnit_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("group לפי אזורים");
-        }
+            EditUnitHost uh = new EditUnitHost();
+            MainNavigate(uh);
 
-        private void ComboBoxItem_Selected_1(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("group לפי מארחים");
         }
+        
 
-        private void ComboBoxItem_Selected_2(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("group לפי מס' חדרים");
-        }
+        //private void ComboBoxItem_Selected(object sender, RoutedEventArgs e) //לחיצה על לפי אזורים
+        //{
+        //    MessageBox.Show("group לפי אזורים");
+        //}
 
-        private void ComboBoxItem_Selected_3(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("group לפי תאריכים");
-        }
+        //private void ComboBoxItem_Selected_1(object sender, RoutedEventArgs e)
+        //{
+        //    MessageBox.Show("group לפי מארחים");
+        //}
 
-        private void ComboBoxItem_Selected_4(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("כל היחידות");
-        }
+        //private void ComboBoxItem_Selected_2(object sender, RoutedEventArgs e)
+        //{
+        //    MessageBox.Show("group לפי מס' חדרים");
+        //}
+
+        //private void ComboBoxItem_Selected_3(object sender, RoutedEventArgs e)
+        //{
+        //    MessageBox.Show("group לפי תאריכים");
+        //}
+
+        //private void ComboBoxItem_Selected_4(object sender, RoutedEventArgs e)
+        //{
+        //    MessageBox.Show("כל היחידות");
+        //}
 
     
     }

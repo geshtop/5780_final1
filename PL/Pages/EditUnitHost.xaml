@@ -24,7 +24,7 @@
 
             </StackPanel>
             <StackPanel Width="120"  HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button  Width="120" HorizontalAlignment="Right"  Content="שמירת שינויים" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="UpdateButton_Click"/>
+                <Button Name="SaveChangeButton"  Width="120" HorizontalAlignment="Right"  Content="שמירת שינויים" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="UpdateButton_Click"/>
 
                 <!--<Button  Uid="2" Width="120" HorizontalAlignment="Right" Content="חזרה לרשימה" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>-->
 
@@ -59,15 +59,15 @@
 
 
                 <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="*שם יחידת האירוח"
-         materialDesign:HintAssist.IsFloating="True"  MaxLength="30" Name="HostingUnitName" HorizontalAlignment="Left"    Text="{Binding Path=HostKey}" VerticalAlignment="Top" Width="400" Grid.Row="2"   />
+         materialDesign:HintAssist.IsFloating="True"  MaxLength="30" Name="HostingUnitName" HorizontalAlignment="Left"    Text="{Binding Path=HostingUnitName}" VerticalAlignment="Top" Width="400" Grid.Row="2"   />
 
-                <ComboBox SelectedValuePath="Tag" materialDesign:HintAssist.Hint="*סוג" materialDesign:HintAssist.IsFloating="True"  Grid.Column="1" Name="typeCb" HorizontalAlignment="Left"   VerticalAlignment="Top" SelectedValue="{Binding Path=Type}" Width="126"  Grid.Row="2" Margin="419,0,0,0">
+                <ComboBox SelectedValuePath="Tag" materialDesign:HintAssist.Hint="*סוג" materialDesign:HintAssist.IsFloating="True"  Grid.Column="1" Name="typeCb" HorizontalAlignment="Left"   VerticalAlignment="Top" SelectedValue="{Binding Path=TypeId}" Width="126"  Grid.Row="2" Margin="419,0,0,0">
                     <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="124"/>
                     <ComboBoxItem Content="צימר" Tag="1" HorizontalAlignment="Left" Width="124"/>
                     <ComboBoxItem Content="מלון" Tag="2" HorizontalAlignment="Left" Width="124"/>
                     <ComboBoxItem Content="קמפינג" Tag="3" HorizontalAlignment="Left" Width="124"/>
                 </ComboBox>
-                <ComboBox SelectedValuePath="Tag"  materialDesign:HintAssist.Hint="*אזור" materialDesign:HintAssist.IsFloating="True" Grid.Column="1" Name="areaCb" HorizontalAlignment="Left"   VerticalAlignment="Top" SelectedValue="{Binding Path=Area}" Width="126"  Grid.Row="3">
+                <ComboBox SelectedValuePath="Tag"  materialDesign:HintAssist.Hint="*אזור" materialDesign:HintAssist.IsFloating="True" Grid.Column="1" Name="areaCb" HorizontalAlignment="Left"   VerticalAlignment="Top" SelectedValue="{Binding Path=AreaId}" Width="126"  Grid.Row="3">
                     <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="124"/>
                     <ComboBoxItem Content="צפון" Tag="1" HorizontalAlignment="Left" Width="124"/>
                     <ComboBoxItem Content="דרום" Tag="2" HorizontalAlignment="Left" Width="124"/>

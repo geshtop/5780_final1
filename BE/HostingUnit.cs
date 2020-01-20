@@ -20,6 +20,42 @@ namespace BE
         public Enums.HosignUnitStatus Status { get; set; }
         public Enums.HostingUnitType Type { get; set; }
         public Enums.HostingUnitArea Area { get; set; }
+
+
+        public int TypeId
+        {
+            get
+            {
+                return (int)Type;
+            }
+            set
+            {
+                Type = ( Enums.HostingUnitType)value;
+            }
+        }
+
+        public int AreaId
+        {
+            get
+            {
+                return (int)Area;
+            }
+            set
+            {
+                Area = (Enums.HostingUnitArea)value;
+            }
+        }
+        public int StatusId
+        {
+            get
+            {
+                return (int)Status;
+            }
+            set
+            {
+                Status = (Enums.HosignUnitStatus)value;
+            }
+        }
         public string SubArea { get; set; }
 
         public bool Pool { get; set; }
@@ -42,8 +78,7 @@ namespace BE
         {
             DiaryState = new Diary();
             Images = new List<string>();
-            this.stSerialKey = Configuration.HostingUnitKey;
-            Configuration.HostingUnitKey++;
+           
 
         }
     }

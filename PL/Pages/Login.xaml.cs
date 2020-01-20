@@ -50,15 +50,23 @@ namespace PL.Pages
             }
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void QuickAdmin_Click(object sender, RoutedEventArgs e)
         {
-            Enums.LoginStatus status ;
-            int OwnerId ;
-            var permission = auth.Login(EmailTxt.Text, PasswordText.Password, out status, out OwnerId);
+            BackToMain();
+            CheckLogin("admin", "admin");
+        }
 
-         
+        private void QuickHoster_Click(object sender, RoutedEventArgs e)
+        {
+            BackToMain();
+            CheckLogin("1@nomail.com", "1111");
+        }
+        private void CheckLogin (string mail, string pass){
+             Enums.LoginStatus status ;
+             int OwnerId ;
+               var permission = auth.Login(mail, pass , out status, out OwnerId);
 
-            switch (status)
+              switch (status)
             {
                 case Enums.LoginStatus.Success:
                     break;
@@ -77,6 +85,16 @@ namespace PL.Pages
             CurrentUser = null;
             CurrentWindow.OwnerId = OwnerId;
             CurrentWindow.Auth = permission;
+
+         }
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            CheckLogin(EmailTxt.Text, PasswordText.Password);
+         
+
+           
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {

@@ -49,7 +49,7 @@ namespace PL.Pages
             Grid.SetRow(bs, 7);
 
 
-            HostingUnitList hostingListCtrl = new HostingUnitList(CurrHost.RelatedHostingUnit, app);
+            HostingUnitList hostingListCtrl = new HostingUnitList(CurrHost.RelatedHostingUnit);
             hostingList.Children.Add(hostingListCtrl);
         }
 

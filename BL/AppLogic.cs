@@ -152,9 +152,21 @@ namespace BL
             return dal.GetHostingUnitById(stSerialKey);
         }
 
-        public void AddHostingUnit(BE.HostingUnit hostingUnit)
+        public void AddHostingUnit(BE.HostingUnit hostingUnit, out Enums.HostingUnitSaveStatus status)
         {
-            dal.AddHostingUnit(hostingUnit);
+            status = Enums.HostingUnitSaveStatus.Success;
+            if (string.IsNullOrEmpty(hostingUnit.HostingUnitName) ||
+                 hostingUnit.Area == Enums.HostingUnitArea.All ||
+                 hostingUnit.Type == Enums.HostingUnitType.All ||
+                string.IsNullOrEmpty(hostingUnit.SubArea) ||
+                hostingUnit.Rooms == 0 ||
+                hostingUnit.OwnerId == 0 ||
+                hostingUnit.Children == 0 ||
+                hostingUnit.Adult == 0
+                )
+                status = Enums.HostingUnitSaveStatus.MissingFields;
+            if(status == Enums.HostingUnitSaveStatus.Success)
+                dal.AddHostingUnit(hostingUnit);
         }
 
         public void DeleteHostingUnit(BE.HostingUnit hostingUnit)
@@ -168,9 +180,21 @@ namespace BL
             dal.DeleteHostingUnit(hostingUnit);
         }
 
-        public void UpdatingHostingUnit(BE.HostingUnit hostingUnit, Enums.HosignUnitStatus status)
+        public void UpdatingHostingUnit(BE.HostingUnit hostingUnit, out Enums.HostingUnitSaveStatus status)
         {
-            dal.UpdatingHostingUnit(hostingUnit, status);
+            status = Enums.HostingUnitSaveStatus.Success;
+            if (string.IsNullOrEmpty(hostingUnit.HostingUnitName) ||
+                hostingUnit.Area == Enums.HostingUnitArea.All ||
+                hostingUnit.Type == Enums.HostingUnitType.All ||
+               string.IsNullOrEmpty(hostingUnit.SubArea) ||
+               hostingUnit.Rooms == 0 ||
+               hostingUnit.OwnerId == 0 ||
+               hostingUnit.Children == 0 ||
+               hostingUnit.Adult == 0
+               )
+                status = Enums.HostingUnitSaveStatus.MissingFields;
+            if (status == Enums.HostingUnitSaveStatus.Success)
+                dal.UpdatingHostingUnit(hostingUnit);
         }
 
 

@@ -27,14 +27,21 @@ namespace PL.Pages
             string[] months = new string[]{ "ינו", "פבר", "מרץ", "אפר", "מאי", "יונ", "יול", "אוג", "ספט", "אוק", "נוב", "דצמ" };
             if (id > 0)
             {
-
+                CurrentHU = app.GetHostingUnitById(id);
+           
             }
             else
             {
                 CurrentHU = new HostingUnit();
+                CurrentHU.OwnerId = OwnerId;
+                CurrentHU.Status = Enums.HosignUnitStatus.Active;
             }
             InitializeComponent();
             hostEditGrid.DataContext = CurrentHU;
+            if (OwnerId == 0)
+            {
+                SaveChangeButton.Visibility =  System.Windows.Visibility.Hidden;
+            }
             for (int i = 0; i <= 31; i++)
             {
                 calendarGrid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -43,9 +50,12 @@ namespace PL.Pages
             }
             for (int i = 0; i < 12; i++)
             {
-
-                calendarGrid.RowDefinitions.Add(new RowDefinition());
+                var rowDefinition = new RowDefinition();
+                //rowDefinition.Height = GridLength.Auto;
+                rowDefinition.Height = new GridLength(40);
+                calendarGrid.RowDefinitions.Add(rowDefinition);
                 Label l = new Label();
+                l.Height = 30;
                 l.Content = months[i];
                 calendarGrid.Children.Add(l);
                 Grid.SetRow(l, i);
@@ -57,6 +67,7 @@ namespace PL.Pages
             {
                 Label l = new Label();
                 l.Content = date.ToString("dd");
+                l.Height = 30;
                 calendarGrid.Children.Add(l);
                 Grid.SetRow(l, date.Month -1);
                 Grid.SetColumn(l, date.Day );
@@ -64,13 +75,16 @@ namespace PL.Pages
                 if (CurrentHU.DiaryState.Calender[date.Month - 1, date.Day - 1])
                 {
                     l.Foreground = new SolidColorBrush(Colors.Blue);
+                    l.Background = new SolidColorBrush(Colors.White);
                 }
+
                 else
                 {
                     l.Foreground = new SolidColorBrush(Colors.Gray);
                 }
 
             }
+
 
         }
 
@@ -102,8 +116,28 @@ namespace PL.Pages
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            Enums.HostingUnitSaveStatus status;
+            if (CurrentHU.stSerialKey == 0)
+                app.AddHostingUnit(CurrentHU, out status);
+            else
+                app.UpdatingHostingUnit(CurrentHU, out status);
 
-            app.AddHostingUnit(CurrentHU);
+            switch (status)
+            {
+                case Enums.HostingUnitSaveStatus.Success:
+                    MessageBox.Show("נשמר בהצלחה");
+                    ListHostingUnits lhpage = new ListHostingUnits();
+                    MainNavigate(lhpage);
+                    break;
+                case Enums.HostingUnitSaveStatus.MissingFields:
+                    MessageBox.Show("שדות חובה חסרים או שגויים");
+                    break;
+                case Enums.HostingUnitSaveStatus.ImageMissing:
+                   
+                    break;
+                default:
+                    break;
+            }
 
         }
 

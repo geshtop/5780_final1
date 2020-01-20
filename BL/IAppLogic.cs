@@ -14,7 +14,7 @@ namespace BL
     {
         void AddGusetRequest(BE.GuestRequest guestRequest, out BE.Enums.GuestRequesteCreateStatus status);
         void AddHost(BE.Host host, out BE.Enums.HostValidationStatus status);
-        void AddHostingUnit(BE.HostingUnit hostingUnit);
+        void AddHostingUnit(BE.HostingUnit hostingUnit, out Enums.HostingUnitSaveStatus status);
         void AddOrder(BE.Order order, out BE.Enums.OrderCreateStatus status);
         bool CheckForFreeDays(BE.GuestRequest guestReq, BE.HostingUnit unit);
         void DeleteHost(int Id);
@@ -38,7 +38,7 @@ namespace BL
         int Orders(BE.HostingUnit hostingUnit);
         void UpdateHost(BE.Host host, out BE.Enums.HostValidationStatus status);
         void UpdatingGusetRequest(BE.GuestRequest guestRequest, BE.Enums.GuestRequestStatus status);
-        void UpdatingHostingUnit(BE.HostingUnit hostingUnit, BE.Enums.HosignUnitStatus status);
+        void UpdatingHostingUnit(BE.HostingUnit hostingUnit, out Enums.HostingUnitSaveStatus status);
         bool UpdatingOrder(int OrderId, BE.Enums.OrderStatus status);
         IEnumerable<IGrouping<Enums.HostingUnitArea, HostingUnit>> GroupHostingUnitByArea();
         void SetCollectionClearance(int OwnerId, bool CollectionClearance);

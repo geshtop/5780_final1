@@ -133,8 +133,8 @@ namespace PL
         private void ManageHostingUnit_Click(object sender, RoutedEventArgs e)
         {
             //check your logic
-            Pages.EditUnitHost edithost = new Pages.EditUnitHost();
-            MainFrame.Content = edithost;
+            Pages.ListHostingUnits hosingList = new Pages.ListHostingUnits();
+            MainFrame.Content = hosingList;
             
 
         }

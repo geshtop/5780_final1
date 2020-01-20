@@ -13,14 +13,18 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
       mc:Ignorable="d" 
         FontSize="16"
-      d:DesignHeight="400" d:DesignWidth="250"
+      d:DesignHeight="600" d:DesignWidth="250"
 	Title="Login">
 
     <Grid >
+        <Grid.RowDefinitions>
 
+            <RowDefinition Height="500" />
+            <RowDefinition Height="*"   />
+        </Grid.RowDefinitions>
 
-        <StackPanel Name="GuestPanel" 
-            VerticalAlignment="Top"
+        <StackPanel Name="GuestPanel"  Grid.Row="0"
+            VerticalAlignment="Top" Height="500"
                     HorizontalAlignment="Stretch"
                     TextBlock.TextAlignment="Center">
 
@@ -61,18 +65,18 @@
                 <TextBlock FlowDirection="LeftToRight" Text="2@nomail.com | 1111"   Margin="5"  />
 
             </StackPanel>
-        
-            
-            
-            
-                     
 
 
 
-     
 
-            <StackPanel Name="LoggedinPanel" Visibility="Hidden"
-                    VerticalAlignment="Top"
+
+
+
+
+
+
+        <StackPanel Height="500" Name="LoggedinPanel" Visibility="Hidden"
+                    VerticalAlignment="Top"  Grid.Row="0"
                     HorizontalAlignment="Center"
                     TextBlock.TextAlignment="Center">
 
@@ -104,10 +108,21 @@
 
             </StackPanel>
 
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock  Text="כניסה מהירה" />
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Label Content="מנהל" />
 
-
-
-       
+                <Button Click="QuickAdmin_Click"  Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        Content="{materialDesign:PackIcon  Kind=AccountStar}" />
+                <Label Content="מארח" />
+                <Button  Click="QuickHoster_Click"  Height="40" Width="40"  Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                       
+                        Content="{materialDesign:PackIcon  Kind=Hotel}" />
+            </StackPanel>
+        </StackPanel>
+        
+        
 
 
     </Grid>

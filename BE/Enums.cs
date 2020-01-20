@@ -77,6 +77,15 @@ namespace BE
             Success = 4 //נמצא תקין
         }
 
+        public enum HostingUnitSaveStatus
+        {
+            Success = 0 ,//נמצא תקין
+            MissingFields = 1 ,//חסרים שדות
+            ImageMissing = 2, // חסרה תמונה
+           
+        }
+
+
         public enum OrderCreateStatus
         {
             Success = 0,

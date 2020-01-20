@@ -163,7 +163,15 @@ namespace DAL
 
         public List<BE.HostingUnit> GetHostingUnits(Func<BE.HostingUnit, bool> predicate = null)
         {
-            return  HostingUnitsList;
+             if (predicate!= null)
+            {
+                return HostingUnitsList.Where(predicate).ToList();
+            }
+            else
+            {
+                return HostingUnitsList;
+            }
+           
         }
 
         public HostingUnit GetHostingUnitById(int stSerialKey)
@@ -173,6 +181,7 @@ namespace DAL
 
         public void AddHostingUnit(BE.HostingUnit hostingUnit)
         {
+
             hostingUnit.stSerialKey = Configuration.HostingUnitKey;
             Configuration.HostingUnitKey++;
             HostingUnitsList.Add(hostingUnit);
@@ -187,7 +196,7 @@ namespace DAL
             }
         }
 
-        public void UpdatingHostingUnit(BE.HostingUnit hostingUnit, Enums.HosignUnitStatus status)
+        public void UpdatingHostingUnit(BE.HostingUnit hostingUnit)
         {
             var h = GetHostingUnitById(hostingUnit.stSerialKey);
             if (h != null)
@@ -203,7 +212,7 @@ namespace DAL
                 h.ChildrensAttractions = hostingUnit.ChildrensAttractions;
                 h.Garden = hostingUnit.Garden;
                 //h.
-                h.Status = status;
+                h.Status = hostingUnit.Status;
                 h.DiaryState = hostingUnit.DiaryState;
             }
         }

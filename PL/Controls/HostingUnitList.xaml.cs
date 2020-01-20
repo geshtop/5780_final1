@@ -1,5 +1,6 @@
 ﻿using BE;
 using BL;
+using PL.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,30 +21,45 @@ namespace PL.Controls
     /// <summary>
     /// Interaction logic for HostingUnitList.xaml
     /// </summary>
-    public partial class HostingUnitList : UserControl
+    public partial class HostingUnitList : UserControlBase
     {
-        public List<HostingUnit> list { get; set; }
-        private IAppLogic app { get; set; }
-        public HostingUnitList(List<HostingUnit> _list, IAppLogic _app)
+        public string getButtonText
         {
-            this.app = _app;
+            get
+            {
+                if (OwnerId > 0) return "עריכה";
+                return "צפיה";
+            }
+        }
+        public List<HostingUnit> list { get; set; }
+        public HostingUnitList(List<HostingUnit> _list)
+        {
             this.list = _list;
             InitializeComponent();
             FillGrid();
-           
+
         }
 
         private void FillGrid()
         {
             HostingListGrid.DataContext = list;
-            for (int i = 0; i < list.Count; i++)
-            {
-                UnitHostingCtrl hostingCtrl = new UnitHostingCtrl(list[i], app);
-                HostingListGrid.Children.Add(hostingCtrl);
-                HostingListGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(150) });
-                Grid.SetRow(hostingCtrl, i);
-            }
+            UnitHostListView.ItemsSource = list;
+           
         }
-       
+
+        private void EditHostingUnit_Click(object sender, RoutedEventArgs e)
+        {
+            var b = (Button)sender;
+            if (b != null)
+            {
+                int id = Int32.Parse(b.Tag.ToString());
+                EditUnitHost uh = new EditUnitHost(id);
+                MainNavigate(uh);
+            }
+
+        }
+
+
+
     }
 }

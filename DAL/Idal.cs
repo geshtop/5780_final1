@@ -22,7 +22,7 @@ namespace DAL
         System.Collections.Generic.List<string> GetPrePhones();
         void UpdateHost(BE.Host host);
         void UpdatingGusetRequest(BE.GuestRequest guestRequest, BE.Enums.GuestRequestStatus status);
-        void UpdatingHostingUnit(BE.HostingUnit hostingUnit, BE.Enums.HosignUnitStatus status);
+        void UpdatingHostingUnit(BE.HostingUnit hostingUnit);
         void UpdatingOrder(BE.Order order, BE.Enums.OrderStatus status);
     }
 }
