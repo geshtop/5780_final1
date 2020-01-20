@@ -32,7 +32,10 @@ namespace DAL
         {
             return DS.Hosts.getHosts();
         }
-
+        public static List<GalleryImageItem> GetImages(List<HostingUnit> hu)
+        {
+            return DS.GalleryImageItems.GetImages(hu);
+        }
         public static List<GuestRequest> getRequests()
         {
             return DS.GuestRequests.getAllRequests();

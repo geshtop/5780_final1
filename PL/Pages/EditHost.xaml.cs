@@ -128,9 +128,12 @@ namespace PL.Pages
             }
         }
 
+
+        private void BackToList_Click(object sender, RoutedEventArgs e)
+        {
+            BackToList();
+        }
         
-
-
 
         private void BackToList()
         {

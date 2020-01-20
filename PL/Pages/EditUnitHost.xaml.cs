@@ -1,4 +1,5 @@
 ﻿using BE;
+using PL.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,9 +46,12 @@ namespace PL.Pages
             for (int i = 0; i <= 31; i++)
             {
                 calendarGrid.ColumnDefinitions.Add(new ColumnDefinition());
-                
 
             }
+
+            ImageGalleryCtrl ic = new ImageGalleryCtrl(CurrentHU);
+            GalleryGrid.Children.Add(ic);
+
             for (int i = 0; i < 12; i++)
             {
                 var rowDefinition = new RowDefinition();
@@ -102,18 +106,39 @@ namespace PL.Pages
                 case 0:
                     hostEditGrid.Visibility = System.Windows.Visibility.Visible;
                     calendarGrid.Visibility = System.Windows.Visibility.Hidden;
+                    GalleryGrid.Visibility = System.Windows.Visibility.Hidden;
                     break;
                 case 1:
                     hostEditGrid.Visibility = System.Windows.Visibility.Hidden;
                     calendarGrid.Visibility = System.Windows.Visibility.Visible;
+                    GalleryGrid.Visibility = System.Windows.Visibility.Hidden;
+
                     break;
                 case 2:
-
+                     hostEditGrid.Visibility = System.Windows.Visibility.Hidden;
+                    calendarGrid.Visibility = System.Windows.Visibility.Hidden;
+                    GalleryGrid.Visibility = System.Windows.Visibility.Visible;
                     break;
 
             }
         }
 
+
+        private void BackToList_Click(object sender, RoutedEventArgs e)
+        {
+            if (OwnerId > 0)
+            {
+                ListHostingUnits lhpage = new ListHostingUnits();
+                MainNavigate(lhpage);
+            }
+            else
+            {
+                //is admin
+                var parenthost = app.GetHostById(CurrentHU.OwnerId);
+                EditHost hostpage = new EditHost(parenthost);
+                MainNavigate(hostpage);
+            }
+        }
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             Enums.HostingUnitSaveStatus status;

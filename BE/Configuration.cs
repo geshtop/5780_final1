@@ -14,5 +14,6 @@ namespace BE
         public static int commission = 10;
 
         public static int HostIdentity = 5;
+        public static int ImageIdentity = 100;
     }
 }

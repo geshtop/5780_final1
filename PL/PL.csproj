@@ -75,6 +75,9 @@
     <Compile Include="Controls\HostingUnitList.xaml.cs">
       <DependentUpon>HostingUnitList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ImageGalleryCtrl.xaml.cs">
+      <DependentUpon>ImageGalleryCtrl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UnitHostCtrl.xaml.cs">
       <DependentUpon>UnitHostCtrl.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\HostingUnitList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ImageGalleryCtrl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

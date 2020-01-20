@@ -23,10 +23,10 @@
                 <Button Name="UnitHostButton" Uid="2" Width="150" HorizontalAlignment="Left" Content="תמונות" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>
 
             </StackPanel>
-            <StackPanel Width="120"  HorizontalAlignment="Right" Orientation="Horizontal">
+            <StackPanel Width="240"  HorizontalAlignment="Right" Orientation="Horizontal">
+               
                 <Button Name="SaveChangeButton"  Width="120" HorizontalAlignment="Right"  Content="שמירת שינויים" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="UpdateButton_Click"/>
-
-                <!--<Button  Uid="2" Width="120" HorizontalAlignment="Right" Content="חזרה לרשימה" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="ShowPanel_Click"/>-->
+                <Button  Uid="2" Width="120" HorizontalAlignment="Right" Content="חזרה לרשימה" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="BackToList_Click"/>
 
             </StackPanel>
             <Grid x:Name="GridCursor" VerticalAlignment="Bottom" Width="150" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10 0"/>
@@ -155,6 +155,10 @@
             </Grid>
             <Grid Name="calendarGrid"  Visibility="Hidden" >
               
+            </Grid>
+
+            <Grid Name="GalleryGrid"  Visibility="Hidden" >
+
             </Grid>
         </Grid>
     </StackPanel>

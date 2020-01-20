@@ -68,7 +68,25 @@ namespace BE
         public int Rooms { get; set; }
         public string HostingUnitName { get; set; }
         public Diary DiaryState { get; set; }
-        public List<string> Images { get; set; }
+        public List<GalleryImageItem> Images { get; set; }
+        private List<GalleryImageItem> _TempImages;
+
+        public List<GalleryImageItem> TempImages
+        {
+            get
+            {
+                if (_TempImages == null)
+                {
+                    _TempImages = Images.ToList();
+                }
+                return _TempImages;
+
+            }
+            set
+            {
+                _TempImages = value;
+            }
+        }
         public override string ToString()
         {
             return   HostingUnitName + ", " + stSerialKey + "\n" ;
@@ -77,7 +95,7 @@ namespace BE
         public HostingUnit()
         {
             DiaryState = new Diary();
-            Images = new List<string>();
+            Images = new List<GalleryImageItem>();
            
 
         }

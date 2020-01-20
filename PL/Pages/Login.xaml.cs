@@ -73,11 +73,9 @@ namespace PL.Pages
                 case Enums.LoginStatus.Faild:
                     MessageBox.Show("שם או סיסמא שגויים");
                     return;
-                    break;
                 case Enums.LoginStatus.Missing:
                     MessageBox.Show("יש להכניס שם או סיסמא");
                     return;
-                    break;
                 default:
                     break;
             }

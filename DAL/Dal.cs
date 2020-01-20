@@ -8,7 +8,7 @@ using DS;
 
 namespace DAL
 {
-    public class Dal : DAL.IDal 
+    public class Dal : DAL.IDal
     {
         private List<Host> _HostsList;
         private List<Host> HostsList
@@ -105,12 +105,26 @@ namespace DAL
         }
 
 
+        private List<GalleryImageItem> _GalleryList;
+        private List<GalleryImageItem> GalleryList
+        {
+            get
+            {
+                if (_GalleryList == null)
+                {
+                    _GalleryList = TempData.GetImages(HostingUnitsList);
+                }
+                return _GalleryList;
+            }
+        }
+
+
         #region Hosts
 
 
         public List<Host> GetAllHosts(Func<Host, bool> predicate = null)
         {
-            if (predicate!= null)
+            if (predicate != null)
             {
                 return HostsList.Where(predicate).ToList();
             }
@@ -118,7 +132,7 @@ namespace DAL
             {
                 return HostsList;
             }
-           
+
         }
         public void DeleteHost(int Id)
         {
@@ -132,7 +146,7 @@ namespace DAL
         public Host GetHostById(int Id)
         {
             var host = HostsList.FirstOrDefault(c => c.Id == Id);
-            host.RelatedHostingUnit = HostingUnitsList.Where(c => c.OwnerId == Id).ToList();
+            host.RelatedHostingUnit = GetHostingUnits(c => c.OwnerId == Id).ToList();
             return host;
         }
 
@@ -163,20 +177,33 @@ namespace DAL
 
         public List<BE.HostingUnit> GetHostingUnits(Func<BE.HostingUnit, bool> predicate = null)
         {
-             if (predicate!= null)
+            List<BE.HostingUnit> list = null;
+            if (predicate != null)
             {
-                return HostingUnitsList.Where(predicate).ToList();
+                list = HostingUnitsList.Where(predicate).ToList();
             }
             else
             {
-                return HostingUnitsList;
+                list = HostingUnitsList;
             }
-           
+
+            for (int i = 0; i < list.Count(); i++)
+            {
+                list[i].Images = GalleryList.Where(c => c.HostingUnitId == list[i].stSerialKey).ToList();
+            }
+            return list;
+
         }
 
         public HostingUnit GetHostingUnitById(int stSerialKey)
         {
-            return HostingUnitsList.FirstOrDefault(c => c.stSerialKey == stSerialKey);
+            var hosting = HostingUnitsList.FirstOrDefault(c => c.stSerialKey == stSerialKey);
+            if (hosting != null)
+            {
+                hosting.Images = GalleryList.Where(c => c.HostingUnitId == hosting.stSerialKey).ToList();
+
+            }
+            return hosting;
         }
 
         public void AddHostingUnit(BE.HostingUnit hostingUnit)
@@ -185,6 +212,24 @@ namespace DAL
             hostingUnit.stSerialKey = Configuration.HostingUnitKey;
             Configuration.HostingUnitKey++;
             HostingUnitsList.Add(hostingUnit);
+            //save images
+            for (int i = 0; i < hostingUnit.TempImages.Count(); i++)
+            {
+
+                int key = Configuration.ImageIdentity;
+                Configuration.ImageIdentity++;
+                GalleryImageItem ii = new GalleryImageItem()
+                {
+                    HostingUnitId = hostingUnit.stSerialKey,
+                    Id = key,
+                    Url = hostingUnit.TempImages[i].Url
+                };
+                GalleryList.Add(ii);
+
+            }
+
+            //hostingUnit.Images = GalleryList.Where(c => c.HostingUnitId == hostingUnit.stSerialKey).ToList();
+
         }
 
         public void DeleteHostingUnit(BE.HostingUnit hostingUnit)
@@ -193,6 +238,9 @@ namespace DAL
             if (index > -1)
             {
                 HostingUnitsList.RemoveAt(index);
+                //delete Prev items
+                GalleryList.RemoveAll(c => c.HostingUnitId == hostingUnit.stSerialKey);
+
             }
         }
 
@@ -214,15 +262,35 @@ namespace DAL
                 //h.
                 h.Status = hostingUnit.Status;
                 h.DiaryState = hostingUnit.DiaryState;
+
+                //delete Prev items
+                GalleryList.RemoveAll(c => c.HostingUnitId == hostingUnit.stSerialKey);
+                for (int i = 0; i < hostingUnit.TempImages.Count(); i++)
+                {
+
+                    int key = Configuration.ImageIdentity;
+                    Configuration.ImageIdentity++;
+                    GalleryImageItem ii = new GalleryImageItem()
+                    {
+                        HostingUnitId = hostingUnit.stSerialKey,
+                        Id = key,
+                        Url = hostingUnit.TempImages[i].Url
+                    };
+                    GalleryList.Add(ii);
+
+                }
+
+                //hostingUnit.Images = GalleryList.Where(c => c.HostingUnitId == hostingUnit.stSerialKey).ToList();
+
             }
         }
 
 
-       
+
         #endregion
 
         #region Banks
-         public List<Bank> GetBanksList()
+        public List<Bank> GetBanksList()
         {
             return BanksList;
         }
@@ -230,65 +298,65 @@ namespace DAL
 
         #region Branch
 
-         public List<BankBranch> GetBankAccounts(Func<BankBranch, bool> predicate)
-         {
-             throw new NotImplementedException();
-         }
+        public List<BankBranch> GetBankAccounts(Func<BankBranch, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
 
 
-         public List<BankBranch> GetBankBranches(Func<BankBranch, bool> predicate)
-         {
-             return BranchList;
-         }
+        public List<BankBranch> GetBankBranches(Func<BankBranch, bool> predicate)
+        {
+            return BranchList;
+        }
 
-         public List<BankBranch> GetBankBranchesByBank(int BankNumber)
-         {
-             return BranchList.Where(c => c.BankNumber == BankNumber).ToList();
-         }
-         #endregion
+        public List<BankBranch> GetBankBranchesByBank(int BankNumber)
+        {
+            return BranchList.Where(c => c.BankNumber == BankNumber).ToList();
+        }
+        #endregion
 
         #region PrePhones
-         public List<string> GetPrePhones()
-         {
-             return PhonePreList;
-         }
-         #endregion
+        public List<string> GetPrePhones()
+        {
+            return PhonePreList;
+        }
+        #endregion
 
 
-         #region Guest Request
-         public void AddGusetRequest(GuestRequest guestRequest)
-         {
-             guestRequest.GuestRequestsKey = Configuration.GuestRequestKey;
-             Configuration.GuestRequestKey++;
-             guestRequest.Status = Enums.GuestRequestStatus.Opened;
-             guestRequest.RegistrationDate = DateTime.Now;
-             GuestRequestList.Add(guestRequest);
-         }
+        #region Guest Request
+        public void AddGusetRequest(GuestRequest guestRequest)
+        {
+            guestRequest.GuestRequestsKey = Configuration.GuestRequestKey;
+            Configuration.GuestRequestKey++;
+            guestRequest.Status = Enums.GuestRequestStatus.Opened;
+            guestRequest.RegistrationDate = DateTime.Now;
+            GuestRequestList.Add(guestRequest);
+        }
 
-         public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status )
-         {
-             int index = GuestRequestList.FindIndex(c => c.GuestRequestsKey == guestRequest.GuestRequestsKey);
-             if (index > -1)
-             {
-                 GuestRequestList[index].Status = status;
+        public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
+        {
+            int index = GuestRequestList.FindIndex(c => c.GuestRequestsKey == guestRequest.GuestRequestsKey);
+            if (index > -1)
+            {
+                GuestRequestList[index].Status = status;
 
-               
+
 
             }
         }
 
-         public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate = null)
-         {
-             if (predicate != null)
-             {
-                 return GuestRequestList.Where(predicate).ToList();
-             }
-             else
-             {
-                 return GuestRequestList;
-             }
-           
-         }
+        public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate = null)
+        {
+            if (predicate != null)
+            {
+                return GuestRequestList.Where(predicate).ToList();
+            }
+            else
+            {
+                return GuestRequestList;
+            }
+
+        }
         #endregion
 
 
@@ -321,15 +389,16 @@ namespace DAL
                     }
 
                     //עדכון הימים באכסניה
-                    
+
                     int hostingid = HostingUnitsList.FindIndex(c => c.stSerialKey == order.HostingUnitKey);
-                    var request =GuestRequestList.Where(c=>c.GuestRequestsKey == order.GuestRequestKey).FirstOrDefault();
-                    if(hostingid > -1 && request != null){
-                    Diary diary = HostingUnitsList[hostingid].DiaryState;
-                    for (DateTime time = request.EntryDate.AddDays(1); time < request.ReleaseDate; time = time.AddDays(1))
+                    var request = GuestRequestList.Where(c => c.GuestRequestsKey == order.GuestRequestKey).FirstOrDefault();
+                    if (hostingid > -1 && request != null)
                     {
-                        diary.Calender[time.Month - 1, time.Day - 1] = true;
-                    }
+                        Diary diary = HostingUnitsList[hostingid].DiaryState;
+                        for (DateTime time = request.EntryDate.AddDays(1); time < request.ReleaseDate; time = time.AddDays(1))
+                        {
+                            diary.Calender[time.Month - 1, time.Day - 1] = true;
+                        }
                         // HostingUnitsList[key].DiaryState = diary;
                     }
                     OrderList[index].Status = Enums.OrderStatus.Success; //אני לא יודעת אם סטטוס ההזמנה המקורית השנה אף הוא
