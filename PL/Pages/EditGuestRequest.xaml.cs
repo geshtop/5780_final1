@@ -79,6 +79,9 @@ namespace PL.Pages
 
         }
 
-    
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

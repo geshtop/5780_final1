@@ -1,4 +1,4 @@
-﻿<local:PageBase x:Class="PL.Pages.ListClient"  
+﻿<local:PageBase x:Class="PL.Pages.ListClient"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,32 +10,16 @@
     <StackPanel>
         <Grid Height="80">
             <Label Name="filtering" Content="אפשרות סינון" HorizontalAlignment="Left" Margin="657,20,0,0" VerticalAlignment="Top" Height="46" Width="133" FontSize="20"/>
-            <DatePicker Name ="FirstDate" HorizontalAlignment="Left" Margin="459,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="159" Height="36"/>
-            <DatePicker Name ="LastDate" HorizontalAlignment="Left" Margin="247,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="150" Height="36"/>
-            <ComboBox Name="Stutus" HorizontalAlignment="Left" Margin="65,29,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.5,0.5">
-                <ComboBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ComboBox.RenderTransform>
+            <ComboBox Name="Stutus" HorizontalAlignment="Left" Margin="479,20,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.5,0.5" Height="37" SelectionChanged="Stutus_SelectionChanged">
+                <ComboBoxItem Content="לפי הא-ב" Tag="0"  HorizontalAlignment="Left" Width="100"/>
+                <ComboBoxItem Content="לפי תאריכי הזמנה" Tag="1"  HorizontalAlignment="Left" Width="120"/>
+                <ComboBoxItem Content="לפי אזור נופש " Tag="2"  HorizontalAlignment="Left" Width="120" Grid.Column="2"/>
+                <ComboBoxItem Content="לפי מספר נופשים" Tag="0"  HorizontalAlignment="Left" Width="85"/>
             </ComboBox>
-
         </Grid>
-        <Grid Height="520">
-            <ComboBox HorizontalAlignment="Left" Margin="421,69,0,0" VerticalAlignment="Top" Width="315" Height="59" RenderTransformOrigin="0.5,0.5">
-                <ComboBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ComboBox.RenderTransform>
-            </ComboBox>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="212" Margin="80,227,0,0" VerticalAlignment="Top" Width="656"/>
+        <Grid Name="showes" Height="520">
+            <ListBox HorizontalAlignment="Left" Height="471" Margin="26,20,0,0" VerticalAlignment="Top" Width="748"/>
+
         </Grid>
     </StackPanel>
 </local:PageBase>

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:PL.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
@@ -13,10 +14,10 @@
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="8" Margin="310,52,0,0" Stroke="Black" VerticalAlignment="Top" Width="142"/>
 
         </Grid>
-        <TextBox Name="name" HorizontalAlignment="Left" Height="40" Margin="377,105,0,0" TextWrapping="Wrap" Text="שם" VerticalAlignment="Top" Width="283" Background="White" SelectionBrush="White" TextChanged="Name_TextChanged"/>
-        <TextBox Name="telephon" HorizontalAlignment="Left" Height="40" Margin="377,180,0,0" TextWrapping="Wrap" Text="טלפון" VerticalAlignment="Top" Width="283" Background="White" TextChanged="Telephon_TextChanged"/>
-        <TextBox Name="telephon_Copy" HorizontalAlignment="Left" Height="40" Margin="377,253,0,0" TextWrapping="Wrap" Text="נושא" VerticalAlignment="Top" Width="283" Background="White"/>
-        <TextBox x:Name="telephon_Copy1" HorizontalAlignment="Left" Height="160" Margin="377,329,0,0" TextWrapping="Wrap" Text="כתוב הודעתך כאן" VerticalAlignment="Top" Width="283" Background="White"/>
+        <TextBox Name="name" HorizontalAlignment="Left" Height="40" Margin="377,105,0,0" TextWrapping="Wrap"  materialDesign:HintAssist.Hint="שם"  materialDesign:HintAssist.IsFloating="False" VerticalAlignment="Top" Width="283" Background="White" SelectionBrush="White"/>
+        <TextBox Name="telephon" HorizontalAlignment="Left" Height="40" Margin="377,180,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="דואל"  materialDesign:HintAssist.IsFloating="False" VerticalAlignment="Top" Width="283" Background="White"/>
+        <TextBox Name="telephon_Copy" HorizontalAlignment="Left" Height="40" Margin="377,253,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="נושא"  materialDesign:HintAssist.IsFloating="False" VerticalAlignment="Top" Width="283" Background="White"/>
+        <TextBox x:Name="telephon_Copy1" HorizontalAlignment="Left" Height="160" Margin="377,329,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="הכנס הודעתך כאן"  materialDesign:HintAssist.IsFloating="False" VerticalAlignment="Top" Width="283" Background="White"/>
         <Button Name="send" Content="שלח" HorizontalAlignment="Left" Height="36" Margin="377,513,0,0" VerticalAlignment="Top" Width="107" Click="Send_Click"/>
         <TextBlock HorizontalAlignment="Left" Height="29" Margin="196,160,0,0" TextWrapping="Wrap" Text="טל: 0587-703-289" VerticalAlignment="Top" Width="133" Foreground="White" FontSize="15"/>
         <TextBlock HorizontalAlignment="Left" Height="29" Margin="196,202,0,0" TextWrapping="Wrap" Text="טל: 0587-111-212" VerticalAlignment="Top" Width="133" Foreground="White" FontSize="15"/>

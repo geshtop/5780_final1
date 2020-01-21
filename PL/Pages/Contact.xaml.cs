@@ -20,24 +20,18 @@ namespace PL.Pages
     /// </summary>
     public partial class Contact : PageBase
     {
+        //bool flag = false;
         public Contact()
         {
             InitializeComponent();
+            //flag = true;
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-            
-            MessageBox.Show("חסר ביצוע השליחה");
-        }
-
-        private void Name_TextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        private void Telephon_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            string text = "שם: " + name.Text + "\nמייל: " + telephon.Text
+                + "\nנושא: " + telephon_Copy + "\nגוף ההודעה: " + telephon_Copy1;
+            MessageBox.Show(text);
         }
     }
 }
