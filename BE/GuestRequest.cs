@@ -121,7 +121,7 @@ namespace BE
             {
 
                 return ("#" + GuestRequestsKey + "\n" +
-                   "סטטוס: " + StrStatus + "\n" +
+                   //"סטטוס: " + StrStatus + "\n" +
                    "שם מלא: " + FirstName + " " + LastName + "\n" +
                     "מייל: " + MailAddress + "\n" +
                     "נוצר בתאריך: " + RegistrationDate.ToString("dd/MM/yyyy") + "\n" +

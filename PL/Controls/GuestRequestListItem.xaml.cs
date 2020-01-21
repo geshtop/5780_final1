@@ -20,6 +20,40 @@ namespace PL.Controls
     /// <summary>
     /// Interaction logic for GuestRequestListItem.xaml
     /// </summary>
+     public class VisibilityIfNumericConverter : IValueConverter
+        {
+            #region IValueConverter Members
+
+            public object Convert(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                return ((int)value > 0) ? Visibility.Visible : Visibility.Collapsed;
+            }
+
+            public object ConvertBack(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                return false; // not needed
+            }
+
+            #endregion
+        }
+
+     public class HideIfNumericConverter : IValueConverter
+     {
+         #region IValueConverter Members
+
+         public object Convert(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
+         {
+             return ((int)value > 0) ? Visibility.Collapsed : Visibility.Visible;
+         }
+
+         public object ConvertBack(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
+         {
+             return false; // not needed
+         }
+
+         #endregion
+     }
+
     public partial class GuestRequestListItem : UserControlBase
     {
 
@@ -115,5 +149,8 @@ namespace PL.Controls
             Pages.GuestRequestList requestList = new Pages.GuestRequestList();
             MainNavigate(requestList);
         }
+
+
+       
     }
 }

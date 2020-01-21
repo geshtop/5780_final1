@@ -114,6 +114,7 @@ namespace PL
         private void ApprovedAccount_Click(object sender, RoutedEventArgs e)
         {
             app.SetCollectionClearance(OwnerId, true);
+            MessageBox.Show("עודכן אישור גבייה בהצלחה");
         }
         private void Reports_Click(object sender, RoutedEventArgs e)
         {
@@ -148,15 +149,7 @@ namespace PL
 
         }
 
-        private void AddHost_Click(object sender, RoutedEventArgs e)
-        {
-
-            EditHost hostPage = new EditHost(new Host());
-            MainFrame.Content = hostPage;
-
-
-
-        }
+       
         private void RequestList_Click(object sender, RoutedEventArgs e)
         {
             if(OwnerId > 0){
@@ -164,10 +157,7 @@ namespace PL
                 MainFrame.Content = requestList;
 
             }
-            else
-            {
-                MessageBox.Show("יש לבחור מארח ");
-            }
+            
         }
       
         public  System.Windows.Visibility getVisible(){

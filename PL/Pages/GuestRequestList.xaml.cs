@@ -42,7 +42,7 @@ namespace PL.Pages
             {
                 GuestRequestListItem reqCtrl = new GuestRequestListItem(RequestsList[i]);
                 GuestRequestListGrid.Children.Add(reqCtrl);
-                GuestRequestListGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(185) });
+                GuestRequestListGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(165) });
                 Grid.SetRow(reqCtrl, i);
             }
         }
