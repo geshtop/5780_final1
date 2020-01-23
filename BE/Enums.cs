@@ -65,7 +65,8 @@ namespace BE
             DuplicateId=2, //תעודת הזהות קיימת כבר במערכת
             WrongFields =3, // שדות לא תקינים דוגמא תעודת זהות עם מעט תווים
             HasActiveHostingUnits =4, //לא ניתן למחוק בגלל שיש יחידות אירוח שעדיין פעילות
-            Faild=5 //שגיאת מסד
+            Faild=5, //שגיאת מסד
+            WrongId=6
         }
 
         public enum GuestRequesteCreateStatus

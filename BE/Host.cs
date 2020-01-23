@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
+    [Serializable()]
     public class Host
     {
         public Host()
@@ -20,6 +22,7 @@ namespace BE
         public string PhoneExt { get; set; }
         public string MailAddress { get; set; }
         public string Password { get; set; }
+        [XmlIgnore]
         public string Phone
         {
             get
@@ -27,6 +30,7 @@ namespace BE
                 return PhonePre + "-" + PhoneExt;
             }
         }
+        [XmlIgnore]
         public string FullName
         {
             get
@@ -34,6 +38,7 @@ namespace BE
                 return FirstName + " " + LastName;
             }
         }
+        [XmlIgnore]
         public BankBranch Branch
         {
             get
@@ -45,7 +50,9 @@ namespace BE
         public int BranchNumber { get; set; }
         public int BankAccount { get; set; }
         public bool CollectionClearance { get; set; }
+        [XmlIgnore]
         public List<HostingUnit> RelatedHostingUnit { get; set; }
+        [XmlIgnore]
         public int NumHostingUnit
         {
             get
@@ -53,10 +60,15 @@ namespace BE
                 return RelatedHostingUnit.Count;
             }
         }
+        
         public override string ToString()
         {
             return (HostKey + ", " + FirstName + " " + LastName + "\n" + PhonePre + PhoneExt + ", " + MailAddress
                 + "\n" + BankAccount.ToString() + "\nCollectionClearance: " + CollectionClearance);
         }
     }
+
+
+  
+ 
 }

@@ -5,11 +5,58 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 using DS;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace DAL
 {
     public class Dal : DAL.IDal
     {
+
+        public List<T> FromXML<T>()
+        {
+           
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
+                var path = typeof(T).ToString() + ".xml";
+                using (StreamReader reader = new StreamReader(path))
+                {
+                   return (List<T>)serializer.Deserialize(reader);
+                }
+               
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
+      
+        private void ToXML<T>(List<T> data)
+        {
+            try
+            {
+
+                //create the serialiser to create the xml
+                XmlSerializer serialiser = new XmlSerializer(typeof(List<T>));
+
+                // Create the TextWriter for the serialiser to use
+                var path = typeof(T).ToString() + ".xml";
+                using (TextWriter filestream = new StreamWriter(path))
+                {
+                    //write to the file
+                    serialiser.Serialize(filestream, data);
+                }
+                
+            }
+            catch
+            {
+
+            }
+        }
+
         private List<Host> _HostsList;
         private List<Host> HostsList
         {
@@ -17,10 +64,20 @@ namespace DAL
             {
                 if (_HostsList == null)
                 {
-                    _HostsList = Hosts.getHosts();
+
+                    _HostsList = FromXML<Host>();
+                    if(_HostsList == null){
+                        _HostsList = Hosts.getHosts();
+                    }
+                    
                 }
                 return _HostsList;
             }
+        }
+
+        private void UpdateXml<T>(List<T> list)
+        {
+            ToXML<T>(list);
         }
 
         private List<HostingUnit> _HostingUnitsList;
@@ -141,6 +198,7 @@ namespace DAL
             {
                 HostsList.RemoveAt(index);
             }
+            UpdateXml<Host>(HostsList);
         }
 
         public Host GetHostById(int Id)
@@ -162,6 +220,7 @@ namespace DAL
                 h.PhonePre = host.PhonePre;
                 h.HostKey = host.HostKey;
             }
+            UpdateXml<Host>(HostsList);
         }
 
         public void AddHost(Host host)
@@ -169,6 +228,7 @@ namespace DAL
             host.Id = Configuration.HostIdentity;
             Configuration.HostIdentity++;
             HostsList.Add(host);
+            UpdateXml<Host>(HostsList);
         }
         #endregion
 

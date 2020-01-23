@@ -114,7 +114,7 @@ namespace BL
             }
             if (host.HostKey.Length < 9)
             {
-                status = Enums.HostValidationStatus.WrongFields;
+                status = Enums.HostValidationStatus.WrongId;
                 return;
             }
 

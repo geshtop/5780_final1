@@ -89,6 +89,9 @@ namespace PL.Pages
                     case Enums.HostValidationStatus.Faild:
                         ErrorMessage = " שגיאת מסד";
                         break;
+                    case Enums.HostValidationStatus.WrongId:
+                        ErrorMessage = " תעודת זהות צריך להכיל 9 תווים";
+                        break;
                     default:
                         break;
                 }
