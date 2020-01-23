@@ -38,12 +38,12 @@ namespace PL.Pages
                 case Enums.AuthPermission.Host:
                     GuestPanel.Visibility = System.Windows.Visibility.Hidden;
                     LoggedinPanel.Visibility = System.Windows.Visibility.Visible;
-                    Username.Text = "שלום, " + CurrentUser.Name;
+                    Username.Text = CurrentUser.Name;
                     break;
                 case Enums.AuthPermission.Admin:
                      GuestPanel.Visibility = System.Windows.Visibility.Hidden;
                     LoggedinPanel.Visibility = System.Windows.Visibility.Visible;
-                    Username.Text = "שלום, " + CurrentUser.Name;
+                    Username.Text =  CurrentUser.Name;
                     break;
                 default:
                     break;

@@ -90,9 +90,10 @@
                     <materialDesign:PackIcon Kind="User" Height="54" Width="54" />
                 </Button>
                 <!-- Sign Up header -->
-                    <TextBlock FontSize="25"  Name="Username" Text="שלום"  />
+                  <TextBlock FontSize="25"  Text="שלום"  />
+                <TextBlock FontSize="25"  Name="Username" Text=""  />
 
-                    <!-- Sign up subtext-->
+                <!-- Sign up subtext-->
                     <TextBlock Text="It's about to get fun"   Margin="0 0 0 20"  />
 
                    

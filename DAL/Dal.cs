@@ -13,18 +13,20 @@ namespace DAL
     public class Dal : DAL.IDal
     {
 
+
+        #region XML
         public List<T> FromXML<T>()
         {
-           
+
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
                 var path = typeof(T).ToString() + ".xml";
                 using (StreamReader reader = new StreamReader(path))
                 {
-                   return (List<T>)serializer.Deserialize(reader);
+                    return (List<T>)serializer.Deserialize(reader);
                 }
-               
+
             }
             catch
             {
@@ -33,7 +35,7 @@ namespace DAL
 
         }
 
-      
+
         private void ToXML<T>(List<T> data)
         {
             try
@@ -49,7 +51,7 @@ namespace DAL
                     //write to the file
                     serialiser.Serialize(filestream, data);
                 }
-                
+
             }
             catch
             {
@@ -57,6 +59,16 @@ namespace DAL
             }
         }
 
+
+        private void UpdateXml<T>(List<T> list)
+        {
+            ToXML<T>(list);
+        }
+        #endregion
+
+
+
+        #region lists
         private List<Host> _HostsList;
         private List<Host> HostsList
         {
@@ -66,19 +78,25 @@ namespace DAL
                 {
 
                     _HostsList = FromXML<Host>();
-                    if(_HostsList == null){
+                    if (_HostsList == null)
+                    {
                         _HostsList = Hosts.getHosts();
                     }
-                    
+                    if (_HostsList.Count > 0)
+                    {
+                        //עדכון המספר שממנו נעדכן את הנתונים החדשים
+                        var max = _HostsList.OrderByDescending(c => c.Id).FirstOrDefault();
+                        if (max != null)
+                        {
+                            Configuration.HostIdentity = max.Id + 1;
+                        }
+                    }
+
                 }
                 return _HostsList;
             }
         }
 
-        private void UpdateXml<T>(List<T> list)
-        {
-            ToXML<T>(list);
-        }
 
         private List<HostingUnit> _HostingUnitsList;
         private List<HostingUnit> HostingUnitsList
@@ -87,11 +105,63 @@ namespace DAL
             {
                 if (_HostingUnitsList == null)
                 {
-                    _HostingUnitsList = TempData.getHostingUnits();
+                   
+                    _HostingUnitsList = FromXML<HostingUnit>();
+                    if (_HostingUnitsList == null)
+                    {
+                        _HostingUnitsList = TempData.getHostingUnits();
+                    }
+                    if (_HostingUnitsList.Count > 0)
+                    {
+                        //עדכון המספר שממנו נעדכן את הנתונים החדשים
+                        var max = _HostingUnitsList.OrderByDescending(c => c.stSerialKey).FirstOrDefault();
+                        if (max != null)
+                        {
+                            Configuration.HostingUnitKey = max.stSerialKey + 1;
+                        }
+                    }
                 }
                 return _HostingUnitsList;
             }
         }
+
+
+        private List<GalleryImageItem> _GalleryList;
+        private List<GalleryImageItem> GalleryList
+        {
+            get
+            {
+                if (_GalleryList == null)
+                {
+                   
+                    _GalleryList = FromXML<GalleryImageItem>();
+                    if (_GalleryList == null)
+                    {
+                        _GalleryList = TempData.GetImages(HostingUnitsList);
+                    }
+                    if (_GalleryList.Count > 0)
+                    {
+                        //עדכון המספר שממנו נעדכן את הנתונים החדשים
+                        var max = _GalleryList.OrderByDescending(c => c.Id).FirstOrDefault();
+                        if (max != null)
+                        {
+                            Configuration.ImageIdentity = max.Id + 1;
+                        }
+                    }
+                }
+                return _GalleryList;
+            }
+        }
+
+
+        #endregion
+
+
+      
+
+       
+
+      
 
         private List<string> _PhonePreList;
         private List<string> PhonePreList
@@ -162,18 +232,7 @@ namespace DAL
         }
 
 
-        private List<GalleryImageItem> _GalleryList;
-        private List<GalleryImageItem> GalleryList
-        {
-            get
-            {
-                if (_GalleryList == null)
-                {
-                    _GalleryList = TempData.GetImages(HostingUnitsList);
-                }
-                return _GalleryList;
-            }
-        }
+       
 
 
         #region Hosts
@@ -287,8 +346,8 @@ namespace DAL
                 GalleryList.Add(ii);
 
             }
-
-            //hostingUnit.Images = GalleryList.Where(c => c.HostingUnitId == hostingUnit.stSerialKey).ToList();
+            UpdateXml<HostingUnit>(HostingUnitsList);
+            UpdateXml<GalleryImageItem>(GalleryList);
 
         }
 
@@ -302,6 +361,8 @@ namespace DAL
                 GalleryList.RemoveAll(c => c.HostingUnitId == hostingUnit.stSerialKey);
 
             }
+            UpdateXml<HostingUnit>(HostingUnitsList);
+            UpdateXml<GalleryImageItem>(GalleryList);
         }
 
         public void UpdatingHostingUnit(BE.HostingUnit hostingUnit)
@@ -339,9 +400,8 @@ namespace DAL
                     GalleryList.Add(ii);
 
                 }
-
-                //hostingUnit.Images = GalleryList.Where(c => c.HostingUnitId == hostingUnit.stSerialKey).ToList();
-
+                UpdateXml<HostingUnit>(HostingUnitsList);
+                UpdateXml<GalleryImageItem>(GalleryList);
             }
         }
 

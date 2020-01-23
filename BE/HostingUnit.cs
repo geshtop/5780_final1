@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
+    [Serializable()]
     public class HostingUnit
     {
         public int stSerialKey { get; set; }
         public int OwnerId { get; set; }
+        [XmlIgnore]
         public Host Owner
         {
             get
@@ -17,10 +20,13 @@ namespace BE
                 return null;
             }
         }
+         [XmlIgnore]
         public Enums.HosignUnitStatus Status { get; set; }
+         [XmlIgnore]
         public Enums.HostingUnitType Type { get; set; }
+         [XmlIgnore]
         public Enums.HostingUnitArea Area { get; set; }
-
+         [XmlIgnore]
         public string StrArea
         {
             get
@@ -49,6 +55,7 @@ namespace BE
                 return t;
             }
         }
+        [XmlIgnore]
         public string StrType
         {
             get
@@ -120,10 +127,13 @@ namespace BE
         public int Children { get; set; }
         public int Rooms { get; set; }
         public string HostingUnitName { get; set; }
+        [XmlIgnore]
         public Diary DiaryState { get; set; }
+        [XmlIgnore]
         public List<GalleryImageItem> Images { get; set; }
+        [XmlIgnore]
         private List<GalleryImageItem> _TempImages;
-
+        [XmlIgnore]
         public List<GalleryImageItem> TempImages
         {
             get
