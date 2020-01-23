@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BE;
 using BL;
+using PL.Controls;
 
 namespace PL.Pages
 {
@@ -23,10 +24,17 @@ namespace PL.Pages
     /// </summary>
     public partial class ListClient : PageBase
     {
+        public List<GuestRequest> GuestRequests { get; set; }
         public ListClient()
         {
+            GuestRequests = app.GetGuestRequests(c => c.Status == Enums.GuestRequestStatus.Opened || c.Status == Enums.GuestRequestStatus.InProccess);
             InitializeComponent();
-            
+            Stutus.Items.Add("לפי שם פרטי");
+            Stutus.Items.Add("לפי שם משפחה");
+            Stutus.Items.Add("לפי אזור");
+            Stutus.Items.Add("לפי מספר נופשים ");
+            Stutus.Items.Add("לפי תאריכים");
+            FillGrid();
         }
 
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
@@ -42,10 +50,21 @@ namespace PL.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            List<GuestRequest> guestRequests = app.ReturnArea("הכל");
-            if (guestRequests == null)
-                return;
-            ShowsList.DataContext = guestRequests;
+
+        }
+
+        private void Stutus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void FillGrid()
+        {
+            ShowsList.DataContext = GuestRequests;
+
+            for (int i = 0; i < GuestRequests.Count; i++)
+            {
+                ShowsList.Items.Add(GuestRequests[i]);
+            }
         }
     }
 }

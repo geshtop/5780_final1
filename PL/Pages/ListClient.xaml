@@ -11,11 +11,8 @@
     <StackPanel>
         <Grid Height="80">
             <Label x:Name="filtering" Content="אפשרות סינון" HorizontalAlignment="Left" Margin="657,20,0,0" VerticalAlignment="Top" Height="46" Width="133" FontSize="20"/>
-            <ComboBox x:Name="Stutus" HorizontalAlignment="Left" Margin="479,20,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.5,0.5" Height="37" Background="White">
-                <ComboBoxItem Content="לפי הא-ב" Tag="0"  HorizontalAlignment="Left" Width="100" Grid.Column="0"/>
-                <ComboBoxItem Content="לפי תאריכי הזמנה" Tag="1"  HorizontalAlignment="Left" Width="120" Grid.Column="1"/>
-                <ComboBoxItem Content="לפי אזור נופש " Tag="2"  HorizontalAlignment="Left" Width="120" Grid.Column="2" Selected="ComboBoxItem_Selected"/>
-                <ComboBoxItem Content="לפי מספר נופשים" Tag="0"  HorizontalAlignment="Left" Width="120" Grid.Column="3"/>
+            <ComboBox x:Name="Stutus" HorizontalAlignment="Left" Margin="479,20,0,0" VerticalAlignment="Top" Width="156" RenderTransformOrigin="0.5,0.5" Height="37" Background="White" SelectionChanged="Stutus_SelectionChanged">
+                
             </ComboBox>
 
             <Label x:Name="filtering_Copy1" Content="סינון פנימי" HorizontalAlignment="Left" Margin="346,20,0,0" VerticalAlignment="Top" Height="46" Width="133" FontSize="20"/>
