@@ -118,9 +118,8 @@ namespace PL
         }
         private void Reports_Click(object sender, RoutedEventArgs e)
         {
-            Querys query = new Querys();
-            //OrderByRequest reportPage = new OrderByRequest();
-            MainFrame.Content = query;
+            ReportMainPage rmp = new ReportMainPage();
+            MainFrame.Content = rmp;
         }
         private void AddReqest_Click(object sender, RoutedEventArgs e)
         {

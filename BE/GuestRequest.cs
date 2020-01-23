@@ -170,7 +170,28 @@ namespace BE
         }
 
 
-
+        public int AreaId
+        {
+            get
+            {
+                return (int)Area;
+            }
+            set
+            {
+                Area = (Enums.HostingUnitArea)value;
+            }
+        }
+        public int StatusId
+        {
+            get
+            {
+                return (int)Status;
+            }
+            set
+            {
+                Status = (Enums.GuestRequestStatus)value;
+            }
+        }
 
         private string ConvertExtensionTypeToString(Enums.ExtensionType type)
         {
