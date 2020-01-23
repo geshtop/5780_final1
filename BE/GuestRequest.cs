@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
@@ -19,6 +20,7 @@ namespace BE
         public string MailAddress { get; set; }
         public string PhonePre { get; set; }
         public string PhoneExt { get; set; }
+        [XmlIgnore]
         public string Phone
         {
             get
@@ -26,6 +28,7 @@ namespace BE
                 return PhonePre + "-" + PhoneExt;
             }
         }
+         [XmlIgnore]
         public string FullName
         {
             get
@@ -33,13 +36,13 @@ namespace BE
                 return FirstName + " " + LastName;
             }
         }
-        public Enums.GuestRequestStatus Status { get; set; }
+        
         public DateTime RegistrationDate { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public Enums.HostingUnitArea Area { get; set; }
+         
         public string SubArea { get; set; }
-        public Enums.HostingUnitType Type { get; set; }
+       
         public int Adult { get; set; }
         public int Children { get; set; }
         public int Rooms { get; set; }
@@ -47,6 +50,7 @@ namespace BE
         public Enums.ExtensionType Jacuzzi { get; set; }
         public Enums.ExtensionType Garden { get; set; }
         public Enums.ExtensionType ChildrensAttractions { get; set; }
+         [XmlIgnore]
         public string StrArea
         {
             get
@@ -75,6 +79,7 @@ namespace BE
                 return t;
             }
         }
+         [XmlIgnore]
         public string StrStatus
         {
             get
@@ -103,7 +108,7 @@ namespace BE
                 return t;
             }
         }
-
+         [XmlIgnore]
         public string StrType
         {
             get
@@ -129,6 +134,7 @@ namespace BE
                 return t;
             }
         }
+         [XmlIgnore]
         public string Description
         {
             get
@@ -146,7 +152,7 @@ namespace BE
                   );
             }
         }
-
+         [XmlIgnore]
         public string Extantion
         {
             get
@@ -183,7 +189,8 @@ namespace BE
                   );
         }
 
-
+        [XmlIgnore]
+        public Enums.HostingUnitArea Area { get; set; }
         public int AreaId
         {
             get
@@ -195,6 +202,8 @@ namespace BE
                 Area = (Enums.HostingUnitArea)value;
             }
         }
+        [XmlIgnore]
+        public Enums.GuestRequestStatus Status { get; set; }
         public int StatusId
         {
             get
@@ -204,6 +213,19 @@ namespace BE
             set
             {
                 Status = (Enums.GuestRequestStatus)value;
+            }
+        }
+        [XmlIgnore]
+        public Enums.HostingUnitType Type { get; set; }
+        public int TypeId
+        {
+            get
+            {
+                return (int)Type;
+            }
+            set
+            {
+                Type = (Enums.HostingUnitType)value;
             }
         }
 

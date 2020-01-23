@@ -209,6 +209,34 @@ namespace DAL
             }
         }
 
+
+        private List<GuestRequest> _GuestRequestList;
+        private List<GuestRequest> GuestRequestList
+        {
+            get
+            {
+                if (_GuestRequestList == null)
+                {
+                    
+                    _GuestRequestList = FromXML<GuestRequest>();
+                    if (_GuestRequestList == null)
+                    {
+                        _GuestRequestList = TempData.getRequests();
+                    }
+                    if (_GuestRequestList.Count > 0)
+                    {
+                        //עדכון המספר שממנו נעדכן את הנתונים החדשים
+                        var max = _GuestRequestList.OrderByDescending(c => c.GuestRequestsKey).FirstOrDefault();
+                        if (max != null)
+                        {
+                            Configuration.GuestRequestKey = max.GuestRequestsKey + 1;
+                        }
+                    }
+                }
+                return _GuestRequestList;
+            }
+        }
+
         #endregion
 
 
@@ -260,18 +288,7 @@ namespace DAL
 
 
 
-        private List<GuestRequest> _GuestRequestList;
-        private List<GuestRequest> GuestRequestList
-        {
-            get
-            {
-                if (_GuestRequestList == null)
-                {
-                    _GuestRequestList = TempData.getRequests();
-                }
-                return _GuestRequestList;
-            }
-        }
+      
 
      
 
@@ -501,6 +518,7 @@ namespace DAL
             guestRequest.Status = Enums.GuestRequestStatus.Opened;
             guestRequest.RegistrationDate = DateTime.Now;
             GuestRequestList.Add(guestRequest);
+            UpdateXml<GuestRequest>(GuestRequestList);
         }
 
         public void UpdatingGusetRequest(GuestRequest guestRequest, Enums.GuestRequestStatus status)
@@ -513,6 +531,7 @@ namespace DAL
 
 
             }
+            UpdateXml<GuestRequest>(GuestRequestList);
         }
 
         public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate = null)
