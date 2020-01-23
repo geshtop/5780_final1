@@ -127,8 +127,8 @@ namespace BE
         public int Children { get; set; }
         public int Rooms { get; set; }
         public string HostingUnitName { get; set; }
-        [XmlIgnore]
-        public Diary DiaryState { get; set; }
+       // [XmlIgnore]
+       // public Diary DiaryState { get; set; }
         [XmlIgnore]
         public List<GalleryImageItem> Images { get; set; }
         [XmlIgnore]
@@ -150,6 +150,9 @@ namespace BE
                 _TempImages = value;
             }
         }
+
+        [XmlIgnore]
+        public List<FullDays> Days { get; set; }
         public override string ToString()
         {
             return   HostingUnitName + ", " + stSerialKey + "\n" ;
@@ -157,9 +160,9 @@ namespace BE
 
         public HostingUnit()
         {
-            DiaryState = new Diary();
+            //DiaryState = new Diary();
             Images = new List<GalleryImageItem>();
-        
+            Days = new List<FullDays>();
         }
     }
 

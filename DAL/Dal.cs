@@ -154,6 +154,61 @@ namespace DAL
         }
 
 
+        private List<FullDays> _DaysList;
+        private List<FullDays> DaysList
+        {
+            get
+            {
+                if (_DaysList == null)
+                {
+
+                    _DaysList = FromXML<FullDays>();
+                    if (_DaysList == null)
+                    {
+                        _DaysList = new List<FullDays>();
+                    }
+                    if (_DaysList.Count > 0)
+                    {
+                        //עדכון המספר שממנו נעדכן את הנתונים החדשים
+                        var max = _DaysList.OrderByDescending(c => c.Id).FirstOrDefault();
+                        if (max != null)
+                        {
+                            Configuration.DaysIdentity = max.Id + 1;
+                        }
+                    }
+                }
+                return _DaysList;
+            }
+        }
+
+
+        private List<Order> _OrderList;
+        private List<Order> OrderList
+        {
+            get
+            {
+                if (_OrderList == null)
+                {
+                   
+                    _OrderList = FromXML<Order>();
+                    if (_OrderList == null)
+                    {
+                        _OrderList = TempData.getOrders();
+                    }
+                    if (_OrderList.Count > 0)
+                    {
+                        //עדכון המספר שממנו נעדכן את הנתונים החדשים
+                        var max = _OrderList.OrderByDescending(c => c.OrderKey).FirstOrDefault();
+                        if (max != null)
+                        {
+                            Configuration.OrderKey = max.OrderKey + 1;
+                        }
+                    }
+                }
+                return _OrderList;
+            }
+        }
+
         #endregion
 
 
@@ -218,18 +273,7 @@ namespace DAL
             }
         }
 
-        private List<Order> _OrderList;
-        private List<Order> OrderList
-        {
-            get
-            {
-                if (_OrderList == null)
-                {
-                    _OrderList = TempData.getOrders();
-                }
-                return _OrderList;
-            }
-        }
+     
 
 
        
@@ -310,6 +354,12 @@ namespace DAL
             {
                 list[i].Images = GalleryList.Where(c => c.HostingUnitId == list[i].stSerialKey).ToList();
             }
+
+            for (int i = 0; i < list.Count(); i++)
+            {
+                list[i].Days = DaysList.Where(c => c.HostingUnitId == list[i].stSerialKey).ToList();
+            }
+
             return list;
 
         }
@@ -382,7 +432,7 @@ namespace DAL
                 h.Garden = hostingUnit.Garden;
                 //h.
                 h.Status = hostingUnit.Status;
-                h.DiaryState = hostingUnit.DiaryState;
+                //h.DiaryState = hostingUnit.DiaryState;
 
                 //delete Prev items
                 GalleryList.RemoveAll(c => c.HostingUnitId == hostingUnit.stSerialKey);
@@ -490,6 +540,8 @@ namespace DAL
             Configuration.OrderKey++;
             order.CreateDate = DateTime.Now;
             OrderList.Add(order);
+            UpdateXml<Order>(OrderList);
+            UpdateXml<FullDays>(DaysList);
         }
 
         public void UpdatingOrder(Order order, Enums.OrderStatus status)
@@ -514,15 +566,26 @@ namespace DAL
                     var request = GuestRequestList.Where(c => c.GuestRequestsKey == order.GuestRequestKey).FirstOrDefault();
                     if (hostingid > -1 && request != null)
                     {
-                        Diary diary = HostingUnitsList[hostingid].DiaryState;
+                        // Diary diary = HostingUnitsList[hostingid].DiaryState;
                         for (DateTime time = request.EntryDate.AddDays(1); time < request.ReleaseDate; time = time.AddDays(1))
                         {
-                            diary.Calender[time.Month - 1, time.Day - 1] = true;
+                            DaysList.Add(new FullDays(){
+                                Date  = time.Date,
+                                 HostingUnitId = order.HostingUnitKey,
+                                 OrderId = order.OrderKey,
+                                  Id = Configuration.DaysIdentity +1
+
+                            });
+                            Configuration.DaysIdentity++;
+                            //diary.Calender[time.Month - 1, time.Day - 1] = true;
                         }
                         // HostingUnitsList[key].DiaryState = diary;
                     }
                     OrderList[index].Status = Enums.OrderStatus.Success; //אני לא יודעת אם סטטוס ההזמנה המקורית השנה אף הוא
+                   
                 }
+                UpdateXml<Order>(OrderList);
+                UpdateXml<FullDays>(DaysList);
 
             }
         }

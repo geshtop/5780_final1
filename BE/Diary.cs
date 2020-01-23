@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Diary
+    public class XDiary
     {
         //לוח השנה
         public bool[,] Calender { get; set; }
@@ -16,7 +16,7 @@ namespace BE
         //התקופות המלאות
         public List<GuestRequest> ApprovedTimes { get; set; }
 
-        public Diary() //constructor
+        public XDiary() //constructor
         {
             Calender = new bool[12, 31];
             ApprovedTimes = new List<GuestRequest>();

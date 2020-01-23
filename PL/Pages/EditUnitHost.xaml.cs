@@ -75,13 +75,12 @@ namespace PL.Pages
                 calendarGrid.Children.Add(l);
                 Grid.SetRow(l, date.Month -1);
                 Grid.SetColumn(l, date.Day );
-
-                if (CurrentHU.DiaryState.Calender[date.Month - 1, date.Day - 1])
+                var exist = CurrentHU.Days.Where(c => c.Date.Date == date.Date).FirstOrDefault();
+                if (exist != null)
                 {
                     l.Foreground = new SolidColorBrush(Colors.Blue);
                     l.Background = new SolidColorBrush(Colors.White);
                 }
-
                 else
                 {
                     l.Foreground = new SolidColorBrush(Colors.Gray);

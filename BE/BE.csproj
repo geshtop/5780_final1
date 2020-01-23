@@ -47,6 +47,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Diary.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="FullDays.cs" />
     <Compile Include="GalleryImageItem.cs" />
     <Compile Include="GuestRequest.cs" />
     <Compile Include="Host.cs" />

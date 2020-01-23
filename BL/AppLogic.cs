@@ -471,7 +471,8 @@ namespace BL
                 return;
             }
 
-
+            order.GuestRequestKey = guest.GuestRequestsKey;
+            order.HostingUnitKey = relatedHostings.stSerialKey;
 
             //שליחת מייל ללקוח - סיום
             try
@@ -556,8 +557,13 @@ namespace BL
             last = last.AddDays(-1);
             for (DateTime date = first; date < last; date = date.AddDays(1))
             {
-                if (unit.DiaryState.Calender[date.Month - 1, date.Day - 1] == true)
+                var exist = unit.Days.Where(c => c.Date.Date == date.Date).FirstOrDefault();
+                if (exist != null)
+                {
                     return false;
+                }
+                //if (unit.DiaryState.Calender[date.Month - 1, date.Day - 1] == true)
+                //    return false;
             }
             return true;
         }
@@ -566,8 +572,13 @@ namespace BL
         {
             for (DateTime date = first; date < last; date = date.AddDays(1))
             {
-                if (hosting.DiaryState.Calender[date.Month - 1, date.Day - 1] == true)
+                var exist = hosting.Days.Where(c => c.Date.Date == date.Date).FirstOrDefault();
+                if (exist != null)
+                {
                     return false;
+                }
+                //if (hosting.DiaryState.Calender[date.Month - 1, date.Day - 1] == true)
+                //    return false;
             }
             return true;
         }

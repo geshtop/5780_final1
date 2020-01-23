@@ -30,7 +30,10 @@
                     <DataTemplate>
                         <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                             <Image  Height="180" Source="{Binding Images[0].Url}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" />
-                            <TextBlock FontSize="18" TextAlignment="Center" Text="{Binding HostingUnitName}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            <TextBlock FontSize="18" TextAlignment="Center"  HorizontalAlignment="Stretch" VerticalAlignment="Bottom" >
+ <Run Text="{Binding HostingUnitName}" /> (<Run Text="{Binding stSerialKey}" />)
+                            </TextBlock>
+
                             <Button Tag="{Binding stSerialKey}"   Content="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ctrl:HostingUnitList}}, Path=getButtonText}" Click="EditHostingUnit_Click"   />
                         </StackPanel>
                     </DataTemplate>

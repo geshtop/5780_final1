@@ -15,5 +15,7 @@ namespace BE
 
         public static int HostIdentity = 5;
         public static int ImageIdentity = 100;
+        public static int DaysIdentity = 100;
+        
     }
 }
