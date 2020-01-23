@@ -658,18 +658,10 @@ namespace BL
         }
         #endregion
 
-        public List<GuestRequest> ReturnArea(string area)
+        public List<GuestRequest> GetGuestRequests()
         {
             List<GuestRequest> guestRequests = dal.GetGuestRequests();
-            List<GuestRequest> guestRequestsNew = null;
-            foreach (GuestRequest guestRequest in guestRequests)
-            {
-                if (guestRequest.StrArea == area)
-                {
-                    guestRequestsNew.Add(guestRequest);
-                }
-            }
-            return guestRequestsNew;
+            return guestRequests;
         }
     }
 
