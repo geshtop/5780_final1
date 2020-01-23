@@ -21,6 +21,59 @@ namespace BE
         public Enums.HostingUnitType Type { get; set; }
         public Enums.HostingUnitArea Area { get; set; }
 
+        public string StrArea
+        {
+            get
+            {
+                string t = "";
+                switch (Area)
+                {
+                    case Enums.HostingUnitArea.All:
+                        t = "הכל";
+                        break;
+                    case Enums.HostingUnitArea.North:
+                        t = "צפון";
+                        break;
+                    case Enums.HostingUnitArea.South:
+                        t = "דרום";
+                        break;
+                    case Enums.HostingUnitArea.Center:
+                        t = "מרכז";
+                        break;
+                    case Enums.HostingUnitArea.Jerusalem:
+                        t = "ירושלים";
+                        break;
+                    default:
+                        break;
+                }
+                return t;
+            }
+        }
+        public string StrType
+        {
+            get
+            {
+                string t = "";
+                switch (Type)
+                {
+                    case Enums.HostingUnitType.All:
+                        t = "הכל";
+                        break;
+                    case Enums.HostingUnitType.Zimmer:
+                        t = " צימר";
+                        break;
+                    case Enums.HostingUnitType.Hotel:
+                        t = "מלון";
+                        break;
+                    case Enums.HostingUnitType.Camping:
+                        t = "קמפינג";
+                        break;
+                    default:
+                        break;
+                }
+                return t;
+            }
+        }
 
         public int TypeId
         {
@@ -96,8 +149,7 @@ namespace BE
         {
             DiaryState = new Diary();
             Images = new List<GalleryImageItem>();
-           
-
+        
         }
     }
 

@@ -48,6 +48,10 @@ namespace BL
         {
             return dal.GetAllHosts();
         }
+        public List<Host> GetAllHosts(Func<BE.Host, bool> predicate)
+        {
+            return dal.GetAllHosts(predicate);
+        }
         public void DeleteHost(int Id)
         {
 

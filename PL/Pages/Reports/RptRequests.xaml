@@ -31,7 +31,7 @@
             <TextBox Height="50" materialDesign:HintAssist.Hint="מייל"
          materialDesign:HintAssist.IsFloating="True" Name="FilterEmail" Grid.Column="1" />
             <ComboBox Height="50" materialDesign:HintAssist.Hint="סטטוס בקשה"
-         materialDesign:HintAssist.IsFloating="True" Name="FilterStatus" Grid.Column="2" >
+         materialDesign:HintAssist.IsFloating="True" Name="FilterStatus" Grid.Column="2">
                 <ComboBoxItem Content="בהמתנה" HorizontalAlignment="Left" Width="128"/>
             </ComboBox>
             <ComboBox SelectedValuePath="Tag" 
@@ -51,7 +51,7 @@
             <ListView Name="ListRequests">
                 <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="שם משפחה" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Width="100" Header="בעל היחידה" DisplayMemberBinding="{Binding LastName}"/>
                     <GridViewColumn Width="100" Header="מייל" DisplayMemberBinding="{Binding MailAddress}"/>
                     <GridViewColumn Width="100" Header="אזור" DisplayMemberBinding="{Binding StrArea}"/>
                     <GridViewColumn Width="100" Header="סטטוס" DisplayMemberBinding="{Binding StrStatus}"/>

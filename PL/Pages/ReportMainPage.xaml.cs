@@ -31,5 +31,17 @@ namespace PL.Pages
             RptRequests requestpage = new RptRequests();
             ReportFrame.Content = requestpage;
         }
+
+        private void HostingButtonClick_Click(object sender, RoutedEventArgs e)
+        {
+            Rhosting rhost = new Rhosting();
+            ReportFrame.Content = rhost;
+        }
+
+        private void HostButtonClick_Click_1(object sender, RoutedEventArgs e)
+        {
+            Rhost rhost = new Rhost();
+            ReportFrame.Content = rhost;
+        }
     }
 }

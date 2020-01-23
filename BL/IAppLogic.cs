@@ -20,6 +20,7 @@ namespace BL
         void DeleteHost(int Id);
         void DeleteHostingUnit(BE.HostingUnit hostingUnit);
         System.Collections.Generic.List<BE.Host> GetAllHosts();
+        System.Collections.Generic.List<BE.Host> GetAllHosts(Func<BE.Host, bool> predicate);
         System.Collections.Generic.List<BE.BankBranch> GetBankBranches(Func<BE.BankBranch, bool> predicate);
         System.Collections.Generic.List<BE.BankBranch> GetBankBranchesByBank(int BankNumber);
         System.Collections.Generic.List<BE.Bank> GetBanksList();

@@ -46,6 +46,13 @@ namespace BE
         public int BankAccount { get; set; }
         public bool CollectionClearance { get; set; }
         public List<HostingUnit> RelatedHostingUnit { get; set; }
+        public int NumHostingUnit
+        {
+            get
+            {
+                return RelatedHostingUnit.Count;
+            }
+        }
         public override string ToString()
         {
             return (HostKey + ", " + FirstName + " " + LastName + "\n" + PhonePre + PhoneExt + ", " + MailAddress

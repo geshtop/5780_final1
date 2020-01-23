@@ -171,6 +171,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Reports\Rhost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Reports\Rhosting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Reports\RptRequests.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,6 +224,12 @@
     </Compile>
     <Compile Include="Pages\ReportMainPage.xaml.cs">
       <DependentUpon>ReportMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\Rhost.xaml.cs">
+      <DependentUpon>Rhost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\Rhosting.xaml.cs">
+      <DependentUpon>Rhosting.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Reports\RptRequests.xaml.cs">
       <DependentUpon>RptRequests.xaml</DependentUpon>

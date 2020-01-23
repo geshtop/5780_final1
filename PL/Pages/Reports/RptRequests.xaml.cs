@@ -28,9 +28,9 @@ namespace PL.Pages.Reports
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
-            int SelectedAreaId =0 ;
-            int.TryParse(FilterArea.SelectedValue.ToString() , out SelectedAreaId);
-                
+            int SelectedAreaId = 0 ;
+            int.TryParse(FilterArea.SelectedValue.ToString(), out SelectedAreaId);
+           
             //1 Get filters
             var list = app.GetGuestRequests(
                 c => ( (c.LastName == FilterName.Text || c.FirstName == FilterName.Text ) || FilterName.Text == "")
@@ -42,5 +42,6 @@ namespace PL.Pages.Reports
 
             ListRequests.ItemsSource = list;
         }
+        
     }
 }

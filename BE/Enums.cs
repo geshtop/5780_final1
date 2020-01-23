@@ -52,9 +52,9 @@ namespace BE
         }
 
         public enum HosignUnitStatus  {
-            Active,
-            DeActive,
-            Paused
+            Active = 0,
+            DeActive = 1,
+            Paused = 2
         }
 
 
