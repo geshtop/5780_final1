@@ -19,6 +19,20 @@ namespace BE
         public string MailAddress { get; set; }
         public string PhonePre { get; set; }
         public string PhoneExt { get; set; }
+        public string Phone
+        {
+            get
+            {
+                return PhonePre + "-" + PhoneExt;
+            }
+        }
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
         public Enums.GuestRequestStatus Status { get; set; }
         public DateTime RegistrationDate { get; set; }
         public DateTime EntryDate { get; set; }
