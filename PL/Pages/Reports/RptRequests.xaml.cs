@@ -24,23 +24,31 @@ namespace PL.Pages.Reports
         public RptRequests()
         {
             InitializeComponent();
+            FillList();
         }
-
-        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        private void FillList()
         {
-            int SelectedAreaId = 0 ;
-            int.TryParse(FilterArea.SelectedValue.ToString(), out SelectedAreaId);
-           
+            int SelectedStatusId = 0;
+            int SelectedAreaId = 0;
+            if (FilterArea.SelectedValue != null)
+                int.TryParse(FilterArea.SelectedValue.ToString(), out SelectedAreaId);
+            if (FilterStatus.SelectedValue != null)
+                int.TryParse(FilterStatus.SelectedValue.ToString(), out SelectedStatusId);
             //1 Get filters
             var list = app.GetGuestRequests(
-                c => ( (c.LastName == FilterName.Text || c.FirstName == FilterName.Text ) || FilterName.Text == "")
+                c => ((c.LastName == FilterName.Text || c.FirstName == FilterName.Text) || c.FullName == FilterName.Text || FilterName.Text == "")
                     && (c.MailAddress == FilterEmail.Text || FilterEmail.Text == "")
-                    && (c.AreaId == SelectedAreaId || SelectedAreaId ==0)
+                    && (c.AreaId == SelectedAreaId || SelectedAreaId == 0)
+                    && (c.StatusId == SelectedStatusId || SelectedStatusId == 0)
                 );
 
             //2 Fill the list view
 
             ListRequests.ItemsSource = list;
+        }
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        {
+            FillList();
         }
         
     }

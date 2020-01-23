@@ -32,7 +32,11 @@
          materialDesign:HintAssist.IsFloating="True" Name="FilterEmail" Grid.Column="1" />
             <ComboBox Height="50" materialDesign:HintAssist.Hint="סטטוס בקשה"
          materialDesign:HintAssist.IsFloating="True" Name="FilterStatus" Grid.Column="2">
-                <ComboBoxItem Content="בהמתנה" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="פתוח" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="בתהליך" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="סגור" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="סגירת מערכת" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="לא אקטואלי" HorizontalAlignment="Left" Width="128"/>
             </ComboBox>
             <ComboBox SelectedValuePath="Tag" 
                       materialDesign:HintAssist.Hint="אזור"
@@ -51,11 +55,13 @@
             <ListView Name="ListRequests">
                 <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="בעל היחידה" DisplayMemberBinding="{Binding LastName}"/>
-                    <GridViewColumn Width="100" Header="מייל" DisplayMemberBinding="{Binding MailAddress}"/>
-                    <GridViewColumn Width="100" Header="אזור" DisplayMemberBinding="{Binding StrArea}"/>
-                    <GridViewColumn Width="100" Header="סטטוס" DisplayMemberBinding="{Binding StrStatus}"/>
-                </GridView>
+                        <GridViewColumn Width="100" Header="שם המזמין" DisplayMemberBinding="{Binding FullName}"/>
+                        <GridViewColumn Width="100" Header="טלפון" DisplayMemberBinding="{Binding Phone}"/>
+                        <GridViewColumn Width="180" Header="מייל" DisplayMemberBinding="{Binding MailAddress}"/>
+                        <GridViewColumn Width="100" Header="אזור" DisplayMemberBinding="{Binding StrArea}"/>
+                        <GridViewColumn Width="150" Header="סטטוס ההזמנה" DisplayMemberBinding="{Binding StrStatus}"/>
+                        <GridViewColumn Width="180" Header="תאריך יצירת ההזמנה" DisplayMemberBinding="{Binding RegistrationDate}"/>
+                    </GridView>
                 </ListView.View>
             </ListView>
            

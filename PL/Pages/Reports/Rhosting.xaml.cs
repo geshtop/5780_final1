@@ -24,29 +24,36 @@ namespace PL.Pages.Reports
         public Rhosting()
         {
             InitializeComponent();
-            ListRequests.ItemsSource = app.GetHostingUnits();
+            FillList();
         }
 
-        private void Search_Click(object sender, RoutedEventArgs e)
+        private void FillList()
         {
-            string num = "0";
-            num = NumRooms.Text;
-            int trye = int.Parse(num);
+            int numRooms = 0;
+            int.TryParse(NumRooms.Text, out numRooms);
 
             int SelectedAreaId = 0;
-            SelectedAreaId = FilterArea.TabIndex;
-            //int.TryParse(FilterArea.SelectedValue.ToString(), out SelectedAreaId);
+            int SelectedTypeId = 0;
+            if (FilterArea.SelectedValue != null)
+                int.TryParse(FilterArea.SelectedValue.ToString(), out SelectedAreaId);
+            if (TypeHostingUnit.SelectedValue != null)
+                int.TryParse(TypeHostingUnit.SelectedValue.ToString(), out SelectedTypeId);
 
             //1 Get filters
             var list = app.GetHostingUnits(
-                c => ((c.HostingUnitName == FilterName.Text || c.HostingUnitName == FilterName.Text) || FilterName.Text == "")
-                    && (c.Rooms == trye || trye == 0)
+                c => ((c.HostingUnitName == FilterName.Text || c.HostingUnitName == FilterName.Text) || c.HostingUnitName == FilterName.Text || FilterName.Text == "")
+                    && (c.Rooms == numRooms || numRooms == 0)
                     && (c.AreaId == SelectedAreaId || SelectedAreaId == 0)
+                    && (c.TypeId == SelectedTypeId || SelectedTypeId == 0)
                 );
 
             //2 Fill the list view
 
             ListRequests.ItemsSource = list;
+        }
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            FillList();
         }
     }
 }

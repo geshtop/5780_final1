@@ -36,10 +36,8 @@
                 <ComboBoxItem Content="בית מלון" Tag="2" HorizontalAlignment="Left" Width="128"/>
                 <ComboBoxItem Content="קמפינג" Tag="3" HorizontalAlignment="Left" Width="128"/>
             </ComboBox>
-            <ComboBox SelectedValuePath="Tag" 
-                      materialDesign:HintAssist.Hint="אזור"
-         materialDesign:HintAssist.IsFloating="True"
-                      Grid.Column="2" Name="FilterArea" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Top" Width="126" >
+            <ComboBox Height="50" materialDesign:HintAssist.Hint="אזור"
+         materialDesign:HintAssist.IsFloating="True" Name="FilterArea" Grid.Column="2">
                 <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="124"/>
                 <ComboBoxItem Content="צפון" Tag="1" HorizontalAlignment="Left" Width="124"/>
                 <ComboBoxItem Content="דרום" Tag="2" HorizontalAlignment="Left" Width="124"/>

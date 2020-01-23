@@ -200,6 +200,7 @@ namespace BL
             var hostingUnits = dal.GetOrders(c => c.HostingUnitKey == hostingUnit.stSerialKey).ToList();
             if (hostingUnits.Count > 0)
             {
+                
                 //אי אפשר למחוק את הבקשה
                 return;
             }

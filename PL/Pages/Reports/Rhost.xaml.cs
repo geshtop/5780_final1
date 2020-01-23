@@ -23,13 +23,17 @@ namespace PL.Pages.Reports
         public Rhost()
         {
             InitializeComponent();
-            ListRequestsHost.ItemsSource = app.GetAllHosts();
+            Filllist();
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
+            Filllist();
+        }
+        private void Filllist()
+        {
             var list = app.GetAllHosts(
-              c => ((c.LastName == FilterName.Text || c.FirstName == FilterName.Text) || FilterName.Text == "")
+              c => ((c.LastName == FilterName.Text || c.FirstName == FilterName.Text) || c.FullName == FilterName.Text || FilterName.Text == "")
                   && (c.Phone == FilterPhone.Text || FilterPhone.Text == "")
                   && (c.MailAddress == GmailAdress.Text || GmailAdress.Text == "")
               );
