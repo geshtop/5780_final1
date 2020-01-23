@@ -29,9 +29,21 @@ namespace PL.Pages
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-            string text = "שם: " + name.Text + "\nמייל: " + telephon.Text
-                + "\nנושא: " + telephon_Copy + "\nגוף ההודעה: " + telephon_Copy1;
-            MessageBox.Show(text);
+               string text = "שם: " + name.Text + "\nמייל: " + telephon.Text
+                +  "\nגוף ההודעה: " + telephon_Copy1;
+               try
+               {
+                   app.SendMail("", "rivkistudies@gmail.com", "GS פנייה: " +  TxtSubject.Text, text, false);
+                   MessageBox.Show("המייל נשלח בהצלחה");
+                   BackToMain();// חזרה לדף ראשי
+               }
+               catch
+               {
+                   MessageBox.Show("אירעה בעיה במשלוח המייל");
+               }
+              
+         
+            
         }
     }
 }

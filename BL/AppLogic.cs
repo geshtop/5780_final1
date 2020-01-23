@@ -20,6 +20,28 @@ namespace BL
         }
 
 
+        #region Global App 
+
+        public void SendMail ( string from, string to, string subject, string body, bool isHtml){
+             MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("kymsite@gmail.com");
+                mail.To.Add(to);
+
+                mail.Subject = subject;
+                 mail.Body = body;
+                 mail.IsBodyHtml = isHtml;
+                //mail.Body = "This is for testing SMTP mail from GMAIL";
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("kymsite@gmail.com", "g9095398");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+        }
+        #endregion
+
         #region Hosts
 
         public List<Host> GetAllHosts()

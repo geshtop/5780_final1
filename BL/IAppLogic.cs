@@ -45,5 +45,6 @@ namespace BL
         void SetCollectionClearance(int OwnerId, bool CollectionClearance);
         //System.Collections.Generic.List<BE.GuestRequest> GetGuestRequests();
         System.Collections.Generic.List<BE.Order> GetOrders();
+        void SendMail(string from, string to, string subject, string body, bool isHtml);
     }
 }
