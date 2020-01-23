@@ -29,17 +29,18 @@ namespace PL.Pages.Reports
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            string num = "-1";
+            string num = "0";
             num = NumRooms.Text;
             int trye = int.Parse(num);
 
             int SelectedAreaId = 0;
+            SelectedAreaId = FilterArea.TabIndex;
             //int.TryParse(FilterArea.SelectedValue.ToString(), out SelectedAreaId);
 
             //1 Get filters
             var list = app.GetHostingUnits(
                 c => ((c.HostingUnitName == FilterName.Text || c.HostingUnitName == FilterName.Text) || FilterName.Text == "")
-                    && (c.Rooms == trye || trye == -1)
+                    && (c.Rooms == trye || trye == 0)
                     && (c.AreaId == SelectedAreaId || SelectedAreaId == 0)
                 );
 
