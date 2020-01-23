@@ -658,9 +658,15 @@ namespace BL
         }
         #endregion
 
-        public List<GuestRequest> GetGuestRequests()
+        //public List<GuestRequest> GetGuestRequests()
+        //{
+        //    List<GuestRequest> guestRequests = dal.GetGuestRequests();
+        //    return guestRequests;
+        //}
+
+        public List<Order> GetOrders()
         {
-            List<GuestRequest> guestRequests = dal.GetGuestRequests();
+            List<Order> guestRequests = dal.GetOrders();
             return guestRequests;
         }
     }

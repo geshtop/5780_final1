@@ -43,6 +43,7 @@ namespace BL
         IEnumerable<IGrouping<Enums.HostingUnitArea, GuestRequest>> GroupGRByArea();
         IEnumerable<IGrouping<Enums.HostingUnitArea, HostingUnit>> GroupHostingUnitByArea();
         void SetCollectionClearance(int OwnerId, bool CollectionClearance);
-        System.Collections.Generic.List<BE.GuestRequest> GetGuestRequests();
+        //System.Collections.Generic.List<BE.GuestRequest> GetGuestRequests();
+        System.Collections.Generic.List<BE.Order> GetOrders();
     }
 }

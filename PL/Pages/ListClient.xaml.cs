@@ -27,13 +27,13 @@ namespace PL.Pages
         public List<GuestRequest> GuestRequests { get; set; }
         public ListClient()
         {
+            GuestRequests = app.GetGuestRequests(c => c.Status == Enums.GuestRequestStatus.Opened || c.Status == Enums.GuestRequestStatus.InProccess);
             InitializeComponent();
             Stutus.Items.Add("לפי שם פרטי");
             Stutus.Items.Add("לפי שם משפחה");
             Stutus.Items.Add("לפי אזור");
             Stutus.Items.Add("לפי מספר נופשים ");
             Stutus.Items.Add("לפי תאריכים");
-            GuestRequests = app.GetGuestRequests();
             FillGrid();
         }
 
@@ -63,10 +63,7 @@ namespace PL.Pages
 
             for (int i = 0; i < GuestRequests.Count; i++)
             {
-                //UnitHost hostCtrl = new UnitHost(GuestRequests[i]);
                 ShowsList.Items.Add(GuestRequests[i]);
-                //ShowsList.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50) });
-                Grid.SetRow(ShowsList, i + 1);
             }
         }
     }
