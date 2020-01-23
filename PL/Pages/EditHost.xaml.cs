@@ -34,8 +34,8 @@ namespace PL.Pages
             prePhoneCb.ItemsSource = PhonePreList;
             if (CurrHost.Id > 0) //אם המדובר על עריכה
             {
-                IdTxt.IsReadOnly = true;
-
+                IdTxt.IsEnabled = false;
+                EmailTxt.IsEnabled = false;
             }
             else //מדובר על רשומה חדשה
             {
@@ -91,6 +91,12 @@ namespace PL.Pages
                         break;
                     case Enums.HostValidationStatus.WrongId:
                         ErrorMessage = " תעודת זהות צריך להכיל 9 תווים";
+                        break;
+                    case Enums.HostValidationStatus.MissingBankAccount:
+                        ErrorMessage = "חובה להכניס נתוני חשבון";
+                        break;
+                    case Enums.HostValidationStatus.EmailExist:
+                        ErrorMessage = "האימייל קיים במערכת";
                         break;
                     default:
                         break;

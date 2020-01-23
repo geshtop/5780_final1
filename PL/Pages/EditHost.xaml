@@ -67,7 +67,7 @@
                 <TextBox Grid.Column="1"  MaxLength="15" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="*סיסמא"
          materialDesign:HintAssist.IsFloating="True" Text="{Binding Path=Password}" VerticalAlignment="Top" Width="400"  Grid.Row="4"/>
 
-                <TextBox Grid.Column="1" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="כתובת מייל"
+                <TextBox Name="EmailTxt" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Grid.Column="1" FlowDirection="LeftToRight" materialDesign:HintAssist.Hint="*כתובת מייל"
          materialDesign:HintAssist.IsFloating="True" Text="{Binding Path=MailAddress}" VerticalAlignment="Top" Width="400" Grid.Row="5"/>
                 <ComboBox Grid.Column="1" Name="prePhoneCb" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="קידומת"
          materialDesign:HintAssist.IsFloating="True"  VerticalAlignment="Top" SelectedValue="{Binding Path=PhonePre}" Width="86" Grid.Row="6" Margin="214,0,0,0"/>

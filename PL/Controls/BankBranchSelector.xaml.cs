@@ -49,11 +49,30 @@ namespace PL.Controls
         {
             if (CurrHost.BankNumber > 0)
             {
+                BranchCb.IsEnabled = true;
+              
                 BranchCb.ItemsSource = app.GetBankBranchesByBank(CurrHost.BankNumber);
+            }
+            else
+            {
+                BranchCb.IsEnabled = false;
+            }
+            if(CurrHost.BranchNumber >0){
+                BankAccountTxt.IsEnabled = true;
+                 
+            }
+            else
+            {
+                BankAccountTxt.IsEnabled = false;
             }
         }
 
         private void BankCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ReloadBranches();
+        }
+
+        private void Branch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ReloadBranches();
         }

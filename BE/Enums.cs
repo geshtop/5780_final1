@@ -66,7 +66,9 @@ namespace BE
             WrongFields =3, // שדות לא תקינים דוגמא תעודת זהות עם מעט תווים
             HasActiveHostingUnits =4, //לא ניתן למחוק בגלל שיש יחידות אירוח שעדיין פעילות
             Faild=5, //שגיאת מסד
-            WrongId=6
+            WrongId=6,
+            MissingBankAccount =7,
+            EmailExist =8
         }
 
         public enum GuestRequesteCreateStatus

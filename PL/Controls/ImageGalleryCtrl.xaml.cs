@@ -30,6 +30,10 @@ namespace PL.Controls
             InitializeComponent();
             FillGrid();
             GenerateTempUrl();
+            if (OwnerId == 0)
+            {
+                AddImagePanel.Visibility = System.Windows.Visibility.Hidden;
+            }
         }
 
         private void FillGrid()
@@ -63,6 +67,11 @@ namespace PL.Controls
         }
         private void DeleteImage_Click(object sender, RoutedEventArgs e)
         {
+            if (OwnerId == 0)
+            {
+                MessageBox.Show("רק מנהל יחידות אירוח יכול למחוק את התמונות שלו");
+                return;
+            }
             var b = (Button)sender;
             if (b != null)
             {

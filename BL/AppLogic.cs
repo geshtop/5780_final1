@@ -66,7 +66,7 @@ namespace BL
         public void UpdateHost(Host host, out Enums.HostValidationStatus status)
         {
             status = Enums.HostValidationStatus.Success;
-            if (string.IsNullOrEmpty(host.FirstName) || (string.IsNullOrEmpty(host.LastName)) || string.IsNullOrEmpty(host.PhonePre) || string.IsNullOrEmpty(host.PhoneExt))
+            if (string.IsNullOrEmpty(host.FirstName) || (string.IsNullOrEmpty(host.LastName)) || string.IsNullOrEmpty(host.PhonePre) || string.IsNullOrEmpty(host.PhoneExt) || string.IsNullOrEmpty(host.MailAddress))
             {
                 status = Enums.HostValidationStatus.MissingFields;
                 return;
@@ -95,6 +95,11 @@ namespace BL
                 status = Enums.HostValidationStatus.WrongFields;
                 return;
             }
+            if (host.BankNumber == 0 || host.BranchNumber == 0 || host.BankAccount == 0)
+            {
+                status = Enums.HostValidationStatus.MissingBankAccount;
+                return;
+            }
             dal.UpdateHost(host);
         }
 
@@ -107,7 +112,13 @@ namespace BL
                 status = Enums.HostValidationStatus.DuplicateId;
                 return;
             }
-            if (string.IsNullOrEmpty(host.FirstName) || string.IsNullOrEmpty(host.LastName) || string.IsNullOrEmpty(host.HostKey) || string.IsNullOrEmpty(host.PhonePre) || string.IsNullOrEmpty(host.PhoneExt))
+            list = dal.GetAllHosts(c => c.MailAddress == host.MailAddress).ToList();
+            if (list.Count > 0)
+            {
+                status = Enums.HostValidationStatus.EmailExist;
+                return;
+            }
+            if (string.IsNullOrEmpty(host.FirstName) || string.IsNullOrEmpty(host.LastName) || string.IsNullOrEmpty(host.HostKey) || string.IsNullOrEmpty(host.PhonePre) || string.IsNullOrEmpty(host.PhoneExt) || string.IsNullOrEmpty(host.MailAddress))
             {
                 status = Enums.HostValidationStatus.MissingFields;
                 return;
@@ -153,6 +164,13 @@ namespace BL
                 status = Enums.HostValidationStatus.WrongFields;
                 return;
             }
+
+            if (host.BankNumber == 0 || host.BranchNumber == 0 || host.BankAccount == 0)
+            {
+                status = Enums.HostValidationStatus.MissingBankAccount;
+                return;
+            }
+
             dal.AddHost(host);
         }
 

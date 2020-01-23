@@ -13,11 +13,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="400">
     <Grid Name="BankBranchGrid">
-        <ComboBox  materialDesign:HintAssist.Hint="בנק"
+        <ComboBox  materialDesign:HintAssist.Hint="*בנק"
          materialDesign:HintAssist.IsFloating="True" SelectedValue="{Binding Path=BankNumber}"  Name="BankCb" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="100" SelectionChanged="BankCb_SelectionChanged"/>
-        <ComboBox  materialDesign:HintAssist.Hint="סניף"
-         materialDesign:HintAssist.IsFloating="True" SelectedValue="{Binding Path=BranchNumber}" Name="BranchCb" HorizontalAlignment="Left"  Margin="110,0,0,0" VerticalAlignment="Top" Width="180"/>
-        <TextBox MaxLength="9"  materialDesign:HintAssist.Hint="חשבון"
+        <ComboBox    materialDesign:HintAssist.Hint="*סניף"
+         materialDesign:HintAssist.IsFloating="True" SelectedValue="{Binding Path=BranchNumber}" Name="BranchCb" HorizontalAlignment="Left"  Margin="110,0,0,0" VerticalAlignment="Top" Width="180"  SelectionChanged="Branch_SelectionChanged"/>
+        <TextBox MaxLength="9"  Name="BankAccountTxt"   materialDesign:HintAssist.Hint="*חשבון"
          materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Left"    Margin="300,0,0,0" Text="{Binding Path=BankAccount}" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
