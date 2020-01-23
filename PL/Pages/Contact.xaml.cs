@@ -30,7 +30,7 @@ namespace PL.Pages
         private void Send_Click(object sender, RoutedEventArgs e)
         {
                string text = "שם: " + name.Text + "\nמייל: " + telephon.Text
-                +  "\nגוף ההודעה: " + telephon_Copy1;
+                + "\nגוף ההודעה: " + TxtBody.Text;
                try
                {
                    app.SendMail("", "rivkistudies@gmail.com", "GS פנייה: " +  TxtSubject.Text, text, false);
