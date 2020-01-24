@@ -151,6 +151,11 @@ namespace PL.Pages
                 case Enums.HostingUnitSaveStatus.Success:
                     MessageBox.Show("נשמר בהצלחה");
                     ListHostingUnits lhpage = new ListHostingUnits();
+                    
+                        var RequestsList = app.GetRequestsThatRelevantForOwner(c => c.Status == Enums.GuestRequestStatus.Opened || c.Status == Enums.GuestRequestStatus.InProccess, OwnerId);
+                        int counter = RequestsList.Count();
+                        CurrentWindow.setBadge(counter);
+                    
                     MainNavigate(lhpage);
                     break;
                 case Enums.HostingUnitSaveStatus.MissingFields:

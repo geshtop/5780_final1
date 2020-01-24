@@ -70,7 +70,12 @@ namespace PL.Pages
             }
             else
             {
-
+                if (OwnerId > 0)
+                {
+                    var RequestsList = app.GetRequestsThatRelevantForOwner(c => c.Status == Enums.GuestRequestStatus.Opened || c.Status == Enums.GuestRequestStatus.InProccess, OwnerId);
+                    int counter = RequestsList.Count();
+                    CurrentWindow.setBadge(counter);
+                }
                 MessageBox.Show("תודה רבה, בקשתך נקלטה במערכת", "הודעת מערכת");
                 BackToMain();
                 

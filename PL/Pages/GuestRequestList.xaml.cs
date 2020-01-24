@@ -32,8 +32,8 @@ namespace PL.Pages
             RequestsList = app.GetRequestsThatRelevantForOwner(c => c.Status == Enums.GuestRequestStatus.Opened || c.Status == Enums.GuestRequestStatus.InProccess, OwnerId);
            
             InitializeComponent();
-            //int counter = RequestsList.Count();
-            //MainWindow.setBadge(counter);
+            int counter = RequestsList.Count();
+            CurrentWindow.setBadge(counter);
             FillGrid();
         }
 
