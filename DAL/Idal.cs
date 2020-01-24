@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE;
+using System;
 namespace DAL
 {
    public interface IDal
@@ -24,5 +25,7 @@ namespace DAL
         void UpdatingGusetRequest(BE.GuestRequest guestRequest, BE.Enums.GuestRequestStatus status);
         void UpdatingHostingUnit(BE.HostingUnit hostingUnit);
         void UpdatingOrder(BE.Order order, BE.Enums.OrderStatus status);
+        GlobalSettings GetGlobalSettings();
+        void UpdateGlobalSettings(GlobalSettings setting);
     }
 }

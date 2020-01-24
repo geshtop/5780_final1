@@ -16,6 +16,11 @@ namespace BE
         public static int HostIdentity = 5;
         public static int ImageIdentity = 100;
         public static int DaysIdentity = 100;
+
+        public static string ContactMail = "geula.shoshan@gmail.com";
+        public static string OrderMailText = "שלום רב {NAME}, \n \n אנו רוצים להציע לך יחידת נופש אטרקטיבית במיוחד בהתאם, לדרישות אותן ציינת במערכת. \n {HOSTINGNAME} \n {IMAGE} \n\n נשמח לעמוד לשירותך תמיד,\n {OWNERNAME}\n {OWNERMAIL} \n\n\n [הופק במערכת GR - עושים נופש לנופש] ";
+        public static string OrderMailSubject = "התאמת יחידת אירוח #{REQUESTID}";
+
         
     }
 }

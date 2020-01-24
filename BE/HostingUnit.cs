@@ -123,6 +123,8 @@ namespace BE
         public bool Garden { get; set; }
         public bool ChildrensAttractions { get; set; }
 
+        
+
         public int Adult { get; set; }
         public int Children { get; set; }
         public int Rooms { get; set; }

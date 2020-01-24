@@ -124,6 +124,16 @@ namespace PL
 
 
         }
+        private void ChangeSettings_Click(object sender, RoutedEventArgs e)
+        {
+
+            AppSettingsPage settings = new AppSettingsPage();
+            MainFrame.Content = settings;
+
+
+        }
+
+        
         private void Contact_Click(object sender, RoutedEventArgs e)
         {
 

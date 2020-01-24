@@ -495,14 +495,42 @@ namespace BL
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
+                var settings = dal.GetGlobalSettings();
+                // {NAME} {REQUESTID} {HOSTINGNAME} {IMAGE} {OWNERNAME} {OWNERMAIL}
+                var subject = settings.OrderMailSubject
+                        .Replace("{NAME}", guest.FullName)
+                        .Replace("{REQUESTID}", guest.GuestRequestsKey.ToString())
+                        .Replace("{HOSTINGNAME}", relatedHostings.HostingUnitName)
+                        .Replace("{OWNERNAME}", host.FullName)
+                        .Replace("{OWNERMAIL}", host.MailAddress)
+                        .Replace("{IMAGE}", "");
+              
+
+                var body = "<div style='width:600px; border:solid 5px #ccc; margin:0 auto; padding:15px; direction:rtl; font-size:20px; text-align:center' >" + settings.OrderMailText
+                       .Replace("{NAME}", "<strong>" +  guest.FullName + "</strong>")
+                       .Replace("{REQUESTID}", guest.GuestRequestsKey.ToString())
+                        .Replace("{HOSTINGNAME}", "<h1>" +  relatedHostings.HostingUnitName + "</h1>")
+                        .Replace("{OWNERNAME}", host.FullName)
+                        .Replace("{OWNERMAIL}", "<span style='direction:ltr'>" + host.MailAddress + "</span>")
+                        .Replace(System.Environment.NewLine, "<br />")
+                        .Replace("\n", "<br />");
+                if (relatedHostings.Images.Count > 0)
+                {
+                    body = body.Replace("{IMAGE}", "<img style='width:250px; border:solid 1px #fff' src='" + relatedHostings.Images[0].Url + "' />");
+                }
+                else
+                {
+                    body = body.Replace("{IMAGE}", "");
+                }
+
+                body = body + "</div>";
+
                 mail.From = new MailAddress("kymsite@gmail.com");
                 mail.To.Add(guest.MailAddress);
 
-                mail.Subject = "נמצאה התאמה ליחידת האירוח ";
-                string text = relatedHostings.ToString(); //מחזיר את היחידה הראשונה שמתאימה
-                mail.Body = text;
-                //mail.Body = "This is for testing SMTP mail from GMAIL";
-
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = true;
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("kymsite@gmail.com", "g9095398");
                 SmtpServer.EnableSsl = true;
@@ -564,6 +592,33 @@ namespace BL
 
         #endregion
 
+
+
+
+
+        #region Global Settings
+        public GlobalSettings GetGlobalSettings()
+        {
+            return dal.GetGlobalSettings();
+        }
+
+        public bool UpdateGlobalSettings(GlobalSettings setting)
+        {
+            if (string.IsNullOrEmpty(setting.ContactMail)
+               || string.IsNullOrEmpty(setting.OrderMailSubject)
+                 || string.IsNullOrEmpty(setting.OrderMailText)
+                ) return false;
+
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            if (!regex.IsMatch(setting.ContactMail))
+            {
+                return false;
+            }
+
+            dal.UpdateGlobalSettings(setting);
+            return true;
+        }
+        #endregion
 
 
         public bool CheckForFreeDays(GuestRequest guestReq, HostingUnit unit)

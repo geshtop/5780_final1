@@ -31,9 +31,12 @@ namespace PL.Pages
         {
                string text = "שם: " + name.Text + "\nמייל: " + telephon.Text
                 + "\nגוף ההודעה: " + TxtBody.Text;
+               var contact_mail = app.GetGlobalSettings().ContactMail;
+               text = text.Replace(System.Environment.NewLine, "<br />").Replace("\n", "<br />");
+
                try
                {
-                   app.SendMail("", "rivkistudies@gmail.com", "GS פנייה: " +  TxtSubject.Text, text, false);
+                   app.SendMail("", contact_mail, "GS פנייה: " + TxtSubject.Text, text, true);
                    MessageBox.Show("המייל נשלח בהצלחה");
                    BackToMain();// חזרה לדף ראשי
                }

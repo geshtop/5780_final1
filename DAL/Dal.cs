@@ -237,14 +237,37 @@ namespace DAL
             }
         }
 
-        #endregion
 
 
-      
+        private GlobalSettings _GlobalSettingsObj;
+        private GlobalSettings GlobalSettingsObj
+        {
+            get
+            {
+                if (_GlobalSettingsObj == null)
+                {
+                   
+                    List <GlobalSettings> list = FromXML<GlobalSettings>();
+                    if (list == null || list.Count() == 0)
+                    {
+                        _GlobalSettingsObj = new GlobalSettings()
+                        {
+                            ContactMail = Configuration.ContactMail,
+                            OrderMailSubject = Configuration.OrderMailSubject,
+                            OrderMailText = Configuration.OrderMailText
+                        };
+                    }
+                    else
+                    {
+                        _GlobalSettingsObj = list[0];
+                    }
+                   
+                }
+                return _GlobalSettingsObj;
+            }
+        }
 
-       
-
-      
+        //static lists
 
         private List<string> _PhonePreList;
         private List<string> PhonePreList
@@ -287,13 +310,8 @@ namespace DAL
         }
 
 
+        #endregion
 
-      
-
-     
-
-
-       
 
 
         #region Hosts
@@ -613,6 +631,26 @@ namespace DAL
         {
             return OrderList.Where(predicate).ToList();
         }
+
+        #endregion
+
+
+        #region Global Settings
+
+
+        public GlobalSettings GetGlobalSettings()
+        {
+            return GlobalSettingsObj;
+        }
+
+        public void UpdateGlobalSettings(GlobalSettings setting)
+        {
+            List<GlobalSettings> list = new List<GlobalSettings>();
+            list.Add(setting);
+            UpdateXml<GlobalSettings>(list);
+        }
+
+       
 
         #endregion
     }
