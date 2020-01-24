@@ -32,16 +32,12 @@ namespace DS
 
             try
             {
-                int ind = 0;
-                for (int i = 0; i < currentHostings.Count(); i++)
+               var countHostings = currentHostings.Count;
+                for (int i = 0; i < Images.Count(); i++)
                 {
-                    if (ind < Images.Count - 2)
-                    {
-                        Images[ind].HostingUnitId = currentHostings[i].stSerialKey;
-                        ind++;
-                        Images[ind].HostingUnitId = currentHostings[i].stSerialKey;
-
-                    }
+                    var index = i%countHostings;
+                    Images[i].HostingUnitId = currentHostings[index].stSerialKey;
+                    
                 }
             }
             catch (Exception)
