@@ -49,7 +49,6 @@
     <Compile Include="DataSource.cs" />
     <Compile Include="HostingUnits.cs" />
     <Compile Include="Hosts.cs" />
-    <Compile Include="Orders.cs" />
     <Compile Include="PrePhones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

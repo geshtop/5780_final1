@@ -41,9 +41,6 @@ namespace DAL
             return DS.GuestRequests.getAllRequests();
         }
 
-        public static List<Order> getOrders()
-        {
-            return DS.Orders.getOrders();
-        }
+       
     }
 }

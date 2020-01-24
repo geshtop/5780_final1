@@ -193,7 +193,7 @@ namespace DAL
                     _OrderList = FromXML<Order>();
                     if (_OrderList == null)
                     {
-                        _OrderList = TempData.getOrders();
+                        _OrderList = new List<Order>();
                     }
                     if (_OrderList.Count > 0)
                     {
