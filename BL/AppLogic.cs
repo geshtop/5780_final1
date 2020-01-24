@@ -436,7 +436,22 @@ namespace BL
             return hostingsNew;
         }
 
+        public List<GuestRequest> GetRequestsThatRelevantForOwner(Func<GuestRequest, bool> predicate, int OwnerId = 0)
+        {
+            List<GuestRequest> list = new List<GuestRequest>();
+            var requests =  dal.GetGuestRequests(predicate);
+            foreach (var req in requests)
+            {
+                var relevant = GetRelevantHostingByRequest(req, OwnerId);
+                if (relevant != null && relevant.Count() > 0)
+                {
+                    list.Add(req);
+                }
+            }
 
+            return list;
+
+        }
 
 
         #endregion
@@ -548,6 +563,8 @@ namespace BL
         }
 
         #endregion
+
+
 
         public bool CheckForFreeDays(GuestRequest guestReq, HostingUnit unit)
         {

@@ -46,10 +46,58 @@ namespace BE
         public int Adult { get; set; }
         public int Children { get; set; }
         public int Rooms { get; set; }
+         [XmlIgnore]
         public Enums.ExtensionType Pool { get; set; }
+         public int PoolId
+         {
+             get
+             {
+                 return (int)Pool;
+             }
+             set
+             {
+                 Pool = (Enums.ExtensionType)value;
+             }
+         }
+         [XmlIgnore]
         public Enums.ExtensionType Jacuzzi { get; set; }
+         public int JacuzziId
+         {
+             get
+             {
+                 return (int)Jacuzzi;
+             }
+             set
+             {
+                 Jacuzzi = (Enums.ExtensionType)value;
+             }
+         }
+         [XmlIgnore]
         public Enums.ExtensionType Garden { get; set; }
+         public int GardenId
+         {
+             get
+             {
+                 return (int)Garden;
+             }
+             set
+             {
+                 Garden = (Enums.ExtensionType)value;
+             }
+         }
+         [XmlIgnore]
         public Enums.ExtensionType ChildrensAttractions { get; set; }
+         public int ChildrensAttractionsId
+         {
+             get
+             {
+                 return (int)ChildrensAttractions;
+             }
+             set
+             {
+                 ChildrensAttractions = (Enums.ExtensionType)value;
+             }
+         }
          [XmlIgnore]
         public string StrArea
         {

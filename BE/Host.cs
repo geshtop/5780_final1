@@ -22,6 +22,7 @@ namespace BE
         public string PhoneExt { get; set; }
         public string MailAddress { get; set; }
         public string Password { get; set; }
+        public int Discount { get; set; }
         [XmlIgnore]
         public string Phone
         {

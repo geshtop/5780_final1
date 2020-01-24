@@ -32,6 +32,7 @@ namespace BL
         System.Collections.Generic.List<BE.Order> GetOrders(Func<BE.Order, bool> predicate, int OwnerId = 0);
         System.Collections.Generic.List<string> GetPrePhones();
         System.Collections.Generic.List<BE.RelatedHosting> GetRelevantHostingByRequest(BE.GuestRequest guestRequest, int OwnerId = 0);
+        List<GuestRequest> GetRequestsThatRelevantForOwner(Func<GuestRequest, bool> predicate, int OwnerId = 0);
         System.Collections.Generic.List<BE.HostingUnit> HostingUnitList(DateTime time, int numDay);
         int NumDays(DateTime start, DateTime end);
         System.Collections.Generic.List<BE.Order> OrderFromTime(int numDay);

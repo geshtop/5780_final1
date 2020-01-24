@@ -9,6 +9,7 @@ namespace BE
     public class User
     {
         public string Name { get; set; }
+        public Host RelatedHost { get; set; }
 
     }
 }

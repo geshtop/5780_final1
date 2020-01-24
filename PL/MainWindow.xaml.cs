@@ -25,6 +25,7 @@ namespace PL
     public partial class MainWindow : Window
     {
         IAppLogic app;
+
        
         public MainWindow(IAppLogic _app)
         {
@@ -35,6 +36,9 @@ namespace PL
             OwnerId = 0;
             RefreshAuthControls();
            
+        }
+        public void setBadge(int num){
+            RequestBadge.Badge = num;
         }
         private Enums.AuthPermission auth = Enums.AuthPermission.Guest;
         public Enums.AuthPermission Auth
@@ -63,6 +67,24 @@ namespace PL
                     break;
                 case Enums.AuthPermission.Host:
                     OwnerMenu.Visibility = System.Windows.Visibility.Visible;
+                    var host = app.GetHostById(OwnerId);
+                    if (host != null)
+                    {
+                        if (host.CollectionClearance)
+                        {
+                            NeedCheck.Visibility = System.Windows.Visibility.Collapsed;
+                            HasChecked.Visibility = System.Windows.Visibility.Visible;
+                        }
+                        else
+                        {
+                            NeedCheck.Visibility = System.Windows.Visibility.Visible;
+                            HasChecked.Visibility = System.Windows.Visibility.Collapsed;
+                        }
+                        //check for requests
+                       var  GuestRequestCounter = app.GetRequestsThatRelevantForOwner(c => c.Status == Enums.GuestRequestStatus.Opened || c.Status == Enums.GuestRequestStatus.InProccess, OwnerId).Count();
+                        setBadge(GuestRequestCounter);
+
+                        }
                     break;
                 case Enums.AuthPermission.Admin:
                     AdminMenu.Visibility = System.Windows.Visibility.Visible;
@@ -115,6 +137,8 @@ namespace PL
         {
             app.SetCollectionClearance(OwnerId, true);
             MessageBox.Show("עודכן אישור גבייה בהצלחה");
+            NeedCheck.Visibility = System.Windows.Visibility.Collapsed;
+            HasChecked.Visibility = System.Windows.Visibility.Visible;
         }
         private void Reports_Click(object sender, RoutedEventArgs e)
         {

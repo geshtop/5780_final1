@@ -29,8 +29,11 @@ namespace PL.Pages
         public GuestRequestList()
         {
 
-            RequestsList = app.GetGuestRequests(c => c.Status == Enums.GuestRequestStatus.Opened || c.Status == Enums.GuestRequestStatus.InProccess);
+            RequestsList = app.GetRequestsThatRelevantForOwner(c => c.Status == Enums.GuestRequestStatus.Opened || c.Status == Enums.GuestRequestStatus.InProccess, OwnerId);
+           
             InitializeComponent();
+            //int counter = RequestsList.Count();
+            //MainWindow.setBadge(counter);
             FillGrid();
         }
 

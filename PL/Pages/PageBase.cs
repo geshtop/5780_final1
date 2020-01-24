@@ -52,7 +52,7 @@ namespace PL.Pages
                             var host = app.GetHostById(OwnerId);
                             if (host != null)
                             {
-                                currentUser = new User(){ Name = host.FullName};
+                                currentUser = new User(){ Name = host.FullName, RelatedHost = host};
                             }
                             break;
                         case Enums.AuthPermission.Admin:

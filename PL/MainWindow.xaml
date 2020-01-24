@@ -34,11 +34,20 @@
             <StackPanel Name="OwnerMenu" Visibility="Hidden" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20 0">
                 <Button Content="ראשי" Click="Home_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
               <Button Tag="2,3" Content="הוסף בקשה" Click="AddReqest_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
-                <Button Tag="2,3" Content="צפייה בבקשות" Click="RequestList_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
-                <Button Name="ApprovedAccount" Content="אישור גבייה" Click="ApprovedAccount_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
-                <Button Content="ניהול יחידות אירוח" Click="ManageHostingUnit_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
+                <materialDesign:Badged BadgePlacementMode="Left" Name="RequestBadge" Badge="3" VerticalAlignment="Center">
+                    <Button Tag="2,3" Content="צפייה בבקשות"  Background="{x:Null}" Click="RequestList_Click"  BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" />
 
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Click="ExitApp_Click">
+                </materialDesign:Badged>
+               <Button Content="ניהול יחידות אירוח" Click="ManageHostingUnit_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
+                <materialDesign:Badged  BadgePlacementMode="TopLeft" Name="NeedCheck" Badge="{materialDesign:PackIcon ExclamationThick}" VerticalAlignment="Center" 
+                                       BadgeColorZoneMode="Accent">
+                    <Button Name="ApprovedAccount" Content="יש לאשר גבייה"  Click="ApprovedAccount_Click"  BorderBrush="{x:Null}" FontSize="15" FontWeight="Bold" />
+                </materialDesign:Badged>
+                <materialDesign:Badged BadgePlacementMode="TopLeft" Name="HasChecked" Badge="{materialDesign:PackIcon Check}" VerticalAlignment="Center"
+                                       BadgeColorZoneMode="Accent">
+                    <Button  Content="אושרה גבייה" IsEnabled="False" Click="ApprovedAccount_Click"  BorderBrush="{x:Null}" FontSize="15" FontWeight="Bold" />
+                </materialDesign:Badged>
+                <Button Background="{x:Null}"  BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Click="ExitApp_Click">
                     <materialDesign:PackIcon Kind="Power" Foreground="#FFA2A2A2" Width="25" Height="25" />
                 </Button>
             </StackPanel>
