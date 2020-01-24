@@ -75,6 +75,10 @@ namespace PL.Pages
                 return (App.Current.MainWindow as MainWindow);
             }
         }
+
+        
+
+ 
         
         public PageBase()
         {

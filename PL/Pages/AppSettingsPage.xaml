@@ -36,10 +36,11 @@
 
 
                 <RowDefinition Height="1" />
-                <RowDefinition Height="70" />
-                <RowDefinition Height="70" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
                 <RowDefinition Height="300" />
                 <RowDefinition Height="30" />
+                <RowDefinition Height="45" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -51,10 +52,13 @@
 
             <Label Content="*תוכן מייל הזמנה" Grid.Column="0"   VerticalAlignment="Stretch"  VerticalContentAlignment="Center" Grid.Row="3" />
 
+            <Label Content="*תשלום ליום " Grid.Column="0"   VerticalAlignment="Stretch"  VerticalContentAlignment="Center" Grid.Row="5" />
 
             <TextBox Grid.Column="1"  MaxLength="20" HorizontalAlignment="Stretch"  Text="{Binding Path=ContactMail}"   VerticalContentAlignment="Center" Grid.Row="1"/>
             <TextBox Grid.Column="1"  MaxLength="50" HorizontalAlignment="Stretch"  Text="{Binding Path=OrderMailSubject}"   VerticalContentAlignment="Center" Grid.Row="2"/>
             <TextBox   Grid.Column="1"  HorizontalAlignment="Stretch"  VerticalContentAlignment="Top"  Height="300" Text="{Binding Path=OrderMailText}"  TextWrapping="Wrap"  AcceptsReturn="True"     Grid.Row="3"  />
+            <TextBox Grid.Column="1"  MaxLength="20" HorizontalAlignment="Stretch"  Text="{Binding Path=PayForDay}"   VerticalContentAlignment="Center" Grid.Row="5"/>
+
             <!--<RichTextBox   AcceptsReturn="True"   Grid.Column="1"  HorizontalAlignment="Left"  VerticalContentAlignment="Top"      Grid.Row="3" >
                 <FlowDocument PageHeight="180" >
                     <Paragraph>
@@ -65,7 +69,7 @@
 
 
             <Label Content="ניתן להשתמש בנתונים : {NAME} {REQUESTID} {HOSTINGNAME} {IMAGE} {OWNERNAME} {OWNERMAIL}" Grid.Column="0" Grid.ColumnSpan="2"   VerticalAlignment="Stretch"  VerticalContentAlignment="Center" Grid.Row="4" />
-            <Label  Grid.Column="1" Foreground="Red" Content="שדות חובה מסומנים ב-*" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="274" Grid.Row="5" />
+            <Label  Grid.Column="1" Foreground="Red" Content="שדות חובה מסומנים ב-*" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="274" Grid.Row="6" />
 
 
 

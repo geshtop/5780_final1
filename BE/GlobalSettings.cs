@@ -11,5 +11,6 @@ namespace BE
         public string ContactMail { get; set; }
         public string OrderMailText { get; set; }
         public string OrderMailSubject { get; set; }
+        public int PayForDay { get; set; }
     }
 }

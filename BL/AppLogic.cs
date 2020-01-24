@@ -614,6 +614,8 @@ namespace BL
             {
                 return false;
             }
+            if (setting.PayForDay < 0)
+                return false;
 
             dal.UpdateGlobalSettings(setting);
             return true;

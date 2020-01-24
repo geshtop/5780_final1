@@ -254,7 +254,8 @@ namespace DAL
                         {
                             ContactMail = Configuration.ContactMail,
                             OrderMailSubject = Configuration.OrderMailSubject,
-                            OrderMailText = Configuration.OrderMailText
+                            OrderMailText = Configuration.OrderMailText,
+                            PayForDay = Configuration.PayForDay
                         };
                     }
                     else
@@ -601,7 +602,10 @@ namespace DAL
 
                     int hostingid = HostingUnitsList.FindIndex(c => c.stSerialKey == order.HostingUnitKey);
                     var request = GuestRequestList.Where(c => c.GuestRequestsKey == order.GuestRequestKey).FirstOrDefault();
-                    if (hostingid > -1 && request != null)
+                    HostingUnit relatedHostings =GetHostingUnits(c => c.stSerialKey == order.HostingUnitKey).FirstOrDefault();
+                    Host relatedHost = GetHostById(relatedHostings.OwnerId);
+                    var settings = GetGlobalSettings();
+                    if (hostingid > -1 && request != null && relatedHost != null && settings != null)
                     {
                         // Diary diary = HostingUnitsList[hostingid].DiaryState;
                         for (DateTime time = request.EntryDate.AddDays(1); time < request.ReleaseDate; time = time.AddDays(1))
@@ -614,6 +618,7 @@ namespace DAL
 
                             });
                             Configuration.DaysIdentity++;
+                            relatedHost.Discount += settings.PayForDay;
                             //diary.Calender[time.Month - 1, time.Day - 1] = true;
                         }
                         // HostingUnitsList[key].DiaryState = diary;
@@ -623,7 +628,7 @@ namespace DAL
                 }
                 UpdateXml<Order>(OrderList);
                 UpdateXml<FullDays>(DaysList);
-
+                UpdateXml<Host>(HostsList);
             }
         }
 
