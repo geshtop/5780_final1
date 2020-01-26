@@ -173,6 +173,12 @@ namespace PL
 
         }
 
+        private void Query_Click(object sender, RoutedEventArgs e)
+        {
+            ReportToHost reportToHost = new ReportToHost();
+            MainFrame.Content = reportToHost;
+        }
+
         private void ManageHosts_Click(object sender, RoutedEventArgs e)
         {
 

@@ -170,10 +170,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Querys.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\ReportMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,7 +182,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Reports\Rpay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Reports\RptRequests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ReportToHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,9 +233,6 @@
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageBase.cs" />
-    <Compile Include="Pages\Querys.xaml.cs">
-      <DependentUpon>Querys.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\ReportMainPage.xaml.cs">
       <DependentUpon>ReportMainPage.xaml</DependentUpon>
     </Compile>
@@ -241,8 +242,14 @@
     <Compile Include="Pages\Reports\Rhosting.xaml.cs">
       <DependentUpon>Rhosting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Reports\Rpay.xaml.cs">
+      <DependentUpon>Rpay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Reports\RptRequests.xaml.cs">
       <DependentUpon>RptRequests.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReportToHost.xaml.cs">
+      <DependentUpon>ReportToHost.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

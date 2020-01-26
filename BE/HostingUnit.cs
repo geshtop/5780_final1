@@ -166,7 +166,10 @@ namespace BE
             Images = new List<GalleryImageItem>();
             Days = new List<FullDays>();
         }
+        public int Totaldays { get; set; }
     }
 
-    
+
+
+
 }

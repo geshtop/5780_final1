@@ -30,11 +30,11 @@
                      Name="FilterName" Grid.Column="0" />
             <TextBox Height="50" materialDesign:HintAssist.Hint="מייל"
          materialDesign:HintAssist.IsFloating="True" Name="FilterEmail" Grid.Column="1" />
-            <ComboBox Height="50" materialDesign:HintAssist.Hint="סטטוס בקשה" 
+            <ComboBox SelectedValuePath="Tag" Height="50" materialDesign:HintAssist.Hint="סטטוס בקשה"
          materialDesign:HintAssist.IsFloating="True" Name="FilterStatus" Grid.Column="2">
-                <ComboBoxItem Content="פתוח" HorizontalAlignment="Left" Width="128"/>
-                <ComboBoxItem Content="נשלח מייל" HorizontalAlignment="Left" Width="128"/>
-                <ComboBoxItem Content="נסגר" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="פתוח" Tag ="0" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="נשלח מייל" Tag ="1" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="סגור" Tag ="2" HorizontalAlignment="Left" Width="128"/>
             </ComboBox>
             <ComboBox SelectedValuePath="Tag" 
                       materialDesign:HintAssist.Hint="אזור"

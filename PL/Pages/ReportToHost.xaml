@@ -1,4 +1,4 @@
-﻿<page:PageBase x:Class="PL.Pages.ReportMainPage" FlowDirection="RightToLeft"
+﻿<page:PageBase x:Class="PL.Pages.ReportToHost" FlowDirection="RightToLeft"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -21,10 +21,9 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top"  Orientation="Vertical"  >
-            <Button Name="RequestButtonClick" Content="דוח בקשות"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton }" Click="RequestButtonClick_Click" />
-            <Button x:Name="hostingButtonClick" Content="דוח יחדות אירוח"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="HostingButtonClick_Click" />
-            <Button x:Name="hostButtonClick" Content="דוח מארחים"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="HostButtonClick_Click_1"/>
-            <Button x:Name="PayClick" Content="דוח תשלומים"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="PayClick_Click"/>
+            <Button Name="RequestButtonClick" Content="דוח בקשות"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton }" Click="RequestButtonClick_Click"/>
+            <Button x:Name="hostingButtonClick" Content="דוח יחדות אירוח"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="HostingButtonClick_Click"/>
+            
         </StackPanel>
         <Frame Name="ReportFrame" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="590" Margin="0,0,0,0" Grid.Column="1"  Width="650"/>
 
