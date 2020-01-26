@@ -20,8 +20,8 @@
         <TextBox x:Name="TxtBody" HorizontalAlignment="Left" Height="160" Margin="377,329,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="הכנס הודעתך כאן"  materialDesign:HintAssist.IsFloating="False" VerticalAlignment="Top" Width="283" Background="White"/>
         <Button Name="send" Content="שלח" HorizontalAlignment="Left" Height="36" Margin="377,513,0,0" VerticalAlignment="Top" Width="107" Click="Send_Click"/>
         <TextBlock HorizontalAlignment="Left" Height="29" Margin="196,160,0,0" TextWrapping="Wrap" Text="טל: 0587-703-289" VerticalAlignment="Top" Width="133" Foreground="White" FontSize="15"/>
-        <TextBlock HorizontalAlignment="Left" Height="29" Margin="196,202,0,0" TextWrapping="Wrap" Text="טל: 0587-111-212" VerticalAlignment="Top" Width="133" Foreground="White" FontSize="15"/>
-        <TextBlock HorizontalAlignment="Left" Height="29" Margin="196,116,0,0" TextWrapping="Wrap" Text="test@gmail.com" VerticalAlignment="Top" Width="133" Foreground="White" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="196,202,0,0" TextWrapping="Wrap" Text="טל: 0548-479-226" VerticalAlignment="Top" Width="133" Foreground="White" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="139,116,0,0" TextWrapping="Wrap" Text="geula.shoshan@gmail.com" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="15"/>
 
 
     </Grid>

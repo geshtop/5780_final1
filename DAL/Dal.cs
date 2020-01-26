@@ -15,7 +15,7 @@ namespace DAL
 
 
         #region XML
-        public List<T> FromXML<T>()
+        public List<T> FromXML<T>() //הבאה מXML
         {
 
             try
@@ -36,7 +36,7 @@ namespace DAL
         }
 
 
-        private void ToXML<T>(List<T> data)
+        private void ToXML<T>(List<T> data) //שמירה לXML
         {
             try
             {

@@ -52,9 +52,15 @@ namespace BL
         {
             return dal.GetAllHosts(predicate);
         }
-        public void DeleteHost(int Id)
+        public void DeleteHost(int Id, out Enums.HostValidationStatus status)
         {
-
+            status = Enums.HostValidationStatus.Deleted;
+            var hosts = dal.GetHostingUnits(c => c.OwnerId == Id).ToList();
+            if (hosts.Count > 0)
+            {
+                status = Enums.HostValidationStatus.HasActiveHostingUnits;
+                return;
+            }
             dal.DeleteHost(Id);
         }
 

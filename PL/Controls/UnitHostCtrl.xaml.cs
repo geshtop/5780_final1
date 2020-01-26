@@ -37,11 +37,16 @@ namespace PL.Controls
 
         private void DeleteClick_Click(object sender, RoutedEventArgs e)
         {
+            Enums.HostValidationStatus status = Enums.HostValidationStatus.Deleted;
             var b = (Button)sender;
             if (b != null)
             {
                 int id = Int16.Parse( b.Tag.ToString());
-                app.DeleteHost(id);
+                app.DeleteHost(id, out status);
+                if (status == Enums.HostValidationStatus.HasActiveHostingUnits)
+                {
+                    MessageBox.Show("קיימות יחידות אירוח למארח");
+                }
                // Window yourParentWindow = Window.GetWindow(this);
                // yourParentWindow.Close();
                 Pages.HostList hostListPage = new Pages.HostList();

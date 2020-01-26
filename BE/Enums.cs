@@ -68,7 +68,8 @@ namespace BE
             Faild=5, //שגיאת מסד
             WrongId=6,
             MissingBankAccount =7,
-            EmailExist =8
+            EmailExist =8,
+            Deleted =9
         }
 
         public enum GuestRequesteCreateStatus

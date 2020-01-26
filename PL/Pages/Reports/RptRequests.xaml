@@ -15,7 +15,7 @@
 	Title="RptRequests">
     <StackPanel Margin="0"  Orientation="Vertical" >
         <Grid Height="30" Margin="0">
-           <Label FontSize="16" Content="דוח סינון לפי בקשות" /> 
+           <Label FontSize="16" Content="דוח סינון הזמנות" /> 
         </Grid>
         <Grid Height="50" >
             <Grid.ColumnDefinitions>
@@ -33,10 +33,8 @@
             <ComboBox Height="50" materialDesign:HintAssist.Hint="סטטוס בקשה"
          materialDesign:HintAssist.IsFloating="True" Name="FilterStatus" Grid.Column="2">
                 <ComboBoxItem Content="פתוח" HorizontalAlignment="Left" Width="128"/>
-                <ComboBoxItem Content="בתהליך" HorizontalAlignment="Left" Width="128"/>
-                <ComboBoxItem Content="סגור" HorizontalAlignment="Left" Width="128"/>
-                <ComboBoxItem Content="סגירת מערכת" HorizontalAlignment="Left" Width="128"/>
-                <ComboBoxItem Content="לא אקטואלי" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="נשלח מייל" HorizontalAlignment="Left" Width="128"/>
+                <ComboBoxItem Content="נסגר" HorizontalAlignment="Left" Width="128"/>
             </ComboBox>
             <ComboBox SelectedValuePath="Tag" 
                       materialDesign:HintAssist.Hint="אזור"

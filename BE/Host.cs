@@ -23,7 +23,7 @@ namespace BE
         public string MailAddress { get; set; }
         public string Password { get; set; }
         public int Discount { get; set; }
-        [XmlIgnore]
+        [XmlIgnore] //תתעלם מזה ואל תכניס לXML
         public string Phone
         {
             get
