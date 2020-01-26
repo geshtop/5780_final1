@@ -22,7 +22,9 @@ namespace PL.Pages.Reports
     {
         public Rpay()
         {
+            var list = app.GetAllHosts();
             InitializeComponent();
+            ListRequestsHost.ItemsSource = list;
         }
 
         private void ListRequestsHost_SelectionChanged(object sender, SelectionChangedEventArgs e)

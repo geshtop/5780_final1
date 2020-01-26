@@ -25,7 +25,7 @@
                         <GridViewColumn Width="100" Header="מס' סניף" DisplayMemberBinding="{Binding BranchNumber}"/>
                         <GridViewColumn Width="100" Header="מס' חשבון" DisplayMemberBinding="{Binding BankAccount}"/>
                         <GridViewColumn Width="110" Header="הרשאת חיוב " DisplayMemberBinding="{Binding CollectionClearance}"/>
-                        <GridViewColumn Width="150" Header="סכום לחיוב " DisplayMemberBinding="{Binding CollectionClearance}"/>
+                        <GridViewColumn Width="150" Header="סכום לחיוב " DisplayMemberBinding="{Binding Discount}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
