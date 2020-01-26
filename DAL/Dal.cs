@@ -619,6 +619,7 @@ namespace DAL
                             });
                             Configuration.DaysIdentity++;
                             relatedHost.Discount += settings.PayForDay;
+                            relatedHostings.Totaldays++;
                             //diary.Calender[time.Month - 1, time.Day - 1] = true;
                         }
                         // HostingUnitsList[key].DiaryState = diary;

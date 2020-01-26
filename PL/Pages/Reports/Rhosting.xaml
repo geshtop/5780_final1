@@ -29,14 +29,14 @@
                      Name="FilterName" Grid.Column="0" />
             <TextBox Height="50" materialDesign:HintAssist.Hint="מס' חדרים"
          materialDesign:HintAssist.IsFloating="True" Name="NumRooms" Grid.Column="3" />
-            <ComboBox Height="50" materialDesign:HintAssist.Hint="סוג היחידה"
+            <ComboBox SelectedValuePath="Tag" Height="50" materialDesign:HintAssist.Hint="סוג היחידה"
          materialDesign:HintAssist.IsFloating="True" Name="TypeHostingUnit" Grid.Column="1">
                 <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="128"/>
                 <ComboBoxItem Content="צימר" Tag="1" HorizontalAlignment="Left" Width="128"/>
                 <ComboBoxItem Content="בית מלון" Tag="2" HorizontalAlignment="Left" Width="128"/>
                 <ComboBoxItem Content="קמפינג" Tag="3" HorizontalAlignment="Left" Width="128"/>
             </ComboBox>
-            <ComboBox Height="50" materialDesign:HintAssist.Hint="אזור"
+            <ComboBox SelectedValuePath="Tag" Height="50" materialDesign:HintAssist.Hint="אזור"
          materialDesign:HintAssist.IsFloating="True" Name="FilterArea" Grid.Column="2">
                 <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="124"/>
                 <ComboBoxItem Content="צפון" Tag="1" HorizontalAlignment="Left" Width="124"/>
@@ -57,7 +57,7 @@
                         <GridViewColumn Width="100" Header="מס' חדרים" DisplayMemberBinding="{Binding Rooms}"/>
                         <GridViewColumn Width="120" Header="מס' מבוגרים" DisplayMemberBinding="{Binding Adult}"/>
                         <GridViewColumn Width="100" Header="מס' ילדים" DisplayMemberBinding="{Binding Children}"/>
-                        <GridViewColumn Width="120" Header="תפוסה שנתית" DisplayMemberBinding="{Binding DiaryState.BusyDays}"/>
+                        <GridViewColumn Width="120" Header="תפוסה שנתית" DisplayMemberBinding="{Binding Totaldays}"/>
                         
                     </GridView>
                 </ListView.View>

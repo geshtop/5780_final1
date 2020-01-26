@@ -1,5 +1,4 @@
-﻿using PL.Pages.Reports;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,15 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PL.Pages.Reports;
 
 namespace PL.Pages
 {
     /// <summary>
-    /// Interaction logic for ReportMainPage.xaml
+    /// Interaction logic for ReportToHost.xaml
     /// </summary>
-    public partial class ReportMainPage : PageBase
+    public partial class ReportToHost : PageBase
     {
-        public ReportMainPage()
+        public ReportToHost()
         {
             InitializeComponent();
         }
@@ -36,18 +36,6 @@ namespace PL.Pages
         {
             Rhosting rhost = new Rhosting();
             ReportFrame.Content = rhost;
-        }
-
-        private void HostButtonClick_Click_1(object sender, RoutedEventArgs e)
-        {
-            Rhost rhost = new Rhost();
-            ReportFrame.Content = rhost;
-        }
-
-        private void PayClick_Click(object sender, RoutedEventArgs e)
-        {
-            Rpay rpay = new Rpay();
-            ReportFrame.Content = rpay;
         }
     }
 }
