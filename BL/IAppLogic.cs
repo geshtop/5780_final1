@@ -18,7 +18,7 @@ namespace BL
         void AddOrder(BE.Order order, out BE.Enums.OrderCreateStatus status);
         bool CheckForFreeDays(BE.GuestRequest guestReq, BE.HostingUnit unit);
         void DeleteHost(int Id, out Enums.HostValidationStatus status);
-        void DeleteHostingUnit(BE.HostingUnit hostingUnit);
+        bool DeleteHostingUnit(int hostingUnitId);
         System.Collections.Generic.List<BE.Host> GetAllHosts();
         System.Collections.Generic.List<BE.Host> GetAllHosts(Func<BE.Host, bool> predicate);
         System.Collections.Generic.List<BE.BankBranch> GetBankBranches(Func<BE.BankBranch, bool> predicate);

@@ -23,6 +23,15 @@ namespace PL.Controls
     /// </summary>
     public partial class HostingUnitList : UserControlBase
     {
+        public Visibility DeleteVisible
+        {
+            get
+            {
+                if (OwnerId > 0) return System.Windows.Visibility.Visible;
+                return Visibility.Collapsed;
+            }
+        }
+     
         public string getButtonText
         {
             get
@@ -31,10 +40,11 @@ namespace PL.Controls
                 return "צפיה";
             }
         }
-        public List<HostingUnit> list { get; set; }
-        public HostingUnitList(List<HostingUnit> _list)
+        private int ownId { get; set; }
+        public HostingUnitList(int _ownId)
         {
-            this.list = _list;
+            ownId = _ownId;
+           
             InitializeComponent();
             FillGrid();
 
@@ -42,6 +52,8 @@ namespace PL.Controls
 
         private void FillGrid()
         {
+
+            var list = app.GetHostingUnits(c => c.OwnerId == ownId);
             HostingListGrid.DataContext = list;
             UnitHostListView.ItemsSource = list;
            
@@ -55,6 +67,28 @@ namespace PL.Controls
                 int id = Int32.Parse(b.Tag.ToString());
                 EditUnitHost uh = new EditUnitHost(id);
                 MainNavigate(uh);
+            }
+
+        }
+
+
+        private void DeleteHostingUnit_Click(object sender, RoutedEventArgs e)
+        {
+            var b = (Button)sender;
+            if (b != null)
+            {
+                int id = Int32.Parse(b.Tag.ToString());
+               bool ret =  app.DeleteHostingUnit(id);
+               if (!ret)
+               {
+                   MessageBox.Show("לא ניתן למחוק יחידת אירוח בגלל הזמנות מקושרות");
+
+               }
+               else
+               {
+                   MessageBox.Show("נמחק בהצלחה");
+                   FillGrid();
+               }
             }
 
         }

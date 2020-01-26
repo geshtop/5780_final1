@@ -25,7 +25,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                             <Image  Height="180" Source="{Binding Url}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" />
-                            <Button Tag="{Binding Id}"   Content="מחק" Click="DeleteImage_Click"   />
+                                <Button Tag="{Binding Id}"   Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ctrl:ImageGalleryCtrl}}, Path=DeleteVisible}"  Content="מחק" Click="DeleteImage_Click"   />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

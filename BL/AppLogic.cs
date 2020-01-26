@@ -219,16 +219,17 @@ namespace BL
                 dal.AddHostingUnit(hostingUnit);
         }
 
-        public void DeleteHostingUnit(BE.HostingUnit hostingUnit)
+        public bool DeleteHostingUnit(int hostingUnitId)
         {
-            var hostingUnits = dal.GetOrders(c => c.HostingUnitKey == hostingUnit.stSerialKey).ToList();
+            var hostingUnits = dal.GetOrders(c => c.HostingUnitKey == hostingUnitId).ToList();
             if (hostingUnits.Count > 0)
             {
                 
                 //אי אפשר למחוק את הבקשה
-                return;
+                return false;
             }
-            dal.DeleteHostingUnit(hostingUnit);
+            dal.DeleteHostingUnit(hostingUnitId);
+            return true;
         }
 
         public void UpdatingHostingUnit(BE.HostingUnit hostingUnit, out Enums.HostingUnitSaveStatus status)

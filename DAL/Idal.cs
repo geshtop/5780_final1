@@ -9,7 +9,7 @@ namespace DAL
         void AddHostingUnit(BE.HostingUnit hostingUnit);
         void AddOrder(BE.Order order);
         void DeleteHost(int Id);
-        void DeleteHostingUnit(BE.HostingUnit hostingUnit);
+        void DeleteHostingUnit(int hostingUnitId);
         System.Collections.Generic.List<BE.Host> GetAllHosts(Func<BE.Host, bool> predicate = null);
         System.Collections.Generic.List<BE.BankBranch> GetBankAccounts(Func<BE.BankBranch, bool> predicate);
         System.Collections.Generic.List<BE.BankBranch> GetBankBranches(Func<BE.BankBranch, bool> predicate);

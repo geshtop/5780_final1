@@ -437,14 +437,14 @@ namespace DAL
 
         }
 
-        public void DeleteHostingUnit(BE.HostingUnit hostingUnit)
+        public void DeleteHostingUnit(int hostingUnitId)
         {
-            int index = HostingUnitsList.FindIndex(c => c.stSerialKey == hostingUnit.stSerialKey);
+            int index = HostingUnitsList.FindIndex(c => c.stSerialKey == hostingUnitId);
             if (index > -1)
             {
                 HostingUnitsList.RemoveAt(index);
                 //delete Prev items
-                GalleryList.RemoveAll(c => c.HostingUnitId == hostingUnit.stSerialKey);
+                GalleryList.RemoveAll(c => c.HostingUnitId == hostingUnitId);
 
             }
             UpdateXml<HostingUnit>(HostingUnitsList);
@@ -619,6 +619,7 @@ namespace DAL
                             });
                             Configuration.DaysIdentity++;
                             relatedHost.Discount += settings.PayForDay;
+                            
                             //diary.Calender[time.Month - 1, time.Day - 1] = true;
                         }
                         // HostingUnitsList[key].DiaryState = diary;

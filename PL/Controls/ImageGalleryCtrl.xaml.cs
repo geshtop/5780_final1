@@ -24,6 +24,16 @@ namespace PL.Controls
     {
         public List<GalleryImageItem> images { get; set; }
 
+        public Visibility DeleteVisible
+        {
+            get
+            {
+                if (OwnerId > 0) return System.Windows.Visibility.Visible;
+                return Visibility.Collapsed;
+            }
+        }
+     
+
         public ImageGalleryCtrl(HostingUnit _hostingUnit)
         {
             images = _hostingUnit.TempImages;

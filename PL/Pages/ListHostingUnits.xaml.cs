@@ -25,8 +25,8 @@ namespace PL.Pages
         public ListHostingUnits()
         {
             InitializeComponent();
-            var listOfHosingUnits = app.GetHostingUnits(c => c.OwnerId == OwnerId);
-            HostingUnitList hostingListCtrl = new HostingUnitList(listOfHosingUnits);
+           
+            HostingUnitList hostingListCtrl = new HostingUnitList(OwnerId);
             hostingList.Children.Add(hostingListCtrl);
         }
         private void NewHostingUnit_Click(object sender, RoutedEventArgs e)
