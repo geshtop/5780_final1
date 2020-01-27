@@ -611,6 +611,21 @@ namespace BL
             return dal.GetOrders(predicate);
         }
 
+        public IEnumerable<object> GetFullOrder(Func<Order, bool> predicate, int OwnerId = 0)
+        {
+            var orderList  = (from order in dal.GetOrders(predicate)
+                        select new
+                        {
+                            OrderKey = order.OrderKey,
+                            OrderDate = order.OrderDate,
+                            HostingName =dal.GetHostingUnitById(order.HostingUnitKey).HostingUnitName,
+                            RequestUserName =dal.GetGuestRequests(c=>c.GuestRequestsKey == order.GuestRequestKey).FirstOrDefault().FullName
+                          
+                        });
+
+            return orderList;
+        }
+
         #endregion
 
 
