@@ -77,11 +77,11 @@
                                 <GridViewColumn Width="Auto" Header="מס' חדרים" DisplayMemberBinding="{Binding Rooms}"/>
                                 <GridViewColumn Width="Auto" Header="מס' מבוגרים" DisplayMemberBinding="{Binding Adult}"/>
                                 <GridViewColumn Width="Auto" Header="מס' ילדים" DisplayMemberBinding="{Binding Children}"/>
-                                
-
-
-
-                            </GridView>
+                                    <GridViewColumn Width="Auto" Header="בריכה" DisplayMemberBinding="{Binding Pool}"/>
+                                    <GridViewColumn Width="Auto" Header="ג'קוזי" DisplayMemberBinding="{Binding Jacuzzi}"/>
+                                    <GridViewColumn Width="Auto" Header="גינה" DisplayMemberBinding="{Binding Garden}"/>
+                                    <GridViewColumn Width="Auto" Header="אטרקציות" DisplayMemberBinding="{Binding ChildrensAttractions}"/>
+                                </GridView>
                         </ListView.View>
                     </ListView>
                     </StackPanel>
