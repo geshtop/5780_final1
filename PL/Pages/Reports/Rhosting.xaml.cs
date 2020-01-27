@@ -47,7 +47,9 @@ namespace PL.Pages.Reports
                     && (c.TypeId == SelectedTypeId || SelectedTypeId == 0)
                     && (c.OwnerId == OwnerId)
                 );
-
+            ///////מכאן תעתיקי את 2 השורות
+            var unitKeys = app.GetHostingUnits(c=>c.OwnerId == OwnerId) .Select(c=>c.stSerialKey).ToArray();
+            var list2 = app.GetOrders(c => unitKeys.Contains(c.HostingUnitKey)).ToList();
             //2 Fill the list view
 
             ListRequests.ItemsSource = list;
