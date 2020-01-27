@@ -43,7 +43,7 @@ namespace PL.Pages
                    text = text.Replace(System.Environment.NewLine, "<br />").Replace("\n", "<br />");
                    Contact c = new Contact();
                    c.Body = text;
-                   c.Subject = "a";
+                   c.Subject = TxtSubject.Text;
                    c.ReciverMail = contact_mail;
 
 

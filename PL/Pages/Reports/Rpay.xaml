@@ -4,28 +4,46 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:page="clr-namespace:PL.Pages"
+               xmlns:ctrl="clr-namespace:PL.Controls"
       mc:Ignorable="d" 
                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
                FontFamily="{materialDesign:MaterialDesignFont}"
-      d:DesignHeight="600" d:DesignWidth="650"
+      d:DesignHeight="540" d:DesignWidth="800"
       Title="Rpay">
+    <Page.Resources>
+        <ctrl:BoolToIcon x:Key="boolToIcon"/>
+        <ctrl:FalseTrueColored x:Key="falseTrueColored"/>
+        
+    </Page.Resources>
     <StackPanel Margin="0"  Orientation="Vertical">
-        <Grid Height="30" Margin="0">
-            <Label FontSize="16" Content="דוח תשלומים" />
-        </Grid>
+       
         <Grid >
-            <ListView Name="ListRequestsHost" SelectionChanged="ListRequestsHost_SelectionChanged">
+            <ListView Name="ListRequestsHost" ScrollViewer.CanContentScroll="True" Height="465"
+                       ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="ListRequestsHost_SelectionChanged">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="140" Header="שם" DisplayMemberBinding="{Binding FullName}"/>
-                        <GridViewColumn Width="100" Header="מס' בנק" DisplayMemberBinding="{Binding BankNumber}"/>
-                        <GridViewColumn Width="100" Header="מס' סניף" DisplayMemberBinding="{Binding BranchNumber}"/>
-                        <GridViewColumn Width="100" Header="מס' חשבון" DisplayMemberBinding="{Binding BankAccount}"/>
-                        <GridViewColumn Width="110" Header="הרשאת חיוב " DisplayMemberBinding="{Binding CollectionClearance}"/>
-                        <GridViewColumn Width="150" Header="סכום לחיוב " DisplayMemberBinding="{Binding Discount}"/>
+                        <GridViewColumn Width="Auto" Header="שם" DisplayMemberBinding="{Binding FullName}"/>
+                        <GridViewColumn Width="Auto" Header="מס' בנק" DisplayMemberBinding="{Binding BankNumber}"/>
+                        <GridViewColumn Width="Auto" Header="מס' סניף" DisplayMemberBinding="{Binding BranchNumber}"/>
+                        <GridViewColumn Width="Auto" Header="מס' חשבון" DisplayMemberBinding="{Binding BankAccount}"/>
+                        <GridViewColumn Width="Auto" Header="הרשאת חיוב " >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <materialDesign:PackIcon Kind="{Binding CollectionClearance, Converter={StaticResource boolToIcon}}"
+                                                                 Foreground="{Binding CollectionClearance, Converter={StaticResource falseTrueColored}}"
+                                                                 FontSize="30"  />
+
+                                       
+                                    </StackPanel>
+                                  
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="Auto" Header="סכום לחיוב " DisplayMemberBinding="{Binding Discount}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

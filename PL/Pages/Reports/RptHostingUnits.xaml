@@ -62,8 +62,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
+                        <Border Width="770" BorderThickness="1" BorderBrush="#FF2196F3">
+                            <TextBlock Width="750" Foreground="#FF2196F3" Padding="5"  FontSize="20" Text="{Binding OwnerName}" />
 
-                        <TextBlock Width="800" Background="#cfcfcf" Foreground="#000" Padding="5"  FontSize="20" Text="{Binding OwnerName}" />
+                        </Border>
                         
                         <ListView VerticalContentAlignment="Stretch" ItemsSource="{Binding Units}" Name="ListRequests" 
                        ScrollViewer.VerticalScrollBarVisibility="Visible">
