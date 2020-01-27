@@ -24,6 +24,17 @@ namespace PL.Pages.Reports
         public RrequestToHost()
         {
             InitializeComponent();
+            FillList();
         }
+        private void FillList()
+        {
+
+            var unitKeys = app.GetHostingUnits(c => c.OwnerId == OwnerId).Select(c => c.stSerialKey).ToArray();
+            var list2 = app.GetOrders(c => unitKeys.Contains(c.HostingUnitKey)).ToList();
+            
+            ListRequests.ItemsSource = list2;
+        }
+
     }
+
 }

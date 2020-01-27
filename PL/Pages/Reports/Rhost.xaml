@@ -13,9 +13,7 @@
       d:DesignHeight="600" d:DesignWidth="650"
       Title="Rhost">
     <StackPanel Margin="0"  Orientation="Vertical" >
-        <Grid Height="30" Margin="0">
-            <Label FontSize="16" Content="דוח סינון מארחים" />
-        </Grid>
+        
         <Grid Height="50" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition ></ColumnDefinition>

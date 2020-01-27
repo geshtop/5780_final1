@@ -19,7 +19,6 @@
         
     </Page.Resources>
     <StackPanel Margin="0"  Orientation="Vertical">
-       
         <Grid >
             <ListView Name="ListRequestsHost" ScrollViewer.CanContentScroll="True" Height="465"
                        ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="ListRequestsHost_SelectionChanged">
