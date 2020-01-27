@@ -50,5 +50,6 @@ namespace BL
         void SendMail(string from, string to, string subject, string body, bool isHtml);
         GlobalSettings GetGlobalSettings();
         bool UpdateGlobalSettings(GlobalSettings setting);
+        IEnumerable<Object> GetHostingUnitGrouingByOwner(Func<BE.HostingUnit, bool> predicate = null);
     }
 }

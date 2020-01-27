@@ -41,7 +41,10 @@ namespace PL.Pages
 
         private void HostingButtonClick_Click(object sender, RoutedEventArgs e)
         {
-            Rhosting rhost = new Rhosting();
+            //Rhosting rhost = new Rhosting();
+            //ReportFrame.Content = rhost;
+
+            RptHostingUnits rhost = new RptHostingUnits();
             ReportFrame.Content = rhost;
             GridCursor.Margin = new Thickness(150, 0, 0, 0);
         }

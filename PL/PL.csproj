@@ -186,6 +186,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Reports\RptHostingUnits.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\Reports\RptRequests.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -244,6 +248,9 @@
     </Compile>
     <Compile Include="Pages\Reports\Rpay.xaml.cs">
       <DependentUpon>Rpay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reports\RptHostingUnits.xaml.cs">
+      <DependentUpon>RptHostingUnits.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Reports\RptRequests.xaml.cs">
       <DependentUpon>RptRequests.xaml</DependentUpon>

@@ -250,6 +250,18 @@ namespace BL
         }
 
 
+        public IEnumerable<Object> GetHostingUnitGrouingByOwner(Func<BE.HostingUnit, bool> predicate = null)
+        {
+
+            var hostings_units = from p in  dal.GetHostingUnits(predicate)
+                          group p by p.OwnerId into g
+                                 select new { OwnerId = g.Key, OwnerName=dal.GetHostById(g.Key).FullName, Units = g.ToList() };
+
+           
+            return hostings_units;
+        }
+
+
 
         #endregion
 
