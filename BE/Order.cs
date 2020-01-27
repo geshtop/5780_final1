@@ -32,5 +32,32 @@ namespace BE
             return (HostingUnitKey + "\n" + GuestRequestKey + "\n" + OrderKey
                 + "\n" + Status + "\nCreateDate: " + CreateDate + "\nOrderKey: " + OrderKey);
         }
+
+        [XmlIgnore]
+        public string StrStatus
+        {
+            get
+            {
+                string t = "";
+                switch (Status)
+                {
+                    case Enums.OrderStatus.Closed:
+                        t = "נסגר ללא הזמנה";
+                        break;
+                    case Enums.OrderStatus.Mailed:
+                        t = "בתהליך";
+                        break;
+                    case Enums.OrderStatus.Not_treated:
+                        t = "";
+                        break;
+                    case Enums.OrderStatus.Success:
+                        t = "נסגר בהצלחה";
+                        break;
+                    default:
+                        break;
+                }
+                return t;
+            }
+        }
     }
 }

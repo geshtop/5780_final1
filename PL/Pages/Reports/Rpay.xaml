@@ -13,9 +13,6 @@
       d:DesignHeight="600" d:DesignWidth="650"
       Title="Rpay">
     <StackPanel Margin="0"  Orientation="Vertical">
-        <Grid Height="30" Margin="0">
-            <Label FontSize="16" Content="דוח תשלומים" />
-        </Grid>
         <Grid >
             <ListView Name="ListRequestsHost" SelectionChanged="ListRequestsHost_SelectionChanged">
                 <ListView.View>
