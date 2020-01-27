@@ -325,6 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\GRLogo.PNG" />
+    <Resource Include="Resource\grlogo_pg2_icon.ico" />
     <Content Include="Resource\icons8-delete-40.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
