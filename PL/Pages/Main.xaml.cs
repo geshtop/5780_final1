@@ -39,7 +39,7 @@ namespace PL.Pages
         private void ContactUs_Click(object sender, RoutedEventArgs e)
         {
             //check your logic
-            Contact contact = new Contact();
+            ContactPage contact = new ContactPage();
             MainNavigate(contact);
           
         }

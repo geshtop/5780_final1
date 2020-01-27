@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,27 +20,40 @@ namespace PL.Pages
     /// <summary>
     /// Interaction logic for Contact.xaml
     /// </summary>
-    public partial class Contact : PageBase
+    public partial class ContactPage : PageBase
     {
         //bool flag = false;
-        public Contact()
+        public ContactPage()
         {
             InitializeComponent();
+           
             //flag = true;
         }
+     
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-               string text = "שם: " + name.Text + "\nמייל: " + telephon.Text
-                + "\nגוף ההודעה: " + TxtBody.Text;
-               var contact_mail = app.GetGlobalSettings().ContactMail;
-               text = text.Replace(System.Environment.NewLine, "<br />").Replace("\n", "<br />");
-
+              
                try
                {
-                   app.SendMail("", contact_mail, "GS פנייה: " + TxtSubject.Text, text, true);
-                   MessageBox.Show("המייל נשלח בהצלחה");
+
+                   string text = "שם: " + name.Text + "\nמייל: " + telephon.Text
+              + "\nגוף ההודעה: " + TxtBody.Text;
+                   var contact_mail = app.GetGlobalSettings().ContactMail;
+                   text = text.Replace(System.Environment.NewLine, "<br />").Replace("\n", "<br />");
+                   Contact c = new Contact();
+                   c.Body = text;
+                   c.Subject = "a";
+                   c.ReciverMail = contact_mail;
+
+
+                   CurrentWindow.SendBackgroundMail(c);
+
+
                    BackToMain();// חזרה לדף ראשי
+                 
+                                 
+                 
                }
                catch
                {
@@ -48,5 +63,7 @@ namespace PL.Pages
          
             
         }
+
+      
     }
 }

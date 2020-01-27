@@ -17,9 +17,12 @@
         
         >
     <StackPanel>
-        <Grid Height="100">
-            <StackPanel HorizontalAlignment="Right" Margin="20 0">
-                <Image HorizontalAlignment="Center" Height="80" VerticalAlignment="Top" Width="119"   Source="/Resource/GRLogo.png" />
+        <DockPanel Margin="5">
+            <ProgressBar DockPanel.Dock="Bottom"  Minimum="0" Value="0" Maximum="60" Height="10" Name="pbCalculationProgress" />
+        </DockPanel>
+        <Grid Height="90">
+            <StackPanel HorizontalAlignment="Right" Margin="5 0">
+                <Image HorizontalAlignment="Center" Height="70" VerticalAlignment="Top" Width="119"   Source="/Resource/GRLogo.png" />
                 <Label Content="עושים נופש לנופש"  HorizontalAlignment="Left"  VerticalAlignment="Top" Height="29" Width="147"/>
 
             </StackPanel>

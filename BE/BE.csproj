@@ -45,6 +45,7 @@
     <Compile Include="Bank.cs" />
     <Compile Include="BankBranch.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="Contact.cs" />
     <Compile Include="Diary.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="FullDays.cs" />
