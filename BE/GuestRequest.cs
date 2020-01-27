@@ -148,7 +148,7 @@ namespace BE
                         t = "סגירת מערכת";
                         break;
                     case Enums.GuestRequestStatus.Expired:
-                        t = "לא אקטואלי";
+                        t = "פג תוקף";
                         break;
                     default:
                         break;
@@ -277,6 +277,17 @@ namespace BE
             }
         }
 
+
+           [XmlIgnore]
+        public string StrDates
+        {
+            get
+            {
+                return EntryDate.ToString("dd/MM/yy") + "-" + ReleaseDate.ToString("dd/MM/yy");
+
+
+            }
+        }
         private string ConvertExtensionTypeToString(Enums.ExtensionType type)
         {
             string t = "";

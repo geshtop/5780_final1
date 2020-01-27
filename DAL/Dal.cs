@@ -555,6 +555,15 @@ namespace DAL
 
         public List<GuestRequest> GetGuestRequests(Func<GuestRequest, bool> predicate = null)
         {
+            //update unrelevant request to expired
+            var expired_requests = GuestRequestList.Where(c => c.EntryDate < DateTime.Now && (c.StatusId == 0 /*open*/ || c.StatusId == 1 /*inproccess*/)).ToList();
+            if (expired_requests.Count > 0)
+            {
+                foreach (var expired_request in expired_requests)
+                {
+                    UpdatingGusetRequest(expired_request, Enums.GuestRequestStatus.Expired);
+                }
+            }
             if (predicate != null)
             {
                 return GuestRequestList.Where(predicate).ToList();

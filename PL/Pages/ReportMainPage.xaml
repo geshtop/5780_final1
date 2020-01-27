@@ -15,18 +15,20 @@
       d:DesignHeight="600" d:DesignWidth="800"
 	Title="EditHost">
 
-    <Grid>
-        <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="150"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top"  Orientation="Vertical"  >
-            <Button Name="RequestButtonClick" Content="דוח בקשות"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton }" Click="RequestButtonClick_Click" />
-            <Button x:Name="hostingButtonClick" Content="דוח יחדות אירוח"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="HostingButtonClick_Click" />
-            <Button x:Name="hostButtonClick" Content="דוח מארחים"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="HostButtonClick_Click_1"/>
-            <Button x:Name="PayClick" Content="דוח תשלומים"    Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="PayClick_Click"/>
-        </StackPanel>
-        <Frame Name="ReportFrame" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="590" Margin="0,0,0,0" Grid.Column="1"  Width="650"/>
+    <StackPanel>
+        <Grid Height="60">
+            <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal"  >
+                <Button  Name="RequestButtonClick" Content="דוח בקשות"    Height="50"   Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton }" Click="RequestButtonClick_Click" />
+                <Button x:Name="hostingButtonClick" Content="דוח יחדות אירוח"   Height="50"   Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="HostingButtonClick_Click" />
+                <Button x:Name="hostButtonClick" Content="דוח מארחים"   Height="50"   Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="HostButtonClick_Click_1"/>
+                <Button x:Name="PayClick" Content="דוח תשלומים"   Height="50"   Width="150"  HorizontalContentAlignment="Center"  Style="{StaticResource MaterialDesignFlatButton}" Margin="0,0,0.4,0" Click="PayClick_Click"/>
+            </StackPanel>
+            <Grid x:Name="GridCursor" VerticalAlignment="Bottom" Width="150" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" />
+        </Grid>
+      
 
-    </Grid>
+
+        <Frame Name="ReportFrame" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="540" Margin="0,0,0,0" Grid.Column="1"  Width="800"/>
+
+    </StackPanel>
 </page:PageBase>

@@ -84,6 +84,13 @@ namespace PL.Pages
 
         }
 
+        private void dpick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CurrRequest.ReleaseDate = CurrRequest.EntryDate.AddDays(7);
+           // GuestRequestGrid.DataContext = CurrRequest;
+            relatseDateCtrl.SelectedDate = CurrRequest.EntryDate.AddDays(7);
+        }
+
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
         {
 

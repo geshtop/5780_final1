@@ -369,12 +369,12 @@ namespace BL
         public List<RelatedHosting> GetRelevantHostingByRequest(GuestRequest guestRequest, int OwnerId = 0)
         {
             //יש לסנן גם לפי הOWNERID
-            List<HostingUnit> hostings = dal.GetHostingUnits();
+            List<HostingUnit> hostings = dal.GetHostingUnits(c=>c.OwnerId == OwnerId || OwnerId==0);
             List<RelatedHosting> hostingsNew = new List<RelatedHosting>();
 
             foreach (HostingUnit hosting in hostings)
             {
-                if ((OwnerId == 0 || hosting.OwnerId == OwnerId) && CheckForFreeDays(guestRequest, hosting))
+                if (CheckForFreeDays(guestRequest, hosting))
                 {
 
                     ///check for other fields
@@ -445,6 +445,8 @@ namespace BL
 
         public List<GuestRequest> GetRequestsThatRelevantForOwner(Func<GuestRequest, bool> predicate, int OwnerId = 0)
         {
+            //update expired request
+           
             List<GuestRequest> list = new List<GuestRequest>();
             var requests =  dal.GetGuestRequests(predicate);
             foreach (var req in requests)

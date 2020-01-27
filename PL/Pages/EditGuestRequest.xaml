@@ -56,7 +56,7 @@
             <Label Content="*שם ומשפחה" Grid.Column="0" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="141" Grid.Row="2" Margin="22,19,0,0" Grid.ColumnSpan="2"/>
 
             <Label Content="*כתובת מייל" Grid.Column="0" HorizontalAlignment="Left" Height="33" Grid.Row="3" VerticalAlignment="Top" Width="141" Margin="22,15,0,0"/>
-            <Label Content="טלפון" Grid.Column="0" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="141" Margin="22,16,0,0" Grid.Row="4"/>
+            <Label Content="*טלפון" Grid.Column="0" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="141" Margin="22,16,0,0" Grid.Row="4"/>
             <Label Content="אזור / עיר" Grid.Column="0" HorizontalAlignment="Left" Height="33" Grid.Row="5" VerticalAlignment="Top" Width="141" Margin="22,15,0,0" />
             <Label Content="מס' נפשות" Grid.Column="0" HorizontalAlignment="Left" Height="33" Grid.Row="6" VerticalAlignment="Top" Width="141" Margin="22,15,0,0" />
             <Label Content="תאריכים" Grid.Column="0" HorizontalAlignment="Left" Height="33" Grid.Row="7" VerticalAlignment="Top" Width="141" Margin="22,15,0,0" />
@@ -133,8 +133,8 @@
 
         
             <Label  Grid.Column="1" Foreground="Red" Content="שדות חובה מסומנים ב-*" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="274" Grid.Row="8" Margin="10,10,0,0"/>
-            <DatePicker Grid.Column="1" SelectedDate="{Binding Path=EntryDate}" HorizontalAlignment="Left" Margin="10,18,0,0" Height="30" Grid.Row="7" VerticalAlignment="Top" Width="126"/>
-            <DatePicker Grid.Column="1" SelectedDate="{Binding Path=ReleaseDate}" HorizontalAlignment="Left"  Margin="154,18,0,0" Height="30" Grid.Row="7" VerticalAlignment="Top" Width="130"/>
+            <DatePicker  SelectedDateChanged="dpick_SelectedDateChanged"  Grid.Column="1" SelectedDate="{Binding Path=EntryDate}" HorizontalAlignment="Left" Margin="10,18,0,0" Height="30" Grid.Row="7" VerticalAlignment="Top" Width="126"/>
+            <DatePicker Name="relatseDateCtrl" Grid.Column="1" SelectedDate="{Binding Path=ReleaseDate}" HorizontalAlignment="Left"  Margin="154,18,0,0" Height="30" Grid.Row="7" VerticalAlignment="Top" Width="130"/>
 
             <Label Content="בריכה" Grid.Column="2" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="141" Grid.Row="2" Margin="22,21,0,0"/>
             <Label Content="ג'קוזי" Grid.Column="2" HorizontalAlignment="Left" Height="33"  VerticalAlignment="Top" Width="141" Grid.Row="3" Margin="22,21,0,0"/>

@@ -24,30 +24,40 @@ namespace PL.Pages
         public ReportMainPage()
         {
             InitializeComponent();
+            initRequestReport();
         }
 
-        private void RequestButtonClick_Click(object sender, RoutedEventArgs e)
+
+        private void initRequestReport()
         {
             RptRequests requestpage = new RptRequests();
             ReportFrame.Content = requestpage;
+            GridCursor.Margin = new Thickness(0, 0, 0, 0);
+        }
+        private void RequestButtonClick_Click(object sender, RoutedEventArgs e)
+        {
+            initRequestReport();
         }
 
         private void HostingButtonClick_Click(object sender, RoutedEventArgs e)
         {
             Rhosting rhost = new Rhosting();
             ReportFrame.Content = rhost;
+            GridCursor.Margin = new Thickness(150, 0, 0, 0);
         }
 
         private void HostButtonClick_Click_1(object sender, RoutedEventArgs e)
         {
             Rhost rhost = new Rhost();
             ReportFrame.Content = rhost;
+            GridCursor.Margin = new Thickness(300, 0, 0, 0);
         }
 
         private void PayClick_Click(object sender, RoutedEventArgs e)
         {
             Rpay rpay = new Rpay();
             ReportFrame.Content = rpay;
+            GridCursor.Margin = new Thickness(450, 0, 0, 0);
         }
     }
 }

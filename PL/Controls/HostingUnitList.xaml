@@ -31,13 +31,13 @@
                         <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                             <Image  Height="180" Source="{Binding Images[0].Url}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" />
                             <TextBlock FontSize="18" TextAlignment="Center"  HorizontalAlignment="Stretch" VerticalAlignment="Bottom" >
- <Run Text="{Binding HostingUnitName}" /> (<Run Text="{Binding stSerialKey}" />)
+ <Run Text="{Binding HostingUnitName}" /> <Run Text="{Binding stSerialKey}" FontSize="10" />
                             </TextBlock>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                                <Button Tag="{Binding stSerialKey}"   HorizontalAlignment="Left"   
-                                        Width="120"
+                                <Button Tag="{Binding stSerialKey}" Margin="2"   HorizontalAlignment="Left"   
+                                        Width="115"
                                         Content="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ctrl:HostingUnitList}}, Path=getButtonText}" Click="EditHostingUnit_Click"   />
-                                <Button Tag="{Binding stSerialKey}"   HorizontalAlignment="Stretch" Content="מחיקה" Width="120"
+                                <Button Tag="{Binding stSerialKey}"  Margin="2"  HorizontalAlignment="Stretch" Content="מחיקה" Width="115"
                                         Visibility="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ctrl:HostingUnitList}}, Path=DeleteVisible}" Click="DeleteHostingUnit_Click"   />
 
                             </StackPanel>

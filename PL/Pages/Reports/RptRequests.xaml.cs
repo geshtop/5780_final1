@@ -28,7 +28,7 @@ namespace PL.Pages.Reports
         }
         private void FillList()
         {
-            int SelectedStatusId = 0;
+            int SelectedStatusId = -1;
             int SelectedAreaId = 0;
             if (FilterArea.SelectedValue != null)
                 int.TryParse(FilterArea.SelectedValue.ToString(), out SelectedAreaId);
@@ -39,13 +39,16 @@ namespace PL.Pages.Reports
                 c => ((c.LastName == FilterName.Text || c.FirstName == FilterName.Text) || c.FullName == FilterName.Text || FilterName.Text == "")
                     && (c.MailAddress == FilterEmail.Text || FilterEmail.Text == "")
                     && (c.AreaId == SelectedAreaId || SelectedAreaId == 0)
-                    && (c.StatusId == SelectedStatusId || SelectedStatusId == 0)
+                    && (c.StatusId == SelectedStatusId || SelectedStatusId == -1)
                 );
 
             //2 Fill the list view
 
             ListRequests.ItemsSource = list;
+          
+
         }
+
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
             FillList();
