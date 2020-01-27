@@ -51,5 +51,6 @@ namespace BL
         GlobalSettings GetGlobalSettings();
         bool UpdateGlobalSettings(GlobalSettings setting);
         IEnumerable<Object> GetHostingUnitGrouingByOwner(Func<BE.HostingUnit, bool> predicate = null);
+        IEnumerable<object> GetFullOrder(Func<Order, bool> predicate, int OwnerId = 0);
     }
 }

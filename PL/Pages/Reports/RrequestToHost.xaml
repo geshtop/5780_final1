@@ -20,11 +20,13 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn  Width="Auto" Header="מס' הזמנה" DisplayMemberBinding="{Binding OrderKey}"/>
-                    <GridViewColumn Width="Auto" Header="שם המזמין" DisplayMemberBinding="{Binding GuestRequest.FullName}"/>
+                    <GridViewColumn Width="Auto" Header="שם המזמין" DisplayMemberBinding="{Binding RequestUserName}"/>
                     <GridViewColumn Width="Auto" Header="טלפון" DisplayMemberBinding="{Binding Phone}"/>
-                    <GridViewColumn Width="Auto" Header="מס' יחידה" DisplayMemberBinding="{Binding HostingUnitKey}"/>
-                    <GridViewColumn Width="Auto" Header="שם היחידה" DisplayMemberBinding="{Binding HostingUnitName}"/>
-                    <GridViewColumn Width="Auto" Header="סטטוס" DisplayMemberBinding="{Binding StrStatus}"/>
+                    <GridViewColumn Width="Auto" Header="מייל" DisplayMemberBinding="{Binding Gmail}"/>
+                    <GridViewColumn Width="Auto" Header="מס' יחידה" DisplayMemberBinding="{Binding HostingNum}"/>
+                    <GridViewColumn Width="Auto" Header="שם היחידה" DisplayMemberBinding="{Binding HostingName}"/>
+                    <GridViewColumn Width="Auto" Header="סטטוס" DisplayMemberBinding="{Binding Status}"/>
+                    <GridViewColumn Width="Auto" Header="תאריכים" DisplayMemberBinding="{Binding Time}"/>
                     <!--<GridViewColumn Width="110" Header="תאריך רישום " DisplayMemberBinding="{Binding Path=RegistrationDate, StringFormat='dd/MM/yyyy '}" />-->
 
                 </GridView>

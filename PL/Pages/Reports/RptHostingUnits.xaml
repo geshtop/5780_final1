@@ -77,7 +77,7 @@
                                 <GridViewColumn Width="Auto" Header="מס' חדרים" DisplayMemberBinding="{Binding Rooms}"/>
                                 <GridViewColumn Width="Auto" Header="מס' מבוגרים" DisplayMemberBinding="{Binding Adult}"/>
                                 <GridViewColumn Width="Auto" Header="מס' ילדים" DisplayMemberBinding="{Binding Children}"/>
-                                <GridViewColumn Width="Auto" Header="תפוסה שנתית" DisplayMemberBinding="{Binding Totaldays}"/>
+                                
 
 
 

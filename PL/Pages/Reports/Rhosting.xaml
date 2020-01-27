@@ -55,7 +55,7 @@
                         <GridViewColumn Width="100" Header="מס' חדרים" DisplayMemberBinding="{Binding Rooms}"/>
                         <GridViewColumn Width="120" Header="מס' מבוגרים" DisplayMemberBinding="{Binding Adult}"/>
                         <GridViewColumn Width="100" Header="מס' ילדים" DisplayMemberBinding="{Binding Children}"/>
-                        <GridViewColumn Width="120" Header="תפוסה שנתית" DisplayMemberBinding="{Binding Totaldays}"/>
+                        
                         
                     </GridView>
                 </ListView.View>

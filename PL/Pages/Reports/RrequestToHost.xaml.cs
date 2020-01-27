@@ -29,10 +29,11 @@ namespace PL.Pages.Reports
         private void FillList()
         {
 
-            var unitKeys = app.GetHostingUnits(c => c.OwnerId == OwnerId).Select(c => c.stSerialKey).ToArray();
-            var list2 = app.GetOrders(c => unitKeys.Contains(c.HostingUnitKey)).ToList();
+            var unitKeys = app.GetHostingUnits(c => c.OwnerId == OwnerId).Select(c => c.stSerialKey).ToArray(); //מקבל יחידות אירוח של המארח
+            //var list2 = app.GetOrders(c => unitKeys.Contains(c.HostingUnitKey)).ToList(); //בודק איזה הזמנות קשורות ליחידות של המארח
+            var list = app.GetFullOrder(c => unitKeys.Contains(c.HostingUnitKey)).ToList();
             
-            ListRequests.ItemsSource = list2;
+            ListRequests.ItemsSource = list;
         }
 
     }

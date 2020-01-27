@@ -192,6 +192,7 @@ namespace BE
                    //"סטטוס: " + StrStatus + "\n" +
                    "שם מלא: " + FirstName + " " + LastName + "\n" +
                     "מייל: " + MailAddress + "\n" +
+                    "טלפון: " + Phone + "\n" +
                     "נוצר בתאריך: " + RegistrationDate.ToString("dd/MM/yyyy") + "\n" +
                     "תאריכים: " + EntryDate.ToString("dd/MM/yyyy") + "-" + ReleaseDate.ToString("dd/MM/yyyy") + "\n" +
                     "סוג: " + StrType + "\n" +
