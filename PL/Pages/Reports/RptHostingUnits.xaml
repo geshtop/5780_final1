@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:page="clr-namespace:PL.Pages"
+                xmlns:ctrl="clr-namespace:PL.Controls"
       mc:Ignorable="d" 
                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -13,6 +14,10 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
       d:DesignHeight="540" d:DesignWidth="800"
 	Title="RptRequests">
+    <Page.Resources>
+        <ctrl:BoolToIcon x:Key="boolToIcon"/>
+
+    </Page.Resources>
     <StackPanel Margin="0"  Orientation="Vertical" >
         <materialDesign:Card   
                                  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
@@ -62,8 +67,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Border Width="770" BorderThickness="1" BorderBrush="#FF2196F3">
-                            <TextBlock Width="750" Foreground="#FF2196F3" Padding="5"  FontSize="20" Text="{Binding OwnerName}" />
+                        <Border Width="770" HorizontalAlignment="Left" BorderThickness="1" BorderBrush="#FF2196F3">
+                            <TextBlock Width="745" Foreground="#FF2196F3" Padding="5"  FontSize="20" Text="{Binding OwnerName}" />
 
                         </Border>
                         
@@ -77,10 +82,34 @@
                                 <GridViewColumn Width="Auto" Header="מס' חדרים" DisplayMemberBinding="{Binding Rooms}"/>
                                 <GridViewColumn Width="Auto" Header="מס' מבוגרים" DisplayMemberBinding="{Binding Adult}"/>
                                 <GridViewColumn Width="Auto" Header="מס' ילדים" DisplayMemberBinding="{Binding Children}"/>
-                                    <GridViewColumn Width="Auto" Header="בריכה" DisplayMemberBinding="{Binding Pool}"/>
-                                    <GridViewColumn Width="Auto" Header="ג'קוזי" DisplayMemberBinding="{Binding Jacuzzi}"/>
-                                    <GridViewColumn Width="Auto" Header="גינה" DisplayMemberBinding="{Binding Garden}"/>
-                                    <GridViewColumn Width="Auto" Header="אטרקציות" DisplayMemberBinding="{Binding ChildrensAttractions}"/>
+                                    <GridViewColumn Width="Auto" Header="בריכה" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                    <materialDesign:PackIcon Kind="{Binding Pool, Converter={StaticResource boolToIcon}}"   FontSize="30"  />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="Auto" Header="ג'קוזי" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <materialDesign:PackIcon Kind="{Binding Jacuzzi, Converter={StaticResource boolToIcon}}"   FontSize="30"  />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="Auto" Header="גינה" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <materialDesign:PackIcon Kind="{Binding Garden, Converter={StaticResource boolToIcon}}"   FontSize="30"  />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="Auto" Header="אטרקציות" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <materialDesign:PackIcon Kind="{Binding ChildrensAttractions, Converter={StaticResource boolToIcon}}"   FontSize="30"  />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
                                 </GridView>
                         </ListView.View>
                     </ListView>
