@@ -24,18 +24,26 @@ namespace PL.Pages
         public ReportToHost()
         {
             InitializeComponent();
+            initRequestReport();
         }
 
-        private void RequestButtonClick_Click(object sender, RoutedEventArgs e)
+
+        private void initRequestReport()
         {
-            RptRequests requestpage = new RptRequests();
-            ReportFrame.Content = requestpage;
+            RrequestToHost rrequestToHost = new RrequestToHost();
+            ReportFrame.Content = rrequestToHost;
+            GridCursor.Margin = new Thickness(0, 0, 0, 0);
+        }
+        private void RequestButtonClick_Click_1(object sender, RoutedEventArgs e)
+        {
+            initRequestReport();
         }
 
-        private void HostingButtonClick_Click(object sender, RoutedEventArgs e)
+        private void HostingButtonClick_Click_1(object sender, RoutedEventArgs e)
         {
             Rhosting rhost = new Rhosting();
             ReportFrame.Content = rhost;
+            GridCursor.Margin = new Thickness(150, 0, 0, 0);
         }
     }
 }

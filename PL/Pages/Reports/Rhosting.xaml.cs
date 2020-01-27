@@ -40,11 +40,12 @@ namespace PL.Pages.Reports
                 int.TryParse(TypeHostingUnit.SelectedValue.ToString(), out SelectedTypeId);
 
             //1 Get filters
-            var list = app.GetHostingUnits(
-                c => ((c.HostingUnitName == FilterName.Text || c.HostingUnitName == FilterName.Text) || c.HostingUnitName == FilterName.Text || FilterName.Text == "")
+
+            var list = app.GetHostingUnits(c => ((c.HostingUnitName == FilterName.Text || c.HostingUnitName == FilterName.Text) || c.HostingUnitName == FilterName.Text || FilterName.Text == "")
                     && (c.Rooms == numRooms || numRooms == 0)
                     && (c.AreaId == SelectedAreaId || SelectedAreaId == 0)
                     && (c.TypeId == SelectedTypeId || SelectedTypeId == 0)
+                    && (c.OwnerId == OwnerId)
                 );
 
             //2 Fill the list view

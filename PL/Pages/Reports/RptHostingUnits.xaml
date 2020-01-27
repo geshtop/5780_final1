@@ -28,30 +28,28 @@
                     <ColumnDefinition ></ColumnDefinition>
                     <ColumnDefinition ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Height="50" materialDesign:HintAssist.Hint="שם"
+                <TextBox Height="50" materialDesign:HintAssist.Hint="שם היחידה"
          materialDesign:HintAssist.IsFloating="True" Margin="3"
                      Name="FilterName" Grid.Column="0" />
-                <TextBox Height="50" materialDesign:HintAssist.Hint="מייל"
-         materialDesign:HintAssist.IsFloating="True" Margin="3" Name="FilterEmail" Grid.Column="1" />
-                <ComboBox SelectedValuePath="Tag"  Margin="3" Height="50" materialDesign:HintAssist.Hint="סטטוס בקשה"
-         materialDesign:HintAssist.IsFloating="True" Name="FilterStatus" Grid.Column="2">
+                <TextBox Height="50" materialDesign:HintAssist.Hint="מספר חדרים"
+         materialDesign:HintAssist.IsFloating="True" Margin="3" Name="NumRooms" Grid.Column="3" />
+                <ComboBox SelectedValuePath="Tag"  Margin="3" Height="50" materialDesign:HintAssist.Hint="אזור"
+         materialDesign:HintAssist.IsFloating="True" Name="FilterArea" Grid.Column="2">
                     <ComboBoxItem Content="הכל" Tag ="-1" HorizontalAlignment="Left" Width="128"/>
-                    <ComboBoxItem Content="פתוח" Tag ="0" HorizontalAlignment="Left" Width="128"/>
-                    <ComboBoxItem Content="נשלח מייל" Tag ="1" HorizontalAlignment="Left" Width="128"/>
-                    <ComboBoxItem Content="סגור" Tag ="2" HorizontalAlignment="Left" Width="128"/>
-                    <ComboBoxItem Content="סגירת מערכת" Tag ="3" HorizontalAlignment="Left" Width="128"/>
-                    <ComboBoxItem Content="פג תוקף" Tag ="4" HorizontalAlignment="Left" Width="128"/>
-
-                </ComboBox>
-                <ComboBox SelectedValuePath="Tag"  Margin="3"
-                      materialDesign:HintAssist.Hint="אזור"
-         materialDesign:HintAssist.IsFloating="True"
-                      Grid.Column="3" Name="FilterArea" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Top" Width="126" >
-                    <ComboBoxItem Content="הכל" Tag="0" HorizontalAlignment="Left" Width="124"/>
                     <ComboBoxItem Content="צפון" Tag="1" HorizontalAlignment="Left" Width="124"/>
                     <ComboBoxItem Content="דרום" Tag="2" HorizontalAlignment="Left" Width="124"/>
                     <ComboBoxItem Content="מרכז" Tag="3" HorizontalAlignment="Left" Width="124"/>
                     <ComboBoxItem Content="ירושלים" Tag="4" HorizontalAlignment="Left" Width="124"/>
+
+                </ComboBox>
+                <ComboBox SelectedValuePath="Tag"  Margin="3"
+                      materialDesign:HintAssist.Hint="סוג"
+         materialDesign:HintAssist.IsFloating="True"
+                      Grid.Column="1" Name="TypeHostingUnit" HorizontalAlignment="Left" Height="50"  VerticalAlignment="Top" Width="126" >
+                    <ComboBoxItem Content="הכל" Tag="-1" HorizontalAlignment="Left" Width="124"/>
+                    <ComboBoxItem Content="צימר" Tag="1" HorizontalAlignment="Left" Width="128"/>
+                    <ComboBoxItem Content="בית מלון" Tag="2" HorizontalAlignment="Left" Width="128"/>
+                    <ComboBoxItem Content="קמפינג" Tag="3" HorizontalAlignment="Left" Width="128"/>
                 </ComboBox>
                 <Button Name="FilterButton" Grid.Column="4" Content="חפש" Click="FilterButton_Click" />
 

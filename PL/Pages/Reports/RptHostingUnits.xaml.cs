@@ -28,23 +28,27 @@ namespace PL.Pages
         }
         private void FillList()
         {
-            int SelectedStatusId = -1;
-            int SelectedAreaId = 0;
+            int numRooms = 0;
+            int.TryParse(NumRooms.Text, out numRooms);
+
+            int SelectedAreaId = -1;
+            int SelectedTypeId = -1;
             if (FilterArea.SelectedValue != null)
                 int.TryParse(FilterArea.SelectedValue.ToString(), out SelectedAreaId);
-            if (FilterStatus.SelectedValue != null)
-                int.TryParse(FilterStatus.SelectedValue.ToString(), out SelectedStatusId);
+            if (TypeHostingUnit.SelectedValue != null)
+                int.TryParse(TypeHostingUnit.SelectedValue.ToString(), out SelectedTypeId);
+
             //1 Get filters
             var list = app.GetHostingUnitGrouingByOwner(
-                c =>   (c.AreaId == SelectedAreaId || SelectedAreaId == 0)
-                    && (c.StatusId == SelectedStatusId || SelectedStatusId == -1)
+                c => ((c.HostingUnitName == FilterName.Text || c.HostingUnitName == FilterName.Text) || c.HostingUnitName == FilterName.Text || FilterName.Text == "")
+                    && (c.Rooms == numRooms || numRooms == 0)
+                    && (c.AreaId == SelectedAreaId || SelectedAreaId == -1)
+                    && (c.TypeId == SelectedTypeId || SelectedTypeId == -1)
                 );
-
             //2 Fill the list view
             ListHostings.ItemsSource = list;
            // ListRequests.ItemsSource = list;
           
-
         }
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
