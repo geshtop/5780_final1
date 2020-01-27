@@ -14,8 +14,11 @@ namespace DS
             list.Add("050");
             list.Add("052");
             list.Add("054");
+            list.Add("055");
+            list.Add("058");
+            list.Add("077");
+            list.Add("02");
             list.Add("03");
-
             return list;
         }
     }
