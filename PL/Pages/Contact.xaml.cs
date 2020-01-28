@@ -33,7 +33,11 @@ namespace PL.Pages
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-              
+            if (name.Text == "" || telephon.Text == "" || TxtBody.Text == "")
+            {
+                MessageBox.Show("יש למלא את כל השדות");
+                return;
+            }
                try
                {
 
