@@ -8,9 +8,14 @@ namespace BE
 {
     public class Contact
     {
-        public string Subject { get; set; }
-        public string Body { get; set; }
-        public string SenderMail { get; set; }
-        public string ReciverMail { get; set; }
+        string _Subjec;
+        string _Body;
+        string _SenderMail;
+        string _ReciverMail;
+
+        public string Subject { get => _Subjec; set => _Subjec = value; }
+        public string Body { get => _Body; set => _Body = value; }
+        public string SenderMail { get => _SenderMail; set => _SenderMail = value; }
+        public string ReciverMail { get => _ReciverMail; set => _ReciverMail = value; }
     }
 }

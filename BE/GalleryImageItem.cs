@@ -8,9 +8,12 @@ namespace BE
 {
     public class GalleryImageItem
     {
-        public int Id { get; set; }
-        public string Url { get; set; }
-        public int HostingUnitId { get; set; }
-       
+        int _Id;
+        string _Url;
+        int _HostingUnitId;
+
+        public int Id { get => _Id; set => _Id = value; }
+        public string Url { get => _Url; set => _Url = value; }
+        public int HostingUnitId { get => _HostingUnitId; set => _HostingUnitId = value; }
     }
 }

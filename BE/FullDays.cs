@@ -8,9 +8,14 @@ namespace BE
 {
     public class FullDays
     {
-        public int Id { get; set; }
-        public int HostingUnitId { get; set; }
-        public DateTime Date { get; set; }
-        public int OrderId { get; set; }
+        int _Id;
+        int _HostingUnitId;
+        DateTime _Date;
+        int _OrderId;
+
+        public int Id { get => _Id; set => _Id = value; }
+        public int HostingUnitId { get => _HostingUnitId; set => _HostingUnitId = value; }
+        public DateTime Date { get => _Date; set => _Date = value; }
+        public int OrderId { get => _OrderId; set => _OrderId = value; }
     }
 }

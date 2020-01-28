@@ -8,8 +8,10 @@ namespace BE
 {
     public class User
     {
-        public string Name { get; set; }
-        public Host RelatedHost { get; set; }
+        string name;
+        Host relatedHost;
 
+        public string Name { get => name; set => name = value; }
+        public Host RelatedHost { get => relatedHost; set => relatedHost = value; }
     }
 }

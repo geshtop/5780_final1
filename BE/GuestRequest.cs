@@ -14,41 +14,66 @@ namespace BE
             EntryDate = DateTime.Now.AddDays(1);
             ReleaseDate = DateTime.Now.AddDays(7);
         }
-        public int GuestRequestsKey { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string MailAddress { get; set; }
-        public string PhonePre { get; set; }
-        public string PhoneExt { get; set; }
+
+        int _GuestRequestsKey;
+        string _FirstName;
+        string _LastName;
+        string _MailAddress;
+        string _PhonePre;
+        string _PhoneExt;
+        DateTime _RegistrationDate;
+        DateTime _EntryDate;
+        DateTime _ReleaseDate;
+        string _SubArea;
+        int _Adult;
+        int _Children;
+        int _Rooms;
+
+        public int GuestRequestsKey { get => _GuestRequestsKey; set => _GuestRequestsKey = value; }
+        public string FirstName { get => _FirstName; set => _FirstName = value; }
+        public string LastName { get => _LastName; set => _LastName = value; }
+
         [XmlIgnore]
-        public string Phone
+        public string FullName { get => FirstName + " " + LastName; }
+
+        public string MailAddress { get => _MailAddress; set => _MailAddress = value; }
+        public string PhonePre { get => _PhonePre; set => _PhonePre = value; }
+        public string PhoneExt { get => _PhoneExt; set => _PhoneExt = value; }
+
+        [XmlIgnore]
+        public string Phone { get => PhonePre + "-" + PhoneExt; }
+
+        public DateTime RegistrationDate { get => _RegistrationDate; set => _RegistrationDate= value; }
+        public DateTime EntryDate { get => _EntryDate; set => _EntryDate = value; }
+        public DateTime ReleaseDate { get => _ReleaseDate; set => _ReleaseDate = value; }
+        public string SubArea { get => _SubArea; set => _SubArea = value; }
+        public int Adult { get => _Adult; set => _Adult = value; }
+        public int Children { get => _Children; set => _Children = value; }
+        public int Rooms { get => _Rooms; set => _Rooms = value; }
+
+        public override string ToString()
         {
-            get
-            {
-                return PhonePre + "-" + PhoneExt;
-            }
-        }
-         [XmlIgnore]
-        public string FullName
-        {
-            get
-            {
-                return FirstName + " " + LastName;
-            }
+            return ("#" + GuestRequestsKey + ":\n" +
+                   "סטטוס: " + StrStatus + "\n" +
+                   "שם מלא: " + FirstName + " " + LastName + "\n" +
+                    "מייל: " + MailAddress + "\n" +
+                    "נוצר בתאריך: " + RegistrationDate.ToString("dd/MM/yyyy") + "\n" +
+                    "תאריכים: " + EntryDate.ToString("dd/MM/yyyy") + "-" + ReleaseDate.ToString("dd/MM/yyyy") + "\n" +
+                    "סוג: " + StrType + "\n" +
+                    "אזור: " + StrArea + "," + SubArea + "\n" +
+                    "מבוגרים: " + Adult + "\n" +
+                    "ילדים: " + Children + "\n" +
+                    "חדרים: " + Rooms + "\n" +
+                    "בריכה: " + ConvertExtensionTypeToString(Pool) + "\n" +
+                    "ג'קוזי: " + ConvertExtensionTypeToString(Jacuzzi) + "\n" +
+                    "גינה: " + ConvertExtensionTypeToString(Garden) + "\n" +
+                    "פעילות: " + ConvertExtensionTypeToString(ChildrensAttractions) + "\n"
+                  );
         }
         
-        public DateTime RegistrationDate { get; set; }
-        public DateTime EntryDate { get; set; }
-        public DateTime ReleaseDate { get; set; }
-         
-        public string SubArea { get; set; }
-       
-        public int Adult { get; set; }
-        public int Children { get; set; }
-        public int Rooms { get; set; }
-         [XmlIgnore]
+        [XmlIgnore]
         public Enums.ExtensionType Pool { get; set; }
-         public int PoolId
+        public int PoolId
          {
              get
              {
@@ -59,9 +84,9 @@ namespace BE
                  Pool = (Enums.ExtensionType)value;
              }
          }
-         [XmlIgnore]
+        [XmlIgnore]
         public Enums.ExtensionType Jacuzzi { get; set; }
-         public int JacuzziId
+        public int JacuzziId
          {
              get
              {
@@ -72,9 +97,9 @@ namespace BE
                  Jacuzzi = (Enums.ExtensionType)value;
              }
          }
-         [XmlIgnore]
+        [XmlIgnore]
         public Enums.ExtensionType Garden { get; set; }
-         public int GardenId
+        public int GardenId
          {
              get
              {
@@ -85,9 +110,9 @@ namespace BE
                  Garden = (Enums.ExtensionType)value;
              }
          }
-         [XmlIgnore]
+        [XmlIgnore]
         public Enums.ExtensionType ChildrensAttractions { get; set; }
-         public int ChildrensAttractionsId
+        public int ChildrensAttractionsId
          {
              get
              {
@@ -98,7 +123,7 @@ namespace BE
                  ChildrensAttractions = (Enums.ExtensionType)value;
              }
          }
-         [XmlIgnore]
+        [XmlIgnore]
         public string StrArea
         {
             get
@@ -127,7 +152,7 @@ namespace BE
                 return t;
             }
         }
-         [XmlIgnore]
+        [XmlIgnore]
         public string StrStatus
         {
             get
@@ -156,7 +181,7 @@ namespace BE
                 return t;
             }
         }
-         [XmlIgnore]
+        [XmlIgnore]
         public string StrType
         {
             get
@@ -182,7 +207,7 @@ namespace BE
                 return t;
             }
         }
-         [XmlIgnore]
+        [XmlIgnore]
         public string Description
         {
             get
@@ -201,7 +226,7 @@ namespace BE
                   );
             }
         }
-         [XmlIgnore]
+        [XmlIgnore]
         public string Extantion
         {
             get
@@ -217,27 +242,6 @@ namespace BE
                   );
             }
         }
-
-        public override string ToString()
-        {
-            return ("#" + GuestRequestsKey + ":\n" +
-                   "סטטוס: " + StrStatus + "\n" +
-                   "שם מלא: " + FirstName + " " + LastName + "\n" +
-                    "מייל: " + MailAddress + "\n" +
-                    "נוצר בתאריך: " + RegistrationDate.ToString("dd/MM/yyyy") + "\n" +
-                    "תאריכים: " + EntryDate.ToString("dd/MM/yyyy") + "-" + ReleaseDate.ToString("dd/MM/yyyy") + "\n" +
-                    "סוג: " + StrType + "\n" +
-                    "אזור: " + StrArea + "," + SubArea + "\n" +
-                    "מבוגרים: " + Adult + "\n" +
-                    "ילדים: " + Children + "\n" +
-                    "חדרים: " + Rooms + "\n" +
-                    "בריכה: " + ConvertExtensionTypeToString(Pool) + "\n" +
-                    "ג'קוזי: " + ConvertExtensionTypeToString(Jacuzzi) + "\n" +
-                    "גינה: " + ConvertExtensionTypeToString(Garden) + "\n" +
-                    "פעילות: " + ConvertExtensionTypeToString(ChildrensAttractions) + "\n"
-                  );
-        }
-
         [XmlIgnore]
         public Enums.HostingUnitArea Area { get; set; }
         public int AreaId
@@ -277,9 +281,7 @@ namespace BE
                 Type = (Enums.HostingUnitType)value;
             }
         }
-
-
-           [XmlIgnore]
+        [XmlIgnore]
         public string StrDates
         {
             get

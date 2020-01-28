@@ -8,11 +8,21 @@ namespace BE
 {
     public class BankBranch
     {
-       
-        public int BankNumber { get; set; }
-        public string BankName { get; set; }
-        public int BranchNumber { get; set; }
-        public string BranchName { get; set; }
+
+        int _BankNumber;
+        string _BankName;
+        int _BranchNumber;
+        string _BranchName;
+        string _BranchAddress;
+        string _BranchCity;
+
+        public int BankNumber { get => _BankNumber; set => _BankNumber = value; }
+        public string BankName { get => _BankName; set => _BankName = value; }
+        public int BranchNumber { get => _BranchNumber; set => _BranchNumber = value; }
+        public string BranchName { get => _BranchName; set => _BranchName = value; }
+        public string BranchAddress { get => _BranchAddress; set => _BranchAddress = value; }
+        public string BranchCity { get => _BranchCity; set => _BranchCity = value; }
+
         public string BranchNameAndNum
         {
             get
@@ -20,9 +30,6 @@ namespace BE
                 return BranchName + " | " + BranchNumber;
             }
         }
-        public string BranchAddress { get; set; }
-        public string BranchCity { get; set; }
-      
         
         public override string ToString()
         {

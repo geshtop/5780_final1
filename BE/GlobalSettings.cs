@@ -8,9 +8,14 @@ namespace BE
 {
     public class GlobalSettings
     {
-        public string ContactMail { get; set; }
-        public string OrderMailText { get; set; }
-        public string OrderMailSubject { get; set; }
-        public int PayForDay { get; set; }
+        string _ContactMail;
+        string _OrderMailText;
+        string _OrderMailSubject;
+        int _PayForDay;
+
+        public string ContactMail { get => _ContactMail; set => _ContactMail = value; }
+        public string OrderMailText { get => _OrderMailText; set => _OrderMailText = value; }
+        public string OrderMailSubject { get => _OrderMailSubject; set => _OrderMailSubject = value; }
+        public int PayForDay { get => _PayForDay; set => _PayForDay = value; }
     }
 }

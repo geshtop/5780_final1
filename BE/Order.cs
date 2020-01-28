@@ -9,9 +9,24 @@ namespace BE
 {
     public class Order
     {
-        public int HostingUnitKey { get; set; }
-        public int GuestRequestKey { get; set; }
-        public int OrderKey { get; set; }
+        int _HostingUnitKey;
+        int _GuestRequestKey;
+        int _OrderKey;
+        DateTime _CreateDate;
+        DateTime _OrderDate;
+
+        public int HostingUnitKey { get => _HostingUnitKey; set => _HostingUnitKey = value; }
+        public int GuestRequestKey { get => _GuestRequestKey; set => _GuestRequestKey = value; }
+        public int OrderKey { get => _OrderKey; set => _OrderKey = value; }
+        public DateTime CreateDate { get => _CreateDate; set => _CreateDate = value; }
+        public DateTime OrderDate { get => _OrderDate; set => _OrderDate = value; }
+
+        public override string ToString()
+        {
+            return (HostingUnitKey + "\n" + GuestRequestKey + "\n" + OrderKey
+                + "\n" + Status + "\nCreateDate: " + CreateDate + "\nOrderKey: " + OrderKey);
+        }
+        
         [XmlIgnore]
         public Enums.OrderStatus Status { get; set; }
         public int StatusId
@@ -25,14 +40,6 @@ namespace BE
                 Status = (Enums.OrderStatus)value;
             }
         }
-        public DateTime CreateDate { get; set; }
-        public DateTime OrderDate { get; set; }
-        public override string ToString()
-        {
-            return (HostingUnitKey + "\n" + GuestRequestKey + "\n" + OrderKey
-                + "\n" + Status + "\nCreateDate: " + CreateDate + "\nOrderKey: " + OrderKey);
-        }
-
         [XmlIgnore]
         public string StrStatus
         {

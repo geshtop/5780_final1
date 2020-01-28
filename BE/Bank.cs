@@ -8,8 +8,10 @@ namespace BE
 {
     public class Bank
     {
-        public string BankName { get; set; }
-        public int BankCode { get; set; }
+        string _BankName;
+        int _BankCode;
 
+        public string BankName { get => _BankName; set => _BankName = value; }
+        public int BankCode { get => _BankCode; set => _BankCode = value; }
     }
 }

@@ -8,8 +8,12 @@ namespace BE
 {
     public class RelatedHosting
     {
-        public int stSerialKey { get; set; }
-        public string HostingUnitName { get; set; }
-        public int OrderId { get; set; }
+        int _stSerialKey;
+        string _HostingUnitName;
+        int _OrderId;
+
+        public int stSerialKey { get => _stSerialKey; set => _stSerialKey = value; }
+        public string HostingUnitName { get => _HostingUnitName; set => _HostingUnitName = value; }
+        public int OrderId { get => _OrderId; set => _OrderId = value; }
     }
 }

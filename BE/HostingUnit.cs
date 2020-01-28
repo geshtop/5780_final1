@@ -10,8 +10,44 @@ namespace BE
     [Serializable()]
     public class HostingUnit
     {
-        public int stSerialKey { get; set; }
-        public int OwnerId { get; set; }
+        public HostingUnit()
+        {
+            //DiaryState = new Diary();
+            Images = new List<GalleryImageItem>();
+            Days = new List<FullDays>();
+        }
+
+        int _stSerialKey;
+        int _OwnerId;
+        bool _Pool;
+        bool _Jacuzzi;
+        bool _Garden;
+        bool _ChildrensAttractions;
+        string _SubArea;
+        int _Adult;
+        int _Children;
+        int _Rooms;
+        string _HostingUnitName;
+        int _Totaldays;
+
+        public int stSerialKey { get => _stSerialKey; set => _stSerialKey = value; }
+        public int OwnerId { get => _OwnerId; set => _OwnerId = value; }
+        public bool Pool { get => _Pool; set => _Pool = value; }
+        public bool Jacuzzi { get => _Jacuzzi; set => _Jacuzzi = value; }
+        public bool Garden { get => _Garden; set => _Garden = value; }
+        public bool ChildrensAttractions { get => _ChildrensAttractions; set => _ChildrensAttractions = value; }
+        public string SubArea { get => _SubArea; set => _SubArea = value; }
+        public int Adult { get => _Adult; set => _Adult = value; }
+        public int Children { get => _Children; set => _Children = value; }
+        public int Rooms { get => _Rooms; set => _Rooms = value; }
+        public string HostingUnitName { get => _HostingUnitName; set => _HostingUnitName = value; }
+        public int Totaldays { get => _Totaldays; set => _Totaldays = value; }
+
+        public override string ToString()
+        {
+            return HostingUnitName + ", " + stSerialKey + "\n";
+        }
+
         [XmlIgnore]
         public Host Owner
         {
@@ -20,13 +56,13 @@ namespace BE
                 return null;
             }
         }
-         [XmlIgnore]
+        [XmlIgnore]
         public Enums.HosignUnitStatus Status { get; set; }
-         [XmlIgnore]
+        [XmlIgnore]
         public Enums.HostingUnitType Type { get; set; }
-         [XmlIgnore]
+        [XmlIgnore]
         public Enums.HostingUnitArea Area { get; set; }
-         [XmlIgnore]
+        [XmlIgnore]
         public string StrArea
         {
             get
@@ -81,7 +117,6 @@ namespace BE
                 return t;
             }
         }
-
         public int TypeId
         {
             get
@@ -93,7 +128,6 @@ namespace BE
                 Type = ( Enums.HostingUnitType)value;
             }
         }
-
         public int AreaId
         {
             get
@@ -116,19 +150,8 @@ namespace BE
                 Status = (Enums.HosignUnitStatus)value;
             }
         }
-        public string SubArea { get; set; }
-
-        public bool Pool { get; set; }
-        public bool Jacuzzi { get; set; }
-        public bool Garden { get; set; }
-        public bool ChildrensAttractions { get; set; }
 
         
-
-        public int Adult { get; set; }
-        public int Children { get; set; }
-        public int Rooms { get; set; }
-        public string HostingUnitName { get; set; }
        // [XmlIgnore]
        // public Diary DiaryState { get; set; }
         [XmlIgnore]
@@ -152,21 +175,8 @@ namespace BE
                 _TempImages = value;
             }
         }
-
         [XmlIgnore]
         public List<FullDays> Days { get; set; }
-        public override string ToString()
-        {
-            return   HostingUnitName + ", " + stSerialKey + "\n" ;
-        }
-
-        public HostingUnit()
-        {
-            //DiaryState = new Diary();
-            Images = new List<GalleryImageItem>();
-            Days = new List<FullDays>();
-        }
-        public int Totaldays { get; set; }
     }
 
 
